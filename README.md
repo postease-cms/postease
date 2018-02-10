@@ -15,6 +15,7 @@
 
 - \>=PHP5.1
 - SQLite3.x or MySQL5.x
+- PHP FTP-extension (ftp.so)
 
 ### 最新バージョン / Latest version
 
