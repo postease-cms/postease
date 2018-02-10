@@ -1,0 +1,13 @@
+@CHARSET "utf-8";
+
+#tinymce {
+	max-width: 640px;
+	padding: 0 10px;
+	font-size: 14px;
+	line-height: 1.8em;
+	letter-spacing: 0em;
+	word-wrap: break-word;
+}
+#tinymce img {
+	max-width: 100%;
+}

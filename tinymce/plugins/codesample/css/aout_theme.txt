@@ -1,0 +1,7 @@
+Initial theme is customized 'coy'.
+if you want to change theme, pick up other css-file from 'other_theme' directory, then, copy and paste that under 'css' directory, and rename as 'prism.css'.
+(trash initial theme-file)
+
+初期テーマはカスタマイズされた "coy" を使用しています。
+テーマを変更したいときは「other_theme」ディレクトリから別のCSSファイルを選択し、選択したものを「css」ディレクトリ以下にコピー＆ペーストし、ファイル名を "prism.css" に変更してください。
+（初期テーマは削除してください。）

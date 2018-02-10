@@ -1,0 +1,80 @@
+
+<!-- OUTER WRAP -->
+<main id="content" class="col-md-10">
+	
+	<!-- PAGE TITLE -->
+	<div id="page_title" class="panel panel-default">
+		<div class="panel-heading"><h3 class="panel-title"><i class="fa <?=$page_icon?>"></i> <?=$page_title_main?> <?=$page_title_sub?></h3></div>
+	</div>
+	
+	<!-- INNER WRAP -->
+	<div id="config_wrap">
+		
+		<!-- PROCESS MESSAGE -->
+		<?php if(isset($process_msg)):?>
+			<div class="alert alert-<?=$process_msg_style?> process<?=$process_msg_type?>"><?=$process_msg?></div>
+		<?php endif?>
+		
+		<!-- MAIN CONTENTS -->
+		<div class="slow-show config">
+			
+			<!-- Config General -->
+			<div class="panel panel-info">
+				<div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGGENERAL_LBL_TITLECOMMON?></h3></div>
+				<div id="panel_general_whole" class="panel-body">
+					<form class="form-horizontal" role="form" action="./?mode=3" method="post">
+						
+						<!-- site_name -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="site_name"><?=TXT_CONFIGGENERAL_LBL_SITENAME?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGGENERAL_LBL_SITENAME?>" data-content="<?=$popover['site_name']?>">[?]</a>
+							</label>
+							<div class="col-md-4">
+								<input class="form-control" type="text" id="site_name" name="site_name" value="<?=$records['site_name']['value']?>">
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+						
+						<!-- language -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="language"><?=TXT_CONFIGGENERAL_LBL_LANGUAGE?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGGENERAL_LBL_LANGUAGE?>" data-content="<?=$popover['language']?>">[?]</a>
+							</label>
+							<div class="col-md-4">
+								<select class="form-control" id="language" name="language" >
+									<?php foreach ($language_list as $key => $value):?>
+										<option value="<?=$key?>" <?=($key==$records['language']['value'])?'selected':''?>><?=$value?></option>
+									<?php endforeach?>
+								</select>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+						
+						<!-- system_font -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="system_font"><?=TXT_CONFIGGENERAL_LBL_SYSTEMFONT?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGGENERAL_LBL_SYSTEMFONT?>" data-content="<?=$popover['system_font']?>">[?]</a>
+							</label>
+							<div class="col-md-4">
+								<select class="form-control" id="system_font" name="system_font" >
+									<?php foreach ($system_font_list as $key => $value):?>
+										<option value="<?=$key?>" <?=($key==$records['system_font']['value'])?'selected':''?>><?=$value?></option>
+									<?php endforeach?>
+								</select>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+						<hr>
+						<div class="form-group">
+							<div class="col-md-8 col-md-offset-4">
+								<input class="btn btn-primary width120" type="submit" id="submit_record_01" name="submit_record" value="<?=TXT_CONFIGGENERAL_BTN_SUBMIT?>">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+</main>
+<script src="js/config.js"></script>
