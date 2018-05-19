@@ -353,7 +353,9 @@ $user_role = array
 $custom_item_type_post = array
 (
 		'text'       => 'テキスト',
+		'datetime'   => '日付時刻',
 		'date'       => '日付',
+		'time'       => '時刻',
 		'textarea-s' => 'テキストエリア(S)',
 		'textarea-m' => 'テキストエリア(M)',
 		'textarea-l' => 'テキストエリア(L)',
@@ -369,7 +371,9 @@ $custom_item_type_post = array
 $custom_item_type_contact = array
 (
 	'text'       => 'テキスト',
+	'datetime'   => '日付時刻',
 	'date'       => '日付',
+	'time'       => '時刻',
 	'textarea-s' => 'テキストエリア(S)',
 	'textarea-m' => 'テキストエリア(M)',
 	'textarea-l' => 'テキストエリア(L)',

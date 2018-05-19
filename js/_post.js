@@ -204,7 +204,7 @@ $(function ()
 	});
 
 	// Datetimepicker On
-	$('#publish_datetime').datetimepicker(
+	$('#publish_datetime, .customDateTime').datetimepicker(
 	{
 		format: 'yyyy-mm-dd hh:ii',
 		startView: 2,
@@ -226,6 +226,17 @@ $(function ()
 		autoclose: true,
 		todayHighlight: true,
 		todayBtn: true,
+	});
+  $('.customTime').datetimepicker(
+    {
+      format: 'hh:ii',
+      startView: 1,
+      maxView: 2,
+      minView: 0,
+      language: getCookie('lang'),
+      autoclose: true,
+      todayHighlight: true,
+      todayBtn: true,
 	});
 
 	// Valid datetime
