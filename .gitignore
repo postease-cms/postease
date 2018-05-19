@@ -1,0 +1,5 @@
+core/.htaccess
+core/db/config.php
+core/db/*.db
+core/db/pdo_*.php
+custom/*
