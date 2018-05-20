@@ -31,12 +31,15 @@
 							</label>
 							<div class="col-md-7">
 								<?php foreach ($icon_list as $subtitle => $row):?>
+                <div class="iconList">
 									<h4 class="iconSubtitle"><?=$subtitle?></h4>
 									<?php foreach ($row as $key => $value):?>
 										<label class="radio-inline" for="menu_icon_<?=$key?>"><input type="radio" id="menu_icon_<?=$key?>" name="menu_icon" value="<?=$key?>" <?=($key==$records['menu_icon']['value'])?'checked':''?>> <?=$value?> <?=$key?></label>
 									<?php endforeach?>
+                </div>
 								<?php endforeach?>
-							</div>
+                <div class="iconListSeeMore"><a><?=TXT_CONFIGPOSTTYPE_LBL_ICONSEEMORE?></a></div>
+              </div>
 							<div class="col-md-1"></div>
 						</div>
 						<!-- auto_save_flg -->
@@ -337,22 +340,6 @@
 							<div class="col-md-4"></div>
 						</div>
 						
-						<!-- posts_title_length -->
-						<div class="form-group">
-							<label class="control-label col-md-4" for="posts_title_length"><?=TXT_CONFIGPOSTTYPE_LBL_TITLELENGTH?>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_TITLELENGTH?>" data-content="<?=$popover['posts_title_length']?>">[?]</a>
-							</label>
-							<div class="col-md-4">
-								<select class="form-control" id="posts_title_length" name="posts_title_length" >
-									<?php for ($i=7; $i<=50 ;$i++):?>
-										<option value="<?=$i?>" <?=($records['posts_title_length']['value']===(string)$i)?'selected="selected"':''?>><?=$i?></option>
-									<?php endfor?>
-									<option value="0" <?=($records['posts_title_length']['value']==='0')?'selected="selected"':''?>><?=TXT_CONFIGPOSTTYPE_LBL_UNLIMITED?></option>
-								</select>
-							</div>
-							<div class="col-md-4"></div>
-						</div>
-						
 						<!-- posts_category_num -->
 						<div class="form-group">
 							<label class="control-label col-md-4" for="posts_category_num"><?=TXT_CONFIGPOSTTYPE_LBL_DISPLAYNUMCATEGORY?>
@@ -415,23 +402,7 @@
 								</div>
 								<div class="col-md-4"></div>
 							</div>
-							
-							<!-- comments_title_length -->
-							<div class="form-group">
-								<label class="control-label col-md-4" for="comments_title_length"><?=TXT_CONFIGPOSTTYPE_LBL_TITLELENGTH?>
-									<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_TITLELENGTH?>" data-content="<?=$popover['comments_title_length']?>">[?]</a>
-								</label>
-								<div class="col-md-4">
-									<select class="form-control" id="comments_title_length" name="comments_title_length" >
-										<?php for ($i=1; $i<=50 ;$i++):?>
-											<option value="<?=$i?>" <?=($records['comments_title_length']['value']===(string)$i)?'selected="selected"':''?>><?=$i?></option>
-										<?php endfor?>
-										<option value="0" <?=($records['comments_title_length']['value']==='0')?'selected="selected"':''?>><?=TXT_CONFIGPOSTTYPE_LBL_UNLIMITED?></option>
-									</select>
-								</div>
-								<div class="col-md-4"></div>
-							</div>
-							
+       
 							<!-- review_max_score -->
 							<div class="form-group">
 								<label class="control-label col-md-4" for="review_max_score"><?=TXT_CONFIGPOSTTYPE_LBL_REVIEWMAXSCORE?>

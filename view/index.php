@@ -17,10 +17,6 @@
 				<p class="alert alert-danger"><?=TXT_INDEX_WAR_PASSWORD_01?></p>
 			<?php endif?>
 			
-			<?php if ($check_change_password):?>
-				<p class="alert alert-danger"><?=TXT_INDEX_WAR_PASSWORD_02?></p>
-			<?php endif?>
-			
 			<?php if ($check_domain):?>
 				<p class="alert alert-danger"><?=TXT_INDEX_WAR_DOMAIN($_SESSION[$session_key]['configs']['domain'])?></p>
 			<?php endif?>

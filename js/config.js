@@ -17,5 +17,24 @@ $(function(){
 		$('.panel-body').not($(this).next()).slideUp(300);
 		$(this).next().slideToggle(300);
 	});
+	
+	$('.iconList').each(function(index, e)
+	{
+		if (index)
+		{
+      $(this).hide();
+		}
+	})
+	
+	$('.iconListSeeMore > a').on('click', function()
+	{
+    $('.iconList').each(function(index, e)
+    {
+      if (index)
+      {
+        $(this).fadeToggle();
+      }
+    })
+	})
 
 });

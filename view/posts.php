@@ -286,22 +286,7 @@
 								<span class="label label-extra label-success"><i class="fa fa-anchor"></i> <?=$row['anchor']?></span>
 							<?php endif?>
 							<?php if(! empty($row['title'])):?>
-								<?php if(! empty($row['anchor']) && $row['post_pages'] > 0):?>
-									<a href="./?view_page=post&amp;id=<?=$row['id']?>&amp;version=<?=$row['version']?>&amp;process=12"><?=substructString($row['title'], ($config_title_length - 6))?></a>
-									<?php if ($config_title_length > 0 && $row['title'] != substructString($row['title'], $config_title_length - 6)):?>
-										<a data-toggle="tooltip" data-placement="top" title="<?=$row['title']?>"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
-									<?php endif?>
-								<?php elseif(! empty($row['anchor']) || $row['post_pages'] > 0):?>
-									<a href="./?view_page=post&amp;id=<?=$row['id']?>&amp;version=<?=$row['version']?>&amp;process=12"><?=substructString($row['title'], ($config_title_length - 3))?></a>
-									<?php if ($config_title_length > 0 && $row['title'] != substructString($row['title'], $config_title_length - 3)):?>
-										<a data-toggle="tooltip" data-placement="top" title="<?=$row['title']?>"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
-									<?php endif?>
-								<?php else:?>
-									<a href="./?view_page=post&amp;id=<?=$row['id']?>&amp;version=<?=$row['version']?>&amp;process=12"><?=substructString($row['title'], $config_title_length)?></a>
-									<?php if ($config_title_length > 0 && $row['title'] != substructString($row['title'], $config_title_length)):?>
-										<a data-toggle="tooltip" data-placement="top" title="<?=$row['title']?>"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
-									<?php endif?>
-								<?php endif?>
+                <a href="./?view_page=post&amp;id=<?=$row['id']?>&amp;version=<?=$row['version']?>&amp;process=12"><?=$row['title']?></a>
 							<?php else:?>
 								<a href="./?view_page=post&amp;id=<?=$row['id']?>&amp;version=<?=$row['version']?>&amp;process=12"><i><?=TXT_POSTS_LBL_NOTITLE?></i></a>
 							<?php endif?>

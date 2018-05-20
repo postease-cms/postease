@@ -261,22 +261,16 @@
 								<?php endif?>
 							</span>
 							<?php if(!empty($row['comment_title'])):?>
-								<a href="./?view_page=comment&id=<?=$row['id']?>&amp;process=22&amp;type=<?=$type?>"><?=substructString($row['comment_title'], $config_title_length)?></a>
-								<?php if (mb_strlen($row['comment_title'], 'UTF-8') > $config_title_length):?>
-									<a data-toggle="tooltip" data-placement="top" title="<?=$row['comment_title']?>"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
-								<?php endif?>
+								<a href="./?view_page=comment&id=<?=$row['id']?>&amp;process=22&amp;type=<?=$type?>"><?=$row['comment_title']?></a>
 							<?php elseif(!empty($row['comment_content'])):?>
-								<a href="./?view_page=comment&id=<?=$row['id']?>&amp;process=22&amp;type=<?=$type?>">[<?=substructString($row['comment_content'], $config_title_length)?>]</a>
-								<?php if (mb_strlen($row['comment_content'], 'UTF-8') > $config_title_length):?>
-									<a data-toggle="tooltip" data-placement="top" title="<?=$row['comment_content']?>"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
-								<?php endif?>
+								<a href="./?view_page=comment&id=<?=$row['id']?>&amp;process=22&amp;type=<?=$type?>">[<?=$row['comment_content']?>]</a>
 							<?php else:?>
 								<a href="./?view_page=comment&id=<?=$row['id']?>&amp;process=22"><i><?=TXT_COMMENTS_LBL_NOTITLE?></i></a>
 							<?php endif?>
 						</td>
 						<td>
 							<?php if(!empty($row['post_title'])):?>
-								<a href="./?view_page=comments&sc_post_id=<?=$row['post_id']?>&amp;type=<?=$type?>&amp;page=1"><?=substructString($row['post_title'], 14)?></a>
+								<a href="./?view_page=comments&sc_post_id=<?=$row['post_id']?>&amp;type=<?=$type?>&amp;page=1"><?=$row['post_title']?></a>
 							<?php else:?>
 								<a href="./?view_page=comments&sc_post_id=<?=$row['post_id']?>&amp;type=<?=$type?>&amp;page=1"><i><?=TXT_COMMENTS_LBL_NOTITLE?></i></a>
 							<?php endif?>
