@@ -175,7 +175,7 @@
 			<?php endif?>
 			<div class="packageInfo">
 				<div class="ly_packageInfo-logoWrapper">
-					<a href="https://www.postease.org" target="_blank">PostEase </a>Classic ver <?=$_SESSION[$session_key]['configs']['postease_version']?>
+					<a href="https://classic.postease.org" target="_blank">PostEase </a>Classic ver <?=$_SESSION[$session_key]['configs']['postease_version']?>
 				</div>
 				<?php if ($_SESSION[$session_key]['user']['role'] == 1):?>
 					<span class="aboutSystem"><a href="./?view_page=about_system"><i class="fa fa-info-circle" aria-hidden="true"></i><?=TXT_INDEX_MSG_ABOUTSYSTEM?></a></span>

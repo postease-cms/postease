@@ -1512,3 +1512,11 @@ label, .alert, .control-label, .help-block, .checkbox, .radio {
 	color: #fff;
 	text-decoration: underline;
 }
+
+.popover-content {
+	color: #fff;
+}
+.popover > .arrow,
+.popover > .arrow:after {
+	border-color: #fff;
+}
