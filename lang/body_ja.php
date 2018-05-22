@@ -1030,6 +1030,7 @@ define('TXT_CUSTOMITEM_LBL_TARGETLIST',      'カスタムリスト選択');
 define('TXT_CUSTOMITEM_MSG_NOTARGETLIST',    '選択できるカスタムリストがありません');
 define('TXT_CUSTOMITEM_LBL_TARGETDELIMITER', 'カラム区切り文字選択');
 define('TXT_CUSTOMITEM_LBL_TARGETIMAGE',     '画像選択');
+define('TXT_CUSTOMITEM_LBL_TARGETPOSTTYPE',  'ポストタイプ選択');
 define('TXT_CUSTOMITEM_LBL_TARGETSYNTAX',    'シンタックスタイプ選択');
 define('TXT_CUSTOMITEM_LBL_STATUS',          '状態');
 define('TXT_CUSTOMITEM_BTN_UPDATE',          '送信');

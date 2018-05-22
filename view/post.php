@@ -190,6 +190,20 @@
 															</div>
 														</div>
 													</div>
+												<?php elseif ($row_cust['type'] == 'relation'):?>
+                          <div class="form-group post_item_container">
+                            <label class="control-label" for="items_<?=$custom_item_id?>"><i class="fa fa-link"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+                            <div>
+                              <select class="form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]">
+                                <option value=""><?=TXT_POST_LBL_SELECTDEFAULT?></option>
+																<?php foreach ($relation_posts[$custom_item_id] as $key_choi => $choice):?>
+																	<?php if (! empty($choice)):?>
+                                    <option id="items_<?=$custom_item_id?>_<?=$key_choi?>" value="<?=$key_choi?>" <?=($key_choi==$items[$custom_item_id][$language_id])?'selected':''?>><?=$choice?></option>
+																	<?php endif?>
+																<?php endforeach?>
+                              </select>
+                            </div>
+                          </div>
 												<?php elseif ($row_cust['type'] == 'select'):?>
 													<div class="form-group post_item_container">
 														<label class="control-label" for="items_<?=$custom_item_id?>"><i class="fa fa-share-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>

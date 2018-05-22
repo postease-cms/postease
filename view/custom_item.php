@@ -87,7 +87,16 @@
 										<?php endforeach?>
 									</select>
 								</div>
-								
+
+                <div id="choices_relation" class="form-group">
+                  <label class="control-label" for="target_relation"><?=TXT_CUSTOMITEM_LBL_TARGETPOSTTYPE?></label>
+                  <select class="form-control" id="target_relation" name="choices" disabled>
+										<?php foreach ($_SESSION[$session_key]['common']['posttypes'] as $key => $row):?>
+                      <option value="<?=$key?>" <?=($key==$this_choices)?'selected':''?>><?=$row['name']?></option>
+										<?php endforeach?>
+                  </select>
+                </div>
+                
 								<div id="choices_syntax" class="form-group">
 									<label class="control-label" for="target_syntax"><?=TXT_CUSTOMITEM_LBL_TARGETSYNTAX?></label>
 									<select class="form-control" id="target_syntax" name="choices" disabled>
@@ -146,7 +155,9 @@
 											<?=(!empty($row['choices']))?$image_frame_list[$row['choices']]:null?>
 										<?php elseif(! empty($row['type']) && $row['type'] == 'table'):?>
 											<?=(!empty($row['choices']))?$column_delimiter_list[$row['choices']]:null?>
-										<?php elseif(! empty($row['type']) && $row['type'] == 'syntax'):?>
+										<?php elseif(! empty($row['type']) && $row['type'] == 'relation'):?>
+											<?=(!empty($row['choices']))?$_SESSION[$session_key]['common']['posttypes'][$row['choices']]['name']:null?>
+                    <?php elseif(! empty($row['type']) && $row['type'] == 'syntax'):?>
 											<?=(!empty($row['choices']))?$syntax_type_list[$row['choices']]:null?>
 										<?php else:?>
 											<?=(!empty($row['choices']))?$custom_lists[$row['choices']]:null?>

@@ -10,6 +10,8 @@ $(function()
 		$('#target_image').attr('disabled', false);
 		$('#choices_list').css({display: 'none', opacity: 0}).attr('disbled', true);
 		$('#target_list').attr('disabled', true);
+    $('#choices_relation').css({display: 'none', opacity: 0}).attr('disbled', true);
+    $('#target_relation').attr('disabled', true);
 		$('#choices_syntax').css({display: 'none', opacity: 0}).attr('disbled', true);
 		$('#target_syntax').attr('disabled', true);
 		$('#choices_column_delimiter').css({display: 'none', opacity: 0}).attr('disbled', true);
@@ -19,19 +21,37 @@ $(function()
 	{
 		$('#choices_column_delimiter').css({display: 'block', opacity: 1}).attr('disbled', false);
 		$('#target_delimiter').attr('disabled', false);
-		$('#choices_syntax').css({display: 'none', opacity: 1}).attr('disbled', true);
+    $('#choices_relation').css({display: 'none', opacity: 0}).attr('disbled', true);
+    $('#target_relation').attr('disabled', true);
+		$('#choices_syntax').css({display: 'none', opacity: 0}).attr('disbled', true);
 		$('#target_syntax').attr('disabled', true);
 		$('#choices_image').css({display: 'none', opacity: 0}).attr('disbled', true);
 		$('#target_image').attr('disabled', true);
 		$('#choices_list').css({display: 'none', opacity: 0}).attr('disbled', true);
 		$('#target_list').attr('disabled', true);
 	}
+  else if ($('#type').val() == 'relation')
+  {
+  	console.log('relation');
+    $('#choices_relation').css({display: 'block', opacity: 1}).attr('disbled', false);
+    $('#target_relation').attr('disabled', false);
+    $('#choices_image').css({display: 'none', opacity: 0}).attr('disbled', true);
+    $('#target_image').attr('disabled', true);
+    $('#choices_syntax').css({display: 'none', opacity: 0}).attr('disbled', true);
+    $('#target_syntax').attr('disabled', true);
+    $('#choices_list').css({display: 'none', opacity: 0}).attr('disbled', true);
+    $('#target_list').attr('disabled', true);
+    $('#choices_column_delimiter').css({display: 'none', opacity: 0}).attr('disbled', true);
+    $('#target_delimiter').attr('disabled', true);
+  }
 	else if ($('#type').val() == 'syntax')
 	{
 		$('#choices_syntax').css({display: 'block', opacity: 1}).attr('disbled', false);
 		$('#target_syntax').attr('disabled', false);
 		$('#choices_image').css({display: 'none', opacity: 0}).attr('disbled', true);
 		$('#target_image').attr('disabled', true);
+    $('#choices_relation').css({display: 'none', opacity: 0}).attr('disbled', true);
+    $('#target_relation').attr('disabled', true);
 		$('#choices_list').css({display: 'none', opacity: 0}).attr('disbled', true);
 		$('#target_list').attr('disabled', true);
 		$('#choices_column_delimiter').css({display: 'none', opacity: 0}).attr('disbled', true);
@@ -43,6 +63,8 @@ $(function()
 		$('#target_list').attr('disabled', false);
 		$('#choices_image').css({display: 'none', opacity: 0}).attr('disbled', true);
 		$('#target_image').attr('disabled', true);
+    $('#choices_relation').css({display: 'none', opacity: 0}).attr('disbled', true);
+    $('#target_relation').attr('disabled', true);
 		$('#choices_syntax').css({display: 'none', opacity: 0}).attr('disbled', true);
 		$('#target_syntax').attr('disabled', true);
 		$('#choices_column_delimiter').css({display: 'none', opacity: 0}).attr('disbled', true);
@@ -53,6 +75,8 @@ $(function()
 		$('#target_list').attr('disabled', true);
 		$('#choices_image').css({display: 'none', opacity: 0}).attr('disbled', true);
 		$('#target_image').attr('disabled', true);
+    $('#choices_relation').css({display: 'none', opacity: 0}).attr('disbled', true);
+    $('#target_relation').attr('disabled', true);
 		$('#choices_syntax').css({display: 'none', opacity: 0}).attr('disbled', true);
 		$('#target_syntax').attr('disabled', true);
 		$('#choices_column_delimiter').css({display: 'none', opacity: 0}).attr('disbled', true);
@@ -69,6 +93,8 @@ $(function()
 			$('#target_image').attr('disabled', false);
 			$('#choices_list').css({display: 'none', opacity: 0}).attr('disbled', true);
 			$('#target_list').attr('disabled', true);
+      $('#choices_relation').css({display: 'none', opacity: 0}).attr('disbled', true);
+      $('#target_relation').attr('disabled', true);
 			$('#choices_syntax').css({display: 'none', opacity: 0}).attr('disbled', true);
 			$('#target_syntax').attr('disabled', true);
 			$('#choices_column_delimiter').css({display: 'none', opacity: 0}).attr('disbled', true);
@@ -81,16 +107,34 @@ $(function()
 			$('#target_delimiter').attr('disabled', false);
 			$('#choices_syntax').css({display: 'none', opacity: 0}).attr('disbled', true);
 			$('#target_syntax').attr('disabled', true);
+      $('#choices_relation').css({display: 'none', opacity: 0}).attr('disbled', true);
+      $('#target_relation').attr('disabled', true);
 			$('#choices_image').css({display: 'none', opacity: 0}).attr('disbled', true);
 			$('#target_image').attr('disabled', true);
 			$('#choices_list').css({display: 'none', opacity: 0}).attr('disbled', true);
 			$('#target_list').attr('disabled', true);
 
 		}
+    else if ($('#type').val() == 'relation')
+    {
+      console.log('relation');
+      $('#choices_relation').css({display: 'block', opacity: 1}).attr('disbled', false);
+      $('#target_relation').attr('disabled', false);
+      $('#choices_syntax').css({display: 'none', opacity: 0}).attr('disbled', true);
+      $('#target_syntax').attr('disabled', true);
+      $('#choices_image').css({display: 'none', opacity: 0}).attr('disbled', true);
+      $('#target_image').attr('disabled', true);
+      $('#choices_list').css({display: 'none', opacity: 0}).attr('disbled', true);
+      $('#target_list').attr('disabled', true);
+      $('#choices_column_delimiter').css({display: 'none', opacity: 0}).attr('disbled', true);
+      $('#target_delimiter').attr('disabled', true);
+    }
 		else if ($('#type').val() == 'syntax')
 		{
 			$('#choices_syntax').css({display: 'block', opacity: 1}).attr('disbled', false);
 			$('#target_syntax').attr('disabled', false);
+      $('#choices_relation').css({display: 'none', opacity: 0}).attr('disbled', true);
+      $('#target_relation').attr('disabled', true);
 			$('#choices_image').css({display: 'none', opacity: 0}).attr('disbled', true);
 			$('#target_image').attr('disabled', true);
 			$('#choices_list').css({display: 'none', opacity: 0}).attr('disbled', true);
@@ -104,6 +148,8 @@ $(function()
 			$('#target_list').attr('disabled', false);
 			$('#choices_image').css({display: 'none', opacity: 0}).attr('disbled', true);
 			$('#target_image').attr('disabled', true);
+      $('#choices_relation').css({display: 'none', opacity: 0}).attr('disbled', true);
+      $('#target_relation').attr('disabled', true);
 			$('#choices_syntax').css({display: 'none', opacity: 0}).attr('disbled', true);
 			$('#target_syntax').attr('disabled', true);
 			$('#choices_column_delimiter').css({display: 'none', opacity: 0}).attr('disbled', true);
@@ -114,6 +160,8 @@ $(function()
 			$('#target_list').attr('disabled', true);
 			$('#choices_image').css({display: 'none', opacity: 0}).attr('disbled', true);
 			$('#target_image').attr('disabled', true);
+      $('#choices_relation').css({display: 'none', opacity: 0}).attr('disbled', true);
+      $('#target_relation').attr('disabled', true);
 			$('#choices_syntax').css({display: 'none', opacity: 0}).attr('disbled', true);
 			$('#target_syntax').attr('disabled', true);
 			$('#choices_column_delimiter').css({display: 'none', opacity: 0}).attr('disbled', true);

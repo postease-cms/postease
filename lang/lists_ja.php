@@ -366,6 +366,7 @@ $custom_item_type_post = array
 		'checkbox'   => 'チェックボックス',
 		'image'      => '画像',
 		'gallery'    => 'ギャラリー',
+		'relation'   => 'リレーション',
 		'syntax'     => 'シンタックス',
 );
 $custom_item_type_contact = array
