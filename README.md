@@ -20,7 +20,24 @@
 ### 3. XML-RPCとHTTPをサポート / Support for XML-RPC and HTTP
 :jp: postease はXML-RPCもしくはHTTP経由でのjson形式でのデータ取得をサポートしています。PHP もしくは javascript ( jQuery ) で実装できます。
 
-:en: 'postease' supports data retrieval in JSON format via XML-RPC or HTTP. Can be implemented in PHP or JavaScript (jQuery).
+:us: 'postease' supports data retrieval in JSON format via XML-RPC or HTTP. Can be implemented in PHP or JavaScript (jQuery).
+
+
+## ダウンロード / Download
+
+```
+/*
+ * If you are running a postease directory named manage.
+ * Assume that 'manage' is the root directory of the CMS.
+ */
+ 
+git clone git@github.com:khiten/postease-classic.git
+mv postease-classic manage
+
+```
+
+
+## サービスサイト / Service Site
 
 
 
@@ -38,12 +55,13 @@
 
 ## 最新バージョン / Latest version
 
-**2.6.0 ( 23.May.2018 )**
+**2.6.1 ( 23.May.2018 )**
 
 ---
 
 #### Update History 
 
+- 2.6.0 ( 22.May.2018 )
 - 2.5.1 ( 21.May.2018 )
 - 2.5.0 ( 20.May.2018 )
 - 2.4.7 ( 11.May.2018 )
