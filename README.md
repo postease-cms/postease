@@ -1,9 +1,12 @@
 # postease-classic
 
+:earth_americas: [PostEase Classic](https://classic.postease.org)
+
 ## 概要 / Outline
 :jp: PostEase はAPI接続式の超軽量ヘッドレスCMSです。  
 
 :us: 'PostEase' is an ultra-lightweight headless CMS with API connection.
+
 
 ## 特徴 / Features
 
@@ -17,10 +20,17 @@
 
 :us: 'PostEase' run with MySQL or SQLite.
 
-### 3. XML-RPCとHTTPをサポート / Support for XML-RPC and HTTP
+### 3. XML-RPCとJSONをサポート / Support for XML-RPC and JSON
 :jp: PostEase は XML-RPC もしくは json 形式でのデータ取得をサポートしています。PHP もしくは javascript ( jQuery ) で実装できます。
 
 :us: 'PostEase' supports data retrieval in XML-RPC or JSON format. Can be implemented in PHP or JavaScript (jQuery).
+
+
+## サーバ要件 / Server requirements
+
+- \>=PHP5.1
+- SQLite3.x or MySQL5.x
+- PHP FTP-extension (ftp.so)
 
 
 ## ダウンロード / Download
@@ -54,21 +64,12 @@ $posts = get_posts();
 
 
 
-## サービスサイト / Service Site
-
-
-
 ## お知らせ / Notice
 :jp: PostEase は完全なREST-APIによるクラウドサービスに生まれ変わります。このインストール型のディストリビューションは PostEase-classic としてメンテナンスが続けられます。  
 
 :us: 'PostEase' will be reborn as a cloud service by a complete REST-API. This installation type of distribution continues to be maintained as a 'PostEase-classic'.
   
 
-## サーバ要件 / Server requirements
-
-- \>=PHP5.1
-- SQLite3.x or MySQL5.x
-- PHP FTP-extension (ftp.so)
 
 ## 最新バージョン / Latest version
 
