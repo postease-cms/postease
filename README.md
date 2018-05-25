@@ -1,40 +1,57 @@
 # postease-classic
 
 ## 概要 / Outline
-:jp: postease はAPI接続式の超軽量ヘッドレスCMSです。  
+:jp: PostEase はAPI接続式の超軽量ヘッドレスCMSです。  
 
-:us: postease is an ultra-lightweight headless CMS with API connection.
+:us: 'PostEase' is an ultra-lightweight headless CMS with API connection.
 
 ## 特徴 / Features
 
 ### 1. レガシー環境で動作 / Works in a legacy environment
-:jp: postease はレガシーなサーバ環境でも動作します。PHPバージョン5.1以上（最新版まで）で動作します。
+:jp: PostEase はレガシーなサーバ環境でも動作します。PHPバージョン5.1以上（最新版まで）で動作します。
 
-:us: 'postease' also works in a legacy server environment. It works with PHP version 5.1 or higher (up to the latest version).
+:us: 'PostEase' also works in a legacy server environment. It works with PHP version 5.1 or higher (up to the latest version).
 
 ### 2. データベースサーバ不要 / No database server required
-:jp: postease は、MySQL または SQLite で実行されます。
+:jp: PostEase は、MySQL または SQLite で実行されます。
 
-:us: 'postease' run with MySQL or SQLite.
+:us: 'PostEase' run with MySQL or SQLite.
 
 ### 3. XML-RPCとHTTPをサポート / Support for XML-RPC and HTTP
-:jp: postease はXML-RPCもしくはHTTP経由でのjson形式でのデータ取得をサポートしています。PHP もしくは javascript ( jQuery ) で実装できます。
+:jp: PostEase は XML-RPC もしくは json 形式でのデータ取得をサポートしています。PHP もしくは javascript ( jQuery ) で実装できます。
 
-:us: 'postease' supports data retrieval in JSON format via XML-RPC or HTTP. Can be implemented in PHP or JavaScript (jQuery).
+:us: 'PostEase' supports data retrieval in XML-RPC or JSON format. Can be implemented in PHP or JavaScript (jQuery).
 
 
 ## ダウンロード / Download
 
+```sh
+git clone git@github.com:postease-classic/postease.git
+```
+
+
+## 実装 / Implements
+
+Constitute Example
 ```
 /*
- * If you are running a postease directory named manage.
- * Assume that 'manage' is the root directory of the CMS.
+ * root
+ *  |
+ *  |-- postease
+ *  |
+ *  |-- index.php
+ *
  */
- 
-git clone git@github.com:khiten/postease-classic.git
-mv postease-classic manage
-
 ```
+
+
+index.php
+```php
+require_once dirname(__FILE__) . '/postease/api/local.php';
+
+$posts = get_posts();
+```
+
 
 
 ## サービスサイト / Service Site
@@ -42,9 +59,9 @@ mv postease-classic manage
 
 
 ## お知らせ / Notice
-:jp: postease は完全なREST-APIによるクラウドサービスに生まれ変わります。このインストール型のディストリビューションは postease-classic としてメンテナンスが続けられます。  
+:jp: PostEase は完全なREST-APIによるクラウドサービスに生まれ変わります。このインストール型のディストリビューションは PostEase-classic としてメンテナンスが続けられます。  
 
-:us: 'postease' will be reborn as a cloud service by a complete REST-API. This installation type of distribution continues to be maintained as a 'postease-classic'.
+:us: 'PostEase' will be reborn as a cloud service by a complete REST-API. This installation type of distribution continues to be maintained as a 'PostEase-classic'.
   
 
 ## サーバ要件 / Server requirements
