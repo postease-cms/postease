@@ -1,3 +1,9 @@
+<?php
+//print '<pre>';
+//print_r($_SESSION);
+//print '</pre>';
+//exit;
+?>
 <!-- OUTER WRAP -->
 <main id="content" class="col-md-10" data-auto_save_flg="<?=$auto_save_flg?>" data-tinymce_init="<?=$tinymce_init?>" data-tinymce_css="<?=$tinymce_css?>" data-editable_flg="<?=$editable_flg?>">
 	
@@ -557,6 +563,13 @@
 				<p class="alert alert-danger"><?=TXT_POST_WAR_NOLANGUAGE?></p>
 			<?php endif?>
 		</div>
+		
+		<?php if ($_SESSION[$session_key]['user']['role'] <= 2):?>
+    <?php if ($_SESSION[$session_key]['configs']['display_implement_code']):?>
+    <?php require_once 'inc/_implement_code_post.php'?>
+    <?php endif?>
+		<?php endif?>
+  
 	</div>
 </main>
 <script src="tinymce/tinymce.min.js"></script>

@@ -1,13 +1,15 @@
 PostEase
-v2.4
+v2.7
 
 [Copyright]
 Copyright© khiten Inc.
-2017 khiten Inc. All rights reserved.
+2015-2018 khiten Inc. All rights reserved.
+contact@khiten.co.jp
 
 [License]
 Rights of distribution of this software belong to postease.org basically,
 and use license is given to every users.
+contact@postease.org
 
 [Reproduction / Resale]
 Every kind of reproduction and resale of this software are prohibited.

@@ -1,4 +1,9 @@
-
+<?php
+//print '<pre>';
+//print_r($_SESSION);
+//print '</pre>';
+//exit;
+//?>
 <!-- MAIN CONTENTS -->
 <main id="content" class="col-md-10">
 	
@@ -24,9 +29,19 @@
 			<?php if ($check_dir_name):?>
 				<p class="alert alert-danger"><?=TXT_INDEX_WAR_DIR($_SESSION[$session_key]['configs']['dir_name'])?></p>
 			<?php endif?>
+	
 			<?php if ($check_sqlite_permission):?>
 				<p class="alert alert-danger"><?=TXT_INDEX_WAR_SQLITEPERMISSION($sqlite_permission)?></p>
 			<?php endif?>
+			
+			<?php if ($_SESSION[$session_key]['license']['validity'] == 1 && $_SESSION[$session_key]['license']['type'] == 1 && $_SESSION[$session_key]['license']['valid_to'] != '9999-99-99' && strtotime($_SESSION[$session_key]['license']['valid_to']) - (86400 * 30) < time()):?>
+        <?php $days_left = floor((strtotime($_SESSION[$session_key]['license']['valid_to']) + 86400 - time()) / 86400) ?>
+        <?php if ($days_left <= 10):?>
+        <p class="alert alert-danger"><?=TXT_INDEX_WAR_BUSINESSLICENSE($days_left, $_SESSION[$session_key]['license']['valid_to'])?></p>
+        <?php else:?>
+        <p class="alert alert-warning"><?=TXT_INDEX_WAR_BUSINESSLICENSE($days_left, $_SESSION[$session_key]['license']['valid_to'])?></p>
+        <?php endif?>
+      <?php endif?>
 		</div>
 		
 		<!-- summary -->
@@ -164,6 +179,12 @@
 			<?php endif?>
 		<?php endif?>
 		
+		<?php if ($_SESSION[$session_key]['user']['role'] <= 2):?>
+    <?php if ($_SESSION[$session_key]['configs']['display_implement_code']):?>
+    <?php require_once 'inc/_implement_code_common.php'?>
+    <?php endif?>
+		<?php endif?>
+		
 		<div class="col-md-12">
 			<!-- information -->
 			<h5><?=TXT_INDEX_MSG_LOGIN_DATETIME($_SESSION[$session_key]['user']['login_time'])?></h5>
@@ -175,7 +196,10 @@
 			<?php endif?>
 			<div class="packageInfo">
 				<div class="ly_packageInfo-logoWrapper">
-					<a href="https://classic.postease.org" target="_blank">PostEase </a>Classic ver <?=$_SESSION[$session_key]['configs']['postease_version']?>
+					<a href="https://classic.postease.org" target="_blank">PostEase Classic</a> ver <?=$_SESSION[$session_key]['configs']['postease_version']?> <?=($_SESSION[$session_key]['license']['type'])?TXT_INDEX_MSG_LICENSEBUSINESS:TXT_INDEX_MSG_LICENSEBASIC?>
+					<?php if ($_SESSION[$session_key]['license']['validity'] == 1 && $_SESSION[$session_key]['license']['type'] == 0):?>
+          (<a target="_blank" href="https://classic.postease.org/license/"><?=TXT_INDEX_MSG_PUSHBUSINESS?></a>)
+          <?php endif?>
 				</div>
 				<?php if ($_SESSION[$session_key]['user']['role'] == 1):?>
 					<span class="aboutSystem"><a href="./?view_page=about_system"><i class="fa fa-info-circle" aria-hidden="true"></i><?=TXT_INDEX_MSG_ABOUTSYSTEM?></a></span>

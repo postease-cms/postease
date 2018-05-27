@@ -1,3 +1,9 @@
+<?php
+//print '<pre>';
+//print_r($_SESSION);
+//print '</pre>';
+//exit;
+?>
 <!-- OUTER WRAP -->
 <main id="content" class="col-md-10">
 	
@@ -462,9 +468,17 @@
 			<?php endif?>
 		</div>
 	</div>
+
+  <?php if ($_SESSION[$session_key]['user']['role'] <= 2):?>
+  <?php if ($_SESSION[$session_key]['configs']['display_implement_code']):?>
+  <?php require_once 'inc/_implement_code_posts.php'?>
+  <?php endif?>
+  <?php endif?>
+
 </main>
 <link rel="stylesheet" href="plugin/datetimepicker/bootstrap-datetimepicker.min.css" media="screen">
 <script src="plugin/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="plugin/prism-dark/prism.js"></script>
 <?php if ($_SESSION[$session_key]['user']['lang'] != 'en'):?>
 	<script src="plugin/datetimepicker/locales/bootstrap-datetimepicker.<?=$_SESSION[$session_key]['user']['lang']?>.js"></script>
 <?php endif?>

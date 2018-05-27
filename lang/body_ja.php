@@ -3,6 +3,7 @@
  * WAR - 警告
  * ALT - アラート
  * MSG - メッセージ
+ * COM - コメント
  * LNK - リンク
  * VAL - バリュー
  * SEL - セレクト
@@ -141,17 +142,22 @@ define('TXT_INDEX_LBL_POSTPAGE',            '総ページ');
 define('TXT_INDEX_WAR_NO_POSTTYPE',         'このサイトにはポストタイプが設定されていません。');
 define('TXT_INDEX_LBL_CONTACT',             'コンタクト');
 define('TXT_INDEX_WAR_NO_CONTACT',          'このサイトにはコンタクトが設定されていません。');
+define('TXT_INDEX_LBL_IMPLEMENT_CODE',      '共通実装コード');
 define('TXT_INDEX_MSG_LOGINASSITEADMIN',    '[サイト管理者] 権限でログインしています。');
 define('TXT_INDEX_MSG_LOGINASSYSTEMADMIN',  '[システム管理者] 権限でログインしています。全ての操作が可能です。');
 define('TXT_INDEX_MSG_ABOUTSYSTEM',         'このシステムについて');
-function TXT_INDEX_WELCOME($nickname)             { return $text = 'ようこそ ' . $nickname . ' さん！';}
-function TXT_INDEX_WAR_DOMAIN($domain)            { return $text = 'アクセス中のドメインと設定ドメインが違います（設定ドメインは ' . $domain . ' ）。メニュー「設定」「コア」で修正してください。';}
-function TXT_INDEX_WAR_DIR($dir)                  { return $text = 'アクセス中のディレクトリ名と設定ディレクトリ名が違います（設定ディレクトリ名は ' . $dir . ' ）。メニュー「設定」「コア」で修正してください。';}
-function TXT_INDEX_WAR_SQLITEPERMISSION($perm)    { return $text = 'SQLite に書込権限がありません。適切なパーミッションに変更して下さい（現在のパーミッションは ' . $perm . ' ）。';}
-function TXT_INDEX_MSG_LOGIN_DATETIME($datetime)  { return $text = $datetime . ' にログインしました。';}
-function TXT_INDEX_LBL_NOTICE_PEND($count, $type) { return $text = "{$count}件の保留{$type}があります。";}
-function TXT_INDEX_LBL_NOTICE_UNCONFIRMED($count) { return $text = "{$count}件の未確認コンタクトがあります。";}
-function TXT_INDEX_LBL_NOTICE_ONGOING($count)     { return $text = "{$count}件の対応中コンタクトがあります。";}
+define('TXT_INDEX_MSG_LICENSEBASIC',        'ベーシックライセンス');
+define('TXT_INDEX_MSG_LICENSEBUSINESS',     'ビジネスライセンス');
+define('TXT_INDEX_MSG_PUSHBUSINESS',        'ビジネスライセンスの取得');
+function TXT_INDEX_WELCOME($nickname)                { return $text = 'ようこそ ' . $nickname . ' さん！';}
+function TXT_INDEX_WAR_DOMAIN($domain)               { return $text = 'アクセス中のドメインと設定ドメインが違います（設定ドメインは ' . $domain . ' ）。メニュー「設定」「コア」で修正してください。';}
+function TXT_INDEX_WAR_DIR($dir)                     { return $text = 'アクセス中のディレクトリ名と設定ディレクトリ名が違います（設定ディレクトリ名は ' . $dir . ' ）。メニュー「設定」「コア」で修正してください。';}
+function TXT_INDEX_WAR_SQLITEPERMISSION($perm)       { return $text = 'SQLite に書込権限がありません。適切なパーミッションに変更して下さい（現在のパーミッションは ' . $perm . ' ）。';}
+function TXT_INDEX_WAR_BUSINESSLICENSE($days, $date) { return $text = 'ビジネスライセンスの有効期限が残り ' . $days . '日 になりました（有効期限は ' . $date . ' ）。<a target="_blank" href="https://classic.postease.org/license/">サービスサイト</a>より新しいビジネスライセンスを購入してください。<br>ビジネスライセンスの購入に必要なアクティベーションキーの確認は<a href="?view_page=about_system">こちら</a>から。';}
+function TXT_INDEX_MSG_LOGIN_DATETIME($datetime)     { return $text = $datetime . ' にログインしました。';}
+function TXT_INDEX_LBL_NOTICE_PEND($count, $type)    { return $text = "{$count}件の保留{$type}があります。";}
+function TXT_INDEX_LBL_NOTICE_UNCONFIRMED($count)    { return $text = "{$count}件の未確認コンタクトがあります。";}
+function TXT_INDEX_LBL_NOTICE_ONGOING($count)        { return $text = "{$count}件の対応中コンタクトがあります。";}
 function TXT_INDEX_LBL_NOTICE_DRAFT($count_parent = 0, $count_child = 0)
 {
 	if ($count_parent > 0 && $count_child == 0)
@@ -253,23 +259,26 @@ define('TXT_POSTS_LBL_ADDTAXONOMY',           '追加');
 define('TXT_POSTS_LBL_DELETETAXONOMY',        '削除');
 define('TXT_POSTS_SEL_OPERATION_CATEGORY',    'カテゴリ');
 define('TXT_POSTS_SEL_OPERATION_TAG',         'タグ');
-function TXT_POSTS_WAR_NOPOST($target)    { return $text = "この条件の {$target} はありません。";}
-function TXT_POSTS_LBL_CHANGESTATU_TO($target) { return $text = "チェックした{$target}を";}
+define('TXT_POSTS_LBL_IMPLEMENT_CODE',        '実装コード');
+function TXT_POSTS_WAR_NOPOST($target)            { return $text = "この条件の {$target} はありません。";}
+function TXT_POSTS_LBL_CHANGESTATU_TO($target)    { return $text = "チェックした{$target}を";}
 function TXT_POSTS_LBL_CHANGECATEGORY_TO($target) { return $text = "チェックした{$target}に";}
+function TXT_POSTS_LNK_GETSDKPHP($url) { return $text = 'リモートサーバに置いた PostEase Classic に接続するためのクライアントツール <a target="_blank" href="' . $url . '">SDK "PecRpc" を手に入れる</a>';}
 
 
 /*
  * _post
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_POST_LBL_NEW',           '新規');
-define('TXT_POST_LBL_EDIT',          '編集');
-define('TXT_POST_BTN_UPDATE',        '更新');
-define('TXT_POST_BTN_PUBLISH',       '公開');
-define('TXT_POST_LNK_BACKTOLIST',    '一覧へ戻る');
-define('TXT_POST_MSG_CHILDNEWPOST',  '新しいページを追加しました。');
-define('TXT_POST_MSG_CHILDUPDATE',   'ページを更新しました。');
-define('TXT_POST_MSG_CHILDDELETE',   'ページを削除しました。');
-define('TXT_POST_MSG_VERSIONDELETE', 'バージョンを削除しました。');
+define('TXT_POST_LBL_NEW',            '新規');
+define('TXT_POST_LBL_EDIT',           '編集');
+define('TXT_POST_BTN_UPDATE',         '更新');
+define('TXT_POST_BTN_PUBLISH',        '公開');
+define('TXT_POST_LNK_BACKTOLIST',     '一覧へ戻る');
+define('TXT_POST_MSG_CHILDNEWPOST',   '新しいページを追加しました。');
+define('TXT_POST_MSG_CHILDUPDATE',    'ページを更新しました。');
+define('TXT_POST_MSG_CHILDDELETE',    'ページを削除しました。');
+define('TXT_POST_MSG_VERSIONDELETE',  'バージョンを削除しました。');
+define('TXT_POST_LBL_IMPLEMENT_CODE', '実装コード');
 
 /*
  * post
@@ -662,8 +671,11 @@ function TXT_CONFIGCORE_LBL_MORETHAN($target){ return $text = "{$target} (以上
 /*
  * _config_general
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_CONFIGGENERAL_PAGETITLEMAIN',    '設定');
-define('TXT_CONFIGGENERAL_PAGETITLESUB',     '一般');
+define('TXT_CONFIGGENERAL_PAGETITLEMAIN',              '設定');
+define('TXT_CONFIGGENERAL_PAGETITLESUB',               '一般');
+define('TXT_CONFIGGENERAL_LBL_IMPLEMENTCODE',          '実装コード');
+define('TXT_CONFIGGENERAL_LBL_DISPLAYIMPLEMENTCODE',   '実装コード 表示');
+define('TXT_CONFIGGENERAL_LBL_IMPLEMENTCODETYPE',      '実装コード種別');
 
 /*
  * config_general
@@ -1118,6 +1130,15 @@ define('TXT_CUSTOMVALUE_LBL_DISPLAY',        '表示');
 define('TXT_CUSTOMVALUE_LBL_UNDISPLAY',      '非表示');
 define('TXT_CUSTOMVALUE_LBL_EDIT',           '編集');
 function TXT_CUSTOMVALUE_LBL_NOWEDIT($target) { return $text = "{$target} を編集中";}
+
+
+/*
+ * code
+ * ------------------------------------------------------------------------------------------------ */
+define('TXT_CODE_COM_IMPLEMENT_LOCALPHP',    'ローカル環境の PostEase Classic API に接続');
+define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP01', 'リモート環境の PostEase Classic API に接続');
+define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP02', '※ GitHub ページより SDK "PecRpc" を入手してください。');
+define('TXT_CODE_COM_IMPLEMENT_JQUERY',      '共通コードは不要です。');
 
 
 /*

@@ -183,6 +183,13 @@
 			<?php endif?>
 		</div>
 	</div>
+	
+	<?php if ($_SESSION[$session_key]['user']['role'] <= 2):?>
+  <?php if ($_SESSION[$session_key]['configs']['display_implement_code']):?>
+  <?php require_once 'inc/_implement_code_categories.php'?>
+  <?php endif?>
+	<?php endif?>
+ 
 </main>
 <script src="js/taxonomy.js"></script>
 <script src="js/edit_hierarchy.js"></script>

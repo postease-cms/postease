@@ -258,7 +258,6 @@
 				</div>
 			</div>
 			
-			
 			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_UPDATE?></h3>

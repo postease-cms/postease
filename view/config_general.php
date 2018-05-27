@@ -73,6 +73,50 @@
 					</form>
 				</div>
 			</div>
+
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="configcoreHeading panel-title"><?=TXT_CONFIGGENERAL_LBL_IMPLEMENTCODE?></h3>
+        </div>
+        <div id="panel_core_implement_code" class="panel-body">
+          <form class="form-horizontal" role="form" action="./?mode=3" method="post">
+
+            <!-- display_implement_code -->
+            <div class="form-group">
+              <label class="control-label col-md-4" for="display_implement_code"><?=TXT_CONFIGGENERAL_LBL_DISPLAYIMPLEMENTCODE?>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGGENERAL_LBL_DISPLAYIMPLEMENTCODE?>" data-content="<?=$popover['display_implement_code']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+								<?php foreach ($common_flg_display as $key => $value):?>
+                  <label class="radio-inline" for="display_implement_code_<?=$key?>"><input type="radio" id="display_implement_code_<?=$key?>" name="display_implement_code" value="<?=$key?>" <?=($key==$records['display_implement_code']['value'])?'checked':''?>> <?=$value?></label>
+								<?php endforeach?>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+
+            <!-- implement code -->
+            <div class="form-group">
+              <label class="control-label col-md-4" for="implement_code"><?=TXT_CONFIGGENERAL_LBL_IMPLEMENTCODETYPE?>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGGENERAL_LBL_IMPLEMENTCODETYPE?>" data-content="<?=$popover['implement_code']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+								<?php foreach ($implement_code_list as $key => $value):?>
+                  <label class="radio-inline" for="implement_code_<?=$key?>"><input type="radio" id="implement_code_<?=$key?>" name="implement_code" value="<?=$key?>" <?=($key==$records['implement_code']['value'])?'checked':''?>> <?=$value?></label>
+								<?php endforeach?>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+
+            <hr>
+            <div class="form-group">
+              <div class="col-md-8 col-md-offset-4">
+                <input type="hidden" name="target" value="core_authority">
+                <input class="btn btn-info width120" type="submit" id="update_core" name="update_core_authority" value="<?=TXT_CONFIGGENERAL_BTN_SUBMIT?>">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
 		
 		</div>
 	</div>

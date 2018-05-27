@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="plugin/jquery/jquery-ui.min.css">
 <link rel="stylesheet" href="plugin/fancybox2/jquery.fancybox.css">
 <link rel="stylesheet" href="plugin/select2/css/select2.css">
-<link rel="stylesheet" href="plugin/prism/prism.css">
+<link rel="stylesheet" href="plugin/prism-dark/prism.css">
 <?php if (! empty($_SESSION[$session_key]['configs']['system_font'])):?>
 <link rel="stylesheet" href="css/font/<?=$_SESSION[$session_key]['configs']['system_font']?>.css">
 <?php endif?>

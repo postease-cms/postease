@@ -63,7 +63,7 @@ _::-webkit-full-page-media, _:future, :root select {
  **********/
 .slow-show {
 	opacity: 0;
-	padding-bottom: 60px;
+	padding-bottom: 30px;
 }
 
 
@@ -710,12 +710,12 @@ textarea.large {
 	min-height: 300px;
 }
 textarea.syntax {
-	font-size: 13px;
+	font-size: 14px;
 	min-height: 400px;
 	font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
-	line-height: 1.54;
-	padding: 0.5em;
-	padding-bottom: -1em;
+	line-height: 1.6;
+	margin-top: .4em;
+	padding: 1em;
 }
 .syntaxDisplay {
 	background-color: #fff;
@@ -1246,6 +1246,15 @@ textarea.content {
 	margin-left: 30px;
 }
 
+
+
+/* CODE *
+----------------------------
+ inc/_implement_dode_xxx.php
+---------------------------- */
+#code {
+	margin-bottom: 30px;
+}
 
 
 

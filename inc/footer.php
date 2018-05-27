@@ -6,5 +6,6 @@
 <?php if (file_exists('./custom/custom.js')):?>
 <script src="./custom/custom.js"></script>
 <?php endif?>
+<script src="plugin/prism-dark/prism.js"></script>
 </body>
 </html>

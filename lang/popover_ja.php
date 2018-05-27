@@ -39,6 +39,8 @@ $popover = array
 		'site_name'                => 'システムで表示するサイト名を設定します。',
 		'language'                 => 'システムで使用する基本言語を設定します。',
 		'system_font'              => 'システムで使用するフォントを設定します。',
+		'implement_code'           => '実装コードを表示する言語と実装方法を選択します。',
+		'display_implement_code'   => '実装コードを表示するかどうかを設定します。',
 
 		// Config-Posttype
 		'menu_icon'                => 'メニューに表示するアイコンを設定します。',

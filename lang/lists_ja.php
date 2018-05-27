@@ -210,6 +210,12 @@ $editable_role_list = array
 		7 => 'エディター',
 		8 => 'ライター',
 );
+$implement_code_list = array
+(
+	1 => 'PHPローカル',
+	2 => 'PHPリモート',
+	3 => 'jQuery',
+);
 
 
 /*
