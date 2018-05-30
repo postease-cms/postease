@@ -36,7 +36,7 @@ $(function()
     type : 'POST',
     data : {
       target: {$target}
-    }
+    },
     dataType : 'json',
   })
   .done(function(data)

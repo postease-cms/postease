@@ -46,7 +46,9 @@ $(function()
   {
     url : '{$remote_url}/api/json.php?get_categories',
     type : 'POST',
-    data : config,
+    data : {
+      config: config,
+    },
     dataType : 'json',
   })
   .done(function(data)

@@ -58,7 +58,7 @@ $(function()
     type : 'POST',
     data : {
       config: config,
-    }
+    },
     dataType : 'json',
   })
   .done(function(data)
