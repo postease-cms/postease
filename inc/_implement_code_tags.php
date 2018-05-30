@@ -49,9 +49,9 @@ $(function()
     data : config,
     dataType : 'json',
   })
-  .done(data)
+  .done(function(data)
   {
-    ...
+    // your process
   });
 });
 ";

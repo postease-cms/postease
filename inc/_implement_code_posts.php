@@ -56,12 +56,17 @@ $(function()
   {
     url : '{$remote_url}/api/json.php?get_posts',
     type : 'POST',
-    data : config,
+    data : {
+      config: config,
+    }
     dataType : 'json',
   })
-  .done(data)
+  .done(function(data)
   {
-    ...
+    $.each(data.list, function(key, row)
+    {
+      // your process
+    });
   });
 });
 ";
