@@ -1,29 +1,29 @@
 # postease-classic
 
-:earth_americas: [PostEase Classic](https://classic.postease.org)
+:earth_americas: [POSTEASE Classic](https://classic.postease.org)
 
 ## 概要 / Outline
-:jp: PostEase はAPI接続式の超軽量ヘッドレスCMSです。  
+:jp: POSTEASE Classic はAPI接続式の超軽量ヘッドレスCMSです。  
 
-:us: 'PostEase' is an ultra-lightweight headless CMS with API connection.
+:us: 'POSTEASE Classic' is an ultra-lightweight headless CMS with API connection.
 
 
 ## 特徴 / Features
 
 ### 1. レガシー環境で動作 / Works in a legacy environment
-:jp: PostEase はレガシーなサーバ環境でも動作します。PHPバージョン5.1以上（最新版まで）で動作します。
+:jp: POSTEASE Classic はレガシーなサーバ環境でも動作します。PHPバージョン5.1以上（最新版まで）で動作します。
 
-:us: 'PostEase' also works in a legacy server environment. It works with PHP version 5.1 or higher (up to the latest version).
+:us: 'POSTEASE Classic' also works in a legacy server environment. It works with PHP version 5.1 or higher (up to the latest version).
 
 ### 2. データベースサーバ不要 / No database server required
-:jp: PostEase は、MySQL または SQLite で実行されます。
+:jp: POSTEASE Classic は、MySQL または SQLite で実行されます。
 
-:us: 'PostEase' run with MySQL or SQLite.
+:us: 'POSTEASE Classic' run with MySQL or SQLite.
 
 ### 3. XML-RPCとJSONをサポート / Support for XML-RPC and JSON
-:jp: PostEase は XML-RPC もしくは json 形式でのデータ取得をサポートしています。PHP もしくは javascript ( jQuery ) で実装できます。
+:jp: POSTEASE Classic は XML-RPC もしくは json 形式でのデータ取得をサポートしています。PHP もしくは javascript ( jQuery ) で実装できます。
 
-:us: 'PostEase' supports data retrieval in XML-RPC or JSON format. Can be implemented in PHP or JavaScript (jQuery).
+:us: 'POSTEASE Classic' supports data retrieval in XML-RPC or JSON format. Can be implemented in PHP or JavaScript (jQuery).
 
 
 ## サーバ要件 / Server requirements
@@ -65,20 +65,23 @@ $posts = get_posts();
 
 
 ## お知らせ / Notice
-:jp: PostEase は完全なREST-APIによるクラウドサービスに生まれ変わります。このインストール型のディストリビューションは PostEase-classic としてメンテナンスが続けられます。  
+:jp: POSTEASE は完全なREST-APIによるクラウドサービスに生まれ変わります。このインストール型のディストリビューションは POSTEASE Classic としてメンテナンスが続けられます。  
 
-:us: 'PostEase' will be reborn as a cloud service by a complete REST-API. This installation type of distribution continues to be maintained as a 'PostEase-classic'.
+:us: 'POSTEASE' will be reborn as a cloud service by a complete REST-API. This installation type of distribution continues to be maintained as a 'POSTEASE Classic'.
   
 
 
 ## 最新バージョン / Latest version
 
-**2.7.1 ( 27.May.2018 )**
+**2.7.3 ( 11.Jun.2018 )**
 
 ---
 
-#### Update History 
+#### Update History
 
+- 2.7.3 ( 11.Jun.2018 )
+- 2.7.2 ( 01.Jun.2018 ) 
+- 2.7.1 ( 27.May.2018 )
 - 2.7.0 ( 27.May.2018 )
 - 2.6.1 ( 23.May.2018 )
 - 2.6.0 ( 22.May.2018 )
