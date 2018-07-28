@@ -99,8 +99,8 @@
 							<?php if ($_SESSION[$session_key]['configs']['use_multisite_flg']):?>
 								<div class="multistep20">
 									<label class="control-label" for="site_id"><?=TXT_POSTTYPE_LBL_SITEID?></label><br>
-									<?php foreach ($_SESSION[$session_key]['common']['sites'] as $key => $value):?>
-										<label class="checkbox-inline" for="site_id<?=$key?>"><input type="checkbox" id="site_id<?=$key?>" name="site_id[<?=$key?>]" value="<?=$key?>" <?=(in_array(intval($key), $this_site_id_arr)||($process==1&&empty($_GET['error_code'])))?'checked="checked"':''?>> <?=$value?></label>
+									<?php foreach ($_SESSION[$session_key]['common']['sites'] as $key => $row):?>
+										<label class="checkbox-inline" for="site_id<?=$key?>"><input type="checkbox" id="site_id<?=$key?>" name="site_id[<?=$key?>]" value="<?=$key?>" <?=(in_array(intval($key), $this_site_id_arr)||($process==1&&empty($_GET['error_code'])))?'checked="checked"':''?>> <?=$row['name']?></label>
 									<?php endforeach?>
 								</div>
 							<?php endif?>

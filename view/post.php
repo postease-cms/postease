@@ -419,7 +419,9 @@
 						<div class="form-group post_item_container <?=($use_slug_flg)?'':'hidden'?>">
 							<label class="control-label" for="slug"><i class="fa fa-link" aria-hidden="true"></i> <?=TXT_POST_LBL_SLUG?></label>
 							<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
-							<input class="form-control" type="text" id="slug" name="slug" value="<?=$slug?>" placeholder="<?=TXT_POST_PLH_SLUG?>">
+              <div id="input_wrapper_slug" data-target_table="<?=$table_prefix?>posts_base" data-classification="" data-this_id="<?=$id?>">
+                <input class="form-control needValidation" data-valid_type="slug" type="text" id="slug" name="slug" value="<?=$slug?>" placeholder="<?=TXT_POST_PLH_SLUG?>">
+              </div>
 						</div>
 						
 						<!-- anchor -->
@@ -564,7 +566,7 @@
 			<?php endif?>
 		</div>
 		
-		<?php if ($_SESSION[$session_key]['user']['role'] <= 2):?>
+		<?php if ($_SESSION[$session_key]['user']['role'] <= 2 && $id):?>
     <?php if ($_SESSION[$session_key]['configs']['display_implement_code']):?>
     <?php require_once 'inc/_implement_code_post.php'?>
     <?php endif?>
@@ -581,3 +583,4 @@
 <?php if ($use_wisiwyg_flg):?>
 	<script src="<?=$tinymce_init?>"></script>
 <?php endif?>
+<script src="js/check_slug.js"></script>

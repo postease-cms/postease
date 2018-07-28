@@ -6,7 +6,7 @@
 				<?php if (! empty($_SESSION[$session_key]['configs']['site_name'])):?>
 					<?=$_SESSION[$session_key]['configs']['site_name']?>
 				<?php else:?>
-					PostEase
+          <img src="../img/logo.svg" width="200px">
 				<?php endif?>
 			</h1>
 		</div>
@@ -50,7 +50,11 @@
 			</form>
 		<?php endif?>
 		<span class="errorMsg"><?=$msg?></span>
-		<p class="loginLogo-text">PostEase Classic</p>
+    <div class="loginLogo-text">
+    <?php if (! empty($_SESSION[$session_key]['configs']['site_name'])):?>
+		<img src="img/logo.svg" width="100px">
+    <?php endif?>
+    </div>
 	</div>
 </div>
 </main>

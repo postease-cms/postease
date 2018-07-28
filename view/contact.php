@@ -72,10 +72,10 @@
 										<div><input class="form-control" data-group="custom" data-custom_item_id="<?=$custom_item_id?>" type="text" id="items_<?=$custom_item_id?>" name="items[<?=$custom_item_id?>]" value="<?=$items[$custom_item_id]?>" disabled></div>
 									</div>
 								<?php elseif ($row_cust['type'] == 'date'):?>
-									<div class="form-group post_item_container">
-										<label class="control-label" for="items_<?=$custom_item_id?>"><i class="fa fa-calendar"></i> <?=$row_cust['name']?></label>
-										<div><input class="form-control customDate" data-group="custom" data-custom_item_id="<?=$custom_item_id?>" type="text" id="items_<?=$custom_item_id?>" name="items[<?=$custom_item_id?>]" value="<?=$items[$custom_item_id]?>" disabled></div>
-									</div>
+                  <div class="form-group post_item_container">
+                    <label class="control-label" for="items_<?=$custom_item_id?>"><i class="fa fa-calendar"></i> <?=$row_cust['name']?></label>
+                    <div><input class="form-control customDate" data-group="custom" data-custom_item_id="<?=$custom_item_id?>" type="text" id="items_<?=$custom_item_id?>" name="items[<?=$custom_item_id?>]" value="<?=$items[$custom_item_id]?>" disabled></div>
+                  </div>
 								<?php elseif ($row_cust['type'] == 'textarea-s'):?>
 									<div class="form-group post_item_container">
 										<label class="control-label" for="items_<?=$custom_item_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?></label>

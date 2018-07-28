@@ -20,6 +20,7 @@ $(function () {
 
 	// CSS fix
 	$('span.label-status').css({display: 'inline-block', padding: '4px 0', width: '60px', marginRight: '2px'});
+  $('.select2').css({width: '200px'});
 
 	// Narrow Down Search Condition
 	$('#sc_status').change(function(){

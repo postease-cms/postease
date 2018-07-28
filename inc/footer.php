@@ -1,3 +1,4 @@
+<p class="footer_rights">2015-<?=date('Y')?> POSTEASE.ORG ALL RIGHTS RESERVED.</p>
 <script src="js/scripts.js"></script>
 <?php $js_exclusive = './js/_'. $view_page . '.js'?>
 <?php if (file_exists($js_exclusive)):?>

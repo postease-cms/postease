@@ -3,45 +3,122 @@ $remote_url = $_SESSION[$session_key]['configs']['domain'];
 if ($_SESSION[$session_key]['configs']['dir_name']) $remote_url .= '/' . $_SESSION[$session_key]['configs']['dir_name'];
 $delimiter = ($_SESSION[$session_key]['configs']['implement_code'] == 3) ? ':' : '=>';
 
-$conditions  = "\t" . "'posttype' {$delimiter} '{$_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['slug']}',";
+$comment_local_php      = TXT_CODE_COM_IMPLEMENT_LOCALPHP;
+$comment_remote_php_01  = TXT_CODE_COM_IMPLEMENT_REMOTEPHP01;
+$comment_remote_php_02  = TXT_CODE_COM_IMPLEMENT_REMOTEPHP02;
+$comment_jquery         = TXT_CODE_COM_IMPLEMENT_JQUERY;
+$comment_tag_config     = TXT_CODE_COM_IMPLEMENT_TAGSCONFIG;
+$comment_get_tags       = TXT_CODE_COM_IMPLEMENT_GETTAGS;
+$comment_tag_title      = TXT_CODE_COM_IMPLEMENT_TAGTITLE;
+
+if ($_SESSION[$session_key]['configs']['use_multisite_flg'])
+{
+	if (! empty($conditions)) $conditions .= "\n";
+	$conditions  .= "\t" . "'site' {$delimiter} '{$_SESSION[$session_key]['common']['sites'][$_SESSION[$session_key]['common']['this_site']]['slug']}',";
+}
+if ($_SESSION[$session_key]['configs']['use_posttype_flg'])
+{
+	if (! empty($conditions)) $conditions .= "\n";
+	$conditions  .= "\t" . "'posttype' {$delimiter} '{$_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['slug']}',";
+}
+
+$html_class = $_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['slug'];
+$html_code_php = htmlspecialchars("
+<html>
+<head>
+<meta charset=\"utf-8\">
+</head>
+<body>
+<h3>{$comment_tag_title}</h3>
+<ul class=\"{$html_class}Tags\">
+  <?php foreach (\$tags as \$row ):?>
+  <li><a href=\"?tag=<?=\$row['slug']?>\"><?=\$row['label']?></a></li>
+  <?php endforeach ?>
+</ul>
+</body>
+</html>
+
+");
+
+$html_code_jquery = htmlspecialchars("
+<html>
+<head>
+<meta charset=\"utf-8\">
+<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>
+</head>
+<body>
+<h3>{$comment_tag_title}</h3>
+<ul class=\"{$html_class}tags\">
+
+</ul>
+</body>
+</html>
+
+");
+
 ?>
 <div id="code" class="col-md-12">
 <h4><?=TXT_POST_LBL_IMPLEMENT_CODE?> <?=$implement_code_list[$_SESSION[$session_key]['configs']['implement_code']]?></h4>
 <?php if ($_SESSION[$session_key]['configs']['implement_code'] == 1):?>
-		
-<pre><code class="language-php"><?php echo "
-\$config = [
+
+<pre><code class="language-php"><?php echo "&lt;?php
+
+// {$comment_local_php}
+require_once '[your-postease-path]/api/local.php';
+
+// {$comment_tag_config}
+\$config = array (
 {$conditions}
-];
+);
 
-\${$_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['slug']}_tags = get_tags(\$config);
+// {$comment_get_tags}
+\$tags = get_tags (\$config);
 
+?&gt;
 ";
 ?>
 </code></pre>
-	
+  <pre><code class="language-html"><?php echo $html_code_php?></code></pre>
+
 <?php elseif ($_SESSION[$session_key]['configs']['implement_code'] == 2):?>
+<?=TXT_POSTS_LNK_GETSDKPHP('https://github.com/postease-classic/sdk-php-rpc')?>
+  
+<pre><code class="language-php"><?php echo "&lt;?php
 
-<pre><code class="language-php"><?php echo "
-\$config = [
+// {$comment_remote_php_02}
+require_once '[your-path]/PecRpc/Pec.php';
+
+// {$comment_remote_php_01}
+\$pe = new Pec ();
+\$pe -> connect ('{$remote_url}/api/remote.php');
+
+// {$comment_tag_config}
+\$config = array (
 {$conditions}
-];
+);
 
-\${$_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['slug']}_tags = \$pe->get_tags(\$config);
+// {$comment_get_tags}
+\$tags = \$pe -> get_tags (\$config);
 
+?&gt;
 ";
 ?>
 </code></pre>
-	
-<?php elseif ($_SESSION[$session_key]['configs']['implement_code'] == 3):?>
+<pre><code class="language-html"><?php echo $html_code_php?></code></pre>
 
-<pre><code class="language-php"><?php echo "
+<?php elseif ($_SESSION[$session_key]['configs']['implement_code'] == 3):?>
+  
+<pre><code class="language-html"><?php echo $html_code_jquery?></code></pre>
+<pre><code class="language-javascript"><?php echo htmlspecialchars("
+<script>
 $(function()
 {
+  // {$comment_tag_config}
   var config = {
   {$conditions}
   };
   
+  // {$comment_get_tags}
   $.ajax(
   {
     url : '{$remote_url}/api/json.php?get_tags',
@@ -53,12 +130,17 @@ $(function()
   })
   .done(function(data)
   {
-    // your process
+    $.each(data, function(key, row)
+    {
+      var html = '<li><a href=\"?tag=' + row.slug + '\">' + row.label + '</li>';
+      $('.{$html_class}Tags').append(html);
+    });
   });
 });
-";
-?>
+</script>
+");
+			?>
 </code></pre>
-	
+
 <?php endif?>
 </div>

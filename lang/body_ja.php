@@ -179,7 +179,7 @@ function TXT_INDEX_LBL_NOTICE_DRAFT($count_parent = 0, $count_child = 0)
 /*
  * about_system
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_ABOUTSYSTEM_LBL_TITLE',            'PostEase について');
+define('TXT_ABOUTSYSTEM_LBL_TITLE',            'POSTEASE install type について');
 define('TXT_ABOUTSYSTEM_THD_THISVERSION',      'バージョン');
 define('TXT_ABOUTSYSTEM_THD_LICENSE',          'ライセンス');
 define('TXT_ABOUTSYSTEM_LBL_LICENSEBASIC',     'ベーシック');
@@ -263,7 +263,7 @@ define('TXT_POSTS_LBL_IMPLEMENT_CODE',        '実装コード');
 function TXT_POSTS_WAR_NOPOST($target)            { return $text = "この条件の {$target} はありません。";}
 function TXT_POSTS_LBL_CHANGESTATU_TO($target)    { return $text = "チェックした{$target}を";}
 function TXT_POSTS_LBL_CHANGECATEGORY_TO($target) { return $text = "チェックした{$target}に";}
-function TXT_POSTS_LNK_GETSDKPHP($url) { return $text = 'リモートサーバに置いた PostEase Classic に接続するためのクライアントツール <a target="_blank" href="' . $url . '">SDK "PecRpc" を手に入れる</a>';}
+function TXT_POSTS_LNK_GETSDKPHP($url) { return $text = 'リモートAPIに接続するためのクライアントツール <a target="_blank" href="' . $url . '">SDK "PecRpc" を手に入れる</a>';}
 
 
 /*
@@ -836,6 +836,38 @@ define('TXT_CONFIGPOSTTYPE_BTN_SUBMIT',               '更新');
 /*
  * config_posttype
  * ------------------------------------------------------------------------------------------------ */
+define('TXT_CONFIGCONTACT_LBL_ADMINAUTOREPLYSETTING',    '管理者 自動返信メール設定');
+define('TXT_CONFIGCONTACT_LBL_USEAUTOREPLYADMIN',        '管理者自動返信メール');
+define('TXT_CONFIGCONTACT_LBL_ADMINLANGUAGE',            'フォーム言語');
+define('TXT_CONFIGCONTACT_LBL_ADMINTO',                  '送信先メールアドレス（to）');
+define('TXT_CONFIGCONTACT_LBL_ADMINFROM',                '送信元メールアドレス（from）');
+define('TXT_CONFIGCONTACT_LBL_ADMINFROMNAME',            '送信元名（form name）');
+define('TXT_CONFIGCONTACT_LBL_ADMINSUBJECT',             'タイトル（subject）');
+define('TXT_CONFIGCONTACT_LBL_ADMINBODYHEAD',            '本文ヘッダー');
+define('TXT_CONFIGCONTACT_LBL_ADMINBODYMAIN',            '本文メイン');
+define('TXT_CONFIGCONTACT_LBL_USEINPUTVALUESADMIN',      'フォーム入力値');
+define('TXT_CONFIGCONTACT_LBL_ADMINBODYBOTTOM',          '本文フッター');
+define('TXT_CONFIGCONTACT_LBL_ADMINSIGNATURE',           '署名');
+
+define('TXT_CONFIGCONTACT_LBL_CUSTOMERAUTOREPLYSETTING',   'カスタマー 自動返信メール設定');
+define('TXT_CONFIGCONTACT_LBL_USEAUTOREPLYCUSTOMER',       'カスタマー自動返信メール');
+define('TXT_CONFIGCONTACT_LBL_CUSTOMERLANGUAGE',           'フォーム言語');
+define('TXT_CONFIGCONTACT_LBL_CUSTOMERFROM',               '送信元メールアドレス（from）');
+define('TXT_CONFIGCONTACT_LBL_CUSTOMERFROMNAME',           '送信元名（from name）');
+define('TXT_CONFIGCONTACT_LBL_CUSTOMERSUBJECT',            'タイトル（subject）');
+define('TXT_CONFIGCONTACT_LBL_CUSTOMERBODYHEAD',           '本文ヘッダー');
+define('TXT_CONFIGCONTACT_LBL_CUSTOMERBODYMAIN',           '本文メイン');
+define('TXT_CONFIGCONTACT_LBL_USEINPUTVALUESCUSTOMER',     'フォーム入力値');
+define('TXT_CONFIGCONTACT_LBL_CUSTOMERBODYBOTTOM',         '本文フッター');
+define('TXT_CONFIGCONTACT_LBL_CUSTOMERSIGNATURE',          '署名');
+
+define('TXT_CONFIGCONTACT_LBL_SMTP',                'SMTPサーバの設定');
+define('TXT_CONFIGCONTACT_LBL_USE_SMTP',            'SMTPサーバを指定して利用');
+define('TXT_CONFIGCONTACT_LBL_HOST',                'SMTPサーバ');
+define('TXT_CONFIGCONTACT_LBL_USER_NAME',           'SMTPサーバのユーザ名');
+define('TXT_CONFIGCONTACT_LBL_PASSWORD',            'SMTPサーバのパスワード');
+define('TXT_CONFIGCONTACT_LBL_PORT',                '通信ポート');
+
 define('TXT_CONFIGCONTACT_LBL_TITLEOPTION',          '追加機能');
 define('TXT_CONFIGCONTACT_LBL_TITLELIST',            '一覧表示');
 define('TXT_CONFIGCONTACT_LBL_USECUSTOMITEMFLG',     'カスタムアイテム');
@@ -1135,10 +1167,24 @@ function TXT_CUSTOMVALUE_LBL_NOWEDIT($target) { return $text = "{$target} を編
 /*
  * code
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_CODE_COM_IMPLEMENT_LOCALPHP',    'ローカル環境の PostEase Classic API に接続');
-define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP01', 'リモート環境の PostEase Classic API に接続');
-define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP02', '※ GitHub ページより SDK "PecRpc" を入手してください。');
-define('TXT_CODE_COM_IMPLEMENT_JQUERY',      '共通コードは不要です。');
+define('TXT_CODE_COM_IMPLEMENT_LOCALPHP',          'ローカルAPI に接続（POSTEASE 設置パス [your-postease-path] は書き換えてください）');
+define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP01',       'リモートAPI に接続');
+define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP02',       'GitHub ページより "PecRpc" を入手して任意の場所 [your-path] に設置（パスは書き換えて下さい）');
+define('TXT_CODE_COM_IMPLEMENT_JQUERY',            '共通コードは不要です。');
+define('TXT_CODE_COM_IMPLEMENT_JQUERYATTENTION',  'リモートサーバから接続する場合は以下のディレクトリにCORS開放を記述した .htaccess を設置してください。');
+
+define('TXT_CODE_COM_IMPLEMENT_POSTSCONFIG',       'ポストデータの取得条件を設定');
+define('TXT_CODE_COM_IMPLEMENT_GETPOSTS',          'ポストデータを取得');
+define('TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYID',    'IDを指定して特定のポストデータを取得');
+define('TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYSLUG',  'スラッグを指定して特定のポストデータを取得');
+define('TXT_CODE_COM_IMPLEMENT_RENDERPOSTS',       'ポストデータをHTMLに書き出し');
+
+define('TXT_CODE_COM_IMPLEMENT_CATEGORIESCONFIG',  'カテゴリーデータの取得条件を設定');
+define('TXT_CODE_COM_IMPLEMENT_GETCATEGORIES',     'カテゴリーデータを取得');
+define('TXT_CODE_COM_IMPLEMENT_TAGSCONFIG',        'タグデータの取得条件を設定');
+define('TXT_CODE_COM_IMPLEMENT_GETTAGS',           'タグデータを取得');
+define('TXT_CODE_COM_IMPLEMENT_CATEGORYTITLE',     'カテゴリ一覧');
+define('TXT_CODE_COM_IMPLEMENT_TAGTITLE',          'タグ一覧');
 
 
 /*

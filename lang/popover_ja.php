@@ -71,7 +71,39 @@ $popover = array
 		'comments_title_length'    => 'タイトルの表示文字長を設定します。',
 		'review_max_score'         => 'レビューで使用するスコアの最大値を設定します。 ※「５」に設定した場合は１〜５の５段階制スコアとなります。',
 
-		// Config-Contact
+		// Config-Contact-Admin
+		'use_auto_reply_admin'    => 'フォーム送信時に管理者に通知メールを送るかどうか設定します。',
+		'admin_language'          => 'フォームの言語およびエンコードを設定します。ex). UTF-8で作成されたフォームでは「unicode」、その他SHIFT-JISなど特定の日本語専用のエンコーディングで作成されたフォームでは「japanese」とします。',
+		'admin_to'                => '通知先のメールアドレスを設定します。',
+		'admin_from'              => '送信元メールアドレスを設定します。',
+		'admin_from_name'         => '送信元の名前を設定します。',
+		'admin_subject'           => 'タイトルを設定します。',
+		'admin_body_head'         => '本文の共通ヘッダーを設定します。',
+		'admin_body_main'         => '本文の共通文を設定します。',
+		'use_input_values_admin'  => '本文にフォームに入力した値を表示するかどうか設定します。',
+		'admin_body_bottom'       => '本文の共通フッターを設定します。',
+		'admin_signature'         => '署名を設定します。',
+		
+		// Config-Contact-Customer
+		'use_auto_reply_customer'     => 'フォーム送信時にカスタマーに通知メールを送るかどうか設定します。',
+		'customer_language'           => 'フォームの言語およびエンコードを設定します。ex). UTF-8で作成されたフォームでは「unicode」、その他SHIFT-JISなど特定の日本語専用のエンコーディングで作成されたフォームでは「japanese」とします。',
+		'customer_from'               => '送信元メールアドレスを設定します。',
+		'customer_from_name'          => '送信元の名前を設定します。',
+		'customer_subject'            => 'タイトルを設定します。',
+		'customer_body_head'          => '本文の共通ヘッダーを設定します。',
+		'customer_body_main'          => '本文の共通文を設定します。',
+		'use_input_values_customer'   => '本文にフォームに入力した値を表示するかどうか設定します。',
+		'customer_body_bottom'        => '本文の共通フッターを設定します。',
+		'customer_signature'          => '署名を設定します。',
+	
+		// Config-Contact-SMTP
+		'use_smtp'    => 'メール送信に特定のSMTPサーバを使用するかどうか設定します。「使用しない」を選択した場合はローカルサーバを利用します。',
+		'host'        => 'SMTPサーバのホスト名を指定します。',
+		'user_name'   => 'SMTPサーバのユーザアカウントを指定します。',
+		'password'    => 'SMTPサーバのパスワードを指定します。',
+		'port'        => '通信ポートを指定します。',
+		
+		// Config-Contact-display
 		'contacts_sort_order'      => 'ソート順を設定します。',
 		'contacts_list_num'        => '表件数を設定します。',
 		'contacts_column01'        => '１列目のデフォルト表示項目を設定します。',

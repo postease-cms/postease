@@ -123,7 +123,9 @@
 		<?php endif?>
 
 	</ul>
-	<p class="productLogo">PostEase Classic</p>
+	<?php if (! empty($_SESSION[$session_key]['configs']['site_name'])):?>
+  <div class="loginLogo-text inside"><img src="img/logo.svg" width="90px"></div>
+  <?php endif?>
 </nav>
 <script>
 var page = $('body').attr('id');

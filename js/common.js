@@ -109,6 +109,7 @@ $(function()
 	$('body').css({paddingTop: $navbar_height + 'px'});
 	$('.navbar-fixed-top').css({zIndex: 99});
 	$('#post .radio-inline, #contact .radio-inline').css({marginBottom: '2px'});
+  $('.select2').css({width: '100%'});
 
 
 	/*

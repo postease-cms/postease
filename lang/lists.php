@@ -363,9 +363,42 @@ $posttype_mata_common = array
 
 $contact_mata_common = array
 (
+		// additional function
 		'use_customitem_flg'        => '0',
 		'email_admin'               => '',
-
+		
+		// mail config
+		'use_auto_reply_admin'    => '0',
+		'admin_language'          => 'unicode',
+		'admin_to'                => '',
+		'admin_from'              => '',
+		'admin_from_name'         => '',
+		'admin_subject'           => '',
+		'admin_body_head'         => '',
+		'admin_body_main'         => '',
+		'use_input_values_admin'  => '1',
+		'admin_body_bottom'       => '',
+		'admin_signature'         => '',
+	
+		'use_auto_reply_customer'    => '0',
+		'customer_language'          => 'unicode',
+		'customer_from'              => '',
+		'customer_from_name'         => '',
+		'customer_subject'           => '',
+		'customer_body_head'         => '',
+		'customer_body_main'         => '',
+		'use_input_values_customer'  => '1',
+		'customer_body_bottom'       => '',
+		'customer_signature'         => '',
+		
+		// environment
+		'use_smtp'     => '0',
+		'host'         => '',
+		'user_name'    => '',
+		'password'     => '',
+		'port'         => '',
+		
+		// display list
 		'contacts_list_num'         => '10',
 		'contacts_sort_order'       => 'DESC',
 		'contacts_column01'         => '1',

@@ -33,7 +33,8 @@ $(function ()
 	// CSS fix
 	$('span.label-status').css({display: 'inline-block', padding: '4px 0', width: '42px', height: '1.8em', fontSize: '70%'});
 	$('span.label-extra').css({display: 'inline-block', padding: '4px 0', width: '36px', height: '1.8em', fontSize: '70%'});
-
+  $('.select2').css({width: '200px'});
+	
 	// Narrow Down Search Condition
 	$('#sc_status').change(function(){
 		var $sc_status = $(this).val();

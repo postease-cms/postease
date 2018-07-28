@@ -4,7 +4,7 @@
 $(function(){
 
 	$('.panel-body').hide();
-	$('.panel-body:first').show();
+	//$('.panel-body:first').show();
 
 	if ($target = getParam('target'))
 	{
@@ -14,7 +14,7 @@ $(function(){
 
 	$('.panel-heading').click(function(e)
 	{
-		$('.panel-body').not($(this).next()).slideUp(300);
+		//$('.panel-body').not($(this).next()).slideUp(300);
 		$(this).next().slideToggle(300);
 	});
 	

@@ -15,7 +15,7 @@ $(function()
 	{
 		delay(function(){
 			checkSlug();
-			runValidOneCommon($('#slug'), $('#do_update'));
+			runValidOneCommon($('#slug'), $('#save_post'), $('#publish_post'));
 		}, 500 );
 	});
 	$('#slug').change(function()

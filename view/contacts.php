@@ -164,10 +164,7 @@
 							<a href="./?view_page=contact&id=<?=$row['id']?>&amp;language_id=<?=$row['language_id']?>&amp;process=32">
 								<?php if($multi_column01 == 1):?>
 									<?php if(! empty($row['title'])):?>
-										<?=substructString($row['title'], $config_column01_length)?>
-										<?php if (mb_strlen($row['title'], 'UTF-8') > $config_column01_length):?>
-											<a data-toggle="tooltip" data-placement="top" title="<?=$row['title']?>"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
-										<?php endif?>
+										<?=$row['title']?>
 									<?php else:?>
 										<a href="./?view_page=contact&id=<?=$row['id']?>&amp;process=32"><i><?=TXT_CONTACTS_LBL_NOTITLE?></i></a>
 									<?php endif?>
