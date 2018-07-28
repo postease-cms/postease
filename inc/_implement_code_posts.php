@@ -3,7 +3,7 @@ $remote_url = $_SESSION[$session_key]['configs']['domain'];
 if ($_SESSION[$session_key]['configs']['dir_name']) $remote_url .= '/' . $_SESSION[$session_key]['configs']['dir_name'];
 $delimiter = ($_SESSION[$session_key]['configs']['implement_code'] == 3) ? ':' : '=>';
 
-
+$conditions = null;
 if ($_SESSION[$session_key]['configs']['use_multisite_flg'])
 {
   if (! empty($conditions)) $conditions .= "\n";

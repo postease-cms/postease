@@ -11,6 +11,7 @@ $comment_tag_config     = TXT_CODE_COM_IMPLEMENT_TAGSCONFIG;
 $comment_get_tags       = TXT_CODE_COM_IMPLEMENT_GETTAGS;
 $comment_tag_title      = TXT_CODE_COM_IMPLEMENT_TAGTITLE;
 
+$conditions = null;
 if ($_SESSION[$session_key]['configs']['use_multisite_flg'])
 {
 	if (! empty($conditions)) $conditions .= "\n";

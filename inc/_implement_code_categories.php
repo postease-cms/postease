@@ -11,6 +11,7 @@ $comment_category_config  = TXT_CODE_COM_IMPLEMENT_CATEGORIESCONFIG;
 $comment_get_categories   = TXT_CODE_COM_IMPLEMENT_GETCATEGORIES;
 $comment_category_title   = TXT_CODE_COM_IMPLEMENT_CATEGORYTITLE;
 
+$conditions = null;
 if ($_SESSION[$session_key]['configs']['use_multisite_flg'])
 {
 	if (! empty($conditions)) $conditions .= "\n";
