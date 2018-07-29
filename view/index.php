@@ -22,6 +22,10 @@
 				<p class="alert alert-danger"><?=TXT_INDEX_WAR_PASSWORD_01?></p>
 			<?php endif?>
 			
+			<?php if (empty($summary_post) && empty($summary_contact)):?>
+        <p class="alert alert-warning"><?=TXT_INDEX_WAR_NO_POSTTYPE?></p>
+			<?php endif?>
+   
 			<?php if ($check_domain):?>
 				<p class="alert alert-danger"><?=TXT_INDEX_WAR_DOMAIN($_SESSION[$session_key]['configs']['domain'])?></p>
 			<?php endif?>
@@ -138,8 +142,6 @@
 					</div>
 				</div>
 			<?php endforeach?>
-		<?php else:?>
-			<p><?=TXT_INDEX_WAR_NO_POSTTYPE?></p>
 		<?php endif?>
 		
 		<?php if ($_SESSION[$session_key]['configs']['use_contact_flg']):?>
@@ -174,8 +176,6 @@
 						</div>
 					</div>
 				<?php endforeach?>
-			<?php else:?>
-				<p><?=TXT_INDEX_WAR_NO_CONTACT?></p>
 			<?php endif?>
 		<?php endif?>
 		
