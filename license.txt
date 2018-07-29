@@ -1,5 +1,5 @@
 PostEase
-v2.7
+v2.8
 
 [Copyright]
 Copyright© khiten Inc.
