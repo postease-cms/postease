@@ -138,7 +138,7 @@
 			
 			</div>
 			<div class="ly_aboutSystem-logoWrapper">
-				<div class="aboutSystem-text"><img class="aboutSystem-logo" src="img/logo.svg" width="80px"></div>
+				<div class="aboutSystem-text"><img class="aboutSystem-logo" src="img/logo_small.svg" width="80px"></div>
 			</div>
 		</div>
 	

@@ -52,7 +52,7 @@
 		<span class="errorMsg"><?=$msg?></span>
     <div class="loginLogo-text">
     <?php if (! empty($_SESSION[$session_key]['configs']['site_name'])):?>
-		<img src="img/logo.svg" width="100px">
+		<img src="img/logo_small.svg" width="100px">
     <?php endif?>
     </div>
 	</div>

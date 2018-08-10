@@ -124,7 +124,7 @@
 
 	</ul>
 	<?php if (! empty($_SESSION[$session_key]['configs']['site_name'])):?>
-  <div class="loginLogo-text inside"><img src="img/logo.svg" width="90px"></div>
+  <div class="loginLogo-text inside"><img src="img/logo_small.svg" width="90px"></div>
   <?php endif?>
 </nav>
 <script>
