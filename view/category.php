@@ -185,7 +185,7 @@
 	</div>
 	
 	<?php if ($_SESSION[$session_key]['user']['role'] <= 2):?>
-  <?php if ($_SESSION[$session_key]['configs']['display_implement_code']):?>
+  <?php if ($_SESSION[$session_key]['configs']['display_implement_code'] && $_SESSION[$session_key]['common']['this_posttype'] < 1000):?>
   <?php require_once 'inc/_implement_code_categories.php'?>
   <?php endif?>
 	<?php endif?>
