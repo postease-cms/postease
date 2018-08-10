@@ -2,7 +2,7 @@
 <html lang="<?=$_SESSION[$session_key]['user']['lang']?>">
 <head>
 <meta charset="utf-8">
-<title><?=TXT_HEADER_TITLE?> | <?=$_SESSION[$session_key]['configs']['site_name']?></title>
+<title><?=($site_name = $_SESSION[$session_key]['configs']['site_name'])?$site_name:'POSTEASE'?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/style.css">
@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="plugin/fancybox2/jquery.fancybox.css">
 <link rel="stylesheet" href="plugin/select2/css/select2.css">
 <link rel="stylesheet" href="plugin/prism-dark/prism.css">
+<link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
 <?php if (! empty($_SESSION[$session_key]['configs']['system_font'])):?>
 <link rel="stylesheet" href="css/font/<?=$_SESSION[$session_key]['configs']['system_font']?>.css">
 <?php endif?>
