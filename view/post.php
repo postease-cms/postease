@@ -368,7 +368,7 @@
 						<input type="hidden" name="publish_flg" id="publish_flg" value="<?=$publish_flg?>">
 						
 						<!-- delete_check (post) -->
-						<?php if ($process == 12):?>
+						<?php if ($process == 12 && $publish_flg):?>
 							<div class="form-group">
 								<div><label class="control-label post-allowDeleteLable" id="post_allow_delete_label" for="post_allow_delete"><input type="checkbox" id="post_allow_delete" name="post_allow_delete"> <?=$allow_delete_msg?></label></div>
 							</div>

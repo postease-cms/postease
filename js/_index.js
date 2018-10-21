@@ -106,7 +106,7 @@ $(function(){
         if (data.result == 1)
         {
           console.log('Correct Domain complete!');
-          location.href = './?change=1';
+          location.href = './?view_page=index&change=1';
         }
       },
     });
@@ -127,7 +127,7 @@ $(function(){
         if (data.result == 1)
         {
           console.log('Correct Dir name complete!');
-          location.href = './?change=1';
+          location.href = './?view_page=index&change=1';
         }
       },
     });

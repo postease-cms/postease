@@ -408,7 +408,9 @@
 			<div id="operation" class="panel panel-default">
 				<div id="checkall" class="panel-heading">
 					<i class="fa fa-arrow-circle-up"></i> <span id="checkall_title"><?=TXT_POSTS_LBL_CHECKALL?></span>
+          <?php if ($publish_flg):?>
 					<label class="checkbox-inline" for="allow_delete"><input type="checkbox" id="allow_delete" name="allow_delete"> <?=TXT_POSTS_LBL_ALLOWDELETE?></label>
+          <?php endif?>
 				</div>
 				<div class="panel-body">
 					<div class="operationHead"><?=TXT_POSTS_LBL_CHANGESTATU_TO($posttype_label)?></div>

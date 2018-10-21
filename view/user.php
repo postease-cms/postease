@@ -67,7 +67,7 @@
 							<?php endif?>
 						</div>
 						
-						<?php if ($_SESSION[$session_key]['configs']['use_multisite_flg'] || $_SESSION[$session_key]['configs']['use_posttype_flg'] || $_SESSION[$session_key]['configs']['use_contact_flg']):?>
+						<?php if ($_SESSION[$session_key]['user']['role'] <= 2 && ($_SESSION[$session_key]['configs']['use_multisite_flg'] || $_SESSION[$session_key]['configs']['use_posttype_flg'] || $_SESSION[$session_key]['configs']['use_contact_flg'])):?>
 							<div class="form-group col-md-5">
 								<?php if ($_SESSION[$session_key]['configs']['use_multisite_flg']):?>
 									<label class="control-label" for="site_id"><?=TXT_USER_LBL_SITEID?></label><br>
@@ -77,7 +77,7 @@
 										<?php endforeach?>
 									</div>
 								<?php endif?>
-								<?php if ($_SESSION[$session_key]['configs']['use_posttype_flg'] || ! empty($posttype_id_arr)):?>
+								<?php if ($_SESSION[$session_key]['user']['role'] <= 2 && ($_SESSION[$session_key]['configs']['use_posttype_flg'] || ! empty($posttype_id_arr))):?>
 									<div class="<?=(! $_SESSION[$session_key]['configs']['use_posttype_flg'])?'hidden':null?>">
 										<label class="control-label" for="posttype_id"><?=TXT_USER_LBL_POSTTYPEID?></label><br>
 										<div class="multistep20">
