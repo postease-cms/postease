@@ -40,7 +40,7 @@
 						<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
 						<span class="validIcon hidden"><i class="fa fa-check-circle"></i></span>
 					</label>
-					<div><input oncontextmenu="return false;" onpaste="return false;"class="form-control" data-valid_type="password" type="password" id="password_confirm" name="password_confirm" value="" placeholder="<?=TXT_CHANGEPASSWORD_PLH_CONFIRM?>" required></div>
+					<div><input oncontextmenu="return false;" class="form-control" data-valid_type="password" type="password" id="password_confirm" name="password_confirm" value="" placeholder="<?=TXT_CHANGEPASSWORD_PLH_CONFIRM?>" required></div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="nickname"><?=TXT_CHANGEPASSWORD_LBL_NICKNAME?></label>

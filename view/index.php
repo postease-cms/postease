@@ -25,13 +25,13 @@
 			<?php if (empty($summary_post) && empty($summary_contact)):?>
         <p class="alert alert-warning"><?=TXT_INDEX_WAR_NO_POSTTYPE?></p>
 			<?php endif?>
-   
+			
 			<?php if ($check_domain):?>
-				<p class="alert alert-danger"><?=TXT_INDEX_WAR_DOMAIN($_SESSION[$session_key]['configs']['domain'])?></p>
+        <p class="alert alert-warning"><?=TXT_INDEX_WAR_CORRECT_DOMAIN?></p>
 			<?php endif?>
 			
 			<?php if ($check_dir_name):?>
-				<p class="alert alert-danger"><?=TXT_INDEX_WAR_DIR($_SESSION[$session_key]['configs']['dir_name'])?></p>
+        <p class="alert alert-warning"><?=TXT_INDEX_WAR_CORRECT_DIRNAME?></p>
 			<?php endif?>
 	
 			<?php if ($check_sqlite_permission):?>
@@ -209,6 +209,11 @@
 		<input type="hidden" id="host_activation" value="<?=$_SESSION[$session_key]['configs']['host_activation']?>">
 		<input type="hidden" id="this_postease_version" value="<?=$_SESSION[$session_key]['configs']['postease_version']?>">
 		<input type="hidden" id="update_allowed_role" value="<?=$update_allowed_role?>">
+    <input type="hidden" id="this_domain" value="<?=$this_domain?>">
+    <input type="hidden" id="check_domain" value="<?=$check_domain?>">
+    <input type="hidden" id="this_dir_name" value="<?=$this_dir_name?>">
+    <input type="hidden" id="check_dir_name" value="<?=$check_dir_name?>">
+    <input type="hidden" id="update_allowed_role" value="<?=$update_allowed_role?>">
 		<input type="hidden" id="allow_update_flg" value="<?=$_SESSION[$session_key]['configs']['allow_update_flg']?>">
 		<input type="hidden" id="language" value="<?=$_SESSION[$session_key]['configs']['language']?>">
 		<input type="hidden" id="this_ip" value="<?=$_SERVER["REMOTE_ADDR"]?>">

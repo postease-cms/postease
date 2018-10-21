@@ -28,9 +28,13 @@ $(function(){
 	var $host_activation       = $('#host_activation').val();
 	var $check_update_level    = $('#check_update_level').val();;
 	var $this_postease_version = $('#this_postease_version').val();
-	var $this_ip  = $('#this_ip').val();
+	var $this_ip               = $('#this_ip').val();
   var $this_classification   = $('#this_classification').val();
-	var $language = $('#language').val();
+	var $language              = $('#language').val();
+	var $check_domain          = $('#check_domain').val();
+  var $this_domain           = $('#this_domain').val();
+  var $check_dir_name        = $('#check_dir_name').val();
+  var $this_dir_name         = $('#this_dir_name').val();
 
 	// Invalidate link
 	$(document).on('click', '#refuse_update',  function()
@@ -86,6 +90,48 @@ $(function(){
 			},
 		});
 	}
+	
+	// Correct Domain
+	if ($check_domain == '1')
+	{
+    $.ajax({
+      type : 'GET',
+      url  : './ajax/correct_domain.php',
+      data : {
+        domain : $this_domain,
+      },
+      dataType : 'json',
+      success  : function(data)
+      {
+        if (data.result == 1)
+        {
+          console.log('Correct Domain complete!');
+          location.href = './?change=1';
+        }
+      },
+    });
+	}
+ 
+	// Correct Dir name
+  if ($check_dir_name == '1')
+  {
+    $.ajax({
+      type : 'GET',
+      url  : './ajax/correct_dir_name.php',
+      data : {
+        dir_name : $this_dir_name,
+      },
+      dataType : 'json',
+      success  : function(data)
+      {
+        if (data.result == 1)
+        {
+          console.log('Correct Dir name complete!');
+          location.href = './?change=1';
+        }
+      },
+    });
+  }
 
 	// Check update
 	if ($update_allowed_role && $allow_update_flg)

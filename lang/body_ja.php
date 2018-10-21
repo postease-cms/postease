@@ -140,6 +140,8 @@ define('TXT_INDEX_LBL_POST',                'ポスト');
 define('TXT_INDEX_LBL_PAGE',                '下層ページ');
 define('TXT_INDEX_LBL_POSTPAGE',            '総ページ');
 define('TXT_INDEX_WAR_NO_POSTTYPE',         'このサイトにはポストタイプが設定されていません。');
+define('TXT_INDEX_WAR_CORRECT_DOMAIN',      'ドメインの変更を適用しています。このメッセージが出ている間は操作をしないでください。');
+define('TXT_INDEX_WAR_CORRECT_DIRNAME',     'パスの変更を適用しています。このメッセージが出ている間は操作をしないでください。');
 define('TXT_INDEX_LBL_CONTACT',             'コンタクト');
 define('TXT_INDEX_WAR_NO_CONTACT',          'このサイトにはコンタクトが設定されていません。');
 define('TXT_INDEX_LBL_IMPLEMENT_CODE',      '共通実装コード');
