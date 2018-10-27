@@ -104,19 +104,6 @@
 									</div>
 								<?php endif?>
 							</div>
-						<?php elseif (! $_SESSION[$session_key]['configs']['use_group_flg']):?>
-							<div class="form-group col-md-3 col-md-offset-2">
-								<label class="control-label" for="role"><?=TXT_USER_LBL_STATUS?></label><br>
-								<div class="multistep10">
-									<select class="form-control" id="role" name="role">
-										<?php foreach ($user_role as $key => $value):?>
-											<?php if ($key > $_SESSION[$session_key]['user']['role']):?>
-												<option value="<?=$key?>" <?=($key==$this_role)?'selected':''?>><?=$value?></option>
-											<?php endif?>
-										<?php endforeach?>
-									</select>
-								</div>
-							</div>
 						<?php else:?>
 							<div class="form-group col-md-5"></div>
 						<?php endif?>

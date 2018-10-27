@@ -37,3 +37,4 @@ if ($_SESSION[$session_key]['user']['role'] == 2) $fa_user = 'fa-universal-acces
 		</p>
 	</div>
 </nav>
+<i class="fa fa-circle-o-notch fa-spin content-loader" aria-hidden="true"></i>

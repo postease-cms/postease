@@ -28,8 +28,9 @@ $(function()
 	 * ------------------------------------------------------------------------------------------------ */
 	// Slow Show All Contents
 	setTimeout(function(){
-		$('.slow-show').animate({opacity: 1}, 300);
-	}, 100);
+		$('.content-loader').hide();
+		$('.slow-show').animate({opacity: 1}, 150);
+	}, 1);
 
 	// Prohibit enter-key submit
 	if ($this_file != 'posts' && $this_file != 'contacts' && $this_file != 'comments')

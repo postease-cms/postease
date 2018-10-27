@@ -41,6 +41,7 @@ li {
 	list-style: none;
 }
 main {
+	position: relative;
 	margin-bottom: 60px;
 }
 i {
@@ -66,7 +67,14 @@ _::-webkit-full-page-media, _:future, :root select {
 	opacity: 0;
 	padding-bottom: 30px;
 }
-
+.content-loader {
+	position: fixed;
+	left: calc(50% - 30px);
+	top: calc(50% - 30px);
+	font-size: 60px;
+	color: #337ab7	;
+	opacity: .7
+}
 
 
 
