@@ -67,6 +67,9 @@ _::-webkit-full-page-media, _:future, :root select {
 	opacity: 0;
 	padding-bottom: 30px;
 }
+.slow-show-sub {
+	opacity: 0;
+}
 .content-loader {
 	position: fixed;
 	left: calc(50% - 30px);

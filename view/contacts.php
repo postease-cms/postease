@@ -54,7 +54,7 @@
 	</div>
 	
 	<!-- PAGENATION -->
-	<div class="pagenationWrap">
+	<div class="pagenationWrap slow-show-sub">
 		<?php if (count($records)):?>
 			<ul id="pagenator" class="pagination pagination-sm">
 				<?php if ($this_page==1):?>
@@ -228,7 +228,7 @@
 				</div>
 			</div>
 			<?php else:?>
-				<div class="alert alert-warning"><?=TXT_CONTACTS_WAR_NOCONTACT($page_title_main)?></div>
+				<div class="alert alert-warning slow-show-sub"><?=TXT_CONTACTS_WAR_NOCONTACT($page_title_main)?></div>
 			<?php endif?>
 		</div>
 	</div>
