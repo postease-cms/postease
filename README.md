@@ -64,12 +64,6 @@ $posts = get_posts();
 
 
 
-## お知らせ / Notice
-:jp: POSTEASE は完全なREST-APIによるクラウドサービスに生まれ変わります。このインストール型のディストリビューションは POSTEASE install type としてメンテナンスが続けられます。  
-
-:us: 'POSTEASE' will be reborn as a cloud service by a complete REST-API. This installation type of distribution continues to be maintained as a 'POSTEASE install type'.
-  
-
 
 ## 最新バージョン / Latest version
 
