@@ -687,6 +687,9 @@ figure > figcaption {
 	width: 49%;
 	text-align: right;
 }
+#permalink {
+	margin: 1em .5em;
+}
 #post_pager {
 	display: inline-block;
 	margin: 0 20px;

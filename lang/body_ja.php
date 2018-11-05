@@ -281,6 +281,7 @@ define('TXT_POST_MSG_CHILDUPDATE',    'ページを更新しました。');
 define('TXT_POST_MSG_CHILDDELETE',    'ページを削除しました。');
 define('TXT_POST_MSG_VERSIONDELETE',  'バージョンを削除しました。');
 define('TXT_POST_LBL_IMPLEMENT_CODE', '実装コード');
+function TXT_POST_LNK_PREVIEW($preview_link) { return $text = "プレビュー ({$preview_link})";}
 
 /*
  * post
@@ -567,10 +568,10 @@ define('TXT_IMAGEFRAME_LBL_EDIT',           '編集');
  * ------------------------------------------------------------------------------------------------ */
 define('TXT_USER_PAGETITLEMAIN',       'ユーザ');
 define('TXT_USER_PAGETITLESUB',        '編集');
-define('TXT_USER_MSG_ADDED',           'ユーザの追加が完了しました。');
 define('TXT_USER_MSG_USEDACCOUNT',     'すでに使用されているアカウントです。');
 define('TXT_USER_MSG_UPDATED',         '更新が完了しました。');
 define('TXT_USER_MSG_DELETED',         '削除が完了しました。');
+function TXT_USER_MSG_ADDED($default_password){ return $text = "ユーザの追加が完了しました。初期パスワードは {$default_password} です。";}
 
 /*
  * user
@@ -598,6 +599,7 @@ define('TXT_USER_THD_NICKNAME',        'ニックネーム');
 define('TXT_USER_THD_GROUPNAME',       'グループ');
 define('TXT_USER_THD_ROLE',            '権限');
 define('TXT_USER_LBL_EDIT',            '編集');
+function TXT_USER_LBL_DEFAULTPASSWORD($default_password){ return $text = "初期パスワード: {$default_password}";}
 function TXT_USER_LBL_NOWEDIT($target){ return $text = "{$target} を編集中";}
 
 

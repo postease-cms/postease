@@ -59,7 +59,7 @@ class PageNum
 		{
 			$this -> count_post += count($_SESSION[$session_key]['common']['posttypes']);
 			$this -> page_main  += count($_SESSION[$session_key]['common']['posttypes']);
-			if ($this -> use_contact_flg)
+			if ($this -> use_contact_flg && ! empty($_SESSION[$session_key]['common']['posttypes_extra']))
 			{
 				$this -> count_contact += count($_SESSION[$session_key]['common']['posttypes_extra']);
 				$this -> page_main     += count($_SESSION[$session_key]['common']['posttypes_extra']);

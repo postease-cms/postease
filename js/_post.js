@@ -65,7 +65,7 @@ $(function ()
 	if ($editable_flg == 0)
 	{
 		$auto_save_flg = 0;
-		$('form input, form textarea').prop('disabled', true);
+		$('form input, form textarea, form select').prop('disabled', true);
 		$('form a').not('.goComments').remove();
 		$('form button').remove();
 		$('#save_post, #post_allow_delete_label').remove();

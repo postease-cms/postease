@@ -23,7 +23,7 @@
 				<?php if ($mode == 2):?>
 					<div class="panel-heading clearfix" id="panel_edit"><i class="fa fa-pencil-square-o"></i> <?=TXT_USER_LBL_NOWEDIT($this_account)?><input id="allow_delete" type="checkbox" type="checkbox" data-target_name="<?=$page_title_main?>"> <label for="allow_delete"><?=TXT_USER_LBL_ALLOWDELETE?></label><a href="./"><?=TXT_USER_LBL_CANCELEDIT?></a></div>
 				<?php else:?>
-					<div class="panel-heading" id="panel_new"><i class="fa fa-plus-circle"></i> <?=TXT_USER_LBL_NEW?></div>
+          <div class="panel-heading" id="panel_new"><i class="fa fa-plus-circle"></i> <?=TXT_USER_LBL_NEW?> <small>(<?=TXT_USER_LBL_DEFAULTPASSWORD($_SESSION[$session_key]['configs']['default_password'])?>)</small></div>
 				<?php endif?>
 				<div class="panel-body">
 					<form id="user" role="form" action="./?mode=3" method="post">

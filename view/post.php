@@ -88,9 +88,9 @@
 						<?php endif?>
 						
 						<!-- permalink -->
-						<?php if ($prevew_link && $process > 11):?>
+						<?php if ($preview_link && $process > 11):?>
 							<p id="permalink">
-								<i class="fa fa-link" aria-hidden="true"></i> <a target="_blank" href="<?=$prevew_link?>"><?=$prevew_link?></a>
+                <a target="_blank" href="<?=$preview_link?>"><i class="fa fa-eye" aria-hidden="true"></i> <?=TXT_POST_LNK_PREVIEW($preview_link)?></a>
 								<?php if (($posttype_config['permalink_style'] == 2 || $posttype_config['permalink_style'] == 4) && empty($slug)):?>
 									<span class="label label-warning"><?=TXT_POST_ALT_NOSLUG?></span>
 								<?php endif?>
