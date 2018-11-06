@@ -15,7 +15,7 @@ if ($_SESSION[$session_key]['user']['role'] == 2) $fa_user = 'fa-universal-acces
 		<?php if (! empty($_SESSION[$session_key]['configs']['site_name'])):?>
 		<a class="navbar-brand" href="./?view_page=index&amp;change=1&amp;clear=1"><?=$_SESSION[$session_key]['configs']['site_name']?></a>
 		<?php else:?>
-		<a class="navbar-brand" href="./?view_page=index&amp;change=1&amp;clear=1"><img src="../img/logo_white.svg" width="120px"></a>
+		<a class="navbar-brand" href="./?view_page=index&amp;change=1&amp;clear=1"><img src="img/logo_white.svg" width="120px"></a>
 		<?php endif?>
 	</div>
 	<div class="collapse navbar-collapse target">

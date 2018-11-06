@@ -6,7 +6,7 @@
 				<?php if (! empty($_SESSION[$session_key]['configs']['site_name'])):?>
 					<?=$_SESSION[$session_key]['configs']['site_name']?>
 				<?php else:?>
-          <img src="../img/logo.svg" width="200px">
+          <img src="img/logo.svg" width="200px">
 				<?php endif?>
 			</h1>
 		</div>
