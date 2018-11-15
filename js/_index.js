@@ -132,6 +132,12 @@ $(function(){
       },
     });
   }
+  
+  // Delete Request values
+  if ($.cookie('requested_from'))   $.removeCookie('requested_from');
+  if ($.cookie('onetime_password')) $.removeCookie('onetime_password');
+  if ($.cookie('host_activation'))  $.removeCookie('host_activation');
+  if ($.cookie('lang'))             $.removeCookie('lang');
 
 	// Check update
 	if ($update_allowed_role && $allow_update_flg)

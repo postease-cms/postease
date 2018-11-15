@@ -1,9 +1,13 @@
 /*
  * _reset_system
  * ------------------------------------------------------------------------------------------------ */
-var TXT_RESETSYSTEM_ALT_SHIFTDB    = 'データベースを移行します。移行先のデータは全て上書きされます（このシステムで使用しないテーブルには影響ありません）。';
-var TXT_RESETSYSTEM_MSG_NOWSHIFTDB = 'データベースを移行しています。画面を閉じないでください。';
-var TXT_RESETSYSTEM_MSG_NOWSETTING = '設定中です。画面を閉じないでください。';
+var TXT_RESETSYSTEM_ALT_SHIFTDB       = 'データベースを移行します。移行先のデータは全て上書きされます（このシステムで使用しないテーブルには影響ありません）。';
+var TXT_RESETSYSTEM_MSG_NOWSHIFTDB    = 'データベースを移行しています。画面を閉じないでください。';
+var TXT_RESETSYSTEM_MSG_NOWSETTING    = '設定中です。画面を閉じないでください。';
+var TXT_RESETSYSTEM_ALT_INVALID_EMAIL = 'メールアドレスが不正です';
+var TXT_RESETSYSTEM_MSG_ISSUED_ACTIVATIONKEY  = 'アクティベーションキーが発行されました。メールを確認してください。';
+var TXT_RESETSYSTEM_MSG_ONISSUE_ACTIVATIONKEY = 'アクティベーションキーを発行中です。しばらくお待ち下さい。';
+var TXT_RESETSYSTEM_LNK_DOWNLOAD_PASSWORD     = 'パスワードをダウンロード';
 
 
 /*

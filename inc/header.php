@@ -17,6 +17,7 @@
 <script src="plugin/jquery/jquery-2.2.3.min.js"></script>
 <script src="plugin/jquery/jquery-ui.min.js"></script>
 <script src="plugin/select2/js/select2.min.js"></script>
+<script src="plugin/jquery-cookie/jquery.cookie.js"></script>
 <script src="lang/body_<?=$_SESSION[$session_key]['user']['lang']?>.js"></script>
 <script src="lib/functions.js"></script>
 </head>

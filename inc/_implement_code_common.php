@@ -9,7 +9,10 @@ $comment_jquery           = TXT_CODE_COM_IMPLEMENT_JQUERY;
 $comment_jquery_attention = TXT_CODE_COM_IMPLEMENT_JQUERYATTENTION;
 ?>
 <div id="code" class="col-md-12">
-<h4><?=TXT_INDEX_LBL_IMPLEMENT_CODE?> <?=$implement_code_list[$_SESSION[$session_key]['configs']['implement_code']]?></h4>
+<h4>
+		<?=TXT_INDEX_LBL_IMPLEMENT_CODE?> <?=$implement_code_list[$_SESSION[$session_key]['configs']['implement_code']]?>
+		<small>（<a href="?view_page=config_general"><?=TXT_CODE_LNK_CHANGE_LANGUAGE?></a>）</small>
+</h4>
 <?php if ($_SESSION[$session_key]['configs']['implement_code'] == 1):?>
 
 <pre><code class="language-php"><?php echo "&lt;?php

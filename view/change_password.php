@@ -31,7 +31,7 @@
 						<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
 						<span class="validIcon hidden"><i class="fa fa-check-circle"></i></span>
 					</label>
-					<div><input oncontextmenu="return false;" oncopy="return false;" class="form-control needValidation" data-valid_type="password" type="password" id="password_new" name="password_new" value="" placeholder="<?=TXT_CHANGEPASSWORD_PLH_NEW?>" required></div>
+					<div><input oncontextmenu="return false;" oncopy="return false;" class="form-control needValidation" data-valid_type="password" type="text" id="password_new" name="password_new" value="" placeholder="<?=TXT_CHANGEPASSWORD_PLH_NEW?>" required></div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="password_confirm">
@@ -40,7 +40,8 @@
 						<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
 						<span class="validIcon hidden"><i class="fa fa-check-circle"></i></span>
 					</label>
-					<div><input oncontextmenu="return false;" class="form-control" data-valid_type="password" type="password" id="password_confirm" name="password_confirm" value="" placeholder="<?=TXT_CHANGEPASSWORD_PLH_CONFIRM?>" required></div>
+					<div><input oncontextmenu="return false;" class="form-control" data-valid_type="password" type="text" id="password_confirm" name="password_confirm" value="" placeholder="<?=TXT_CHANGEPASSWORD_PLH_CONFIRM?>" required></div>
+					<div class="passwordAutoGenerate" id="password_auto_generate"><span id="password_generator" class="btn btn-primary"><?=TXT_CHANGEPASSWORD_LBL_AUTOGENERATE?></span></div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="nickname"><?=TXT_CHANGEPASSWORD_LBL_NICKNAME?></label>
@@ -48,6 +49,7 @@
 				</div>
 				<div class="form-group">
 					<input class="btn btn-primary" type="submit" id="do_submit" name="do_submit" value="<?=TXT_CHANGEPASSWORD_BTN_SUBMIT?>">
+					<input type="hidden" id="account" value="<?=$_SESSION[$session_key]['user']['account']?>">
 				</div>
 			</form>
 		</div>

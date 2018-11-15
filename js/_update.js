@@ -5,7 +5,7 @@ $(function()
 {
 	$('#main_menu').animate({opacity: 0.2}, 300);
 
-	console.log('Thanks for using PostEase!');
+	console.log('Thanks for using POSTEASE!');
 
 	// Progress-bar
 	$('#update_progress_bar').css({display: 'none'});

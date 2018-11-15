@@ -14,8 +14,9 @@
 <script src="plugin/jquery/jquery-2.2.3.min.js"></script>
 <script src="plugin/jquery/jquery-ui.min.js"></script>
 <script src="plugin/select2/js/select2.min.js"></script>
-<script type="text/javascript" src="plugin/fancybox2/jquery.fancybox.pack.js"></script>
-<script type="text/javascript" src="lang/body_<?=$lang?>.js"></script>
+<script src="plugin/fancybox2/jquery.fancybox.pack.js"></script>
+<script src="plugin/jquery-cookie/jquery.cookie.js"></script>
+<script src="lang/body_<?=$lang?>.js"></script>
 </head>
 <body>
 <main>
@@ -60,19 +61,36 @@
 						<?php endif?>
 	
 						<?php if ($mode != 2 && $mode != 5 && $mode != 6):?>
-						<div class="form-group">
-							<label class="control-label col-md-4" for="activation_key">
-								<span class="needValidIcon label label-<?=(!empty($_GET['errormsg'])&&$_GET['errormsg']=='01')?'danger':'primary'?>"><?=TXT_RESETSYSTEM_LBL_REQUIRED?></span>
-								<span class="validIcon hidden"><i class="fa fa-check-circle"></i></span>
-								<?=TXT_RESETSYSTEM_LBL_ACTIVATIONKEY?>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_RESETSYSTEM_LBL_ACTIVATIONKEY?>" data-content="<?=$popover['input_activation_key']?>">[?]</a>
-							</label>
-							<div class="col-md-7">
-								<input class="form-control needValidation" data-valid_type="activation_key" type="text" id="activation_key" name="activation_key" value="<?=$activation_key?>" placeholder="<?=TXT_RESETSYSTEM_PLH_ACTIVATIONKEY?>" <?=($mode==3&&!empty($configs))?'readonly':''?>>
-								<small class="invalidText hidden"><?=TXT_RESETSYSTEM_ALT_ACTIVATIONKEY?></small>
-							</div>
-						</div>
-						<?php if ((isset($_GET['errormsg']) && ($_GET['errormsg'] == 3 || $_GET['errormsg'] == 4)) || $mode == 3):?>
+	          <div class="form-group">
+	            <label class="control-label col-md-4" for="activation_key">
+	              <span class="validIcon hidden"><i class="fa fa-check-circle"></i></span>
+		            <?=TXT_RESETSYSTEM_LBL_GETACTIVATIONKEY?>
+	            </label>
+	            <div class="col-md-7">
+	              <div class="percent70">
+	                <input class="form-control needValidation" data-valid_type="email" type="text" id="request_email" name="request_email" placeholder="<?=TXT_RESETSYSTEM_PLH_VALIDEMAIL?>">
+	                <small class="invalidText hidden"><?=TXT_RESETSYSTEM_ALT_INVALIDEMAIL?></small>
+	              </div>
+	              <div class="percent30">
+	                <span id="getActivationKey" type="button" class="btn btn-default buttonBlock"><?=TXT_RESETSYSTEM_BTN_GETACTIVATIONKEY?></span>
+	              </div>
+	            </div>
+	          </div>
+	      
+	          <div class="form-group">
+	            <label class="control-label col-md-4" for="activation_key">
+	              <span class="needValidIcon label label-<?=(!empty($_GET['errormsg'])&&$_GET['errormsg']=='01')?'danger':'primary'?>"><?=TXT_RESETSYSTEM_LBL_REQUIRED?></span>
+	              <span class="validIcon hidden"><i class="fa fa-check-circle"></i></span>
+	              <?=TXT_RESETSYSTEM_LBL_ACTIVATIONKEY?>
+	              <a data-toggle="popover" data-placement="top" title="<?=TXT_RESETSYSTEM_LBL_ACTIVATIONKEY?>" data-content="<?=$popover['input_activation_key']?>">[?]</a>
+	            </label>
+	            <div class="col-md-7">
+	              <input class="form-control needValidation" data-valid_type="activation_key" type="text" id="activation_key" name="activation_key" value="<?=$activation_key?>" placeholder="<?=TXT_RESETSYSTEM_PLH_ACTIVATIONKEY?>" <?=($mode==3&&!empty($configs))?'readonly':''?>>
+	              <small class="invalidText hidden"><?=TXT_RESETSYSTEM_ALT_ACTIVATIONKEY?></small>
+	            </div>
+	          </div>
+			            
+            <?php if ((isset($_GET['errormsg']) && ($_GET['errormsg'] == 3 || $_GET['errormsg'] == 4)) || $mode == 3):?>
 						<div class="form-group">
 							<label class="control-label col-md-4" for="email"><?=TXT_RESETSYSTEM_LBL_EMAIL?>
 								<a data-toggle="popover" data-placement="top" title="<?=TXT_RESETSYSTEM_LBL_EMAIL?>" data-content="<?=$popover['input_email']?>">[?]</a>
@@ -118,8 +136,13 @@
 								<a data-toggle="popover" data-placement="top" title="<?=TXT_RESETSYSTEM_LBL_PASSWORD?>" data-content="<?=$popover['input_password']?>">[?]</a>
 							</label>
 							<div class="col-md-7">
-								<input class="form-control needValidation" data-valid_type="password" type="text" id="password" name="password" value="<?=$password?>" placeholder="<?=TXT_RESETSYSTEM_PLH_PASSWORD?>">
-								<small class="invalidText hidden"><?=TXT_RESETSYSTEM_ALT_PASSWORD?></small>
+	                <div class="percent70">
+	                  <input class="form-control needValidation" data-valid_type="password" type="text" id="password" name="password" value="<?=$password?>" placeholder="<?=TXT_RESETSYSTEM_PLH_PASSWORD?>">
+	                  <small class="invalidText hidden"><?=TXT_RESETSYSTEM_ALT_PASSWORD?></small>
+	                </div>
+	                <div class="percent30">
+	                  <span id="makePassword" type="button" class="btn btn-default buttonBlock"><?=TXT_RESETSYSTEM_BTN_AUTOGENERATEPASSWORD?></span>
+	                </div>
 							</div>
 						</div>
 						<hr>

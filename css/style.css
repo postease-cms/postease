@@ -56,6 +56,11 @@ textarea {
 _::-webkit-full-page-media, _:future, :root select {
 	-webkit-appearance: none;
 }
+input:-webkit-autofill
+{
+	-webkit-transition: background-color 9999s;
+	transition: background-color 9999s;
+}
 
 
 
@@ -240,6 +245,9 @@ _::-webkit-full-page-media, _:future, :root select {
 }
 #select_language > a {
 	margin-left: 10px;
+}
+#download_password {
+	margin: 0 1em;
 }
 
 
@@ -1262,6 +1270,9 @@ textarea.content {
 	width: 5%;
 }
 
+.passwordAutoGenerate {
+	margin: 1em 0 2em 0;
+}
 
 
 /* COVER *
@@ -1569,3 +1580,4 @@ label, .alert, .control-label, .help-block, .checkbox, .radio {
 .popover > .arrow:after {
 	border-color: #fff;
 }
+

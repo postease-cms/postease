@@ -43,9 +43,9 @@ $language_list = array
 
 $system_font_list = array
 (
-		'uni_sans_serif' => 'Sans Serif',
+		'uni_sans_serif' => 'System default',
 		'ja_noto_sans'   => '日本語 Noto Sans',
-		'ja_system'      => '日本語システムデフォルト',
+		'ja_system'      => '日本語 ヒラギノ / メイリオ',
 );
 
 

@@ -3,10 +3,14 @@
  * ------------------------------------------------------------------------------------------------ */
 $(function() {
 
-	var $mode           = Number($('#mode').val());
-	var $established_db = Number($('#established_db').val());
-	var $shift_db       = Number($('#shift_db_hidden').val());
-
+	var $mode             = Number($('#mode').val());
+	var $established_db   = Number($('#established_db').val());
+	var $shift_db         = Number($('#shift_db_hidden').val());
+	var $requested_from   = ($.cookie('requested_from')) ? $.cookie('requested_from') : '';
+	var $onetime_password = ($.cookie('onetime_password')) ? $.cookie('onetime_password') : '';
+	var $host_activation  = ($.cookie('host_activation')) ? decodeURIComponent($.cookie('host_activation')) : '';
+	var $lang             = ($.cookie('lang')) ? $.cookie('lang') : '';
+	
 	// modal action
 	$('#myModal').modal({
 		show: true,
@@ -97,7 +101,96 @@ $(function() {
 	{
 		runValidOne($(this));
 	});
-
+ 
+	showDownloadPasswordButton();
+	
+	
+	
+	// get activation key
+	$('#getActivationKey').on('click', function()
+	{
+    $('.modal-body .alert').remove();
+    var $email = $('#request_email').val();
+		
+    if (false === validOne($email, 'email'))
+		{
+      $('.modal-body').prepend('<div class="alert alert-danger">' + TXT_RESETSYSTEM_ALT_INVALID_EMAIL + '</div>');
+		}
+		else {
+      $('.modal-body').prepend('<div class="alert alert-info"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i> ' + TXT_RESETSYSTEM_MSG_ONISSUE_ACTIVATIONKEY + '</div>');
+      setTimeout(function ()
+      {
+        if (! $requested_from || ! $onetime_password || ! $host_activation || ! $lang)
+        {
+          $.ajax({
+            url: 'ajax/make_local_env.php',
+            type: 'post',
+            dataType: 'json',
+            async: false,
+          }).done(function ($responce)
+          {
+            if ($responce['result'] == '1')
+            {
+              $requested_from   = $responce.requested_from;
+              $onetime_password = $responce.onetime_password;
+              $host_activation  = $responce.host_activation;
+              $lang             = $responce.lang;
+              $.cookie('requested_from', $responce.requested_from);
+              $.cookie('onetime_password', $responce.onetime_password);
+              $.cookie('host_activation', encodeURIComponent($responce.host_activation));
+              $.cookie('lang', $responce.lang);
+            }
+          });
+        }
+        if ($email)
+        {
+          $.ajax({
+            url: $host_activation + '/ajax/make_license.php',
+            type: 'post',
+            data: {
+              requested_from : $requested_from,
+              onetime_password : $onetime_password,
+              email : $email,
+              lang : $lang,
+            },
+            dataType: 'json',
+            async: false,
+          })
+          .done(function ($responce)
+          {
+            if ($responce['result'] == '1')
+            {
+              $('.modal-body .alert').remove();
+              $('#getActivationKey').remove();
+              $('#request_email').prop('disabled', true);
+              $('#account').val($email).change();
+              $('.modal-body').prepend('<div class="alert alert-success">' + TXT_RESETSYSTEM_MSG_ISSUED_ACTIVATIONKEY + '</div>');
+            }
+            if ($responce['result'] == '6')
+            {
+              $('.modal-body .alert').remove();
+              $('.modal-body').prepend('<div class="alert alert-danger">' + TXT_RESETSYSTEM_ALT_INVALID_EMAIL + '</div>');
+            }
+          });
+        }
+      }, 100);
+		}
+	});
+	
+	
+	$('#password').change(function()
+	{
+		showDownloadPasswordButton();
+	});
+	
+	
+  // make password automatically
+  $('#makePassword').on('click', function()
+  {
+    var $password = makePassword();
+    $('#password').val($password).change();
+  });
+	
 	// make prefix automatically
 	$('#makePrefix').on('click', function()
 	{
@@ -141,14 +234,29 @@ function runValidOne($target)
 	}
 }
 
-function makePrefix()
+
+
+function showDownloadPasswordButton ()
 {
-	var $length = 4;
-	var $char = "abcdefghijklmnopqrstuvwxyz";
-	var $char_length = $char.length;
-	var $string = "";
-	for(var i = 0; i < $length; i ++){
-		$string += $char[Math.floor(Math.random() * $char_length)];
-	}
-	return $string + '_';
+  if (validOne($('#account').val(), 'account') && validOne($('#password').val(), 'password'))
+  {
+    $.ajax({
+      url: 'ajax/make_auth_file.php',
+      type: 'post',
+      data: {
+        account : $('#account').val(),
+        password : $('#password').val()
+      },
+      dataType: 'json',
+    }).done(function ($responce)
+    {
+      if ($responce['result'] == '1')
+      {
+        if (! $('#download_password').length)
+        {
+          $('.modal-footer').prepend('<a href="ajax/download_account_password.php" class="btn btn-info" id="download_password">' + TXT_RESETSYSTEM_LNK_DOWNLOAD_PASSWORD + '</a>');
+        }
+      }
+    });
+  }
 }

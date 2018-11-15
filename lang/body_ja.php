@@ -73,10 +73,14 @@ define('TXT_RESETSYSTEM_TITLE',                   '管理画面 | 初期設定')
 define('TXT_RESETSYSTEM_LNK_BACKCONFIG',          '戻る');
 define('TXT_RESETSYSTEM_LNK_BACKLOGIN',           'キャンセル');
 define('TXT_RESETSYSTEM_LBL_HINT_ERR10',          '設定中のデータベースに接続できない理由は何ですか？');
+define('TXT_RESETSYSTEM_LBL_GETACTIVATIONKEY',    'アクティベーションキーを取得');
+define('TXT_RESETSYSTEM_PLH_VALIDEMAIL',          '受信可能なメールアドレスを入力してください');
+define('TXT_RESETSYSTEM_BTN_GETACTIVATIONKEY',    '取得');
 define('TXT_RESETSYSTEM_LBL_REQUIRED',            '必須');
 define('TXT_RESETSYSTEM_LBL_ACTIVATIONKEY',       'アクティベーションキー');
-define('TXT_RESETSYSTEM_PLH_ACTIVATIONKEY',       'アクティベーションキー（メールに記載）');
+define('TXT_RESETSYSTEM_PLH_ACTIVATIONKEY',       'アクティベーションキー（メールを確認してください）');
 define('TXT_RESETSYSTEM_ALT_ACTIVATIONKEY',       'メールに記載されたアクティベーションキーを入力してください。');
+define('TXT_RESETSYSTEM_ALT_INVALIDEMAIL',        '受信可能な正しいメールアドレスを入力してください。');
 define('TXT_RESETSYSTEM_LBL_EMAIL',               'メールアドレス');
 define('TXT_RESETSYSTEM_PLH_EMAIL',               'メールアドレス');
 define('TXT_RESETSYSTEM_WAR_REUSE_ACTIVATIONKEY', 'このアクティベーションキーを再利用する場合はダウンロードの際に使用したメールアドレスを入力してください。アクティベーションキーを再利用した場合、同じアクティベーションキーでインストールした以前のシステムは使用できなくなります。');
@@ -90,7 +94,8 @@ define('TXT_RESETSYSTEM_LBL_NICKNAME',            'ニックネーム');
 define('TXT_RESETSYSTEM_PLH_NICKNAME',            'ログイン表示名（後から変更できます）');
 define('TXT_RESETSYSTEM_LBL_PASSWORD',            'パスワード');
 define('TXT_RESETSYSTEM_PLH_PASSWORD',            'ログインパスワード（後から変更できます）');
-define('TXT_RESETSYSTEM_ALT_PASSWORD',            '[ 半角英数字_!@#$%&+? ]６文字以上32文字以内で入力してください。');
+define('TXT_RESETSYSTEM_BTN_AUTOGENERATEPASSWORD','自動生成');
+define('TXT_RESETSYSTEM_ALT_PASSWORD',            '使用できるのは半角英数字と記号（/*-+.,!?#$%()~|_）です。７文字以上32文字以内で入力してください。');
 define('TXT_RESETSYSTEM_LBL_TIMEZONE',            'タイムゾーン');
 define('TXT_RESETSYSTEM_PLH_DATABASE',            'データベース');
 define('TXT_RESETSYSTEM_LBL_CHANGEDB',            'データベースを移行する');
@@ -133,7 +138,7 @@ define('TXT_LOGIN_VAL_SUBMIT',         'ログイン');
 /*
  * index
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_INDEX_WAR_PASSWORD_01',         'パスワードが初期設定のままです。メニュー「ユーザ」「パスワード変更」で変更してください。');
+define('TXT_INDEX_WAR_PASSWORD_01',         'パスワードが初期設定のままです。<a href="?view_page=change_password">こちら</a>から変更してください');
 define('TXT_INDEX_WAR_PASSWORD_02',         '３ヶ月以上パスワードが変更されていません。メニュー「ユーザ」「パスワード変更」で変更してください。');
 define('TXT_INDEX_LBL_SUMMARY',             'サマリー');
 define('TXT_INDEX_LBL_POST',                'ポスト');
@@ -619,6 +624,7 @@ define('TXT_CHANGEPASSWORD_LBL_NEW',         '新しいパスワード');
 define('TXT_CHANGEPASSWORD_PLH_NEW',         '新しいパスワードを入力してください');
 define('TXT_CHANGEPASSWORD_LBL_CONFIRM',     '新しいパスワード（再入力）');
 define('TXT_CHANGEPASSWORD_PLH_CONFIRM',     '新しいパスワードを入力してください（再入力）');
+define('TXT_CHANGEPASSWORD_LBL_AUTOGENERATE','新しいパスワードを自動生成');
 define('TXT_CHANGEPASSWORD_LBL_NICKNAME',    'ニックネームの変更（オプション）');
 define('TXT_CHANGEPASSWORD_PLH_NICKNAME',    'ニックネームを入力してください');
 define('TXT_CHANGEPASSWORD_BTN_SUBMIT',      '変更');
@@ -1171,6 +1177,7 @@ function TXT_CUSTOMVALUE_LBL_NOWEDIT($target) { return $text = "{$target} を編
 /*
  * code
  * ------------------------------------------------------------------------------------------------ */
+define('TXT_CODE_LNK_CHANGE_LANGUAGE',             '実装コード表示の設定を変更する');
 define('TXT_CODE_COM_IMPLEMENT_LOCALPHP',          'ローカルAPI に接続（POSTEASE 設置パス [your-postease-path] は書き換えてください）');
 define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP01',       'リモートAPI に接続');
 define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP02',       'GitHub ページより "PecRpc" を入手して任意の場所 [your-path] に設置（パスは書き換えて下さい）');

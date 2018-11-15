@@ -1,4 +1,6 @@
+*:not(i) {
+	font-family: sans-serif !important;
+}
 * {
-	font-family: sans-serif;
 	color: #555;
 }

@@ -1,4 +1,6 @@
+*:not(i) {
+	font-family: 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, arial, sans-serif !important;
+}
 * {
-	font-family: 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, arial, sans-serif;
 	color: #555;
 }

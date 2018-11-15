@@ -93,12 +93,15 @@ $(function()
 	});
 
 	// manu action 3
-	$(document).click(function(event) {
-	    if (!$.contains($("#main_menu")[0], event.target)) {
-	    	$('li.list-group-item').not('.opened').removeClass('back-gray');
-	    	$('div.list-group:not(.opened div.list-group)').addClass('hidden');
-	    }
-	});
+	if (! location.href.match(/reset_system/))
+	{
+    $(document).click(function(event) {
+      if (!$.contains($("#main_menu")[0], event.target)) {
+        $('li.list-group-item').not('.opened').removeClass('back-gray');
+        $('div.list-group:not(.opened div.list-group)').addClass('hidden');
+      }
+    });
+	}
 
 
 	/*
@@ -181,9 +184,10 @@ function validOne($string, $type)
 {
 	var $regex =
 	{
-			account   : /^([a-z]{1}[a-z0-9_]{2,31})$/,
+			email     : /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/,
+			account   : /^([a-z0-9_.-@]{2,32})$/,
 			slug      : /^([a-z]{1}[a-z0-9_]{0,31})$/,
-			password  : /^[a-zA-Z0-9_!@#$%&+?]{6,32}$/,
+			password  : /^[a-zA-Z0-9\/\*\-\+\.\,\!\?\#\$\%\(\)\~\|\_]{7,32}$/,
 			prefix    : /^[a-z]{2,8}[_]$/,
 			activation_key    : /^[A-Z]{4}[-][0-9]{4}[-][0-9]{4}[-][0-9]{4}[-][A-Z]{4}$/,
 			imagesize : /^[0-9]{1,4}$/,
