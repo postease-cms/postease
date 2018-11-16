@@ -28,7 +28,7 @@ $(function()
 	 * ------------------------------------------------------------------------------------------------ */
 	// Slow Show All Contents
 	
-	var $loading_buffer = (getParam('view_page') == 'media') ? 1200 : 0;
+	var $loading_buffer = (getParam('view_page') == 'media') ? 10 : 0;
 	setTimeout(function(){
 		$('.content-loader').hide();
 		$('.slow-show, .slow-show-sub').animate({opacity: 1}, 150);
@@ -129,22 +129,6 @@ $(function()
 	{
 		runValidOneCommon($(this), $('#do_update'));
 	});
-  
-  
-  /*
-   * Reload Images
-   * ------------------------------------------------------------------------------------------------ */
-  if (getParam('view_page') == 'media')
-	{
-		console.log('reload images');
-    $('#edit_file').hide();
-    setTimeout(function () {
-      $('#edit_file')[0].contentDocument.location.reload(true);
-    }, 1200);
-    setTimeout(function () {
-      $("#edit_file").fadeIn(150);
-    }, 1350);
-	}
 	
 });
 

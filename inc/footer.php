@@ -4,7 +4,7 @@
 <script src="js/common.js?v=<?=$_SESSION[$session_key]['configs']['postease_version']?>"></script>
 <?php $js_exclusive = './js/_'. $view_page . '.js'?>
 <?php if (file_exists($js_exclusive)):?>
-<script src="<?=$js_exclusive?>"></script>
+<script src="<?=$js_exclusive?>?v=<?=$_SESSION[$session_key]['configs']['postease_version']?>"></script>
 <?php endif?>
 <?php if (file_exists('./custom/custom.js')):?>
 <script src="./custom/custom.js"></script>

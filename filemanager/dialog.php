@@ -877,7 +877,7 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 				    <?php if($is_icon_thumb){ ?><div class="filetype"><?php echo $extension_lower ?></div><?php } ?>
 				    <div class="img-container">
 					    <span></span>
-					    <img class="<?php echo $show_original ? "original" : "" ?><?php echo $is_icon_thumb ? " icon" : "" ?><?php echo $lazy_loading_enabled ? " lazy-loaded" : ""?>" <?php echo $lazy_loading_enabled ? "data-original" : "src"?>="<?php echo $src_thumb; ?>">
+					    <img class="<?php echo $show_original ? "original" : "" ?><?php echo $is_icon_thumb ? " icon" : "" ?><?php echo $lazy_loading_enabled ? " lazy-loaded" : ""?>" <?php echo $lazy_loading_enabled ? "src" : "src"?>="<?php echo $src_thumb; ?>?v=<?php echo time()?>">
 				    </div>
 				</div>
 				<div class="img-precontainer-mini <?php if($is_img) echo 'original-thumb' ?>">
@@ -885,7 +885,7 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 				    <div class="img-container-mini">
 					<span></span>
 					<?php if($mini_src!=""){ ?>
-					<img class="<?php echo $show_original_mini ? "original" : "" ?><?php echo $is_icon_thumb_mini ? " icon" : "" ?><?php echo $lazy_loading_enabled ? " lazy-loaded" : ""?>" <?php echo $lazy_loading_enabled ? "data-original" : "src"?>="<?php echo $mini_src; ?>">
+					<img class="<?php echo $show_original_mini ? "original" : "" ?><?php echo $is_icon_thumb_mini ? " icon" : "" ?><?php echo $lazy_loading_enabled ? " lazy-loaded" : ""?>" <?php echo $lazy_loading_enabled ? "src" : "src"?>="<?php echo $mini_src; ?>?v=<?php echo time()?>">
 					<?php } ?>
 				    </div>
 				</div>
@@ -1001,6 +1001,11 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 </body>
 <script>
 jQuery(function(){
+	
+	setTimeout(function(){
+		$('#main-item-container').animate({opacity: 1}, 150);
+	}, 100)
+	
 	jQuery('img.lazy-loaded').click(function(){
 		setTimeout(function(){
 			if ( typeof parent.jQuery !== "undefined" && parent.jQuery) {
