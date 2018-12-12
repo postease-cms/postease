@@ -26,10 +26,14 @@ var TXT_UPDATE_MSG_94           = 'アップデート中にエラーが発生し
 var TXT_UPDATE_MSG_95           = 'アップデート中にエラーが発生しました。アップデート処理をキャンセルします。(ERROR_CODE:95)';
 var TXT_UPDATE_MSG_96           = 'アップデート中にエラーが発生しました。アップデート処理をキャンセルします。(ERROR_CODE:96)';
 var TXT_INDEX_LNK_EXECUTEUPDATE = '今すぐアップデートする';
-var TXT_INDEX_LNK_REFUSEUPDATE  = '今後メジャーアップデートを通知しない';
-var TXT_INDEX_CNF_CONFIRMUPDATE = 'アップデートしてもよろしいですか？（下のリンクからアップデート内容を確認することができきます）';
+var TXT_INDEX_LNK_REFUSEUPDATE  = 'メジャーアップデートを通知しない';
+var TXT_INDEX_CNF_CONFIRMUPDATE = 'アップデートしてもよろしいですか？';
 var TXT_INDEX_LBL_VERSION       = 'バージョン';
-function TXT_UPDATE_INDEX_NOTICEUPDATE($update_level)        { var $text = '新しい' + TXT_UPDATE_CLASSIFICATION[$update_level] + 'があります。'; return $text;}
+function TXT_UPDATE_INDEX_NOTICEUPDATE($update_level)        {
+	var $text = '新しい' + TXT_UPDATE_CLASSIFICATION[$update_level] + 'があります。';
+	if ($update_level == 3) $text = $text + 'このアップデートには数分〜数十分かかる可能性があります。';
+	return $text;
+}
 function TXT_UPDATE_MSG_03($update_level, $target_version)   { var $text = TXT_UPDATE_CLASSIFICATION[$update_level] + 'が完了しました。新しいバージョン' + $target_version + 'が適用されました。'; return $text;}
 
 
@@ -51,6 +55,12 @@ var TXT_POST_MSG_SYNTAX         = '「Shift」 + 「Enter」 で更新反映';
 var TXT_POST_LBL_NEWPAGE        = '新しいページ';
 var TXT_POST_MSG_SAVE           = '保存';
 var TXT_POST_CFM_DELETE         = 'このバージョンを削除しますか？（削除したバージョンは元に戻せません。）';
+var TXT_POST_STATUS_DRAFTED     = '下書き';
+var TXT_POST_STATUS_PUBLISHED   = '公開中';
+var TXT_POST_STATUS_SCHEDULED   = '公開予定';
+var TXT_POST_STATUS_ENDED       = '公開終了';
+var TXT_POST_STATUS_CANCELED    = '非公開';
+var TXT_POST_PREVIEW            = 'プレビュー';
 
 
 /*
@@ -101,6 +111,12 @@ var TXT_CONFICORE_CFM_UPDATE = 'コア設定の更新を許可してもよろし
  * _config_option
  * ------------------------------------------------------------------------------------------------ */
 var TXT_CONFIGOPTION_CFM_USEPOSTTYPE = 'この機能を有効にするにはマルチポストタイプを有効にする必要があります。';
+
+
+/*
+ * _config_posttype
+ * ------------------------------------------------------------------------------------------------ */
+var TXT_CONFIGPOSTTYPE_WAR_LACKOFITEM = 'パーマリンクに必要な項目がまだ入力されていません。';
 
 
 /*

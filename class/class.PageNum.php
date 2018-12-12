@@ -7,6 +7,8 @@ class PageNum
 {
 	// Set Value
 	private $this_posttype_order    = 0;
+	private $use_category_flg       = 0;
+	private $use_tag_flg            = 0;
 	private $use_contact_flg        = 0;
 	private $use_multisite_flg      = 0;
 	private $use_posttype_flg       = 0;
@@ -40,7 +42,9 @@ class PageNum
 		if (isset($_SESSION[$session_key]['configs']['editable_role_category_post']))    $this -> editable_role_category_post     = $_SESSION[$session_key]['configs']['editable_role_category_post'];
 		if (isset($_SESSION[$session_key]['configs']['editable_role_tag_post']))         $this -> editable_role_tag_post          = $_SESSION[$session_key]['configs']['editable_role_tag_post'];
 		if (isset($_SESSION[$session_key]['configs']['editable_role_category_contact'])) $this -> editable_role_category_contact  = $_SESSION[$session_key]['configs']['editable_role_category_contact'];
-
+		if (isset($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_category_flg'])) $this->use_category_flg = 1;
+		if (isset($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_tag_flg'])) $this->use_tag_flg = 1;
+		
 		if (isset($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_customitem_flg']))
 		{
 			$this -> use_customitem_flg = $_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_customitem_flg'];
@@ -146,15 +150,15 @@ class PageNum
 				$this -> page_sub_post = 4;
 
 				// Adjust position
-				if ($this -> user_role > $this -> editable_role_category_post) $this -> page_sub_post -= 1;
+				if ($this -> user_role > $this -> editable_role_category_post || 0 == $this->use_category_flg) $this -> page_sub_post -= 1;
 			}
 			if ($page_name == 'custom_item')
 			{
 				$this -> page_sub_post = 5;
 
 				// Adjust position
-				if ($this -> user_role > $this -> editable_role_category_post) $this -> page_sub_post -= 1;
-				if ($this -> user_role > $this -> editable_role_tag_post)      $this -> page_sub_post -= 1;
+				if ($this -> user_role > $this -> editable_role_category_post || 0 == $this->use_category_flg) $this -> page_sub_post -= 1;
+				if ($this -> user_role > $this -> editable_role_tag_post || 0 == $this->use_tag_flg)           $this -> page_sub_post -= 1;
 			}
 			if ($page_name == 'config_posttype')
 			{
@@ -162,8 +166,8 @@ class PageNum
 
 				// Adjust position
 				if ($this -> user_role > 2 || ($this -> user_role <= 2 && ! $this -> use_customitem_flg)) $this -> page_sub_post -= 1; // custom_item
-				if ($this -> user_role > $this -> editable_role_category_post) $this -> page_sub_post -= 1; // category
-				if ($this -> user_role > $this -> editable_role_tag_post)      $this -> page_sub_post -= 1; // tag
+				if ($this -> user_role > $this -> editable_role_category_post || 0 == $this->use_category_flg) $this -> page_sub_post -= 1; // category
+				if ($this -> user_role > $this -> editable_role_tag_post || 0 == $this->use_tag_flg)           $this -> page_sub_post -= 1; // tag
 			}
 			if ($page_name == 'comment')
 			{
@@ -171,8 +175,8 @@ class PageNum
 
 				// Adjust position
 				if ($this -> user_role > 2 || ($this -> user_role <= 2 && ! $this -> use_customitem_flg)) $this -> page_sub_post -= 1; // custom_item
-				if ($this -> user_role > $this -> editable_role_category_post)   $this -> page_sub_post -= 1; // category
-				if ($this -> user_role > $this -> editable_role_tag_post)        $this -> page_sub_post -= 1; // tag
+				if ($this -> user_role > $this -> editable_role_category_post || 0 == $this->use_category_flg)   $this -> page_sub_post -= 1; // category
+				if ($this -> user_role > $this -> editable_role_tag_post || 0 == $this->use_tag_flg)             $this -> page_sub_post -= 1; // tag
 				if ($this -> user_role > 2) $this -> page_sub_post -= 1; // config_posttype
 			}
 		}

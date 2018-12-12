@@ -1,4 +1,3 @@
-
 <!-- OUTER WRAP -->
 <main id="content" class="col-md-10">
 	
@@ -79,6 +78,7 @@
 						</div>
 						
 						<!-- display_errors -->
+						<?php if ($_SESSION[$session_key]['license']['classification'] > 2):?>
 						<div class="form-group">
 							<label class="control-label col-md-4" for="display_errors"><?=TXT_CONFIGCORE_LBL_DISPLAYERRORS?>
 								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGCORE_LBL_DISPLAYERRORS?>" data-content="<?=$popover['display_errors']?>">[?]</a>
@@ -92,6 +92,7 @@
 							</div>
 							<div class="col-md-4"></div>
 						</div>
+						<?php endif?>
 						
 						<!-- default_password -->
 						<div class="form-group">
