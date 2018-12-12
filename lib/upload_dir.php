@@ -12,7 +12,8 @@ $upload_dirs = array
 				8  => '/../upload/fr_main/2x',
 				9  => '/../upload/fr_admin/eyecatch',
 				10 => '/../upload/fr_admin/one',
-				11 => '/../upload/fr_admin/gallery',
-					12  => '/../upload/fr_admin/eyecatch/1x',
-					13  => '/../upload/fr_admin/eyecatch/2x',
+				11 => '/../upload/fr_admin/list',
+				12 => '/../upload/fr_admin/gallery',
+					13  => '/../upload/fr_admin/eyecatch/1x',
+					14  => '/../upload/fr_admin/eyecatch/2x',
 );

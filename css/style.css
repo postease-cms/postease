@@ -461,28 +461,49 @@ input:-webkit-autofill
 .changeMultilingual-label {
 	margin-right: .5em;
 }
-#post_list {
+.postList {
 	table-layout: fixed;
 	border: 1px solid #ddd;
 }
-#post_list th:nth-child(1) {
-	width: 35%;
+.postList th:nth-child(1) {
+	padding-left: 2.2em;
 }
-#post_list th:nth-child(2) {
-	width: 27%;
+.postList .column4 th:nth-child(1) {
+	width: 34%;
+}
+.postList .column4 th:nth-child(2) {
+	width: 25%;
 	overflow: hidden;
 }
-#post_list th:nth-child(3) {
-	width: 22%;
-}
-#post_list th:nth-child(4) {
+.postList .column4 th:nth-child(3) {
 	width: 16%;
 }
-#post_list td {
+.postList .column4 th:nth-child(4) {
+	width: 25%;
+}
+.postList .column3 th:nth-child(1) {
+	width: 55%;
+}
+.postList .column3 th:nth-child(2) {
+	width: 20%;
+}
+.postList .column3 th:nth-child(3) {
+	width: 25%;
+}
+.postList td {
 	height: 3em;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+}
+.postList.withEyecatch td {
+	height: 6em;;
+}
+.postPanelEyecatch {
+	width: 4.6em;
+	height: 4.6em;
+	margin: 0 .5em;
+	border: 1px solid #eee;
 }
 
 .batchCheck {
@@ -501,6 +522,9 @@ input:-webkit-autofill
 .operationBody {
 	display: inline-block;
 	width: calc(100% - 240px);
+}
+#operation {
+	padding: 0;
 }
 #operation > .panel-heading {
 	cursor: pointer;
@@ -695,7 +719,13 @@ figure > figcaption {
 	width: 49%;
 	text-align: right;
 }
-#permalink {
+#permalink_display {
+	margin: 15px 0 15px 5px;
+}
+#permalink_display label {
+	font-size: 1em;
+}
+#preview_link {
 	margin: 1em .5em;
 }
 #post_pager {
@@ -797,6 +827,9 @@ textarea.content {
 }
 #delete_post {
 	display: none;
+}
+.statusText, .previewLink {
+	font-size: 1em;
 }
 .catChild {
 	margin: 0 0 10px 20px;
@@ -1060,19 +1093,19 @@ textarea.content {
  image_frames.php
 ------------------ */
 #image_frames td:nth-child(1){
-	width: 15%;
+	width: 14%;
 }
 #image_frames td:nth-child(2){
-	width: 10%;
+	width: 16%;
 }
 #image_frames td:nth-child(3){
-	width: 14%;
+	width: 13%;
 }
 #image_frames td:nth-child(4){
-	width: 14%;
+	width: 13%;
 }
 #image_frames td:nth-child(5){
-	width: 36%;
+	width: 33%;
 }
 #image_frames td:nth-child(6){
 	width: 8%;
@@ -1355,6 +1388,25 @@ textarea.content {
 }
 
 
+/* POSTTYPE *
+------------
+ for all
+------------ */
+.rightTextWithInput {
+	padding-top: 8px;
+	margin-left: -20px;
+}
+.textWithInput {
+	padding-top: 8px;
+	margin: 0 10px;
+}
+#rewrite_rule_code {
+	letter-spacing: .1em;
+	font-size: .9em;
+	color: #ddd;
+}
+
+
 
 
 /***********************
@@ -1580,4 +1632,14 @@ label, .alert, .control-label, .help-block, .checkbox, .radio {
 .popover > .arrow:after {
 	border-color: #fff;
 }
-
+.radio-block {
+	position: relative;
+	display: block;
+	margin-top: 9px;
+	vertical-align: middle;
+	font-weight: normal;
+	cursor: pointer;
+}
+.radio-block input {
+	margin-right: 4px;
+}

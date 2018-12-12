@@ -179,12 +179,6 @@
 			<?php endif?>
 		<?php endif?>
 		
-		<?php if ($_SESSION[$session_key]['user']['role'] <= 2):?>
-    <?php if ($_SESSION[$session_key]['configs']['display_implement_code']):?>
-    <?php require_once 'inc/_implement_code_common.php'?>
-    <?php endif?>
-		<?php endif?>
-		
 		<div class="col-md-12">
 			<!-- information -->
 			<h5><?=TXT_INDEX_MSG_LOGIN_DATETIME($_SESSION[$session_key]['user']['login_time'])?></h5>

@@ -114,7 +114,7 @@ $(function ()
 			delay(function() {
 				saveArticle();
 				$('#publish_post').removeClass('hidden');
-			}, 1000 );
+			}, 800 );
 		});
 		$('input, textarea, select').not('#publish_datetime, #post_allow_delete, #version_allow_delete').on('change', function()
 		{
@@ -138,7 +138,7 @@ $(function ()
 			})();
 			delay(function() {
 				$('#publish_post').removeClass('hidden');
-			}, 1000 );
+			}, 800 );
 		});
 		$('input, textarea, select').on('change', function()
 		{
@@ -204,17 +204,18 @@ $(function ()
 	});
 
 	// Datetimepicker On
-	$('#publish_datetime, .customDateTime').datetimepicker(
+	$('#publish_datetime, #publish_end_at, .customDateTime').datetimepicker(
 	{
 		format: 'yyyy-mm-dd hh:ii',
 		startView: 2,
 		maxView: 3,
 		minView: 0,
-		language: getCookie('lang'),
+		language: $('#main_menu').data('lang'),
 		autoclose: true,
 		minuteStep: 1,
 		todayHighlight: true,
 		todayBtn: true,
+		fontAwesome: true,
 	});
 	$('.customDate').datetimepicker(
 	{
@@ -222,10 +223,11 @@ $(function ()
 		startView: 2,
 		maxView: 3,
 		minView: 2,
-		language: getCookie('lang'),
+		language: $('#main_menu').data('lang'),
 		autoclose: true,
 		todayHighlight: true,
 		todayBtn: true,
+		fontAwesome: true,
 	});
   $('.customTime').datetimepicker(
     {
@@ -233,10 +235,11 @@ $(function ()
       startView: 1,
       maxView: 2,
       minView: 0,
-      language: getCookie('lang'),
+      language: $('#main_menu').data('lang'),
       autoclose: true,
       todayHighlight: true,
       todayBtn: true,
+	    fontAwesome: true,
 	});
 
 	// Valid datetime
@@ -415,6 +418,22 @@ $(function ()
 			if ($auto_save_flg) saveArticle();
 		}
 	});
+	
+	/*
+	 * Permalink
+	 * ------------------------------------------------------------------------------------------------ */
+	generatePermalink();
+	$('#slug, #publish_datetime, #title_1, input[name="categories[]"]').change(function ()
+	{
+		$.when(
+			generatePermalink()
+		).done(function ()
+		{
+			delay(function() {
+				saveArticle();
+			}, 1500 );
+		})
+	})
 
 });
 
@@ -450,11 +469,11 @@ function loadCustomImage()
 					},
 					dataType: 'json',
 					async: false,
-				}).done(function ($responce)
+				}).done(function ($response)
 				{
-					if ($responce['result'] == '1')
+					if ($response['result'] == '1')
 					{
-						$file_size = $responce['filesize'];
+						$file_size = $response['filesize'];
 						$this_object.prepend('<figure><img class="thumbnail" src="img/pdf_small.png"><figcaption>' + $file_name + ' (' + $file_size + 'KB)' + '</figcaption></figure>');
 					}
 				});
@@ -624,10 +643,13 @@ function saveArticle($designated_status)
 				$content[$(this).attr('data-num')] = $(this).val();
 			}
 		});
+		var $permalink_key    = $('#permalink_key').val();
+		var $permalink_uri    = $('#permalink_uri').val();
 		var $version          = $('#version').val();
 		var $versioned_at     = $('#versioned_at').val();
 		var $current_flg      = $('#current_flg').val();
 		var $publish_datetime = $('#publish_datetime').val();
+		var $publish_end_at   = $('#publish_end_at').val();
 		var $anchor           = $('#anchor').val();
 		var $target_id        = $('#target_id').val();
 		var $process          = $('#process').val();
@@ -669,10 +691,13 @@ function saveArticle($designated_status)
 			type : 'POST',
 			url  : './ajax/save_post.php',
 			data : {
+				permalink_key    : $permalink_key,
+				permalink_uri    : $permalink_uri,
 				version          : $version,
 				versioned_at     : $versioned_at,
 				current_flg      : $current_flg,
 				publish_datetime : $publish_datetime,
+				publish_end_at   : $publish_end_at,
 				anchor           : $anchor,
 				target_id        : $target_id,
 				site_id          : $site_id,
@@ -689,20 +714,46 @@ function saveArticle($designated_status)
 				items            : $items,
 			},
 			dataType : 'json',
+			async: false,
 			success  : function(data)
 			{
 				if (data.process == 'created')
 				{
-					$('#target_id').val(data.target_id);
-					$('#process').val(12);
-					$('#publish_post').removeClass('hidden');
-					$('h3.panel-title').append('<span class="label label-primary">ID ' + data.target_id + '</span>');
-
-					if ($use_multipage_flg == 1)
+					setTimeout(function ()
 					{
-						$('.panel-right').append('<a href="./?this_posttype=' + $this_posttype + '&amp;this_posttype_order=' + $this_posttype_order + '&amp;process=11&amp;parent_id=' + data.target_id + '&amp;version=1&amp;current_flg=1"><i class="fa fa-plus-square-o" aria-hidden="true"></i> ' + TXT_POST_LBL_NEWPAGE + '</a>');
-					}
+						$('#target_id').val(data.target_id);
+						$('#process').val(12);
+						$('#publish_post').removeClass('hidden');
+						$('h3.panel-title').append('<span class="label label-warning">ID ' + data.target_id + '</span>');
+						$('#permalink_display').data('id', data.target_id);
+						$('#permalink_display').data('hash_id', data.hash_id);
+						$('#status_text').removeClass('label-default').addClass('label-warning').text(TXT_POST_STATUS_DRAFTED);
+						if ($('#preview_link').data('preview_base'))
+						{
+							var $preview_base = $('#preview_link').data('preview_base');
+							$.ajax({
+								type: 'POST',
+								url: './ajax/generate_preview_link.php',
+								data: {
+									target_id: data.target_id,
+									version: $version,
+									preview_base: $preview_base,
+								},
+								dataType: 'json',
+								success: function ($data) {
+									if ($data.result == '1') {
+										$('#preview_link').html('<a target=preview_"' + data.target_id + '" href="' + $data.preview_link + '">' + TXT_POST_PREVIEW + '</a>')
+									}
+								}
+							});
+						}
+						if ($use_multipage_flg == 1)
+						{
+							$('.panel-right').append('<a href="./?this_posttype=' + $this_posttype + '&amp;this_posttype_order=' + $this_posttype_order + '&amp;process=11&amp;parent_id=' + data.target_id + '&amp;version=1&amp;current_flg=1"><i class="fa fa-plus-square-o" aria-hidden="true"></i> ' + TXT_POST_LBL_NEWPAGE + '</a>');
+						}
+					}, 100);
 				}
+				
 				setTimeout(function()
 				{
 					//$('#save_message:not(:animated)').animate({opacity: 0}, 600);
@@ -751,6 +802,121 @@ function createNewVersionPost($target_id, $version)
 	});
 }
 
+
+/**
+ * Generate Permalink
+ */
+function generatePermalink ()
+{
+	var $language_id      = $('#permalink_display').data('language_id');
+	var $permalink_type   = $('#permalink_display').data('permalink_type');
+	var $permalink_style  = $('#permalink_display').data('permalink_style');
+	var $permalink_base   = $('#permalink_display').data('permalink_base');
+	var $id               = $('#permalink_display').data('id');
+	var $hash_id          = $('#permalink_display').data('hash_id');
+	var $slug             = ($('#slug').val()) ? $('#slug').val() : $('#title_' + $language_id).val();
+	var $publish_datetime = String($('#publish_datetime').val());
+	var $category_slug    = $("input[name='categories[]']:checked").data('slug');
+	
+	var $consolidation_first  = ($permalink_type == 2) ? '/' : '?post_key=';
+	var $consolidation_common = ($permalink_type == 2) ? '/' : '-';
+	
+	var $permalink_key = '';
+	var $permalink_uri = '';
+	var $permalink_url = '';
+	
+	switch ($permalink_style)
+	{
+		case 1:
+			if (! $hash_id)
+			{
+				$permalink_url = TXT_CONFIGPOSTTYPE_WAR_LACKOFITEM;
+				break;
+			}
+			$permalink_key = $hash_id;
+			$permalink_url = $permalink_base + $consolidation_first + $hash_id;
+			break;
+		case 2:
+			if ($hash_id) $permalink_key = $hash_id;
+			if (! $hash_id || ! $category_slug)
+			{
+				$permalink_url = TXT_CONFIGPOSTTYPE_WAR_LACKOFITEM;
+				break;
+			}
+			$permalink_url = ($permalink_type == 2)
+				? $permalink_base + $consolidation_first + $category_slug + $consolidation_common + $hash_id
+				: $permalink_base + $consolidation_first + $hash_id;
+			break;
+		case 3:
+			if (! id)
+			{
+				$permalink_url = TXT_CONFIGPOSTTYPE_WAR_LACKOFITEM;
+				break;
+			}
+			$permalink_key = $id;
+			$permalink_url = $permalink_base + $consolidation_first + $id;
+			break;
+		case 4:
+			if ($id) $permalink_key = $id;
+			if (! $id || ! $category_slug)
+			{
+				$permalink_url = TXT_CONFIGPOSTTYPE_WAR_LACKOFITEM;
+				break;
+			}
+			$permalink_url = ($permalink_type == 2)
+				? $permalink_base + $consolidation_first + $category_slug + $consolidation_common + $id
+				: $permalink_base + $consolidation_first + $id;
+			break;
+		case 5:
+			if (! $slug)
+			{
+				$permalink_url = TXT_CONFIGPOSTTYPE_WAR_LACKOFITEM;
+				break;
+			}
+			$permalink_key = $slug;
+			$permalink_url = $permalink_base + $consolidation_first + $slug;
+			break;
+		case 6:
+			if (! $category_slug || ! $slug)
+			{
+				$permalink_url = TXT_CONFIGPOSTTYPE_WAR_LACKOFITEM;
+				break;
+			}
+			$permalink_key = $category_slug + '-' + $slug;
+			$permalink_url = $permalink_base + $consolidation_first + $category_slug + $consolidation_common + $slug;
+			break;
+		case 7:
+			if (! $publish_datetime || ! $slug)
+			{
+				$permalink_url = TXT_CONFIGPOSTTYPE_WAR_LACKOFITEM;
+				break;
+			}
+			$permalink_key = $publish_datetime.substr(0, 10) + '-' + $slug;
+			$permalink_date = $publish_datetime.replace(/-/g, '/').substr(0, 10);
+			$permalink_url = $permalink_base + $consolidation_first + $permalink_date + $consolidation_common + $slug;
+			break;
+		case 8:
+			if (! $publish_datetime || ! $slug)
+			{
+				$permalink_url = TXT_CONFIGPOSTTYPE_WAR_LACKOFITEM;
+				break;
+			}
+			$permalink_key = $publish_datetime.substr(0, 7) + '-' + $slug;
+			$permalink_date = $publish_datetime.replace(/-/g, '/').substr(0, 7);
+			$permalink_url = $permalink_base + $consolidation_first + $permalink_date + $consolidation_common + $slug;
+			break;
+	}
+	if ($permalink_url == TXT_CONFIGPOSTTYPE_WAR_LACKOFITEM)
+	{
+		$('#permalink_display label').text($permalink_url);
+		return false;
+	}
+	$permalink_uri = fetchUriFromUrl($permalink_url, true);
+	$('#permalink_display label').html('<a href="' + $permalink_url + '" target="permalink_style_' + $permalink_style + '">'+ $permalink_url + '</a>');
+	$('#permalink_key').val($permalink_key);
+	$('#permalink_uri').val($permalink_uri);
+	return true;
+}
 
 /**
  * Change Current Version

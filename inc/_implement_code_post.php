@@ -2,13 +2,13 @@
 $remote_url = $_SESSION[$session_key]['configs']['domain'];
 if ($_SESSION[$session_key]['configs']['dir_name']) $remote_url .= '/' . $_SESSION[$session_key]['configs']['dir_name'];
 $delimiter = ($_SESSION[$session_key]['configs']['implement_code'] == 3) ? ':' : '=>';
-$target = ($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_slug_flg']) ? "'" . $slug . "'" : $id;
 
 $comment_local_php     = TXT_CODE_COM_IMPLEMENT_LOCALPHP;
+$comment_get_post_key  = TXT_CODE_COM_IMPLEMENT_GETPOSTKEY;
 $comment_remote_php_01 = TXT_CODE_COM_IMPLEMENT_REMOTEPHP01;
 $comment_remote_php_02 = TXT_CODE_COM_IMPLEMENT_REMOTEPHP02;
 $comment_jquery        = TXT_CODE_COM_IMPLEMENT_JQUERY;
-$comment_get_post      = ($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_slug_flg']) ? TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYSLUG : TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYID;
+$comment_get_post      = TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYPOSTKEY;
 
 $html_title = $_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['name'];
 $html_class = $_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['slug'];
@@ -49,16 +49,22 @@ $html_code_jquery = htmlspecialchars("
 
 ?>
 <div id="code" class="col-md-12">
-<h4><?=TXT_POST_LBL_IMPLEMENT_CODE?> <?=$implement_code_list[$_SESSION[$session_key]['configs']['implement_code']]?></h4>
+<h4>
+	<?=TXT_POST_LBL_IMPLEMENT_CODE?> <?=$implement_code_list[$_SESSION[$session_key]['configs']['implement_code']]?>
+	<small>（<a href="?view_page=config_general&target=implement_code"><?=TXT_CODE_LNK_CHANGE_LANGUAGE?></a>）</small>
+</h4>
 <?php if ($_SESSION[$session_key]['configs']['implement_code'] == 1):?>
 
 <pre><code class="language-php"><?php echo "&lt;?php
 
 // {$comment_local_php}
-require_once '[your-postease-path]/api/local.php';
+require_once '[your-postease-path]/api/v2/local.php';
+
+// {$comment_get_post_key}
+\$post_key = \$_GET['post_key'];
 
 // {$comment_get_post}
-\$post = get_post ($target);
+\$post = get_post (\$post_key);
 
 ?&gt;
 ";
@@ -76,10 +82,13 @@ require_once '[your-path]/PecRpc/Pec.php';
 
 // {$comment_remote_php_01}
 \$pe = new Pec ();
-\$pe -> connect ('{$remote_url}/api/remote.php');
+\$pe -> connect ('{$remote_url}/api/v2/remote.php');
+
+// {$comment_get_post_key}
+\$post_key = \$_GET['post_key'];
 
 // {$comment_get_post}
-\$post = \$pe->get_post ($target);
+\$post = \$pe->get_post (\$post_key);
 
 ?&gt;
 ";
@@ -91,15 +100,18 @@ require_once '[your-path]/PecRpc/Pec.php';
 
 <pre><code class="language-html"><?php echo $html_code_jquery?></code></pre>
 <pre><code class="language-javascript"><?php echo htmlspecialchars("
+<script src=\"{$remote_url}/api/v2/lib/util.js\"></script>
 <script>
 $(function()
 {
+	var post_key = getPostKey();
+	
   $.ajax(
   {
-    url : '{$remote_url}/api/json.php?get_post',
+    url : '{$remote_url}/api/v2/json.php?get_post',
     type : 'POST',
     data : {
-      target: {$target}
+      post_key: post_key
     },
     dataType : 'json',
   })

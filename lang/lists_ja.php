@@ -157,6 +157,43 @@ $reset_system_submit = array
 
 
 /*
+ * TITLE
+ * ------------------------------------------------------------------------------------------------ */
+$view_page_type  = array
+(
+	'post'            => 1,
+	'posts'           => 1,
+	'category'        => 0,
+	'tag'             => 1,
+	'custom_item'     => 0,
+	'config_posttype' => 1,
+	'contact'         => 2,
+	'contacts'        => 2,
+	'config_contact'  => 2,
+	'media'           => 3,
+	'image_frame'     => 3,
+	'user'            => 4,
+	'group'           => 4,
+	'change_password' => 4,
+	'site'            => 5,
+	'posttype'        => 5,
+	'language'        => 5,
+	'config_general'  => 6,
+	'config_option'   => 6,
+	'config_core'     => 6,
+);
+$view_page_title = array
+(
+	1 => '',
+	2 => '',
+	3 => 'メディア',
+	4 => 'ユーザ',
+	5 => 'サイトオプション',
+	6 => '設定',
+);
+
+
+/*
  * COMMON
  * ------------------------------------------------------------------------------------------------ */
 $common_status_display = array
@@ -192,6 +229,12 @@ $common_flg_valid = array
 (
 		0 => '無効',
 		1 => '有効',
+);
+
+$common_flg_do = array
+(
+	0 => 'しない',
+	1 => 'する',
 );
 
 
@@ -250,10 +293,37 @@ $post_customitem_position_list = array
 );
 $permalink_style_list = array
 (
-		1 => 'IDパラメータ形式 ( ?xx=dd )',
-		2 => 'スラッグパラメータ形式 ( ?xx=ss )',
-		3 => 'ID文字列 ( /dd )',
-		4 => 'スラッグ文字列 ( /postslug )',
+	1 => 'ハッシュID（67a89b013d25）',
+	2 => 'カテゴリーとハッシュID（category/67a89b013d25）',
+	3 => 'システムID（123）',
+	4 => 'カテゴリーとシステムID（category/123）',
+	5 => 'スラッグ（hello-world）',
+	6 => 'カテゴリーとスラッグ（category/hello-world）',
+	7 => '年月日とスラッグ（' . date('Y/m/d') . '/hello-world）',
+	8 => '年月とスラッグ（' . date('Y/m') . '/hello-world）',
+	
+);
+$permalink_sample_list = array
+(
+	1 => '67a89b013d25',
+	2 => 'category/67a89b013d25',
+	3 => '123',
+	4 => 'category/123',
+	5 => 'hello-world',
+	6 => 'category/hello-world',
+	7 => date('Y/m/d') . '/hello-world',
+	8 => date('Y/m') . '/hello-world',
+);
+$parameter_key_list = array
+(
+	1 => '67a89b013d25',
+	2 => '67a89b013d25',
+	3 => '123',
+	4 => '123',
+	5 => 'hello-world',
+	6 => 'category-hello-world',
+	7 => date('Y-m-d') . '-hello-world',
+	8 => date('Y-m') . '-hello-world',
 );
 $contacts_sort_order_list = array
 (
@@ -401,8 +471,8 @@ $column_delimiter_list = array
  * ------------------------------------------------------------------------------------------------ */
 $image_frame_type = array
 (
-		'auto' => 'オート',
-		'crop' => 'クロップ',
+		'auto' => '自動リサイズ',
+		'crop' => '固定サイズ切抜き',
 );
 
 

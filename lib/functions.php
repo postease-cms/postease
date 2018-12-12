@@ -404,3 +404,71 @@ function getFileList($dir, $target = 'file')
 	return $list;
 }
 
+require_once dirname(__FILE__) . '/../class/Hashids/Hashids.php';
+
+
+/**
+ * Generate Hash Id
+ * @param int $id
+ * [@param int $digits]
+ * [@param string $salt]
+ * @return bool false | string hash_id
+ */
+function generateHashId($id, $digits = 12, $salt = null)
+{
+	$hash_strings = '0123456789abcdef';
+	if (! $salt) $salt = 'postease';
+	
+	$hashids = new Hashids($salt, $digits, $hash_strings);
+	if ($hash_id = $hashids -> encode($id))
+	{
+		return $hash_id;
+	}
+	return false;
+}
+
+
+/**
+ * Fetch Domain From URL
+ * @param string $url
+ * @param bool $with_protocol
+ * @return null|string $domain
+ */
+function fetchDomainFromUrl ($url, $with_protocol = false)
+{
+	$domain = null;
+	if ($url)
+	{
+		preg_match('/^https?:\/\/[^\/]+/i', $url, $matches);
+		if ($domain = $matches[0])
+		{
+			if (false === $with_protocol)
+			{
+				$domain = preg_replace('/https?:\/\//', '', $domain);
+			}
+		}
+	}
+	return $domain;
+}
+
+
+/**
+ * Fetch URI From URL
+ * @param string $url
+ * @param bool $with_slash
+ * @return null|string $uri
+ */
+function fetchUriFromUrl ($url, $with_slash = true)
+{
+	$uri = null;
+	if ($url)
+	{
+		$uri = preg_replace('/^https?:\/\/[^\/]+/i', '', $url);
+		if (! $with_slash)
+		{
+			$uri = trim($uri, '/');
+		}
+	}
+	return $uri;
+}
+

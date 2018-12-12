@@ -1,3 +1,4 @@
+
 <!-- OUTER WRAP -->
 <main id="content" class="col-md-10">
 	
@@ -78,7 +79,6 @@
 						</div>
 						
 						<!-- display_errors -->
-						<?php if ($_SESSION[$session_key]['license']['classification'] > 2):?>
 						<div class="form-group">
 							<label class="control-label col-md-4" for="display_errors"><?=TXT_CONFIGCORE_LBL_DISPLAYERRORS?>
 								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGCORE_LBL_DISPLAYERRORS?>" data-content="<?=$popover['display_errors']?>">[?]</a>
@@ -92,7 +92,6 @@
 							</div>
 							<div class="col-md-4"></div>
 						</div>
-						<?php endif?>
 						
 						<!-- default_password -->
 						<div class="form-group">
@@ -199,7 +198,7 @@
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="core_authority">
-								<input class="btn btn-warning width120" type="submit" id="update_core" name="update_core_authority" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
+								<input class="btn btn-warning width120" type="submit" id="update_core_authority" name="update_core_authority" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
 							</div>
 						</div>
 					</form>
@@ -252,7 +251,7 @@
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="core_media">
-								<input class="btn btn-warning width120" type="submit" id="update_core" name="update_core_media" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
+								<input class="btn btn-warning width120" type="submit" id="update_core_media" name="update_core_media" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
 							</div>
 						</div>
 					</form>
@@ -325,9 +324,50 @@
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="core_update">
-								<input class="btn btn-warning width120" type="submit" id="update_core" name="update_core_update" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
+								<input class="btn btn-warning width120" type="submit" id="update_core_update" name="update_core_update" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
 							</div>
 						</div>
+					</form>
+				</div>
+			</div>
+
+			<!-- API Access -->
+			<div class="panel panel-warning">
+				<div class="panel-heading">
+					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_APIACCESS?></h3>
+				</div>
+				<div id="panel_core_api" class="panel-body">
+					<form class="form-horizontal" role="form" action="./?mode=3" method="post">
+
+						<!-- remote_address_allowed -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="remote_address_allowed"><?=TXT_CONFIGCORE_LBL_REMOTE_ADDRESS_ALLOWED?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGCORE_LBL_REMOTE_ADDRESS_ALLOWED?>" data-content="<?=$popover['remote_address_allowed']?>">[?]</a>
+							</label>
+							<div class="col-md-7">
+								<input class="form-control" type="text" id="remote_address_allowed" name="remote_address_allowed" value="<?=$records['remote_address_allowed']['value']?>" placeholder="111.122.133.144">
+							</div>
+							<div class="col-md-1"></div>
+						</div>
+
+						<!-- origin_allowed -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="origin_allowed"><?=TXT_CONFIGCORE_LBL_ORIGIN_ALLOWED?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGCORE_LBL_ORIGIN_ALLOWED?>" data-content="<?=$popover['origin_allowed']?>">[?]</a>
+							</label>
+							<div class="col-md-7">
+								<input class="form-control" type="text" id="origin_allowed" name="origin_allowed" value="<?=$records['origin_allowed']['value']?>" placeholder="https://sample.com, http://sample.com">
+							</div>
+							<div class="col-md-1"></div>
+						</div>
+						<hr>
+						<div class="form-group">
+							<div class="col-md-8 col-md-offset-4">
+								<input type="hidden" name="target" value="core_api">
+								<input class="btn btn-warning width120" type="submit" id="update_core_api" name="update_core_api" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
+							</div>
+						</div>
+
 					</form>
 				</div>
 			</div>

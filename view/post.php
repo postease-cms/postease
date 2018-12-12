@@ -15,7 +15,7 @@
 					<i class="fa <?=$page_icon?>"></i>
 					<?=$page_title_main?>
 					<?php if (! empty($id)):?>
-						<span class="label label-<?=$label_status?>">ID <?=$id?></span>
+						<span class="label label-<?=$label_status?>">ID : <?=$id?></span>
 					<?php endif?>
 					<?php if ($_SESSION[$session_key]['configs']['use_version_flg'] && $process == 12):?>
 						<?php if ($post_base['current_flg']):?>
@@ -88,12 +88,11 @@
 						<?php endif?>
 						
 						<!-- permalink -->
-						<?php if ($preview_link && $process > 11):?>
-							<p id="permalink">
-                <a target="_blank" href="<?=$preview_link?>"><i class="fa fa-eye" aria-hidden="true"></i> <?=TXT_POST_LNK_PREVIEW($preview_link)?></a>
-								<?php if (($posttype_config['permalink_style'] == 2 || $posttype_config['permalink_style'] == 4) && empty($slug)):?>
-									<span class="label label-warning"><?=TXT_POST_ALT_NOSLUG?></span>
-								<?php endif?>
+						<?php if ($resource_url || $rewrite_url):?>
+							<p id="permalink_display" data-language_id="<?=$language_id?>" data-permalink_type="<?=$permalink_type?>" data-permalink_style="<?=$permalink_style?>"
+							   data-permalink_base="<?=$permalink_base?>" data-id="<?=$id?>" data-hash_id="<?=$hash_id?>">
+								<i class="fa fa-link" aria-hidden="true"></i> <?=TXT_POST_LNK_PERMALINK?> :
+								<label class="label label-default"></label>
 							</p>
 						<?php endif?>
 						
@@ -319,13 +318,35 @@
 					
 					<!-- Right// -->
 					<div class="col-md-3" id="post_side_bar">
+
+						<div class="form-group statusTextWrapper">
+							<span class="label label-<?=$label_status?> statusText" id="status_text"><?=$status_text?></span>
+							<?php if ($resource_url):?>
+							<span class="label label-default previewLink" id="preview_link" data-preview_base="<?=$preview_base?>">
+								<?php if ($status):?>
+								<a target="preview_<?=$id?>" href="<?=$preview_link?>"><?=TXT_POST_LNK_PREVIEWLINK?></a>
+								<?php else:?>
+								-
+								<?php endif?>
+							</span>
+							<?php endif?>
+						</div>
 						
 						<!-- publish_datetime -->
-						<div class="form-group post_item_container">
+						<div class="form-group <?=($use_publish_end_at || $publish_end_at)?'':'post_item_container'?>">
 							<label class="control-label" for="publish_datetime"><i class="fa fa-calendar"></i> <?=TXT_POST_LBL_PUBLISHDATETIME?></label>
 							<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
-							<input class="form-control" type="text" id="publish_datetime" name="publish_datetime" value="<?=$publish_datetime?>" placeholder="<?=TXT_POST_PLH_PUBLISHDATE?>" <?=($child_flg)?'disabled':''?>>
+							<input class="form-control" type="text" id="publish_datetime" name="publish_datetime" autocomplete="off" value="<?=$publish_datetime?>" placeholder="<?=TXT_POST_PLH_PUBLISHDATE?>" <?=($child_flg)?'disabled':''?>>
 						</div>
+
+						<!-- publish_end_at -->
+						<?php if ($use_publish_end_at || $publish_end_at):?>
+						<div class="form-group post_item_container">
+							<label class="control-label" for="publish_end_at"><i class="fa fa-calendar"></i> <?=TXT_POST_LBL_PUBLISHENDAT?></label>
+							<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
+							<input class="form-control" type="text" id="publish_end_at" name="publish_end_at" autocomplete="off" value="<?=$publish_end_at?>" placeholder="<?=TXT_POST_LBL_PUBLISHENDAT?>" <?=($child_flg)?'disabled':''?>>
+						</div>
+						<?php endif?>
 						
 						<!-- status -->
 						<div class="form-group">
@@ -352,6 +373,7 @@
 						<?php endif?>
 						<?php if ($child_flg):?>
 							<input type="hidden" id="publish_datetime" name="publish_datetime" value="<?=$publish_datetime?>">
+							<input type="hidden" id="publish_end_at" name="publish_end_at" value="<?=$publish_end_at?>">
 							<?php foreach ($_SESSION[$session_key]['common']['languages'] as $language_id => $row_lang):?>
 								<input type="hidden" data-group="title" data-num="<?=$language_id?>" id="title_<?=$language_id?>" name="title[<?=$language_id?>]" value="<?=$text[$language_id]['title']?>">
 							<?php endforeach?>
@@ -366,6 +388,8 @@
 						<input type="hidden" name="this_posttype_order" id="this_posttype_order" value="<?=$this_posttype_order?>">
 						<input type="hidden" name="use_multipage_flg" id="use_multipage_flg" value="<?=$config_posttype['use_multipage_flg']?>">
 						<input type="hidden" name="publish_flg" id="publish_flg" value="<?=$publish_flg?>">
+						<input type="hidden" name="permalink_key" id="permalink_key" value="<?=$permalink_key?>">
+						<input type="hidden" name="permalink_uri" id="permalink_uri" value="<?=$permalink_uri?>">
 						
 						<!-- delete_check (post) -->
 						<?php if ($process == 12 && $publish_flg):?>
@@ -475,12 +499,13 @@
 						
 						<!-- categories -->
 						<?php if (! empty($formated_categories) || $_SESSION[$session_key]['user']['role'] <= 7):?>
+						<?php if ($use_category_flg):?>
 							<div class="form-group post_item_container formHasLang <?=($child_flg)?'hidden':''?>">
 								<label class="control-label"><i class="fa fa-th-large"></i> <?=TXT_POST_LBL_CATEGORY?></label><br>
 								<?php if (! empty($formated_categories)):?>
 									<?php foreach ($formated_categories as $key => $parent):?>
 										<label class="checkbox-inline" for="categories<?=$key?>">
-											<input type="checkbox" id="categories<?=$key?>" name="categories[]" value="<?=$key?>" <?=(in_array(intval($key), $categories_id))?'checked="checked"':''?>>
+											<input type="checkbox" id="categories<?=$key?>" name="categories[]" value="<?=$key?>" data-slug="<?=$parent['slug']?>" <?=(in_array(intval($key), $categories_id))?'checked="checked"':''?>>
 											<?php foreach ($_SESSION[$session_key]['common']['languages'] as $language_id => $row_lang):?>
 												<span class="formPartsLang_<?=$language_id?> <?=($language_id!=1)?'hidden':''?>"><?=(!empty($parent['label'][$language_id]))?$parent['label'][$language_id]:'<i>('.TXT_POST_LBL_NOLABEL.')</i>'?></span>
 											<?php endforeach?>
@@ -503,9 +528,11 @@
 								<?php endif?>
 							</div>
 						<?php endif?>
+						<?php endif?>
 						
 						<!-- tags -->
 						<?php if (! empty($_SESSION[$session_key]['common']['tags']) || $_SESSION[$session_key]['user']['role'] <= 7):?>
+						<?php if ($use_tag_flg):?>
 							<div class="form-group post_item_container formHasLang <?=($child_flg)?'hidden':''?>">
 								<label class="control-label"><i class="fa fa-tag"></i> <?=TXT_POST_LBL_TAG?></label><br>
 								<?php if (! empty($_SESSION[$session_key]['common']['tags'])):?>
@@ -521,6 +548,7 @@
 									<?=TXT_POST_MSG_NOTAG?>
 								<?php endif?>
 							</div>
+						<?php endif?>
 						<?php endif?>
 						
 						<!-- edit-info -->
@@ -576,11 +604,13 @@
 </main>
 <script src="tinymce/tinymce.min.js"></script>
 <link rel="stylesheet" href="plugin/datetimepicker/bootstrap-datetimepicker.min.css" media="screen">
-<script src="plugin/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="plugin/datetimepicker/bootstrap-datetimepicker-custom.min.js"></script>
 <?php if ($_SESSION[$session_key]['user']['lang'] != 'en'):?>
 	<script src="plugin/datetimepicker/locales/bootstrap-datetimepicker.<?=$_SESSION[$session_key]['user']['lang']?>.js"></script>
 <?php endif?>
 <?php if ($use_wisiwyg_flg):?>
 	<script src="<?=$tinymce_init?>"></script>
 <?php endif?>
+<?php if ($permalink_type == 2 && $permalink_style == 5):?>
 <script src="js/check_slug.js"></script>
+<?php endif?>

@@ -332,33 +332,43 @@ $icon_list = array
 
 $posttype_mata_common = array
 (
-		'menu_icon'             => 'pencil-square',
-		'auto_save_flg'         => '1',
-		'use_wisiwyg_flg'       => '1',
-		'use_customitem_flg'    => '0',
-		'use_multipage_flg'     => '0',
-		'comment_type'          => '',
-		'use_addition_flg'      => '0',
-		'use_content_flg'       => '1',
-		'use_slug_flg'          => '0',
-		'preview_url'           => '',
-		'parameter_key'         => '',
-		'permalink_style'       => '1',
-
+		'menu_icon'              => 'pencil-square',
+		'auto_save_flg'          => '1',
+		'use_wisiwyg_flg'        => '1',
+		'use_customitem_flg'     => '1',
+		'use_multipage_flg'      => '0',
+		'comment_type'           => '',
+		'use_publish_end_at_flg' => '1', // added in v3.0.0
+		'use_category_flg'       => '1', // added in v3.0.0
+		'use_tag_flg'            => '1', // added in v3.0.0
+		'use_addition_flg'       => '0',
+		'use_content_flg'        => '1',
+		'use_slug_flg'           => '1',
+		'use_list_eyecatch_flg'  => '1',
+		'eyecatch_frame'         => 'fr_admin/eyecatch',
+		'preview_url'            => '', // no use after v3.0.0
+		'parameter_key'          => '', // no use after v3.0.0
 		'customitem_position'   => '2',
-
 		'posts_list_num'        => '10',
 		'posts_sort_order'      => 'DESC',
-		'posts_column01'        => '1',
-		'posts_column02'        => '1',
+		'posts_column01'        => '1', // no use after v3.0.0
+		'posts_column02'        => '1', // no use after v3.0.0
 		'posts_column03'        => '1',
-		'posts_title_length'    => '16',
 		'posts_category_num'    => '2',
-		'posts_tag_num'         => '1',
-
+		'posts_tag_num'         => '2',
 		'comments_list_num'     => '10',
 		'comments_title_length' => '12',
 		'review_max_score'      => '5',
+);
+
+$posttype_mata_individual = array
+(
+	'permalink_style'        => '1',
+	'resource_url'           => '', // added in v3.0.0
+	'rewrite_url'            => '', // added in v3.0.0
+	'permalink_base_prd'     => '', // added in v3.0.0
+	'rewrite_operator'       => 'php', // added in v3.0.0
+	'rewrite_operator_flg'   => '0', // added in v3.0.0
 );
 
 $contact_mata_common = array

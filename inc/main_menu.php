@@ -16,10 +16,14 @@
 				<?php endif?>
 				<a class="list-group-item" href="./?view_page=post&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>&amp;process=11"><?=TXT_MAINMENU_LBL_NEW?></a>
 				<?php if ($_SESSION[$session_key]['user']['role'] <= $_SESSION[$session_key]['configs']['editable_role_category_post']):?>
+				<?php if ($_SESSION[$session_key]['common']['posttypes'][$key]['use_category_flg']):?>
 				<a class="list-group-item" href="./?view_page=category&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>"><?=TXT_MAINMENU_LBL_CATEGORY?></a>
 				<?php endif?>
+				<?php endif?>
 				<?php if ($_SESSION[$session_key]['user']['role'] <= $_SESSION[$session_key]['configs']['editable_role_tag_post']):?>
+				<?php if ($_SESSION[$session_key]['common']['posttypes'][$key]['use_tag_flg']):?>
 				<a class="list-group-item" href="./?view_page=tag&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>"><?=TXT_MAINMENU_LBL_TAG?></a>
+				<?php endif?>
 				<?php endif?>
 				<?php if ($values['use_customitem_flg'] && $_SESSION[$session_key]['user']['role'] < 7):?>
 				<a class="list-group-item" href="./?view_page=custom_item&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>"><?=TXT_MAINMENU_LBL_CUSTOMITEM?></a>

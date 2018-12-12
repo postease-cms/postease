@@ -70,7 +70,7 @@
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="option_site">
-								<input class="btn btn-primary width120" type="submit" id="submit_record" name="submit_record" value="<?=TXT_CONFIGOPTION_BTN_SUBMIT?>">
+								<input class="btn btn-primary width120" type="submit" id="submit_record01" name="submit_record" value="<?=TXT_CONFIGOPTION_BTN_SUBMIT?>">
 							</div>
 						</div>
 					</form>
@@ -128,7 +128,7 @@
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="option_others">
-								<input class="btn btn-primary width120" type="submit" id="submit_record" name="submit_record" value="<?=TXT_CONFIGOPTION_BTN_SUBMIT?>">
+								<input class="btn btn-primary width120" type="submit" id="submit_record02" name="submit_record" value="<?=TXT_CONFIGOPTION_BTN_SUBMIT?>">
 							</div>
 						</div>
 					</form>

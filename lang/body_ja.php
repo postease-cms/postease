@@ -244,8 +244,9 @@ define('TXT_POSTS_THD_COMMENT',               'コメント');
 define('TXT_POSTS_THD_REVIEW',                'レビュー');
 define('TXT_POSTS_THD_SUBPOST',               'サブポスト');
 define('TXT_POSTS_THD_PUBLISHDATE',           '公開日時');
-define('TXT_POSTS_LBL_FUTURE',                '未来');
-define('TXT_POSTS_LBL_PUBLISHED',             '公開');
+define('TXT_POSTS_LBL_FUTURE',                '公開予定');
+define('TXT_POSTS_LBL_PUBLISHED',             '公開中');
+define('TXT_POSTS_LBL_ENDED',                 '公開終了');
 define('TXT_POSTS_LBL_DRAFT',                 '下書き');
 define('TXT_POSTS_LBL_PRIVATE',               '非公開');
 define('TXT_POSTS_LBL_NOTITLE',               '（..無題）');
@@ -270,23 +271,42 @@ define('TXT_POSTS_LBL_IMPLEMENT_CODE',        '実装コード');
 function TXT_POSTS_WAR_NOPOST($target)            { return $text = "この条件の {$target} はありません。";}
 function TXT_POSTS_LBL_CHANGESTATU_TO($target)    { return $text = "チェックした{$target}を";}
 function TXT_POSTS_LBL_CHANGECATEGORY_TO($target) { return $text = "チェックした{$target}に";}
+function TXT_POSTS_LBL_PUBLISHTENDAT($datetime)   { return $text = "{$datetime}まで";}
 function TXT_POSTS_LNK_GETSDKPHP($url) { return $text = 'リモートAPIに接続するためのクライアントツール <a target="_blank" href="' . $url . '">SDK "PecRpc" を手に入れる</a>';}
 
 
 /*
  * _post
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_POST_LBL_NEW',            '新規');
-define('TXT_POST_LBL_EDIT',           '編集');
-define('TXT_POST_BTN_UPDATE',         '更新');
-define('TXT_POST_BTN_PUBLISH',        '公開');
-define('TXT_POST_LNK_BACKTOLIST',     '一覧へ戻る');
-define('TXT_POST_MSG_CHILDNEWPOST',   '新しいページを追加しました。');
-define('TXT_POST_MSG_CHILDUPDATE',    'ページを更新しました。');
-define('TXT_POST_MSG_CHILDDELETE',    'ページを削除しました。');
-define('TXT_POST_MSG_VERSIONDELETE',  'バージョンを削除しました。');
-define('TXT_POST_LBL_IMPLEMENT_CODE', '実装コード');
-function TXT_POST_LNK_PREVIEW($preview_link) { return $text = "プレビュー ({$preview_link})";}
+define('TXT_POST_LBL_NEW',                '新規');
+define('TXT_POST_LBL_EDIT',               '編集');
+define('TXT_POST_BTN_UPDATE',             '更新');
+define('TXT_POST_BTN_PUBLISH',            '公開');
+define('TXT_POST_LNK_BACKTOLIST',         '一覧へ戻る');
+define('TXT_POST_LNK_PREVIEWLINK',        'プレビュー');
+define('TXT_POST_MSG_PERMALINKNOTYET',    'パーマリンクは作成されていません。');
+define('TXT_POST_LNK_PERMALINKLACKITEMS', 'パーマリンクの生成にはスラッグかタイトルと公開日時が必要です。');
+define('TXT_POST_LNK_PERMALINK',          'パーマリンク');
+define('TXT_POST_MSG_CHILDNEWPOST',       '新しいページを追加しました。');
+define('TXT_POST_MSG_CHILDUPDATE',        'ページを更新しました。');
+define('TXT_POST_MSG_CHILDDELETE',        'ページを削除しました。');
+define('TXT_POST_MSG_VERSIONDELETE',      'バージョンを削除しました。');
+define('TXT_POST_LBL_IMPLEMENT_CODE',     '実装コード');
+function TXT_POST_LNK_PREVIEW($preview_link) { return $text = "プレビュー ({$preview_link})";} // no use after v3.0.0
+function TXT_POST_STATUSTEXT($status, $label)
+{
+	$status_text = array(
+		'primary' => '公開中',
+		'warning' => '下書き',
+		'default' => '非公開',
+	);
+	$publish_status_text = array(
+		'primary' => '公開中',
+		'info'    => '公開予定',
+		'default' => '公開終了',
+	);
+	return $text = ($status) ? ($status == 1) ? $publish_status_text[$label] : $status_text[$label] : '作成前';
+}
 
 /*
  * post
@@ -297,7 +317,6 @@ define('TXT_POST_LBL_PRIVATEVERSION',           '非公開バージョン');
 define('TXT_POST_MSG_UNEDITABLE',               '編集権限がありません。');
 define('TXT_POST_LBL_AUTOSAVEMODE',             '自動保存モード');
 define('TXT_POST_MSG_SAVED',                    '保存しています');
-define('TXT_POST_ALT_NOSLUG',                   'スラッグが設定されていません。');
 define('TXT_POST_PLH_LIST',                     'リストの区切りは改行です。');
 define('TXT_POST_LBL_SELECTDEFAULT',            '選択');
 define('TXT_POST_BTN_IMG_SET',                  '設定');
@@ -322,6 +341,7 @@ define('TXT_POST_LBL_ALLOWDELETEVERSION',       'バージョンの削除を許�
 define('TXT_POST_LBL_SLUG',                     'スラッグ');
 define('TXT_POST_PLH_SLUG',                     'スラッグ');
 define('TXT_POST_LBL_PUBLISHDATETIME',          '公開日時');
+define('TXT_POST_LBL_PUBLISHENDAT',             '公開終了日時');
 define('TXT_POST_PLH_PUBLISHDATE',              '公開日');
 define('TXT_POST_PLH_PUBLISHTIME',              '公開時間');
 define('TXT_POST_LBL_ANCHOR',                   '優先表示アンカー');
@@ -566,6 +586,7 @@ define('TXT_IMAGEFRAME_THD_STATUS',         '状態');
 define('TXT_IMAGEFRAME_LBL_USE',            '使用');
 define('TXT_IMAGEFRAME_LBL_UNUSE',          '不使用');
 define('TXT_IMAGEFRAME_LBL_EDIT',           '編集');
+define('TXT_IMAGEFRAME_LBL_SIZEMAX',        '最大');
 
 
 /*
@@ -585,9 +606,9 @@ define('TXT_USER_LBL_ALLOWDELETE',     '削除を許可');
 define('TXT_USER_LBL_CANCELEDIT',      '編集をキャンセル');
 define('TXT_USER_LBL_NEW',             '新規');
 define('TXT_USER_LBL_ACCOUNT',         'アカウント');
-define('TXT_USER_PLH_ACCOUNT',         'アカウントを入力してください');
+define('TXT_USER_PLH_ACCOUNT',         'richard');
 define('TXT_USER_LBL_NICKNAME',        'ニックネーム');
-define('TXT_USER_PLH_NICKNAME',        'ニックネームを入力してください');
+define('TXT_USER_PLH_NICKNAME',        'リック');
 define('TXT_USER_LBL_SITEID',          'アクセス可能サイト');
 define('TXT_USER_LBL_POSTTYPEID',      'アクセス可能ポストタイプ');
 define('TXT_USER_LBL_POSTTYPEEXTRAID', 'アクセス可能コンタクト');
@@ -673,6 +694,9 @@ define('TXT_CONFIGCORE_LBL_UPDATELEVELOROVER',           '以上');
 define('TXT_CONFIGCORE_LBL_ALLOWUPDATEFLG',              'アップデートのチェック');
 define('TXT_CONFIGCORE_LBL_AUTOUPDATEFLG',               '自動アップデート');
 define('TXT_CONFIGCORE_LBL_UPDATELEVEL',                 'アップデートレベル');
+define('TXT_CONFIGCORE_LBL_APIACCESS',                   'APIアクセス');
+define('TXT_CONFIGCORE_LBL_REMOTE_ADDRESS_ALLOWED',      'アクセス許可IP（PHP）');
+define('TXT_CONFIGCORE_LBL_ORIGIN_ALLOWED',              'クロスオリジン許可ドメイン（Ajax）');
 define('TXT_CONFIGCORE_LBL_CHANGEDATABASE',              'データベース移行');
 define('TXT_CONFIGCORE_BTN_SUBMIT',                      '更新');
 function TXT_CONFIGCORE_LBL_MORETHAN($target){ return $text = "{$target} (以上)";}
@@ -808,6 +832,7 @@ function TXT_CONFIGPOSTTYPE_PAGETITLEMAIN($target){ return $text = "{$target} �
  * ------------------------------------------------------------------------------------------------ */
 define('TXT_CONFIGPOSTTYPE_LBL_XXX',         '');
 define('TXT_CONFIGPOSTTYPE_LBL_TITLEBASE',            '基本');
+define('TXT_CONFIGPOSTTYPE_LBL_TITLEPERMALINK',       'パーマリンク');
 define('TXT_CONFIGPOSTTYPE_LBL_TITLEOPTION',          '追加機能');
 define('TXT_CONFIGPOSTTYPE_LBL_TITLEPOSTDETAIL',      'ポスト 詳細表示');
 define('TXT_CONFIGPOSTTYPE_LBL_TITLEPOSTLIST',        'ポスト 一覧表示');
@@ -819,21 +844,31 @@ define('TXT_CONFIGPOSTTYPE_LBL_USEWISIWYGFLG',        'WISIWYG エディタ');
 define('TXT_CONFIGPOSTTYPE_LBL_USECUSTOMITEMFLG',     'カスタムアイテム');
 define('TXT_CONFIGPOSTTYPE_LBL_USEMULTIPAGEFLG',      'マルチページ');
 define('TXT_CONFIGPOSTTYPE_LBL_COMMNETTYPE',          'コメントタイプ');
+define('TXT_CONFIGPOSTTYPE_LBL_USEPUBLISHENDATFLG',   '公開終了日時');
 define('TXT_CONFIGPOSTTYPE_LBL_USEADDITIONFLG',       '追加テキスト');
 define('TXT_CONFIGPOSTTYPE_LBL_USECONTENTFLG',        '本文');
 define('TXT_CONFIGPOSTTYPE_LBL_USESLUGFLG',           'スラッグ');
+define('TXT_CONFIGPOSTTYPE_LBL_USECATEGORYFLG',       'カテゴリー');
+define('TXT_CONFIGPOSTTYPE_LBL_USETAGFLG',            'タグ');
+define('TXT_CONFIGPOSTTYPE_LBL_EYECATCHFRAME',        'アイキャッチ画像');
 define('TXT_CONFIGPOSTTYPE_LBL_PREVIEWURL',           'プレビューURL');
 define('TXT_CONFIGPOSTTYPE_LBL_PARAMETERKEY',         'パラメータキー');
 define('TXT_CONFIGPOSTTYPE_LBL_PERMALINKSTYLE',       'パーマリンクスタイル');
+define('TXT_CONFIGPOSTTYPE_LBL_PERMALINKKEY',         'パーマリンクキー');
+define('TXT_CONFIGPOSTTYPE_LBL_RESOURCE_URL',         'もとのURL');
+define('TXT_CONFIGPOSTTYPE_LBL_REWRITE_URL',          '書き換え後のURL');
+define('TXT_CONFIGPOSTTYPE_LBL_PERMALINK_SAMPLE',     'パーマリンクサンプル');
+define('TXT_CONFIGPOSTTYPE_LBL_REWRITEOPERATORFLG',   'サイト全体で拡張子なしURLでアクセスするルールを追加');
+define('TXT_CONFIGPOSTTYPE_LBL_REWRITEOPERATOR',      'URLから除去するファイル拡張子');
+define('TXT_CONFIGPOSTTYPE_LBL_REWRITE_RULE',         'リライトルール');
 define('TXT_CONFIGPOSTTYPE_LBL_LABELTITLE',           'タイトルラベル');
 define('TXT_CONFIGPOSTTYPE_LBL_LABELADDITION',        '追加テキストラベル');
 define('TXT_CONFIGPOSTTYPE_LBL_LABELCONTENT',         '本文ラベル');
 define('TXT_CONFIGPOSTTYPE_LBL_CUSTOMITEMPOSITION',   'カスタムアイテム表示位置');
 define('TXT_CONFIGPOSTTYPE_LBL_LISTNUM',              '一覧表示件数');
 define('TXT_CONFIGPOSTTYPE_LBL_SORTORDER',            'ソート順');
-define('TXT_CONFIGPOSTTYPE_LBL_POSTSCOLUMN01',        'カラム１初期表示');
-define('TXT_CONFIGPOSTTYPE_LBL_POSTSCOLUMN02',        'カラム２初期表示');
-define('TXT_CONFIGPOSTTYPE_LBL_POSTSCOLUMN03',        'カラム３初期表示');
+define('TXT_CONFIGPOSTTYPE_LBL_USELISTEYECATCHFLG',   'アイキャッチ');
+define('TXT_CONFIGPOSTTYPE_LBL_POSTSCOLUMN03',        'ユーザ初期表示');
 define('TXT_CONFIGPOSTTYPE_LBL_TITLELENGTH',          'タイトル表示文字長');
 define('TXT_CONFIGPOSTTYPE_LBL_DISPLAYNUMCATEGORY',   'カテゴリ表示件数');
 define('TXT_CONFIGPOSTTYPE_LBL_DISPLAYNUMTAG',        'タグ表示件数');
@@ -913,9 +948,9 @@ define('TXT_SITE_LBL_ALLOWDELETE',    '削除を許可');
 define('TXT_SITE_LBL_CANCELEDIT',     '編集をキャンセル');
 define('TXT_SITE_LBL_NEW',            '新規');
 define('TXT_SITE_LBL_NAME',           '表示名');
-define('TXT_SITE_PLH_NAME',           '表示名を入力してください');
+define('TXT_SITE_PLH_NAME',           'サンプルサイト');
 define('TXT_SITE_LBL_SLUG',           'スラッグ');
-define('TXT_SITE_PLH_SLUG',           'スラッグを入力してください');
+define('TXT_SITE_PLH_SLUG',           'sample_site');
 define('TXT_SITE_LBL_STATUS',         '状態');
 define('TXT_SITE_BTN_UPDATE',         '送信');
 define('TXT_SITE_BTN_DELETE',         '削除');
@@ -986,10 +1021,10 @@ define('TXT_POSTTYPE_LBL_NEW',                   '新規');
 define('TXT_POSTTYPE_LBL_POST',                  'ポストタイプ');
 define('TXT_POSTTYPE_LBL_CONTACT',               'コンタクト');
 define('TXT_POSTTYPE_LBL_NAME',                  '表示名');
-define('TXT_POSTTYPE_PLH_NAME',                  '表示名を入力してください');
+define('TXT_POSTTYPE_PLH_NAME',                  '新着情報');
 define('TXT_POSTTYPE_LBL_TYPE',                  'タイプ');
 define('TXT_POSTTYPE_LBL_SLUG',                  'スラッグ');
-define('TXT_POSTTYPE_PLH_SLUG',                  'スラッグを入力してください');
+define('TXT_POSTTYPE_PLH_SLUG',                  'news');
 define('TXT_POSTTYPE_LBL_WISIWYGFLG',            'WISIWYGエディタ');
 define('TXT_POSTTYPE_LBL_COMMENTTYPE',           'コメントタイプ');
 define('TXT_POSTTYPE_LBL_SITEID',                '対応サイト');
@@ -1033,9 +1068,9 @@ define('TXT_LANGUAGE_LBL_ALLOWDELETE',    '削除を許可');
 define('TXT_LANGUAGE_LBL_CANCELEDIT',     '編集をキャンセル');
 define('TXT_LANGUAGE_LBL_NEW',            '新規');
 define('TXT_LANGUAGE_LBL_NAME',           '表示名');
-define('TXT_LANGUAGE_PLH_NAME',           '表示名を入力してください');
+define('TXT_LANGUAGE_PLH_NAME',           '英語');
 define('TXT_LANGUAGE_LBL_SLUG',           'スラッグ');
-define('TXT_LANGUAGE_PLH_SLUG',           'スラッグを入力してください');
+define('TXT_LANGUAGE_PLH_SLUG',           'english');
 define('TXT_LANGUAGE_LBL_STATUS',         '状態');
 define('TXT_LANGUAGE_BTN_UPDATE',         '送信');
 define('TXT_LANGUAGE_BTN_DELETE',         '削除');
@@ -1177,18 +1212,18 @@ function TXT_CUSTOMVALUE_LBL_NOWEDIT($target) { return $text = "{$target} を編
 /*
  * code
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_CODE_LNK_CHANGE_LANGUAGE',             '実装コード表示の設定を変更する');
-define('TXT_CODE_COM_IMPLEMENT_LOCALPHP',          'ローカルAPI に接続（POSTEASE 設置パス [your-postease-path] は書き換えてください）');
-define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP01',       'リモートAPI に接続');
-define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP02',       'GitHub ページより "PecRpc" を入手して任意の場所 [your-path] に設置（パスは書き換えて下さい）');
-define('TXT_CODE_COM_IMPLEMENT_JQUERY',            '共通コードは不要です。');
-define('TXT_CODE_COM_IMPLEMENT_JQUERYATTENTION',  'リモートサーバから接続する場合は以下のディレクトリにCORS開放を記述した .htaccess を設置してください。');
+define('TXT_CODE_LNK_CHANGE_LANGUAGE',               '実装コード表示の設定を変更する');
+define('TXT_CODE_COM_IMPLEMENT_LOCALPHP',            'ローカルAPI に接続（POSTEASE 設置パス [your-postease-path] は書き換えてください）');
+define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP01',         'リモートAPI に接続');
+define('TXT_CODE_COM_IMPLEMENT_GETPOSTKEY',          'post_key を取得');
+define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP02',         'GitHub ページより "PecRpc" を入手して任意の場所 [your-path] に設置（パスは書き換えて下さい）');
+define('TXT_CODE_COM_IMPLEMENT_JQUERY',              '共通コードは不要です。');
+define('TXT_CODE_COM_IMPLEMENT_JQUERYATTENTION',     'リモートサーバから接続する場合は以下のディレクトリにCORS開放を記述した .htaccess を設置してください。');
 
-define('TXT_CODE_COM_IMPLEMENT_POSTSCONFIG',       'ポストデータの取得条件を設定');
-define('TXT_CODE_COM_IMPLEMENT_GETPOSTS',          'ポストデータを取得');
-define('TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYID',    'IDを指定して特定のポストデータを取得');
-define('TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYSLUG',  'スラッグを指定して特定のポストデータを取得');
-define('TXT_CODE_COM_IMPLEMENT_RENDERPOSTS',       'ポストデータをHTMLに書き出し');
+define('TXT_CODE_COM_IMPLEMENT_POSTSCONFIG',         'ポスト一覧の取得条件を設定');
+define('TXT_CODE_COM_IMPLEMENT_GETPOSTS',            'ポスト一覧を取得');
+define('TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYPOSTKEY', 'post_key を指定してポストを取得');
+define('TXT_CODE_COM_IMPLEMENT_RENDERPOSTS',         'ポストデータをHTMLに書き出し');
 
 define('TXT_CODE_COM_IMPLEMENT_CATEGORIESCONFIG',  'カテゴリーデータの取得条件を設定');
 define('TXT_CODE_COM_IMPLEMENT_GETCATEGORIES',     'カテゴリーデータを取得');

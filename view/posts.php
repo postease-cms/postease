@@ -32,6 +32,7 @@
 						<?php endforeach?>
 					</select>
 				</div>
+				<?php if ($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_category_flg']):?>
 				<div class="form-group">
 					<select class="form-control defaultOption" name="sc_category_id" id="sc_category_id">
 						<option value="0"><?=TXT_POSTS_SEL_DEFAULT_CATEGORY?></option>
@@ -49,6 +50,8 @@
 						<?php endif?>
 					</select>
 				</div>
+				<?php endif?>
+				<?php if ($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_tag_flg']):?>
 				<div class="form-group">
 					<select class="form-control defaultOption" name="sc_tag_id" id="sc_tag_id">
 						<option value=""><?=TXT_POSTS_SEL_DEFAULT_TAG?></option>
@@ -59,6 +62,7 @@
 						<?php endif?>
 					</select>
 				</div>
+				<?php endif?>
 				<div class="form-group">
 					<select class="form-control defaultOption" name="sc_created_by" id="sc_created_by">
 						<option value=""><?=TXT_POSTS_PLH_SEARCH_CREATEDBY?></option>
@@ -145,66 +149,35 @@
 		<!-- MAIN CONTENTS -->
 		<?php if (count($records)):?>
 		<div class="slow-show">
-			<table id="post_list" class="table table-hover">
-				<thead>
+			
+			<table id="post_list" class="table table-hover postList <?=($use_list_eyecatch_flg)?'withEyecatch':''?>">
+				<thead class="<?=($use_category_flg || $use_tag_flg)?'column4':'column3'?>">
 				<tr>
 					<th>
-							<span class="<?=($multi_column01!=1)?'hidden':''?>">
-								<?php if (strlen($_SESSION[$session_key]['posts']['sc_status']) == 1):?>
-									<i class="fa fa-filter text-primary"></i>
-								<?php endif?>
-								<a href="./?multi_column01=2">
-								<?=TXT_POSTS_THD_STATUS?> /
-									<?php if ($_SESSION[$session_key]['posts']['sc_text']):?>
-										<i class="fa fa-filter text-primary"></i>
-									<?php endif?>
-									<?=$label_title?>
-								</a>
-							</span>
-						<span class="<?=($multi_column01!=2)?'hidden':''?>">
-								<?php if (strlen($_SESSION[$session_key]['posts']['sc_status']) == 1):?>
-									<i class="fa fa-filter text-primary"></i>
-								<?php endif?>
-							<a href="./?multi_column01=1">
-								ID /
-								<?php if ($_SESSION[$session_key]['posts']['sc_text']):?>
-									<i class="fa fa-filter text-primary"></i>
-								<?php endif?>
-								<?=$label_title?>
-								</a>
-							</span>
+						<span>
+							<?php if (strlen($_SESSION[$session_key]['posts']['sc_status']) == 1):?>
+								<i class="fa fa-filter text-primary"></i>
+							<?php endif?>
+							<?=TXT_POSTS_THD_STATUS?> /
+							<?php if ($_SESSION[$session_key]['posts']['sc_text']):?>
+								<i class="fa fa-filter text-primary"></i>
+							<?php endif?>
+							<?=$label_title?>
+						</span>
 					</th>
+					<?php if ($use_category_flg || $use_tag_flg):?>
 					<th>
-							<span class="<?=($multi_column02!=1)?'hidden':''?>">
-								<?php if ($_SESSION[$session_key]['posts']['sc_category_id']):?>
-									<i class="fa fa-filter text-primary"></i>
-								<?php endif?>
-								<a href="./?multi_column02=2">
-								<?=TXT_POSTS_THD_CATEGORY?>
-									/
-									<?php if ($_SESSION[$session_key]['posts']['sc_tag_id']):?>
-										<i class="fa fa-filter text-primary"></i>
-									<?php endif?>
-									<?=TXT_POSTS_THD_TAG?>
-								</a>
-							</span>
-						<span class="<?=($multi_column02!=2)?'hidden':''?>">
-								<?php if ($_SESSION[$session_key]['posts']['sc_category_id']):?>
-									<i class="fa fa-filter text-primary"></i>
-								<?php endif?>
-							<a href="./?multi_column02=3">
-								<?=TXT_POSTS_THD_CATEGORY?>
-								</a>
-							</span>
-						<span class="<?=($multi_column02!=3)?'hidden':''?>">
-								<?php if ($_SESSION[$session_key]['posts']['sc_tag_id']):?>
-									<i class="fa fa-filter text-primary"></i>
-								<?php endif?>
-							<a href="./?multi_column02=1">
-								<?=TXT_POSTS_THD_TAG?>
-								</a>
-							</span>
+						<?php if ($use_category_flg):?>
+						<?=TXT_POSTS_THD_CATEGORY?>
+						<?php endif?>
+						<?php if ($use_category_flg && $use_tag_flg):?>
+						/
+						<?php endif?>
+						<?php if ($use_tag_flg):?>
+						<?=TXT_POSTS_THD_TAG?>
+						<?php endif?>
 					</th>
+					<?php endif?>
 					<th>
 							<span class="<?=($multi_column03!=1)?'hidden':''?>">
 								<?php if ($_SESSION[$session_key]['posts']['sc_created_by']):?>
@@ -251,9 +224,17 @@
 							<?php else:?>
 								<span class="uneditable"><i class="fa fa-lock" aria-hidden="true"></i></span>
 							<?php endif?>
-							<span class="<?=($multi_column01!=1)?'hidden':''?>">
+							
+							<?php if ($use_list_eyecatch_flg):?>
+							<a href="./?view_page=post&amp;id=<?=$row['id']?>&amp;version=<?=$row['version']?>&amp;process=12"><img class="postPanelEyecatch" src="<?=$row['eyecatch']?>"></a>
+							<?php endif?>
+							
+							<span>
 								<?php if($row['status']==1):?>
-									<?php if (strtotime($row['publish_datetime']) > strtotime(date('Y-m-d H:i:s'))):?>
+									<?php if ($row['publish_end_at'] && strtotime($row['publish_end_at']) < strtotime(date('Y-m-d H:i:s'))):?>
+									<?php $publish_ended = true?>
+										<span class="label label-status label-default"><?=TXT_POSTS_LBL_ENDED?></span>
+									<?php elseif (strtotime($row['publish_datetime']) > strtotime(date('Y-m-d H:i:s'))) :?>
 										<span class="label label-status label-info"><?=TXT_POSTS_LBL_FUTURE?></span>
 									<?php else:?>
 										<span class="label label-status label-primary"><?=TXT_POSTS_LBL_PUBLISHED?></span>
@@ -264,19 +245,6 @@
 									<span class="label label-status label-default"><?=TXT_POSTS_LBL_PRIVATE?></span>
 								<?php endif?>
 							</span>
-							<span class="<?=($multi_column01!=2)?'hidden':''?>">
-								<?php if($row['status']==1):?>
-									<?php if (strtotime($row['publish_datetime']) > strtotime(date('Y-m-d H:i:s'))):?>
-										<span class="label label-status label-info"><?=$row['id']?></span>
-									<?php else:?>
-										<span class="label label-status label-primary"><?=$row['id']?></span>
-									<?php endif?>
-								<?php elseif($row['status']==2):?>
-									<span class="label label-status label-warning"><?=$row['id']?></span>
-								<?php else:?>
-									<span class="label label-status label-default"><?=$row['id']?></span>
-								<?php endif?>
-							</span>
 							
 							<?php if ($config_posttype['use_multipage_flg']):?>
 								<?php if($row['post_pages'] > 0):?>
@@ -284,21 +252,26 @@
 									$status_children = 'primary';
 									if ($row['count_child_private'] > 0) $status_children = 'default';
 									if ($row['count_child_draft'] > 0)   $status_children = 'warning';
+									if (isset($publish_ended)) $status_children = 'default';
 									?>
 									<span class="label label-extra label-<?=$status_children?>"><i class="fa fa-clone"></i> <?=$row['post_pages']?></span>
 								<?php endif?>
 							<?php endif?>
 							<?php if(! empty($row['anchor'])):?>
-								<span class="label label-extra label-success"><i class="fa fa-anchor"></i> <?=$row['anchor']?></span>
+								<span class="label label-extra label-<?=(isset($publish_ended))?'default':'success'?>"><i class="fa fa-anchor"></i> <?=$row['anchor']?></span>
 							<?php endif?>
+							
 							<?php if(! empty($row['title'])):?>
                 <a href="./?view_page=post&amp;id=<?=$row['id']?>&amp;version=<?=$row['version']?>&amp;process=12"><?=$row['title']?></a>
 							<?php else:?>
 								<a href="./?view_page=post&amp;id=<?=$row['id']?>&amp;version=<?=$row['version']?>&amp;process=12"><i><?=TXT_POSTS_LBL_NOTITLE?></i></a>
 							<?php endif?>
 						</td>
+						
+						<?php if ($use_category_flg || $use_tag_flg):?>
 						<td>
-							<span class="<?=($multi_column02!=1)?'hidden':''?>">
+							<span>
+								<?php if ($use_category_flg):?>
 								<?php if (count($row['categories'])):?>
 									<?php $other_category = array()?>
 									<?php foreach ($row['categories'] as $key => $category):?>
@@ -308,13 +281,19 @@
 											<?php $other_category[] = $category?>
 										<?php endif?>
 									<?php endforeach?>
-								<?php if (! empty($other_category)):?>
+									<?php if (! empty($other_category)):?>
 										<small><a data-toggle="tooltip" data-placement="top" title="<?=implode(' , ',$other_category)?>"><i><?=TXT_POSTS_LNK_OTHERS?></i></a></small>
 									<?php endif?>
-								<?php else:?>
+									<?php else:?>
 									<small><i><?=TXT_POSTS_LBL_NOSETTING?></i></small>
 								<?php endif?>
-								/
+								<?php endif?>
+							</span>
+							<?php if ($use_category_flg && $use_tag_flg):?>
+							/
+							<?php endif?>
+							<span>
+								<?php if ($use_tag_flg):?>
 								<?php if (count($row['tags'])):?>
 									<?php $other_tag = array()?>
 									<?php foreach ($row['tags'] as $key => $tag):?>
@@ -324,48 +303,16 @@
 											<?php $other_tag[] = $tag?>
 										<?php endif?>
 									<?php endforeach?>
-								<?php if (! empty($other_tag)):?>
+									<?php if (! empty($other_tag)):?>
 										<small><a data-toggle="tooltip" data-placement="top" title="<?=implode(' , ',$other_tag)?>"><i><?=TXT_POSTS_LNK_OTHERS?></i></a></small>
 									<?php endif?>
-								<?php else:?>
+									<?php else:?>
 									<small><i><?=TXT_POSTS_LBL_NOSETTING?></i></small>
 								<?php endif?>
-							</span>
-							<span class="<?=($multi_column02!=2)?'hidden':''?>">
-								<?php if (count($row['categories'])):?>
-									<?php $other_category = array()?>
-									<?php foreach ($row['categories'] as $key => $category):?>
-										<?php if ($key < $config_category_num):?>
-											<label class="label label-cattag"><?=$category?></label>
-										<?php else:?>
-											<?php $other_category[] = $category?>
-										<?php endif?>
-									<?php endforeach?>
-								<?php if (! empty($other_category)):?>
-										<small><a data-toggle="tooltip" data-placement="top" title="<?=implode(' , ',$other_category)?>"><i><?=TXT_POSTS_LNK_OTHERS?></i></a></small>
-									<?php endif?>
-								<?php else:?>
-									<small><i><?=TXT_POSTS_LBL_NOSETTING?></i></small>
-								<?php endif?>
-							</span>
-							<span class="<?=($multi_column02!=3)?'hidden':''?>">
-								<?php if (count($row['tags'])):?>
-									<?php $other_tag = array()?>
-									<?php foreach ($row['tags'] as $key => $tag):?>
-										<?php if ($key < $config_tag_num):?>
-											<label class="label label-cattag"><?=$tag?></label>
-										<?php else:?>
-											<?php $other_tag[] = $tag?>
-										<?php endif?>
-									<?php endforeach?>
-								<?php if (! empty($other_tag)):?>
-										<small><a data-toggle="tooltip" data-placement="top" title="<?=implode(' , ',$other_tag)?>"><i><?=TXT_POSTS_LNK_OTHERS?></i></a></small>
-									<?php endif?>
-								<?php else:?>
-									<small><i><?=TXT_POSTS_LBL_NOSETTING?></i></small>
 								<?php endif?>
 							</span>
 						</td>
+						<?php endif?>
 						
 						<td>
 							<span class="<?=($multi_column03!=1)?'hidden':''?>">
@@ -399,12 +346,18 @@
 						
 						<td>
 							<?php $publish_datetime = ($row['publish_datetime']) ? date('Y-m-d H:i', strtotime($row['publish_datetime'])) : null?>
+							<?php $publish_end_at = ($row['publish_end_at']) ? date('Y-m-d H:i', strtotime($row['publish_end_at'])) : null?>
 							<?=$publish_datetime?>
+							<?php if ($publish_end_at):?>
+							(<?=TXT_POSTS_LBL_PUBLISHTENDAT($publish_end_at)?>)
+							<?php endif?>
 						</td>
 					</tr>
 				<?php endforeach?>
 				</tbody>
 			</table>
+			
+			
 			<div id="operation" class="panel panel-default">
 				<div id="checkall" class="panel-heading">
 					<i class="fa fa-arrow-circle-up"></i> <span id="checkall_title"><?=TXT_POSTS_LBL_CHECKALL?></span>

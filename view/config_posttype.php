@@ -54,15 +54,15 @@
 							</div>
 							<div class="col-md-4"></div>
 						</div>
-						
-						<!-- use_wisiwyg_flg -->
+
+						<!-- use_publish_end_at_flg -->
 						<div class="form-group">
-							<label class="control-label col-md-4" for="use_wisiwyg_flg"><?=TXT_CONFIGPOSTTYPE_LBL_USEWISIWYGFLG?>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_USEWISIWYGFLG?>" data-content="<?=$popover['use_wisiwyg_flg']?>">[?]</a>
+							<label class="control-label col-md-4" for="use_publish_end_at_flg"><?=TXT_CONFIGPOSTTYPE_LBL_USEPUBLISHENDATFLG?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_USEPUBLISHENDATFLG?>" data-content="<?=$popover['use_publish_end_at_flg']?>">[?]</a>
 							</label>
 							<div class="col-md-4">
 								<?php foreach ($common_flg_use as $key => $value):?>
-									<label class="radio-inline" for="use_wisiwyg_flg_<?=$key?>"><input type="radio" id="use_wisiwyg_flg_<?=$key?>" name="use_wisiwyg_flg" value="<?=$key?>" <?=($key==$records['use_wisiwyg_flg']['value'])?'checked':''?>> <?=$value?></label>
+									<label class="radio-inline" for="use_publish_end_at_flg_<?=$key?>"><input type="radio" id="use_publish_end_at_flg_<?=$key?>" name="use_publish_end_at_flg" value="<?=$key?>" <?=($key==$records['use_publish_end_at_flg']['value'])?'checked':''?>> <?=$value?></label>
 								<?php endforeach?>
 							</div>
 							<div class="col-md-4"></div>
@@ -93,6 +93,45 @@
 							</div>
 							<div class="col-md-4"></div>
 						</div>
+
+						<!-- use_wisiwyg_flg -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="use_wisiwyg_flg"><?=TXT_CONFIGPOSTTYPE_LBL_USEWISIWYGFLG?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_USEWISIWYGFLG?>" data-content="<?=$popover['use_wisiwyg_flg']?>">[?]</a>
+							</label>
+							<div class="col-md-4">
+								<?php foreach ($common_flg_use as $key => $value):?>
+									<label class="radio-inline" for="use_wisiwyg_flg_<?=$key?>"><input type="radio" id="use_wisiwyg_flg_<?=$key?>" name="use_wisiwyg_flg" value="<?=$key?>" <?=($key==$records['use_wisiwyg_flg']['value'])?'checked':''?>> <?=$value?></label>
+								<?php endforeach?>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+
+						<!-- use_category_flg -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="use_category_flg"><?=TXT_CONFIGPOSTTYPE_LBL_USECATEGORYFLG?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_USECATEGORYFLG?>" data-content="<?=$popover['use_category_flg']?>">[?]</a>
+							</label>
+							<div class="col-md-4">
+								<?php foreach ($common_flg_use as $key => $value):?>
+									<label class="radio-inline" for="use_category_flg_<?=$key?>"><input type="radio" id="use_category_flg_<?=$key?>" name="use_category_flg" value="<?=$key?>" <?=($key==$records['use_category_flg']['value'])?'checked':''?>> <?=$value?></label>
+								<?php endforeach?>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+
+						<!-- use_tag_flg -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="use_tag_flg"><?=TXT_CONFIGPOSTTYPE_LBL_USETAGFLG?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_USETAGFLG?>" data-content="<?=$popover['use_tag_flg']?>">[?]</a>
+							</label>
+							<div class="col-md-4">
+								<?php foreach ($common_flg_use as $key => $value):?>
+									<label class="radio-inline" for="use_tag_flg_<?=$key?>"><input type="radio" id="use_tag_flg_<?=$key?>" name="use_tag_flg" value="<?=$key?>" <?=($key==$records['use_tag_flg']['value'])?'checked':''?>> <?=$value?></label>
+								<?php endforeach?>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
 						
 						<!-- use_slug_flg -->
 						<div class="form-group">
@@ -106,41 +145,24 @@
 							</div>
 							<div class="col-md-4"></div>
 						</div>
-						
-						<!-- preview_url -->
+
+						<!-- eyecatch_frame -->
 						<div class="form-group">
-							<label class="control-label col-md-4" for="preview_url"><?=TXT_CONFIGPOSTTYPE_LBL_PREVIEWURL?>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_PREVIEWURL?>" data-content="<?=$popover['preview_url']?>">[?]</a>
+							<label class="control-label col-md-4" for="eyecatch_frame"><?=TXT_CONFIGPOSTTYPE_LBL_EYECATCHFRAME?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_EYECATCHFRAME?>" data-content="<?=$popover['eyecatch_frame']?>">[?]</a>
 							</label>
-							<div class="col-md-4">
-								<input class="form-control" type="text" id="preview_url" name="preview_url" value="<?=$records['preview_url']['value']?>">
+							<div class="col-md-7">
+								<select class="form-control" id="eyecatch_frame" name="eyecatch_frame" >
+									<?php foreach($image_frames as $key => $row):?>
+										<option value="<?=$row['parent_dir']?>/<?=$row['child_dir']?>" <?=($records['eyecatch_frame']['value']==$row['parent_dir'].'/'.$row['child_dir'])?'selected':''?>>
+											<?=$image_frame_type[$row['type']]?> <?=($row['width'])?$row['width'].'px':'auto'?> x <?=($row['height'])?$row['height'].'px':'auto'?> <?=$row['comment']?>
+										</option>
+									<?php endforeach?>
+								</select>
 							</div>
-							<div class="col-md-4"></div>
+							<div class="col-md-1"></div>
 						</div>
 						
-						<!-- parameter_key -->
-						<div class="form-group">
-							<label class="control-label col-md-4" for="parameter_key"><?=TXT_CONFIGPOSTTYPE_LBL_PARAMETERKEY?>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_PARAMETERKEY?>" data-content="<?=$popover['parameter_key']?>">[?]</a>
-							</label>
-							<div class="col-md-4">
-								<input class="form-control" type="text" id="parameter_key" name="parameter_key" value="<?=$records['parameter_key']['value']?>">
-							</div>
-							<div class="col-md-4"></div>
-						</div>
-						
-						<!-- permalink_style -->
-						<div class="form-group">
-							<label class="control-label col-md-4" for="permalink_style"><?=TXT_CONFIGPOSTTYPE_LBL_PERMALINKSTYLE?>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_PERMALINKSTYLE?>" data-content="<?=$popover['permalink_style']?>">[?]</a>
-							</label>
-							<div class="col-md-4">
-								<?php foreach ($permalink_style_list as $key => $value):?>
-									<label class="radio-inline" for="permalink_style_<?=$key?>"><input type="radio" id="permalink_style_<?=$key?>" name="permalink_style" value="<?=$key?>" <?=($key==$records['permalink_style']['value'])?'checked':''?>> <?=str_replace('xx', $records['parameter_key']['value'], $value)?></label>
-								<?php endforeach?>
-							</div>
-							<div class="col-md-4"></div>
-						</div>
 						<hr>
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
@@ -151,7 +173,6 @@
 					</form>
 				</div>
 			</div>
-			
 			
 			<div class="panel panel-info">
 				<div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGPOSTTYPE_LBL_TITLEOPTION?></h3></div>
@@ -301,27 +322,14 @@
 							<div class="col-md-4"></div>
 						</div>
 						
-						<!-- posts_column01 -->
+						<!-- use_list_eyecatch_flg -->
 						<div class="form-group">
-							<label class="control-label col-md-4" for="posts_column01"><?=TXT_CONFIGPOSTTYPE_LBL_POSTSCOLUMN01?>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_POSTSCOLUMN01?>" data-content="<?=$popover['posts_column01']?>">[?]</a>
+							<label class="control-label col-md-4" for="use_list_eyecatch_flg"><?=TXT_CONFIGPOSTTYPE_LBL_USELISTEYECATCHFLG?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_USELISTEYECATCHFLG?>" data-content="<?=$popover['use_list_eyecatch_flg']?>">[?]</a>
 							</label>
 							<div class="col-md-4">
-								<?php foreach ($posts_column01_list as $key => $value):?>
-									<label class="radio-inline" for="posts_column01_<?=$key?>"><input type="radio" id="posts_column01_<?=$key?>" name="posts_column01" value="<?=$key?>" <?=($key==$records['posts_column01']['value'])?'checked':''?>> <?=$value?></label>
-								<?php endforeach?>
-							</div>
-							<div class="col-md-4"></div>
-						</div>
-						
-						<!-- posts_column02 -->
-						<div class="form-group">
-							<label class="control-label col-md-4" for="posts_column02"><?=TXT_CONFIGPOSTTYPE_LBL_POSTSCOLUMN02?>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_POSTSCOLUMN02?>" data-content="<?=$popover['posts_column02']?>">[?]</a>
-							</label>
-							<div class="col-md-4">
-								<?php foreach ($posts_column02_list as $key => $value):?>
-									<label class="radio-inline" for="posts_column02_<?=$key?>"><input type="radio" id="posts_column02_<?=$key?>" name="posts_column02" value="<?=$key?>" <?=($key==$records['posts_column02']['value'])?'checked':''?>> <?=$value?></label>
+								<?php foreach ($common_flg_use as $key => $value):?>
+									<label class="radio-inline" for="use_list_eyecatch_flg_<?=$key?>"><input type="radio" id="use_list_eyecatch_flg_<?=$key?>" name="use_list_eyecatch_flg" value="<?=$key?>" <?=($key==$records['use_list_eyecatch_flg']['value'])?'checked':''?>> <?=$value?></label>
 								<?php endforeach?>
 							</div>
 							<div class="col-md-4"></div>
@@ -428,8 +436,109 @@
 					</div>
 				</div>
 			<?php endif?>
-		
+
+			<!-- Pemalink -->
+			<div class="panel panel-success">
+				<div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGPOSTTYPE_LBL_TITLEPERMALINK?></h3></div>
+				<div id="panel_posttype_permalink" class="panel-body">
+					<form class="form-horizontal" role="form" action="./?mode=3" method="post">
+
+						<!-- permalink_style -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="permalink_style"><?=TXT_CONFIGPOSTTYPE_LBL_PERMALINKSTYLE?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_PERMALINKSTYLE?>" data-content="<?=$popover['permalink_style']?>">[?]</a>
+							</label>
+							<div class="col-md-4">
+								<?php foreach ($permalink_style_list as $key => $value):?>
+									<label class="radio-block" for="permalink_style_<?=$key?>">
+										<input type="radio" id="permalink_style_<?=$key?>" name="permalink_style" data-sample="<?=$permalink_sample_list[$key]?>" data-parameter_key="<?=$parameter_key_list[$key]?>"
+										       value="<?=$key?>" <?=($key==$records['permalink_style']['value'])?'checked':''?>>
+										<?=str_replace('xx', $records['permalink_style']['value'], $value)?>
+									</label>
+								<?php endforeach?>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+
+						<!-- resource_url -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="resource_url"><?=TXT_CONFIGPOSTTYPE_LBL_RESOURCE_URL?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_RESOURCE_URL?>" data-content="<?=$popover['resource_url']?>">[?]</a>
+							</label>
+							<div class="col-md-3">
+								<input class="form-control" type="text" id="resource_url" name="resource_url" placeholder="https://example.com/post.php" value="<?=$records['resource_url']['value']?>">
+							</div>
+							<div class="col-md-5 rightTextWithInput" id="parameterSample">?post_key=<?=str_replace('/', '-', $permalink_sample_list[$records['permalink_style']['value']])?></div>
+						</div>
+
+						<!-- rewrite_url -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="rewrite_url"><?=TXT_CONFIGPOSTTYPE_LBL_REWRITE_URL?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_REWRITE_URL?>" data-content="<?=$popover['rewrite_url']?>">[?]</a>
+							</label>
+							<div class="col-md-3">
+								<input class="form-control" type="text" id="rewrite_url" name="rewrite_url" placeholder="https://example.com/posts" value="<?=$records['rewrite_url']['value']?>">
+							</div>
+							<div class="col-md-5 rightTextWithInput" id="permalinkKeySample">/<?=$permalink_sample_list[$records['permalink_style']['value']]?></div>
+						</div>
+
+						<!-- permalink_sample -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="permalink_sample"><?=TXT_CONFIGPOSTTYPE_LBL_PERMALINK_SAMPLE?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_PERMALINK_SAMPLE?>" data-content="<?=$popover['permalink_sample']?>">[?]</a>
+							</label>
+							<div class="col-md-7 textWithInput" id="permalink_sample"></div>
+						</div>
+
+						<hr>
+
+						<!-- rewrite_operator_flg -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="rewrite_operator_flg"><?=TXT_CONFIGPOSTTYPE_LBL_REWRITEOPERATORFLG?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_REWRITEOPERATORFLG?>" data-content="<?=$popover['rewrite_operator_flg']?>">[?]</a>
+							</label>
+							<div class="col-md-4">
+								<?php foreach ($common_flg_do as $key => $value):?>
+									<label class="radio-inline" for="rewrite_operator_flg_<?=$key?>"><input type="radio" id="rewrite_operator_flg_<?=$key?>" name="rewrite_operator_flg" value="<?=$key?>" <?=($key==$records['rewrite_operator_flg']['value']||($key==0&&empty($records['rewrite_operator_flg']['value'])))?'checked':''?>> <?=$value?></label>
+								<?php endforeach?>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+
+						<!-- rewrite_operator -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="rewrite_operator"><?=TXT_CONFIGPOSTTYPE_LBL_REWRITEOPERATOR?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_REWRITEOPERATOR?>" data-content="<?=$popover['rewrite_operator']?>">[?]</a>
+							</label>
+							<div class="col-md-3">
+								<input class="form-control" type="text" id="rewrite_operator" name="rewrite_operator" placeholder="php" value="<?=$records['rewrite_operator']['value']?>">
+							</div>
+							<div class="col-md-5"></div>
+						</div>
+
+						<!-- rewrite_rule -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="rewrite_rule"><?=TXT_CONFIGPOSTTYPE_LBL_REWRITE_RULE?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_REWRITE_RULE?>" data-content="<?=$popover['rewrite_rule']?>">[?]</a>
+							</label>
+							<div class="col-md-7" id="rewrite_rule">
+								<pre><code id="rewrite_rule_code" class="language-shell"># nothing rule</code></pre>
+							</div>
+						</div>
+
+						<hr>
+						<div class="form-group">
+							<div class="col-md-8 col-md-offset-4">
+								<input type="hidden" name="target" value="posttype_permalink">
+								<input class="btn btn-primary width120" type="submit" id="submit_record_01" name="submit_record" value="<?=TXT_CONFIGPOSTTYPE_BTN_SUBMIT?>">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
 		</div>
+		
 	</div>
 </main>
 <script src="js/config.js"></script>

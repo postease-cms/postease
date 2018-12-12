@@ -91,9 +91,9 @@ function showDownloadPasswordButton ()
         password : $('#password_new').val()
       },
       dataType: 'json',
-    }).done(function ($responce)
+    }).done(function ($response)
     {
-      if ($responce['result'] == '1')
+      if ($response['result'] == '1')
       {
         if (! $('#download_password').length)
         {

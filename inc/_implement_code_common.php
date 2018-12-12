@@ -20,7 +20,7 @@ $comment_jquery_attention = TXT_CODE_COM_IMPLEMENT_JQUERYATTENTION;
 /*
  * {$comment_local_php}
  */
-require_once '[your-postease-path]/api/local.php';
+require_once '[your-postease-path]/api/v2/local.php';
 
 ";
 ?>
@@ -36,7 +36,7 @@ require_once '[your-path]/PecRpc/Pec.php';
 
 // {$comment_remote_php_01}
 \$pe = new Pec ();
-\$pe -> connect ('{$remote_url}/api/remote.php');
+\$pe -> connect ('{$remote_url}/api/v2/remote.php');
 
 ";
 ?>
@@ -46,25 +46,9 @@ require_once '[your-path]/PecRpc/Pec.php';
 
 <pre><code class="language-php"><?php echo "
 // {$comment_jquery}
-// {$comment_jquery_attention}
-
-/*
- * postease
- *    |
- *    |-- api
- *         |
- *         |-- .htaccess
- */
 
 ";
 				?>
-</code></pre>
-<h4>.htaccess</h4>
-<pre><code class="language-php"><?php echo "
-Header set Access-Control-Allow-Origin \"*\"
-
-";
-?>
 </code></pre>
 <?php endif?>
 </div>

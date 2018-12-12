@@ -67,6 +67,7 @@
 						<hr>
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
+								<input type="hidden" name="target" value="general_whole">
 								<input class="btn btn-primary width120" type="submit" id="submit_record_01" name="submit_record" value="<?=TXT_CONFIGGENERAL_BTN_SUBMIT?>">
 							</div>
 						</div>
@@ -78,7 +79,7 @@
         <div class="panel-heading">
           <h3 class="configcoreHeading panel-title"><?=TXT_CONFIGGENERAL_LBL_IMPLEMENTCODE?></h3>
         </div>
-        <div id="panel_core_implement_code" class="panel-body">
+        <div id="panel_implement_code" class="panel-body">
           <form class="form-horizontal" role="form" action="./?mode=3" method="post">
 
             <!-- display_implement_code -->
@@ -110,8 +111,8 @@
             <hr>
             <div class="form-group">
               <div class="col-md-8 col-md-offset-4">
-                <input type="hidden" name="target" value="core_authority">
-                <input class="btn btn-info width120" type="submit" id="update_core" name="update_core_authority" value="<?=TXT_CONFIGGENERAL_BTN_SUBMIT?>">
+                <input type="hidden" name="target" value="implement_code">
+	              <input class="btn btn-primary width120" type="submit" id="submit_record_02" name="submit_record" value="<?=TXT_CONFIGGENERAL_BTN_SUBMIT?>">
               </div>
             </div>
           </form>

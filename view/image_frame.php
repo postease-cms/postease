@@ -110,15 +110,15 @@
 							<?php foreach ($records as $key => $row):?>
 								<tr id="special_cat_<?=$key?>" class="<?=($row['parent_dir']==$this_parent_dir&&$row['child_dir']==$this_child_dir)?'info':''?>">
 									<td class="<?=($row['parent_dir']=='admin')?'text-primary':''?>"><?=$row['parent_dir'].'/'.$row['child_dir']?></td>
-									<td><?=$row['type']?></td>
+									<td><?=$image_frame_type[$row['type']]?></td>
 									<td>
 										<?php if ($row['width']):?>
-											<?=$row['width']?>px
+											<?=($row['type']=='auto')?TXT_IMAGEFRAME_LBL_SIZEMAX:null?> <?=$row['width']?>px
 										<?php endif?>
 									</td>
 									<td>
 										<?php if ($row['height']):?>
-											<?=$row['height']?>px
+											<?=($row['type']=='auto')?TXT_IMAGEFRAME_LBL_SIZEMAX:null?> <?=$row['height']?>px
 										<?php endif?>
 									</td>
 									<td><?=$row['comment']?></td>

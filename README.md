@@ -1,6 +1,6 @@
 # POSTEASE install type
 
-:earth_americas: [POSTEASE install type](https://classic.postease.org)
+:earth_americas: [POSTEASE install type](https://postease.in)
 
 ## 概要 / Outline
 :jp: POSTEASE install type はAPI接続式の超軽量ヘッドレスCMSです。  
@@ -36,7 +36,7 @@
 ## ダウンロード / Download
 
 ```sh
-git clone git@github.com:postease-classic/postease.git
+git clone git@github.com:postease-cms/postease.git
 ```
 
 
@@ -57,7 +57,7 @@ Constitute Example
 
 index.php
 ```php
-require_once dirname(__FILE__) . '/postease/api/local.php';
+require_once dirname(__FILE__) . '/postease/api/v2/local.php';
 
 $posts = get_posts();
 ```
@@ -67,11 +67,12 @@ $posts = get_posts();
 
 ## 最新バージョン / Latest version
 
-**2.9.2 ( 12.Dec.2018 )**
+**3.0.0 ( 12.Dec.2018 )**
 
 ---
 
 #### Update History
+- 3.0.0 ( 12.Dec.2018 )
 - 2.9.2 ( 12.Dec.2018 )
 - 2.9.1 ( 16.Nov.2018 )
 - 2.9.0 ( 15.Nov.2018 )

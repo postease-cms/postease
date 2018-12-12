@@ -59,13 +59,16 @@ $html_code_jquery = htmlspecialchars("
 
 ?>
 <div id="code" class="col-md-12">
-<h4><?=TXT_POST_LBL_IMPLEMENT_CODE?> <?=$implement_code_list[$_SESSION[$session_key]['configs']['implement_code']]?></h4>
+<h4>
+	<?=TXT_POST_LBL_IMPLEMENT_CODE?> <?=$implement_code_list[$_SESSION[$session_key]['configs']['implement_code']]?>
+	<small>（<a href="?view_page=config_general&target=implement_code"><?=TXT_CODE_LNK_CHANGE_LANGUAGE?></a>）</small>
+</h4>
 <?php if ($_SESSION[$session_key]['configs']['implement_code'] == 1):?>
 
 <pre><code class="language-php"><?php echo "&lt;?php
 
 // {$comment_local_php}
-require_once '[your-postease-path]/api/local.php';
+require_once '[your-postease-path]/api/v2/local.php';
 
 // {$comment_tag_config}
 \$config = array (
@@ -91,7 +94,7 @@ require_once '[your-path]/PecRpc/Pec.php';
 
 // {$comment_remote_php_01}
 \$pe = new Pec ();
-\$pe -> connect ('{$remote_url}/api/remote.php');
+\$pe -> connect ('{$remote_url}/api/v2/remote.php');
 
 // {$comment_tag_config}
 \$config = array (
@@ -122,7 +125,7 @@ $(function()
   // {$comment_get_tags}
   $.ajax(
   {
-    url : '{$remote_url}/api/json.php?get_tags',
+    url : '{$remote_url}/api/v2/json.php?get_tags',
     type : 'POST',
     data : {
       config: config,

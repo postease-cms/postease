@@ -127,18 +127,18 @@ $(function() {
             type: 'post',
             dataType: 'json',
             async: false,
-          }).done(function ($responce)
+          }).done(function ($response)
           {
-            if ($responce['result'] == '1')
+            if ($response['result'] == '1')
             {
-              $requested_from   = $responce.requested_from;
-              $onetime_password = $responce.onetime_password;
-              $host_activation  = $responce.host_activation;
-              $lang             = $responce.lang;
-              $.cookie('requested_from', $responce.requested_from);
-              $.cookie('onetime_password', $responce.onetime_password);
-              $.cookie('host_activation', encodeURIComponent($responce.host_activation));
-              $.cookie('lang', $responce.lang);
+              $requested_from   = $response.requested_from;
+              $onetime_password = $response.onetime_password;
+              $host_activation  = $response.host_activation;
+              $lang             = $response.lang;
+              $.cookie('requested_from', $response.requested_from);
+              $.cookie('onetime_password', $response.onetime_password);
+              $.cookie('host_activation', encodeURIComponent($response.host_activation));
+              $.cookie('lang', $response.lang);
             }
           });
         }
@@ -156,9 +156,9 @@ $(function() {
             dataType: 'json',
             async: false,
           })
-          .done(function ($responce)
+          .done(function ($response)
           {
-            if ($responce['result'] == '1')
+            if ($response['result'] == '1')
             {
               $('.modal-body .alert').remove();
               $('#getActivationKey').remove();
@@ -166,7 +166,7 @@ $(function() {
               $('#account').val($email).change();
               $('.modal-body').prepend('<div class="alert alert-success">' + TXT_RESETSYSTEM_MSG_ISSUED_ACTIVATIONKEY + '</div>');
             }
-            if ($responce['result'] == '6')
+            if ($response['result'] == '6')
             {
               $('.modal-body .alert').remove();
               $('.modal-body').prepend('<div class="alert alert-danger">' + TXT_RESETSYSTEM_ALT_INVALID_EMAIL + '</div>');
@@ -248,9 +248,9 @@ function showDownloadPasswordButton ()
         password : $('#password').val()
       },
       dataType: 'json',
-    }).done(function ($responce)
+    }).done(function ($response)
     {
-      if ($responce['result'] == '1')
+      if ($response['result'] == '1')
       {
         if (! $('#download_password').length)
         {

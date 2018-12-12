@@ -2,6 +2,7 @@
 $remote_url = $_SESSION[$session_key]['configs']['domain'];
 if ($_SESSION[$session_key]['configs']['dir_name']) $remote_url .= '/' . $_SESSION[$session_key]['configs']['dir_name'];
 $delimiter = ($_SESSION[$session_key]['configs']['implement_code'] == 3) ? ':' : '=>';
+$permalink_flg = (! empty($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['rewrite_url'])) ? 1 : 0;
 
 $conditions = null;
 if ($_SESSION[$session_key]['configs']['use_multisite_flg'])
@@ -41,6 +42,9 @@ $comment_render_posts  = TXT_CODE_COM_IMPLEMENT_RENDERPOSTS;
 
 $html_title = $_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['name'];
 $html_class = $_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['slug'];
+
+$single_link = ($permalink_flg) ? '<h3><a href="<?=$row[\'permalink\']?>"><?=$row[\'title\']?></a></h3>' : '<h3><a href="?post_key=<?=$row[\'id\']?>"><?=$row[\'title\']?></a></h3>';
+
 $html_code_php = htmlspecialchars("
 <html>
 <head>
@@ -54,7 +58,7 @@ $html_code_php = htmlspecialchars("
     <figure><img src=\"<?=\$row['eyecatch']?>\"></figure>
     <time><?=\$row['publish_date']?></time>
     <p><?=\$row['category_text']?></p>
-    <h3><a href=\"?id=<?=\$row['id']?>\"><?=\$row['title']?></a></h3>
+    {$single_link}
   </div>
   <?php endforeach ?>
 </div>
@@ -81,13 +85,16 @@ $html_code_jquery = htmlspecialchars("
 
 ?>
 <div id="code" class="col-md-12">
-<h4><?=TXT_POSTS_LBL_IMPLEMENT_CODE?> <?=$implement_code_list[$_SESSION[$session_key]['configs']['implement_code']]?></h4>
+<h4>
+	<?=TXT_POSTS_LBL_IMPLEMENT_CODE?> <?=$implement_code_list[$_SESSION[$session_key]['configs']['implement_code']]?>
+	<small>（<a href="?view_page=config_general&target=implement_code"><?=TXT_CODE_LNK_CHANGE_LANGUAGE?></a>）</small>
+</h4>
 <?php if ($_SESSION[$session_key]['configs']['implement_code'] == 1):?>
 
 <pre><code class="language-php"><?php echo "&lt;?php
 
 // {$comment_local_php}
-require_once '[your-postease-path]/api/local.php';
+require_once '[your-postease-path]/api/v2/local.php';
 
 // {$comment_posts_config}
 \$config = array (
@@ -113,7 +120,7 @@ require_once '[your-path]/PecRpc/Pec.php';
 
 // {$comment_remote_php_01}
 \$pe = new Pec ();
-\$pe -> connect ('{$remote_url}/api/remote.php');
+\$pe -> connect ('{$remote_url}/api/v2/remote.php');
 
 // {$comment_posts_config}
 \$config = array (
@@ -144,7 +151,7 @@ $(function()
   // {$comment_get_posts}
   $.ajax(
   {
-    url : '{$remote_url}/api/json.php?get_posts',
+    url : '{$remote_url}/api/v2/json.php?get_posts',
     type : 'POST',
     data : {
       config: config,
@@ -160,7 +167,7 @@ $(function()
       if (row.eyecatch) html += '<img src=\"' + row.eyecatch + '\">';
       html += '<time>' + row.publish_date + '</time>';
       if (row.category_text) html += '<p>' + row.category_text + '</p>';
-      html += '<h3><a href=\"?id=' + row.id + '\">' + row.title + '</a></h3>';
+      html += '<h3><a href=\"?post_id=' + row.id + '\">' + row.title + '</a></h3>';
       html += '</div>';
       $('.{$html_class}List').append(html);
     });

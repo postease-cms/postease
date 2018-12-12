@@ -31,7 +31,7 @@ $(function ()
 	});
 
 	// CSS fix
-	$('span.label-status').css({display: 'inline-block', padding: '4px 0', width: '42px', height: '1.8em', fontSize: '70%'});
+	$('span.label-status').css({display: 'inline-block', padding: '4px 0', width: '52px', height: '1.8em', fontSize: '70%'});
 	$('span.label-extra').css({display: 'inline-block', padding: '4px 0', width: '36px', height: '1.8em', fontSize: '70%'});
   $('.select2').css({width: '200px'});
 	
@@ -68,6 +68,10 @@ $(function ()
 		var $sc_created_by = $(this).val();
 		location.href = '?page=1&sc_created_by=' + $sc_created_by;
 	});
+	if ($('#post_list').hasClass('withEyecatch'))
+	{
+		$('#post_list td').css({padding: '.4em .7em', height: '5.4em'});
+	}
 
 
 	// Batch Operation

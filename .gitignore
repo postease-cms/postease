@@ -9,3 +9,5 @@ core/db/pdo_*.php
 custom/*
 upload/*
 postease_password.txt
+origin_allowed.txt
+remote_address_allowed.txt
