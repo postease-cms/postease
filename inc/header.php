@@ -13,7 +13,7 @@
 	<?=$view_page_title[$view_page_type[$view_page]]?>&nbsp;&lsaquo;
 	<?php endif?>
 	<?php endif?>
-	<?php if ($_SESSION[$session_key]['configs']['use_multisite_flg']):?>
+	<?php if ($_SESSION[$session_key]['configs']['use_multisite_flg'] && ($view_page != 'login' && $view_page != 'update')):?>
 	<?=$_SESSION[$session_key]['common']['sites'][$_SESSION[$session_key]['common']['this_site']]['name']?>&nbsp;&lsaquo;
 	<?php endif?>
 	<?=($site_name = $_SESSION[$session_key]['configs']['site_name'])?$site_name:'POSTEASE'?>

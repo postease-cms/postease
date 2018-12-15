@@ -21,7 +21,7 @@
       <!-- Admin auto reply setting -->
       <div class="panel panel-info">
         <div id="panel_contact_option" class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGCONTACT_LBL_ADMINAUTOREPLYSETTING?></h3></div>
-        <div class="panel-body">
+        <div class="panel-body" id="panel_contact_admin_mail">
           <form class="form-horizontal" role="form" action="./?mode=3" method="post">
             
             <!-- use_auto_reply_admin -->
@@ -152,6 +152,7 @@
             <hr>
             <div class="form-group">
               <div class="col-md-8 col-md-offset-4">
+	              <input type="hidden" name="target" value="contact_admin_mail">
                 <input class="btn btn-primary width120" type="submit" id="submit_record_01" name="submit_record" value="<?=TXT_CONFIGCONTACT_BTN_SUBMIT?>">
               </div>
             </div>
@@ -162,7 +163,7 @@
 			<!-- Customer auto reply setting -->
 			<div class="panel panel-info">
 				<div id="panel_contact_option" class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGCONTACT_LBL_CUSTOMERAUTOREPLYSETTING?></h3></div>
-				<div class="panel-body">
+				<div class="panel-body" id="panel_contact_customer_mail">
 					<form class="form-horizontal" role="form" action="./?mode=3" method="post">
 						
 						<!-- use_auto_reply_customer -->
@@ -282,6 +283,7 @@
 						<hr>
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
+								<input type="hidden" name="target" value="contact_customer_mail">
 								<input class="btn btn-primary width120" type="submit" id="submit_record_01" name="submit_record" value="<?=TXT_CONFIGCONTACT_BTN_SUBMIT?>">
 							</div>
 						</div>
@@ -292,7 +294,7 @@
       <!-- SMTP setting -->
       <div class="panel panel-info">
         <div id="panel_contact_option" class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGCONTACT_LBL_SMTP?></h3></div>
-        <div class="panel-body">
+        <div class="panel-body" id="panel_contact_smtp">
           <form class="form-horizontal" role="form" action="./?mode=3" method="post">
             
             <!-- use_smtp -->
@@ -355,6 +357,7 @@
             <hr>
             <div class="form-group">
               <div class="col-md-8 col-md-offset-4">
+	              <input type="hidden" name="target" value="contact_smtp">
                 <input class="btn btn-primary width120" type="submit" id="submit_record_01" name="submit_record" value="<?=TXT_CONFIGCONTACT_BTN_SUBMIT?>">
               </div>
             </div>
@@ -364,7 +367,7 @@
       
       <div class="panel panel-info">
         <div id="panel_contact_option" class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGCONTACT_LBL_TITLEOPTION?></h3></div>
-        <div class="panel-body">
+        <div class="panel-body" id="panel_contact_options">
           <form class="form-horizontal" role="form" action="./?mode=3" method="post">
             
             <!-- use_customitem_flg -->
@@ -383,6 +386,7 @@
             <hr>
             <div class="form-group">
               <div class="col-md-8 col-md-offset-4">
+	              <input type="hidden" name="target" value="contact_options">
                 <input class="btn btn-primary width120" type="submit" id="submit_record_01" name="submit_record" value="<?=TXT_CONFIGCONTACT_BTN_SUBMIT?>">
               </div>
             </div>
@@ -467,6 +471,7 @@
 						<hr>
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
+								<input type="hidden" name="target" value="contact_list">
 								<input class="btn btn-primary width120" type="submit" id="submit_record_02" name="submit_record" value="<?=TXT_CONFIGCONTACT_BTN_SUBMIT?>">
 							</div>
 						</div>

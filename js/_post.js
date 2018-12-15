@@ -848,7 +848,7 @@ function generatePermalink ()
 				: $permalink_base + $consolidation_first + $hash_id;
 			break;
 		case 3:
-			if (! id)
+			if (! $id)
 			{
 				$permalink_url = TXT_CONFIGPOSTTYPE_WAR_LACKOFITEM;
 				break;

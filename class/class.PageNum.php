@@ -42,8 +42,8 @@ class PageNum
 		if (isset($_SESSION[$session_key]['configs']['editable_role_category_post']))    $this -> editable_role_category_post     = $_SESSION[$session_key]['configs']['editable_role_category_post'];
 		if (isset($_SESSION[$session_key]['configs']['editable_role_tag_post']))         $this -> editable_role_tag_post          = $_SESSION[$session_key]['configs']['editable_role_tag_post'];
 		if (isset($_SESSION[$session_key]['configs']['editable_role_category_contact'])) $this -> editable_role_category_contact  = $_SESSION[$session_key]['configs']['editable_role_category_contact'];
-		if (isset($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_category_flg'])) $this->use_category_flg = 1;
-		if (isset($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_tag_flg'])) $this->use_tag_flg = 1;
+		if (! empty($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_category_flg'])) $this->use_category_flg = 1;
+		if (! empty($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_tag_flg'])) $this->use_tag_flg = 1;
 		
 		if (isset($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['use_customitem_flg']))
 		{
