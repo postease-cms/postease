@@ -79,7 +79,7 @@ function generateRewriteRule($permalink_style, $resource_uri, $rewrite_url_flg =
 	$dir_flg = ($rewrite_uri_base) ? 1 : 0;
 	$rewrite_rule_text = '# nothing rule';
 	
-	if (! empty($permalink_style && ! empty($rewrite_url_flg)))
+	if (! empty($permalink_style) && ! empty($rewrite_url_flg))
 	{
 		$rewrite_rule_text = $base_text_upper . $rewrite_rules[$permalink_style][$dir_flg] . (($rewrite_operator_flg) ? $rewrite_rule_operator : null) . $base_text_bottom;
 	}
