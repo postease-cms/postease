@@ -318,6 +318,7 @@ define('TXT_POST_MSG_UNEDITABLE',               '編集権限がありません�
 define('TXT_POST_LBL_AUTOSAVEMODE',             '自動保存モード');
 define('TXT_POST_MSG_SAVED',                    '保存しています');
 define('TXT_POST_PLH_LIST',                     'リストの区切りは改行です。');
+define('TXT_POST_PLH_GALLERY_CAPTION',          'キャプション');
 define('TXT_POST_LBL_SELECTDEFAULT',            '選択');
 define('TXT_POST_BTN_IMG_SET',                  '設定');
 define('TXT_POST_BTN_IMG_DELETE',               '削除');
@@ -339,7 +340,8 @@ define('TXT_POST_LBL_DELETEVERSION',            'このバージョンを削除�
 define('TXT_POST_LBL_NEWVERSION',               '新しいバージョン');
 define('TXT_POST_LBL_ALLOWDELETEVERSION',       'バージョンの削除を許可する');
 define('TXT_POST_LBL_SLUG',                     'スラッグ');
-define('TXT_POST_PLH_SLUG',                     'スラッグ');
+define('TXT_POST_PLH_SLUG',                     'タイトルより優先的にURLの一部になります。半角英数字と「_」「-」が利用可能です。');
+define('TXT_POST_PLH_TITLEWITHSLUG',            'スラッグが設定されていない場合はURLの一部になります。');
 define('TXT_POST_LBL_PUBLISHDATETIME',          '公開日時');
 define('TXT_POST_LBL_PUBLISHENDAT',             '公開終了日時');
 define('TXT_POST_PLH_PUBLISHDATE',              '公開日');

@@ -56,12 +56,18 @@ textarea {
 _::-webkit-full-page-media, _:future, :root select {
 	-webkit-appearance: none;
 }
-input:-webkit-autofill
-{
-	-webkit-transition: background-color 9999s;
-	transition: background-color 9999s;
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
 }
-
+*::-webkit-input-placeholder {
+	color: #ccc;
+}
+*::-moz-placeholder {
+	color: #ccc;
+}
+*:-ms-input-placeholder {
+	color: #ccc;
+}
 
 
 
@@ -724,6 +730,12 @@ figure > figcaption {
 }
 #permalink_display label {
 	font-size: 1em;
+	word-break: break-word;
+	word-wrap: break-word;
+	white-space: normal;
+	display: inline-block;
+	text-align: left;
+	line-height: 1.6;
 }
 #preview_link {
 	margin: 1em .5em;
@@ -900,6 +912,13 @@ textarea.content {
 	margin-top: .5em;
 	font-weight: normal;
 }
+.thumbnailCaption {
+	width: 100%;
+	max-height: 2em;
+	padding: .2em .4em;
+	margin-top: .2em;
+}
+
 
 
 /* COMMENT *
@@ -1643,3 +1662,4 @@ label, .alert, .control-label, .help-block, .checkbox, .radio {
 .radio-block input {
 	margin-right: 4px;
 }
+

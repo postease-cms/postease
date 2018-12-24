@@ -1,2 +1,1176 @@
-<?php ${"GL\x4fBA\x4c\x53"}["\x7a\x73\x73\x74\x6c\x77\x6du\x6c"]="up\x64a\x74\x65_co\x6e\x74\x61\x63\x74";${"\x47L\x4fBA\x4c\x53"}["z\x71zdt\x79\x61\x64"]="upda\x74\x65\x5f\x63o\x6e\x74\x61\x63t_\x63\x75s\x74o\x6d";${"G\x4c\x4f\x42\x41L\x53"}["\x6ee\x6em\x71\x6c\x72\x77"]="\x63\x6f\x6e\x74\x61c\x74\x73_\x63\x75\x73\x74o\x6d";${"GL\x4f\x42A\x4c\x53"}["\x79\x62\x69\x69\x6ak\x71"]="\x73\x65\x61r\x63\x68\x5f\x63\x6fn\x74a\x63\x74s\x5f\x63\x75\x73\x74\x6fm";${"\x47L\x4f\x42\x41\x4c\x53"}["\x72\x67j\x76\x75\x70u\x71"]="\x75\x70da\x74\x65\x5fco\x6e\x74\x61\x63\x74\x5f\x62as\x65";${"G\x4cO\x42A\x4c\x53"}["\x77d\x77r\x79\x68sl"]="\x63re\x61\x74\x65\x5fc\x6fn\x74ac\x74\x5f\x63us\x74\x6fm";${"G\x4c\x4f\x42\x41\x4c\x53"}["\x6a\x6b\x74m\x71a\x6db"]="\x6e\x65\x77\x5f\x63\x6fn\x74\x61\x63t";${"G\x4c\x4f\x42ALS"}["\x62ru\x63hp\x70z"]="g\x65\x74\x5f\x6ee\x77\x5f\x63o\x6e\x74\x61\x63\x74";${"\x47L\x4fB\x41\x4c\x53"}["s\x75\x66u\x6ek\x72\x62c"]="c\x72eate\x5f\x63o\x6e\x74\x61\x63\x74_b\x61s\x65";${"G\x4c\x4f\x42AL\x53"}["\x6c\x73\x77\x68\x67\x76g\x73\x6anc"]="\x63\x6f\x6e\x74a\x63\x74\x65d\x5f\x61\x74";${"\x47\x4c\x4f\x42\x41L\x53"}["\x77\x62s\x72\x63\x71\x63\x76"]="u\x70\x64\x61\x74\x65\x5f\x63o\x6d\x6d\x65n\x74";${"GL\x4f\x42\x41\x4c\x53"}["z\x6bo\x71\x6b\x6ejd"]="po\x73\x74e\x64_at";${"GL\x4f\x42\x41\x4c\x53"}["\x64bd\x62\x79\x73q\x77\x61\x68\x72"]="\x75p\x64\x61\x74\x65\x5f\x70o\x73t_\x63\x75\x73\x74\x6fm";${"G\x4cOB\x41\x4c\x53"}["\x64xm\x77\x6c\x69\x70\x64jju"]="\x73\x65\x61\x72\x63h_\x70o\x73\x74\x73\x5f\x63u\x73\x74\x6f\x6d";${"\x47\x4cO\x42\x41\x4cS"}["\x69\x6a\x67\x64qe\x63\x6c"]="\x67\x61\x6c\x6c\x65r\x79\x5f\x6b\x65\x79";${"\x47\x4c\x4fBA\x4cS"}["\x62\x69\x6ahe\x6d\x65\x6d\x79\x62\x74"]="c\x68\x69l\x64\x5f\x69\x64";${"G\x4c\x4f\x42\x41L\x53"}["ny\x6d\x72d\x6foc\x76\x71"]="\x75p\x64\x61te_\x70\x6fs\x74\x5ft\x65xt";${"\x47\x4c\x4f\x42\x41\x4cS"}["i\x6aw\x66\x6bka\x71"]="\x73\x65a\x72\x63h\x5f\x70os\x74s\x5fte\x78\x74";${"\x47\x4c\x4fB\x41\x4c\x53"}["\x6fk\x76\x6brtl"]="pos\x74\x73\x5ftext";${"GLO\x42\x41\x4c\x53"}["g\x6e\x6d\x78h\x62us\x68s\x72\x6b"]="u\x70d\x61\x74e\x5f\x70\x6fs\x74_b\x61\x73\x65";${"\x47\x4c\x4f\x42\x41\x4c\x53"}["g\x62\x67\x74hr\x6d\x66"]="\x63h\x69\x6c\x64\x72\x65n";${"\x47\x4cO\x42AL\x53"}["\x6co\x68j\x76\x68s\x70\x66\x69"]="re\x63\x6fr\x64";${"G\x4c\x4f\x42A\x4cS"}["\x6f\x68\x6b\x70\x6c\x63\x77\x75\x73v"]="\x76e\x72\x73\x69\x6fn";${"G\x4cO\x42AL\x53"}["h\x6a\x75\x67\x6b\x67\x73i\x75\x62"]="\x73\x65\x73\x73i\x6f\x6e_\x6bey";${"\x47L\x4f\x42\x41L\x53"}["\x69kt\x64d\x61v\x65\x6f\x66ry"]="\x63\x72\x65\x61\x74e\x5f\x70\x6fs\x74\x5f\x63u\x73to\x6d";${"\x47L\x4f\x42ALS"}["\x64\x76q\x74fe\x79\x79q"]="i\x6d\x61\x67e";${"\x47\x4c\x4f\x42\x41\x4cS"}["\x65\x77\x64\x73\x76r\x75m\x68"]="\x6b\x65y";${"GLO\x42\x41\x4cS"}["\x69g\x79\x67q\x68\x64\x71\x69\x67\x68\x77"]="\x67\x61\x6c\x6c\x65\x72\x79\x5far\x72";${"\x47L\x4f\x42A\x4c\x53"}["j\x66\x6d\x67y\x6fp\x77\x77\x68\x72"]="\x64\x61\x74\x61";${"\x47L\x4fB\x41\x4c\x53"}["\x75\x6e\x6a\x64\x74\x6f\x77"]="c\x75\x73to\x6d_\x69\x74\x65\x6d\x5f\x69\x64";${"\x47LOBAL\x53"}["\x6d\x67\x62h\x6bg\x6ev"]="\x72\x65\x61\x64_\x63\x75\x73\x74\x6f\x6d\x5f\x69tems";${"\x47\x4c\x4f\x42\x41\x4cS"}["\x66\x66z\x6fh\x75"]="\x63u\x73\x74\x6fm\x5fit\x65\x6d\x73";${"G\x4cOB\x41\x4cS"}["\x72\x74o\x6d\x73\x76\x65odr"]="\x63r\x65at\x65_\x70\x6f\x73\x74\x5f\x74ex\x74";${"\x47\x4cO\x42ALS"}["\x66o\x66\x73\x65\x70\x62\x6b"]="\x63\x6f\x75n\x74_\x69\x6es\x65r\x74";${"\x47LOB\x41\x4c\x53"}["\x73i\x7a\x76\x68f\x69\x70"]="\x63\x72e\x61\x74\x65\x5f\x70ost\x5f\x62as\x65";${"\x47LOB\x41L\x53"}["la\x76h\x66d\x63\x72if\x71l"]="sq\x6c";${"G\x4cO\x42\x41LS"}["\x62p\x73\x77\x6c\x78\x6aw\x6e"]="\x6e\x65\x77_\x69d";${"\x47\x4c\x4f\x42\x41L\x53"}["\x6e\x68\x77\x67\x74o"]="h\x61s\x68_\x69d";${"G\x4c\x4f\x42\x41\x4c\x53"}["\x76\x66b\x78\x6b\x6c\x72"]="\x74\x61\x62\x6ce_\x70r\x65\x66\x69x";${"\x47\x4c\x4f\x42\x41L\x53"}["\x76q\x76g\x72\x67\x6ft"]="\x74\x61r\x67\x65\x74\x5fta\x62l\x65";${"G\x4c\x4f\x42A\x4c\x53"}["xr\x70\x6fxr\x6b"]="\x72e\x67\x65\x78";${"\x47L\x4fB\x41\x4cS"}["j\x6bh\x67\x62ize\x77\x6b\x63"]="\x70\x61\x74\x74\x65\x72n\x5f\x70\x61\x72\x61\x6d";${"G\x4c\x4f\x42\x41\x4c\x53"}["\x6b\x62\x66g\x67\x73\x6b\x75x\x6d\x76"]="l\x61n\x67\x75ag\x65_\x69d";${"G\x4c\x4f\x42A\x4cS"}["\x73h\x69\x69\x69\x70\x69ln"]="\x74a\x72g\x65t\x5f\x70d\x66";${"\x47\x4cOB\x41\x4c\x53"}["\x6d\x72\x64yv\x71y\x6e\x6a"]="r\x65\x70\x6ca\x63e\x5f\x70\x64\x66";${"\x47\x4c\x4f\x42\x41L\x53"}["g\x78\x69jl\x71\x75\x63e\x71"]="\x72\x65\x70\x6c\x61\x63\x65\x5f\x69m\x67";${"\x47\x4c\x4f\x42\x41L\x53"}["\x6f\x73\x72bc\x6f\x73\x67d"]="\x65\x79\x65c\x61\x74ch";${"G\x4cO\x42A\x4c\x53"}["h\x76\x67\x6d\x69\x6d"]="\x70o\x73\x74\x65\x64_\x74a\x67s";${"\x47\x4cO\x42\x41LS"}["jovwm\x7a\x6by"]="tag_\x69d";${"G\x4cO\x42\x41LS"}["\x71ei\x65\x67\x6a\x77\x62g\x76\x6an"]="\x70\x6f\x73t\x65\x64\x5fc\x61\x74e\x67\x6f\x72i\x65\x73";${"G\x4c\x4f\x42\x41\x4c\x53"}["\x72\x63\x61\x69gy\x6e\x7ah\x72"]="\x76\x61\x6c\x75\x65";${"G\x4c\x4fB\x41\x4cS"}["\x63r\x71\x68\x67\x77d"]="ca\x74eg\x6f\x72y\x5f\x69d";${"\x47\x4cO\x42\x41L\x53"}["\x72i\x6e\x66\x6cu\x69"]="\x73\x74at\x75\x73";${"\x47\x4c\x4f\x42ALS"}["\x73et\x73f\x75f\x71\x6b\x66"]="\x70u\x62l\x69\x73\x68_e\x6ed\x5f\x61\x74";${"\x47\x4c\x4f\x42\x41\x4c\x53"}["e\x77\x6d\x61\x74p"]="\x70\x75\x62l\x69sh\x5f\x64\x61\x74et\x69\x6d\x65";${"G\x4c\x4fBAL\x53"}["\x6f\x6e\x79\x71\x65ww\x72\x68u"]="\x73e\x73si\x6f\x6e\x5f\x6b\x65y";${"G\x4c\x4f\x42\x41\x4cS"}["\x6ec\x78p\x77ci\x67"]="m\x65\x64\x69a\x5f\x70\x61r\x61m\x65\x74er";$psnrcg="\x73\x75bm\x69\x74";${"G\x4c\x4fB\x41L\x53"}["\x71\x68\x62\x6f\x6c\x6e\x6d\x6cw\x64\x79"]="\x70\x72o\x63\x65\x73s";$yyxhnrqu="p\x61t\x74er\x6e\x5f\x70\x61r\x61\x6d";${"\x47\x4c\x4f\x42\x41\x4cS"}["\x6fyk\x68\x72\x77\x64s"]="\x74a\x72g\x65\x74\x5f\x69\x64";${"G\x4c\x4f\x42\x41L\x53"}["\x65\x7aq\x79\x6d\x64\x69y\x6f\x74"]="\x76\x65\x72\x73\x69\x6f\x6e";require_once"\x2e/\x5f\x73\x79stem_\x68ea\x64\x65r.\x70\x68\x70";${${"\x47LOB\x41\x4cS"}["\x6fy\x6bhrwds"]}=(isset($_POST["\x74\x61\x72ge\x74\x5f\x69\x64"]))?$_POST["ta\x72ge\x74\x5fid"]:null;${${"G\x4c\x4f\x42\x41\x4c\x53"}["\x65zq\x79\x6d\x64i\x79\x6ft"]}=(isset($_POST["\x76e\x72\x73ion"]))?$_POST["ver\x73i\x6f\x6e"]:null;${${"G\x4cOB\x41\x4c\x53"}["q\x68\x62o\x6cn\x6dl\x77d\x79"]}=(isset($_POST["\x70r\x6f\x63e\x73\x73"]))?$_POST["\x70ro\x63\x65\x73\x73"]:null;${$psnrcg}=(isset($_POST["\x73\x75\x62\x6d\x69\x74"]))?$_POST["submit"]:null;${${"\x47\x4cO\x42\x41L\x53"}["\x6ec\x78\x70\x77ci\x67"]}=date("Y\x6d\x64\x48is");${$yyxhnrqu}="/\\?\x76\x3d\x5c\x64{1\x34}/";if($_SESSION[${${"\x47\x4c\x4fB\x41L\x53"}["\x6f\x6e\x79\x71\x65\x77\x77\x72h\x75"]}]["co\x6dm\x6fn"]["\x76iew_\x70ag\x65"]=="p\x6f\x73\x74"){${"\x47\x4c\x4fBA\x4c\x53"}["r\x78\x67\x62\x64\x73\x67"]="\x74\x61r\x67e\x74\x5f\x69\x64";$rymuumqts="p\x75\x62\x6c\x69s\x68\x5fda\x74et\x69m\x65";$iwbqrnxkr="pu\x62\x6c\x69\x73\x68\x5f\x64\x61te\x74i\x6d\x65";${"\x47\x4cOBA\x4c\x53"}["\x6a\x76\x7a\x78\x78\x78\x79\x74"]="p\x75\x62\x6ci\x73\x68\x5f\x65\x6e\x64\x5f\x61t";${$iwbqrnxkr}=(!empty($_POST["p\x75\x62\x6c\x69\x73h_\x64\x61te\x74\x69me"]))?$_POST["\x70\x75\x62\x6ci\x73\x68\x5f\x64\x61te\x74ime"].":00":null;$yannsluskb="s\x6c\x75\x67";${"G\x4cO\x42A\x4cS"}["\x6fszsn\x67\x73b"]="\x70u\x62\x6ci\x73\x68\x5f\x65\x6ed\x5f\x61\x74";if(!empty(${$rymuumqts})&&(strtotime(${${"G\x4cO\x42\x41\x4c\x53"}["e\x77m\x61\x74\x70"]})<strtotime("\x319\x30\x30-\x30\x31-\x30\x31 0\x30:00:\x30\x30")||!checkDatetime(${${"\x47\x4c\x4fBA\x4c\x53"}["\x65\x77m\x61\x74p"]}))){${${"GL\x4fB\x41\x4c\x53"}["\x65\x77\x6da\x74p"]}=date("\x59-\x6d-d H:\x69").":0\x30";}$enylofoe="\x70\x75\x62\x6c\x69\x73h\x5f\x65nd_\x61\x74";$rgocohkwjze="se\x73\x73\x69\x6fn\x5f\x6b\x65y";${${"\x47LO\x42A\x4c\x53"}["\x73e\x74\x73f\x75f\x71\x6b\x66"]}=(!empty($_POST["p\x75\x62li\x73h\x5fe\x6e\x64_\x61\x74"]))?$_POST["\x70\x75bli\x73\x68\x5fe\x6ed_a\x74"].":\x30\x30":null;if(!empty(${${"\x47LO\x42A\x4c\x53"}["\x6f\x73\x7as\x6e\x67\x73b"]})&&(strtotime(${$enylofoe})<strtotime("\x319\x30\x30-\x30\x31-\x30\x31 \x300:\x30\x30:\x30\x30")||!checkDatetime(${${"\x47L\x4f\x42\x41\x4c\x53"}["j\x76\x7axx\x78\x79\x74"]}))){${${"\x47\x4cO\x42\x41\x4c\x53"}["set\x73f\x75\x66\x71\x6bf"]}=date("Y-\x6d-\x64\x20H:\x69").":\x300";}${"\x47\x4c\x4f\x42\x41LS"}["\x66iwghdo\x7a\x75qm\x64"]="\x74\x61rge\x74\x5f\x69\x6d\x67";${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x70l\x78\x73\x7a\x70o\x79\x73"]="\x73e\x73s\x69\x6f\x6e_\x6be\x79";$ujmjefbp="s\x65s\x73\x69o\x6e\x5f\x6b\x65\x79";$jhbwiyocmy="s\x75\x62\x6d\x69\x74";${${"\x47L\x4f\x42A\x4cS"}["r\x69\x6e\x66\x6c\x75\x69"]}=(${$jhbwiyocmy}=="\x70u\x62l\x69\x73h")?1:$_POST["s\x74\x61\x74u\x73"];${"G\x4c\x4f\x42\x41\x4c\x53"}["\x65dhu\x6b\x61\x72w"]="\x73\x65\x73s\x69\x6f\x6e\x5f\x6b\x65\x79";if(empty(${${"\x47L\x4f\x42\x41L\x53"}["ewmat\x70"]})&&${${"\x47\x4c\x4f\x42A\x4c\x53"}["\x72\x69n\x66l\x75\x69"]}==1){$nqpwbofnb="\x70\x75b\x6c\x69s\x68\x5fd\x61\x74\x65\x74\x69me";${$nqpwbofnb}=date("Y-m-d \x48:\x69").":\x30\x30";}${"\x47L\x4fBA\x4cS"}["kx\x77qm\x61t\x79d"]="p\x72\x6fc\x65\x73s";${"\x47LO\x42AL\x53"}["\x6a\x6e\x77\x68\x6erb\x68\x75\x76\x70\x76"]="\x74\x61\x67_\x69\x64";${${"\x47\x4c\x4fB\x41\x4c\x53"}["\x63r\x71hg\x77\x64"]}="0\x3000";$jgenfzeuo="\x65\x79\x65\x63\x61\x74c\x68";if(!empty($_POST["\x63\x61t\x65g\x6f\x72\x69es"])){foreach($_POST["\x63\x61t\x65\x67\x6f\x72i\x65\x73"]as${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x72\x63\x61igynz\x68\x72"]}){${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x75\x77\x72\x75u\x69\x75\x6d\x6b\x72f"]="\x70\x6f\x73\x74\x65\x64_\x63a\x74\x65\x67o\x72ie\x73";${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x75\x77\x72uu\x69\x75m\x6br\x66"]}[]=sprintf("%04\x64",${${"\x47L\x4f\x42\x41\x4c\x53"}["\x72\x63\x61\x69\x67\x79\x6e\x7a\x68\x72"]});}${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x63\x72q\x68g\x77d"]}=implode(",",${${"G\x4c\x4f\x42A\x4c\x53"}["\x71\x65\x69e\x67\x6a\x77b\x67vjn"]});}$xrywvrlvj="s\x65\x73si\x6f\x6e_key";${${"\x47\x4c\x4fB\x41LS"}["\x6anwh\x6e\x72\x62\x68\x75\x76\x70v"]}="\x30\x3000";$nqunale="\x73\x65\x73s\x69\x6f\x6e\x5fk\x65y";if(!empty($_POST["t\x61g\x73"])){$iitxthhnxh="v\x61l\x75\x65";foreach($_POST["\x74\x61g\x73"]as${$iitxthhnxh}){${"GLOBA\x4cS"}["\x70ep\x65am\x78\x7a"]="po\x73\x74\x65\x64_t\x61\x67\x73";${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x70\x65\x70ea\x6d\x78\x7a"]}[]=sprintf("%04\x64",${${"\x47L\x4f\x42\x41LS"}["\x72\x63\x61\x69g\x79\x6e\x7a\x68\x72"]});}${${"\x47L\x4f\x42A\x4c\x53"}["\x6a\x6f\x76\x77\x6d\x7a\x6by"]}=implode(",",${${"\x47L\x4fBA\x4c\x53"}["\x68vgmi\x6d"]});}${$yannsluskb}=(!empty($_POST["s\x6c\x75\x67"]))?$_POST["\x73l\x75\x67"]:"";${$jgenfzeuo}=null;if(!empty($_POST["\x65yec\x61\x74\x63h"])&&$_SESSION[${$nqunale}]["c\x6fn\x66igs"]["m\x65\x64ia_\x70a\x72\x61me\x74\x65r\x5ffl\x67"]){${"\x47LO\x42A\x4cS"}["d\x79\x68\x6d\x73\x76r\x6a\x6d\x70"]="\x70a\x74\x74er\x6e_pa\x72\x61m";${"\x47\x4c\x4f\x42\x41LS"}["\x65\x6b\x74\x79cu\x65b"]="\x70a\x74\x74\x65\x72\x6e_p\x61\x72\x61\x6d";if(preg_match(${${"\x47\x4c\x4f\x42\x41\x4cS"}["\x64\x79\x68\x6d\x73\x76\x72\x6a\x6d\x70"]},$_POST["e\x79ec\x61t\x63\x68"]))$_POST["ey\x65c\x61tch"]=preg_replace(${${"G\x4c\x4fB\x41LS"}["ekt\x79c\x75\x65b"]},"",$_POST["e\x79\x65catch"]);$sgwhomw="\x6dedi\x61_\x70\x61\x72\x61\x6de\x74e\x72";${${"G\x4c\x4f\x42\x41\x4c\x53"}["\x6f\x73\x72\x62c\x6f\x73\x67\x64"]}=$_POST["\x65\x79\x65\x63a\x74\x63\x68"]."?\x76\x3d".${$sgwhomw};}${${"\x47\x4c\x4fB\x41\x4cS"}["gx\x69\x6a\x6c\x71\x75\x63\x65\x71"]}=(!empty($_SESSION[${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["o\x6e\x79q\x65\x77\x77r\x68\x75"]}]["c\x6fn\x66\x69g\x73"]["\x64i\x72\x5f\x6ea\x6de"]))?"\x73r\x63\x3d\"".$_SESSION[${$rgocohkwjze}]["\x63\x6fnfigs"]["d\x6fm\x61\x69n"]."/".$_SESSION[${${"\x47\x4cO\x42\x41\x4cS"}["p\x6c\x78s\x7a\x70\x6f\x79s"]}]["co\x6e\x66\x69\x67\x73"]["di\x72\x5f\x6eam\x65"]."/u\x70\x6coad/f\x72\x5f\x6d\x61i\x6e/":"\x73rc\x3d\x22".$_SESSION[${$ujmjefbp}]["c\x6fnf\x69\x67s"]["d\x6fmai\x6e"]."/up\x6co\x61\x64/\x66\x72\x5fm\x61\x69\x6e/";${${"\x47\x4cOB\x41L\x53"}["\x6d\x72\x64yv\x71\x79\x6ej"]}=(!empty($_SESSION[${${"G\x4c\x4fB\x41\x4c\x53"}["o\x6e\x79\x71\x65\x77w\x72\x68\x75"]}]["co\x6e\x66\x69\x67s"]["\x64ir_n\x61\x6d\x65"]))?"\x68re\x66\x3d\"".$_SESSION[${$xrywvrlvj}]["\x63on\x66i\x67s"]["\x64o\x6d\x61\x69n"]."/".$_SESSION[${${"\x47LOB\x41\x4cS"}["\x6fn\x79\x71ew\x77\x72hu"]}]["co\x6e\x66\x69\x67\x73"]["dir_n\x61\x6d\x65"]."/u\x70\x6co\x61\x64/\x66\x72_\x6da\x69n/":"h\x72\x65\x66\x3d\"".$_SESSION[${${"\x47L\x4fBAL\x53"}["\x65\x64\x68u\x6b\x61rw"]}]["co\x6efigs"]["\x64\x6f\x6d\x61\x69\x6e"]."/\x75\x70\x6c\x6fa\x64/f\x72\x5fm\x61in/";${${"GLOB\x41L\x53"}["\x66\x69\x77\x67\x68\x64\x6fz\x75\x71m\x64"]}="sr\x63\x3d\x22u\x70load/\x66\x72_ma\x69n/";${${"G\x4c\x4f\x42\x41\x4cS"}["shi\x69ipil\x6e"]}="\x68r\x65f=\x22u\x70\x6co\x61d/\x66r_main/";${"G\x4c\x4f\x42\x41LS"}["\x77\x75s\x6a\x67d\x64t\x78\x68"]="\x70\x72o\x63e\x73\x73";if(!empty($_POST["\x63\x6f\x6e\x74\x65\x6et"])){${"\x47\x4cO\x42ALS"}["w\x6e\x68\x72\x76\x64b\x66nq"]="\x6c\x61n\x67uag\x65_\x69d";${"\x47\x4cOB\x41\x4cS"}["\x6d\x65\x75mu\x6cj\x73\x6b\x74f\x67"]="\x76\x61\x6c\x75e";$gipcdfcolqh="s\x65s\x73\x69o\x6e\x5f\x6bey";foreach($_POST["\x63ont\x65\x6et"]as${${"\x47\x4c\x4fB\x41\x4cS"}["w\x6e\x68rvd\x62\x66\x6e\x71"]}=>${${"\x47\x4c\x4fBA\x4c\x53"}["\x6d\x65\x75mu\x6c\x6a\x73\x6b\x74f\x67"]}){$kocvqlsdgvf="v\x61lu\x65";$buqpofcld="\x76a\x6c\x75\x65";$pnfcktdkgkj="re\x70\x6ca\x63\x65\x5f\x70df";$siyxdzssm="\x74arget\x5f\x70\x64\x66";$yvfqzcbxsp="\x74a\x72\x67\x65\x74_im\x67";${"\x47\x4c\x4f\x42\x41LS"}["b\x76\x65\x76\x75\x79\x6f\x78"]="ta\x72\x67\x65\x74_\x69\x6d\x67";if(strstr(${$buqpofcld},${${"GL\x4f\x42\x41\x4c\x53"}["bve\x76uy\x6f\x78"]}))$_POST["c\x6f\x6ete\x6e\x74"][${${"\x47\x4c\x4fB\x41\x4c\x53"}["\x6bb\x66\x67\x67sku\x78m\x76"]}]=str_replace(${$yvfqzcbxsp},${${"GL\x4f\x42\x41L\x53"}["\x67\x78\x69\x6al\x71u\x63\x65\x71"]},${${"GL\x4f\x42AL\x53"}["rc\x61\x69gyn\x7ahr"]});if(strstr(${${"\x47L\x4f\x42A\x4cS"}["\x72\x63a\x69\x67\x79\x6e\x7a\x68\x72"]},${$siyxdzssm}))$_POST["con\x74e\x6e\x74"][${${"\x47\x4cOB\x41LS"}["\x6b\x62f\x67\x67\x73\x6bux\x6d\x76"]}]=str_replace(${${"GLO\x42\x41\x4c\x53"}["\x73\x68\x69\x69\x69pi\x6c\x6e"]},${$pnfcktdkgkj},${$kocvqlsdgvf});}if($_SESSION[${$gipcdfcolqh}]["\x63\x6f\x6e\x66i\x67\x73"]["medi\x61_\x70ar\x61\x6dete\x72\x5f\x66\x6cg"]){${"\x47\x4cO\x42AL\x53"}["\x62\x63u\x79\x66\x68\x67\x72\x66\x73o"]="l\x61\x6e\x67u\x61g\x65\x5f\x69\x64";${"\x47\x4cO\x42\x41\x4c\x53"}["s\x6fb\x63\x75\x70kn\x68"]="\x6fp\x65\x72a\x74\x6fr";$cexhtijlvsh="o\x70\x65ra\x74\x6fr\x73";foreach($_POST["\x63on\x74\x65\x6e\x74"]as${${"G\x4cO\x42\x41\x4c\x53"}["\x62\x63\x75\x79\x66\x68grf\x73o"]}=>${${"\x47\x4c\x4f\x42A\x4c\x53"}["rcai\x67\x79\x6ez\x68\x72"]}){${"\x47L\x4fBA\x4c\x53"}["c\x71l\x66\x74x\x74\x6cw\x76k"]="pat\x74\x65\x72\x6e\x5fp\x61\x72\x61\x6d";$fsumrml="\x76a\x6c\x75\x65";if(preg_match(${${"\x47LO\x42A\x4c\x53"}["cq\x6c\x66\x74\x78\x74\x6cwv\x6b"]},${$fsumrml})){$wrfvobynbnrl="\x76\x61l\x75e";$_POST["\x63o\x6et\x65n\x74"][${${"\x47\x4c\x4fB\x41L\x53"}["\x6b\x62f\x67\x67s\x6bu\x78\x6d\x76"]}]=preg_replace(${${"GL\x4f\x42\x41LS"}["\x6a\x6b\x68\x67b\x69\x7ae\x77k\x63"]},"",${$wrfvobynbnrl});}}$dlfjomlw="\x72e\x67\x65\x78";foreach(${$cexhtijlvsh} as${${"\x47L\x4f\x42\x41LS"}["\x73\x6f\x62\x63\x75\x70\x6b\x6eh"]}=>${$dlfjomlw}){${"\x47\x4cO\x42A\x4c\x53"}["\x74m\x77oxwh\x63"]="l\x61ng\x75\x61\x67\x65_i\x64";foreach($_POST["\x63\x6fn\x74\x65\x6e\x74"]as${${"GL\x4f\x42A\x4cS"}["\x74\x6dw\x6fx\x77\x68c"]}=>${${"\x47\x4cO\x42AL\x53"}["r\x63\x61\x69\x67\x79n\x7ahr"]}){${"G\x4c\x4fB\x41\x4c\x53"}["\x72\x6fq\x6e\x77\x6d"]="\x72\x65\x67\x65x";if(preg_match(${${"\x47\x4cO\x42AL\x53"}["r\x6f\x71\x6e\x77\x6d"]},${${"\x47\x4c\x4f\x42AL\x53"}["r\x63\x61\x69\x67\x79n\x7a\x68r"]})){${"G\x4cOB\x41LS"}["uc\x70\x77\x7a\x79\x68\x70\x66\x61b"]="\x6c\x61n\x67\x75\x61\x67\x65\x5f\x69\x64";${"\x47\x4c\x4f\x42A\x4c\x53"}["nj\x63\x72x\x6c\x69\x74f\x76"]="med\x69\x61\x5f\x70\x61\x72am\x65\x74\x65\x72";$hyjgrhogtpb="\x6fp\x65r\x61t\x6f\x72";$_POST["\x63onten\x74"][${${"\x47LO\x42\x41LS"}["\x75\x63\x70\x77\x7ay\x68\x70\x66a\x62"]}]=preg_replace(${${"\x47LO\x42\x41\x4c\x53"}["\x78r\x70o\x78\x72k"]},${$hyjgrhogtpb}."?v=".${${"GLOB\x41\x4c\x53"}["\x6e\x6a\x63r\x78\x6ci\x74\x66\x76"]},${${"G\x4c\x4f\x42\x41LS"}["r\x63\x61\x69\x67y\x6e\x7ah\x72"]});}}}}}if(!empty(${${"\x47\x4cOB\x41\x4cS"}["\x71\x68b\x6f\x6cn\x6d\x6cw\x64y"]})&&${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x77\x75\x73\x6agd\x64\x74\x78h"]}==11){try{$vvewoygar="\x70ubl\x69\x73\x68\x5f\x64\x61\x74\x65\x74\x69m\x65";$mcdxvkdrl="\x6e\x65\x77\x5fi\x64";${"G\x4c\x4f\x42\x41\x4c\x53"}["\x75\x76\x79\x76\x64\x77\x6e"]="\x73q\x6c";${"GL\x4f\x42\x41\x4c\x53"}["\x62\x69w\x71\x72c\x66\x77\x67"]="s\x65\x73\x73\x69\x6fn\x5f\x6be\x79";$pdo->beginTransaction();${"\x47\x4c\x4f\x42A\x4cS"}["\x79mv\x67mn\x65\x76"]="co\x75nt\x5f\x69\x6e\x73\x65\x72\x74";${${"G\x4c\x4f\x42\x41\x4c\x53"}["\x76qvg\x72g\x6f\x74"]}=${${"\x47L\x4fBA\x4c\x53"}["v\x66\x62\x78k\x6cr"]}."pos\x74\x73\x5f\x62ase";$mpnoavy="\x70u\x62\x6c\x69s\x68\x5f\x65\x6e\x64\x5f\x61t";${$mcdxvkdrl}=getNextId(${${"\x47L\x4fBAL\x53"}["v\x71\x76\x67\x72\x67ot"]});${"\x47\x4cO\x42\x41\x4cS"}["\x63o\x75o\x65\x63\x6b\x6e\x64"]="\x63r\x65\x61t\x65\x5f\x70o\x73\x74_\x62\x61\x73\x65";$iuozmxoc="\x76\x65r\x73\x69o\x6e";${${"\x47\x4c\x4f\x42\x41\x4cS"}["\x6e\x68w\x67\x74\x6f"]}=generateHashId(${${"G\x4cO\x42\x41\x4cS"}["\x62\x70\x73w\x6c\x78j\x77\x6e"]});$iqpxptqlxxj="\x68a\x73h\x5fid";${${"\x47L\x4f\x42A\x4c\x53"}["\x6c\x61v\x68\x66\x64\x63\x72i\x66q\x6c"]}="\n\t\t\t\t\tINS\x45\x52\x54 \x49NT\x4f\x20{$table_prefix}p\x6f\x73ts\x5fb\x61se\n\t\t\t\t\t\t( i\x64,  \x76\x65r\x73io\x6e, \x20ve\x72si\x6f\x6e\x65\x64_a\x74,\x20\x20\x68as\x68_id,  \x70\x65r\x6dal\x69\x6ek_ke\x79, \x20p\x65r\x6dali\x6e\x6b_u\x72i,\x20 pu\x62l\x69\x73\x68_dat\x65\x74\x69\x6d\x65, \x20\x70u\x62l\x69\x73h\x5fe\x6ed_at,\x20\x20s\x69\x74e\x5f\x69\x64,\x20 post\x74y\x70e_id,  \x70arent\x5f\x69d,  ca\x74\x65\x67\x6f\x72\x79\x5f\x69d,\x20 ta\x67_id,  slu\x67,\x20\x20ey\x65ca\x74\x63\x68,\x20 an\x63\x68o\x72,\x20\x20c\x72ea\x74e\x64\x5f\x61\x74,\x20\x20\x63\x72e\x61ted_by,\x20 \x67\x72\x6fupe\x64_\x62\x79,  \x73\x74atu\x73)\n\t\t\t\t\t\x56\x41LUE\x53\n\t\t\t\t\t\t(:ID,\x20:V\x45\x52\x53ION,\x20:\x56E\x52\x53I\x4f\x4eED\x5f\x41T,\x20:H\x41SH\x5f\x49\x44,\x20:P\x45R\x4d\x41LIN\x4b_\x4b\x45Y, :\x50ER\x4d\x41\x4c\x49NK_\x55\x52\x49,\x20:\x50\x55\x42LI\x53H\x5fDAT\x45\x54I\x4d\x45, :\x50\x55BLI\x53\x48_\x45\x4e\x44_\x41\x54, :\x53\x49T\x45_\x49\x44, :\x50OSTTYPE_I\x44, :\x50A\x52EN\x54_I\x44, :C\x41\x54\x45G\x4fRY\x5f\x49\x44, :\x54A\x47_\x49D, :SL\x55G, :E\x59\x45CATC\x48,\x20:ANC\x48OR, :CR\x45\x41\x54\x45D\x5f\x41\x54,\x20:CR\x45\x41\x54\x45\x44\x5f\x42Y, :\x47RO\x55P\x45D_B\x59,\x20:S\x54\x41T\x55\x53)\n\t\t\t";$hugbbv="\x73\x6c\x75\x67";${${"GL\x4f\x42\x41\x4c\x53"}["\x63\x6fu\x6f\x65c\x6b\x6e\x64"]}=$pdo->prepare(${${"\x47L\x4f\x42\x41L\x53"}["\x75\x76\x79v\x64\x77\x6e"]});$create_post_base->bindValue("I\x44",${${"\x47\x4c\x4fB\x41\x4c\x53"}["bp\x73w\x6c\x78j\x77\x6e"]});$create_post_base->bindValue("VERS\x49\x4f\x4e",${$iuozmxoc});$create_post_base->bindValue("\x56\x45R\x53\x49\x4f\x4e\x45\x44\x5f\x41T",date("Y-m-d\x20H:i:\x73"));$create_post_base->bindValue("\x48A\x53\x48_\x49\x44",${$iqpxptqlxxj});$create_post_base->bindValue("\x50\x45\x52M\x41\x4cINK_\x4b\x45\x59",$_POST["\x70er\x6d\x61l\x69n\x6b_\x6b\x65\x79"]);$create_post_base->bindValue("\x50E\x52M\x41\x4c\x49\x4eK\x5f\x55R\x49",$_POST["\x70e\x72m\x61l\x69n\x6b_\x75r\x69"]);$create_post_base->bindValue("PU\x42LIS\x48\x5f\x44A\x54\x45\x54\x49ME",${$vvewoygar});$pjxumntw="\x65\x79\x65\x63\x61\x74c\x68";$create_post_base->bindValue("\x50U\x42L\x49\x53H\x5f\x45\x4eD_\x41\x54",${$mpnoavy});${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x68o\x6ed\x62\x70\x66\x6c\x67\x6bi\x6e"]="c\x61t\x65g\x6f\x72\x79\x5f\x69d";$create_post_base->bindValue("\x53ITE_ID",$_POST["site_\x69\x64"]);$create_post_base->bindValue("POST\x54\x59\x50\x45\x5fID",$_POST["\x70os\x74t\x79pe\x5fid"]);$create_post_base->bindValue("P\x41REN\x54\x5f\x49\x44",$_POST["p\x61re\x6e\x74\x5f\x69d"]);$create_post_base->bindValue("CAT\x45G\x4f\x52\x59\x5fI\x44",${${"\x47LO\x42AL\x53"}["\x68\x6f\x6edb\x70\x66\x6c\x67ki\x6e"]});$create_post_base->bindValue("T\x41\x47\x5f\x49D",${${"\x47\x4cO\x42A\x4cS"}["jo\x76\x77m\x7a\x6b\x79"]});$create_post_base->bindValue("\x53L\x55G",${$hugbbv});$create_post_base->bindValue("E\x59\x45CATCH",${$pjxumntw});$create_post_base->bindValue("\x41NC\x48OR",$_POST["an\x63\x68\x6fr"]);$create_post_base->bindValue("CRE\x41\x54E\x44_AT",date("Y-\x6d-\x64\x20\x48:i:s"));$create_post_base->bindValue("CR\x45A\x54E\x44_BY",$_SESSION[${${"\x47LO\x42\x41\x4c\x53"}["bi\x77\x71r\x63\x66\x77\x67"]}]["u\x73\x65r"]["\x69\x64"]);$create_post_base->bindValue("GRO\x55PE\x44_\x42\x59",$_SESSION[${${"\x47L\x4f\x42\x41\x4c\x53"}["o\x6e\x79qew\x77\x72\x68\x75"]}]["us\x65r"]["gro\x75p_id"]);$create_post_base->bindValue("\x53\x54\x41\x54U\x53",${${"\x47L\x4f\x42\x41L\x53"}["\x72\x69\x6ef\x6c\x75\x69"]});$create_post_base->execute();${${"\x47\x4c\x4fBA\x4cS"}["\x79\x6d\x76g\x6d\x6e\x65v"]}=$create_post_base->rowCount();unset(${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["s\x69z\x76\x68\x66\x69\x70"]});if(!empty(${${"\x47\x4cO\x42\x41LS"}["\x66\x6f\x66\x73\x65pb\x6b"]})){$ndyvisjwe="\x6c\x61n\x67\x75\x61\x67e_\x69\x64";foreach($_POST["tit\x6ce"]as${$ndyvisjwe}=>${${"GLO\x42\x41\x4cS"}["\x72c\x61\x69\x67\x79n\x7a\x68\x72"]}){$tmlbkssqf="\x73q\x6c";${"\x47L\x4fBA\x4c\x53"}["\x74l\x78\x67\x74\x6b\x70"]="la\x6eg\x75a\x67\x65\x5fi\x64";$fsvmsq="la\x6e\x67\x75\x61\x67\x65\x5fid";$brqvnljbpv="\x63\x72ea\x74\x65\x5fpos\x74\x5ft\x65\x78\x74";$stqvglixz="s\x71\x6c";${$tmlbkssqf}="\n\t\t\t\t\t\t\tI\x4e\x53E\x52\x54 INT\x4f {$table_prefix}po\x73\x74s\x5ftex\x74\n\t\t\t\t\t\t\t\t(b\x61\x73\x65\x5f\x69d, \x20\x6c\x61ng\x75a\x67e\x5f\x69\x64,\x20 \x74\x69t\x6c\x65,  addi\x74io\x6e,  c\x6f\x6e\x74e\x6et)\n\t\t\t\t\t\t\t\x56\x41\x4cUES\n\t\t\t\t\t\t\t\t(:\x42AS\x45_\x49D,\x20:\x4c\x41\x4eG\x55AGE\x5fID, :\x54I\x54LE, :AD\x44I\x54\x49\x4f\x4e,\x20:\x43O\x4eT\x45\x4e\x54)\n\t\t\t\t\t";${$brqvnljbpv}=$pdo->prepare(${$stqvglixz});$create_post_text->bindValue("B\x41\x53\x45\x5f\x49D",${${"\x47\x4c\x4f\x42\x41LS"}["\x62ps\x77\x6c\x78\x6awn"]});$create_post_text->bindValue("\x4c\x41\x4e\x47UAG\x45_\x49\x44",${$fsvmsq});$nqmeyxaaa="\x6ca\x6eg\x75\x61\x67\x65_\x69\x64";$create_post_text->bindValue("\x54\x49\x54\x4c\x45",$_POST["t\x69tl\x65"][${${"\x47\x4cO\x42\x41\x4c\x53"}["\x74l\x78\x67t\x6bp"]}]);$create_post_text->bindValue("AD\x44\x49T\x49\x4fN",$_POST["a\x64di\x74i\x6f\x6e"][${${"G\x4cO\x42\x41\x4c\x53"}["\x6bbfgg\x73\x6b\x75\x78\x6dv"]}]);$create_post_text->bindValue("\x43\x4f\x4eT\x45\x4e\x54",$_POST["co\x6eten\x74"][${$nqmeyxaaa}]);$create_post_text->execute();unset(${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x72t\x6fm\x73v\x65\x6fd\x72"]});}}if(!empty(${${"\x47L\x4f\x42\x41\x4c\x53"}["\x66\x6f\x66\x73\x65pb\x6b"]})&&!empty($_POST["\x69\x74\x65\x6ds"])){$ozqqkdqhurx="re\x63\x6frd";$oknkhdnyof="\x73\x71l";${${"\x47\x4cO\x42\x41\x4cS"}["\x66\x66\x7a\x6f\x68\x75"]}=array();$hsrbkfryh="\x72\x65a\x64\x5f\x63u\x73tom\x5f\x69\x74\x65ms";${${"\x47LO\x42\x41LS"}["lav\x68\x66\x64cr\x69\x66\x71\x6c"]}="\x53E\x4c\x45CT \x69d,\x20\x74y\x70e\x20\x46RO\x4d\x20{$table_prefix}\x63\x75s\x74\x6fm\x5f\x69\x74ems \x57H\x45RE \x64e\x6ce\x74\x65\x5f\x66\x6cg \x3d \x30 \x41ND \x73tatus\x20\x3d 1";$gizhodn="\x64a\x74\x61";${${"\x47\x4cO\x42\x41\x4c\x53"}["mgbhk\x67nv"]}=$pdo->prepare(${$oknkhdnyof});$read_custom_items->execute();while(${$ozqqkdqhurx}=$read_custom_items->fetch(PDO::FETCH_ASSOC)){$umdlwsxkht="\x63\x75s\x74\x6fm_i\x74\x65\x6d\x73";$dcvgbene="\x72\x65\x63\x6f\x72\x64";${"GLO\x42A\x4c\x53"}["\x71\x76\x74\x78\x72\x70"]="\x72e\x63\x6f\x72\x64";${$umdlwsxkht}[${${"G\x4c\x4fB\x41\x4c\x53"}["\x71\x76\x74x\x72p"]}["i\x64"]]=${$dcvgbene}["\x74y\x70e"];}unset(${$hsrbkfryh});foreach($_POST["\x69\x74em\x73"]as${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x75\x6ejd\x74o\x77"]}=>${$gizhodn}){${"G\x4cOB\x41\x4cS"}["\x73\x6f\x6c\x68y\x73"]="v\x61l\x75e";${"\x47\x4c\x4fBA\x4c\x53"}["\x75n\x7a\x6e\x75n"]="\x6c\x61\x6eg\x75ag\x65\x5f\x69\x64";foreach(${${"\x47\x4c\x4f\x42A\x4cS"}["\x6a\x66mgyo\x70\x77\x77\x68r"]} as${${"\x47\x4c\x4f\x42AL\x53"}["\x75n\x7a\x6eu\x6e"]}=>${${"\x47\x4cO\x42\x41\x4cS"}["\x73ol\x68\x79\x73"]}){$wraghooc="c\x75\x73t\x6f\x6d_\x69\x74e\x6d\x5fi\x64";${"G\x4cOB\x41\x4c\x53"}["\x76\x67\x62rx\x6f\x71\x69j\x71"]="l\x61n\x67\x75a\x67e_\x69\x64";${"\x47\x4c\x4f\x42\x41\x4cS"}["\x6a\x6fb\x76\x74i\x64\x72\x6b\x67"]="va\x6c\x75\x65";${"\x47LO\x42\x41\x4c\x53"}["\x76\x79\x79\x75\x71\x6al\x68\x6b\x6b\x69"]="\x63\x75s\x74om_\x69\x74e\x6d_\x69\x64";if(is_array(${${"\x47\x4cO\x42\x41\x4c\x53"}["rc\x61\x69\x67y\x6e\x7a\x68r"]})){${"\x47\x4c\x4f\x42A\x4c\x53"}["\x64\x70\x6e\x68\x6afd\x6b\x70\x70"]="v\x61\x6c\x75e";${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x72\x63\x61\x69\x67\x79n\x7ah\x72"]}=implode(",",${${"\x47LO\x42\x41\x4cS"}["\x64\x70n\x68\x6a\x66\x64\x6b\x70\x70"]});}$yglubevdnid="\x63ust\x6fm\x5f\x69\x74\x65ms";if(${${"\x47\x4cO\x42\x41\x4c\x53"}["\x66\x66\x7a\x6f\x68\x75"]}[${$wraghooc}]=="\x69m\x61\x67e"){$ywswgfxmb="\x73es\x73\x69\x6f\x6e\x5f\x6bey";$fhcrgxlhhy="\x76\x61\x6c\x75\x65";if(!empty(${$fhcrgxlhhy})&&$_SESSION[${$ywswgfxmb}]["co\x6e\x66\x69\x67s"]["m\x65d\x69\x61\x5f\x70a\x72am\x65te\x72\x5f\x66lg"]){${"\x47\x4cO\x42ALS"}["\x77gb\x66\x64\x64\x70\x70"]="p\x61\x74t\x65\x72\x6e\x5fp\x61r\x61\x6d";${"\x47\x4cO\x42A\x4c\x53"}["\x7a\x6av\x75\x72\x61s\x6b"]="v\x61l\x75e";${"GL\x4f\x42A\x4c\x53"}["\x67\x68\x6a\x63s\x61\x75d\x72"]="v\x61\x6c\x75\x65";if(preg_match(${${"G\x4c\x4f\x42ALS"}["\x77g\x62\x66\x64dp\x70"]},${${"\x47\x4c\x4f\x42A\x4c\x53"}["r\x63\x61i\x67\x79\x6e\x7a\x68\x72"]}))${${"GLOB\x41\x4c\x53"}["\x72\x63\x61\x69\x67\x79n\x7a\x68\x72"]}=preg_replace(${${"GL\x4f\x42\x41\x4c\x53"}["\x6a\x6b\x68gbi\x7a\x65w\x6bc"]},"",${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x7aj\x76\x75\x72a\x73k"]});${"\x47LO\x42\x41\x4cS"}["\x69\x66wknr\x77"]="\x76\x61\x6cu\x65";${${"G\x4c\x4fBA\x4c\x53"}["g\x68\x6ac\x73a\x75\x64\x72"]}=${${"G\x4c\x4fBAL\x53"}["\x69\x66wk\x6e\x72w"]}."?\x76\x3d".${${"\x47\x4c\x4fBA\x4cS"}["\x6e\x63\x78pw\x63\x69\x67"]};}}if(${$yglubevdnid}[${${"\x47\x4cO\x42\x41\x4cS"}["u\x6ejd\x74\x6f\x77"]}]=="g\x61\x6cl\x65r\x79"){$fhcoiygt="v\x61\x6c\x75e";if(!empty(${$fhcoiygt})&&$_SESSION[${${"\x47LOBA\x4c\x53"}["o\x6e\x79qe\x77\x77r\x68u"]}]["c\x6f\x6e\x66i\x67s"]["m\x65\x64ia_p\x61\x72a\x6de\x74e\x72_\x66\x6c\x67"]){${${"\x47L\x4f\x42\x41L\x53"}["ig\x79\x67\x71\x68\x64q\x69\x67\x68w"]}=explode(",",${${"GL\x4f\x42\x41\x4c\x53"}["r\x63\x61ig\x79\x6ez\x68\x72"]});foreach(${${"G\x4c\x4f\x42\x41LS"}["i\x67y\x67\x71\x68\x64q\x69\x67\x68\x77"]} as${${"\x47\x4c\x4f\x42A\x4c\x53"}["e\x77\x64\x73vr\x75m\x68"]}=>${${"G\x4c\x4f\x42\x41\x4c\x53"}["dvqtf\x65\x79y\x71"]}){${"\x47\x4c\x4f\x42A\x4cS"}["\x75j\x66\x75\x62n\x71\x6dcp"]="\x70a\x74t\x65\x72\x6e\x5f\x70ar\x61m";${"\x47LO\x42\x41\x4c\x53"}["slffx\x68\x6d\x68v\x69\x67"]="\x70\x61\x74t\x65r\x6e_\x70\x61\x72a\x6d";$ssvwfefz="im\x61\x67\x65";${"\x47L\x4f\x42\x41\x4c\x53"}["\x68\x73\x71\x6cp\x65"]="\x69m\x61g\x65";$kpdkzqvb="\x69m\x61g\x65";${"\x47L\x4fB\x41L\x53"}["k\x73\x6a\x71f\x71\x74xn\x73"]="\x6d\x65\x64i\x61_p\x61\x72am\x65\x74e\x72";if(preg_match(${${"\x47LO\x42A\x4c\x53"}["\x75j\x66\x75\x62n\x71\x6d\x63p"]},${${"\x47\x4cO\x42\x41LS"}["\x64\x76q\x74\x66e\x79\x79q"]}))${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["h\x73\x71\x6cp\x65"]}=preg_replace(${${"G\x4c\x4fBA\x4c\x53"}["\x73\x6c\x66\x66x\x68\x6d\x68\x76\x69\x67"]},"",${${"\x47\x4c\x4fB\x41LS"}["\x64v\x71t\x66\x65\x79\x79\x71"]});${$ssvwfefz}=${$kpdkzqvb}."?\x76=".${${"G\x4c\x4f\x42\x41L\x53"}["ks\x6a\x71\x66\x71\x74xn\x73"]};}${${"\x47\x4c\x4f\x42AL\x53"}["r\x63\x61igy\x6e\x7a\x68\x72"]}=implode(",",${${"G\x4cOBA\x4c\x53"}["i\x67ygqh\x64\x71\x69\x67\x68\x77"]});}}${"\x47L\x4f\x42A\x4c\x53"}["\x6a\x6fpg\x74m\x66\x75"]="\x63\x72\x65\x61t\x65_p\x6f\x73t\x5fc\x75\x73\x74om";${${"\x47\x4c\x4f\x42\x41\x4cS"}["\x6ca\x76\x68\x66d\x63\x72\x69f\x71l"]}="\n\t\t\t\t\t\t\t\tI\x4e\x53\x45R\x54\x20\x49NTO\x20{$table_prefix}\x70\x6f\x73\x74\x73_\x63\x75sto\x6d\n\t\t\t\t\t\t\t\t\t(\x62as\x65_i\x64,\x20 \x6c\x61\x6e\x67u\x61\x67e\x5f\x69\x64,  \x63u\x73t\x6fm_\x69\x74e\x6d_i\x64,\x20 \x76al\x75e)\n\t\t\t\t\t\t\t\tVA\x4c\x55\x45S\n\t\t\t\t\t\t\t\t\t(:\x42\x41SE\x5fI\x44,\x20:L\x41N\x47UA\x47\x45_\x49D, :\x43U\x53TO\x4d\x5f\x49T\x45M\x5f\x49\x44, :VAL\x55E)\n\t\t\t\t\t\t";${${"G\x4cO\x42A\x4c\x53"}["jop\x67\x74\x6d\x66\x75"]}=$pdo->prepare(${${"GLOB\x41LS"}["\x6c\x61vh\x66\x64c\x72\x69\x66\x71\x6c"]});$create_post_custom->bindValue("\x42\x41\x53\x45\x5fI\x44",${${"\x47LO\x42\x41\x4cS"}["\x62\x70\x73\x77l\x78\x6a\x77\x6e"]});$create_post_custom->bindValue("LA\x4e\x47U\x41\x47E_\x49\x44",${${"\x47\x4cO\x42\x41\x4c\x53"}["\x76\x67\x62rx\x6f\x71\x69\x6a\x71"]});$create_post_custom->bindValue("CUS\x54\x4fM\x5fI\x54E\x4d\x5fI\x44",${${"G\x4c\x4f\x42A\x4c\x53"}["v\x79y\x75\x71\x6a\x6ch\x6bk\x69"]});$create_post_custom->bindValue("VAL\x55\x45",${${"\x47\x4c\x4fB\x41\x4c\x53"}["\x6a\x6f\x62\x76t\x69dr\x6b\x67"]});$create_post_custom->execute();unset(${${"\x47\x4cO\x42\x41\x4c\x53"}["i\x6b\x74\x64\x64\x61\x76e\x6f\x66\x72\x79"]});}}}$pdo->commit();}catch(PDOException$e){$pdo->rollBack();header("\x4co\x63\x61t\x69o\x6e: \x2e/?\x76\x69\x65w_\x70\x61g\x65=po\x73t\x26p\x72\x6f\x63\x65ss\x3d{$process}&id={$target_id}&e\x72r\x6frm\x73g\x3d\x31");exit;}if(empty($_POST["p\x61ren\x74\x5fid"])){header("\x4c\x6f\x63ati\x6f\x6e:\x20\x2e/?v\x69\x65w\x5f\x70a\x67e\x3d\x70\x6fsts&p\x72o\x63\x65ss\x3d{$process}");exit;}else{header("\x4c\x6f\x63\x61t\x69\x6f\x6e:\x20\x2e/?v\x69\x65w_\x70age=pos\x74\x26\x69\x64={$_POST['parent_id']}\x26\x76\x65\x72\x73\x69\x6fn={$_POST['version']}\x26\x70\x72o\x63e\x73\x73\x3d1\x32&\x63hild\x5f\x70\x72\x6f\x63es\x73\x3d{$process}");exit;}}if(!empty(${${"\x47LO\x42\x41L\x53"}["q\x68b\x6f\x6cnm\x6cwdy"]})&&${${"GL\x4f\x42A\x4cS"}["\x6b\x78w\x71\x6da\x74\x79d"]}==12&&!empty(${${"\x47\x4cO\x42\x41\x4c\x53"}["\x72\x78\x67\x62d\x73\x67"]})&&!empty(${${"\x47L\x4fB\x41\x4c\x53"}["ohk\x70l\x63w\x75\x73\x76"]})){try{$dfzrglbto="\x63\x68\x69\x6c\x64\x72\x65\x6e";${"\x47\x4cOBA\x4c\x53"}["\x75g\x74h\x77\x6f\x71\x70"]="sq\x6c";${"\x47\x4c\x4f\x42\x41LS"}["\x78\x6ehn\x77\x61\x62\x6d\x74"]="\x76e\x72s\x69\x6fn";${"\x47\x4cOBA\x4c\x53"}["sxxvg\x73\x77\x6a\x69f\x79"]="\x74\x61\x72\x67\x65\x74\x5f\x69\x64";${"G\x4c\x4fB\x41L\x53"}["\x62\x74\x69\x77\x71\x65\x67\x63\x75i\x6d\x79"]="updat\x65\x5f\x70\x6f\x73t\x5f\x62as\x65";${"\x47LOBALS"}["\x6dd\x6e\x6a\x68\x6fdpy"]="\x63\x61\x74e\x67o\x72\x79_id";$pdo->beginTransaction();${$dfzrglbto}=array();${"G\x4cO\x42A\x4c\x53"}["n\x68wd\x6b\x70lg"]="se\x61r\x63\x68_ch\x69\x6cdr\x65\x6e";$axpvnddz="\x73\x71\x6c";${${"GL\x4f\x42\x41LS"}["\x6c\x61\x76\x68\x66\x64c\x72i\x66ql"]}="\x53E\x4cEC\x54\x20i\x64 FRO\x4d\x20{$table_prefix}po\x73\x74\x73_b\x61s\x65 WH\x45RE\x20pa\x72\x65n\x74\x5fid <\x3e 0 A\x4eD\x20pa\x72\x65\x6et\x5fi\x64\x20\x3d\x20:\x50\x41\x52\x45N\x54_\x49\x44 AN\x44 v\x65r\x73ion =\x20:VERSION";${"G\x4c\x4fB\x41\x4cS"}["\x6c\x73\x62\x7aa\x73\x69l"]="\x70\x75b\x6ci\x73h\x5f\x64a\x74e\x74\x69m\x65";${${"\x47\x4c\x4fB\x41\x4c\x53"}["\x6e\x68wd\x6b\x70\x6c\x67"]}=$pdo->prepare(${${"GL\x4f\x42\x41\x4cS"}["\x75g\x74\x68\x77\x6f\x71\x70"]});$search_children->bindValue("\x50A\x52E\x4eT_\x49D",${${"G\x4c\x4f\x42\x41\x4cS"}["s\x78\x78\x76\x67s\x77\x6ai\x66y"]});$yearbyvuazuw="\x73\x65\x73s\x69\x6fn\x5f\x6b\x65y";$search_children->bindValue("\x56\x45RS\x49ON",${${"\x47L\x4f\x42A\x4c\x53"}["\x78\x6e\x68nw\x61bm\x74"]});$search_children->execute();while(${${"G\x4c\x4f\x42\x41LS"}["l\x6fh\x6a\x76\x68\x73p\x66\x69"]}=$search_children->fetch(PDO::FETCH_ASSOC)){${"G\x4c\x4f\x42A\x4cS"}["\x78\x79k\x64\x74\x67\x6e\x6ay"]="\x72eco\x72\x64";${${"\x47\x4cOBA\x4cS"}["gb\x67\x74\x68\x72mf"]}[]=${${"\x47\x4c\x4fB\x41L\x53"}["\x78\x79\x6b\x64\x74g\x6e\x6a\x79"]}["i\x64"];}$mkjuvnf="\x73\x6c\x75\x67";${"G\x4cO\x42ALS"}["\x67\x70\x6f\x72\x63dc"]="\x74\x61\x67_\x69\x64";${$axpvnddz}="\n\t\t\t\t\tU\x50DA\x54E {$table_prefix}po\x73ts_\x62as\x65\x20SE\x54\n\t\t\t\t\t\tpe\x72ma\x6c\x69\x6ek_\x6bey    =\x20:\x50E\x52\x4d\x41LINK_\x4b\x45\x59,\n\t\t\t\t\t\t\x70\x65\x72\x6d\x61link\x5f\x75r\x69\x20\x20\x20 \x3d\x20:P\x45\x52M\x41\x4cI\x4e\x4b_\x55R\x49,\n\t\t\t\t\t\tp\x75blish\x5f\x64\x61te\x74i\x6de\x20\x3d\x20:\x50UB\x4cIS\x48_DA\x54\x45T\x49\x4dE,\n\t\t\t\t\t\tp\x75b\x6c\x69sh\x5f\x65\x6e\x64_\x61\x74\x20  = :PU\x42L\x49SH\x5f\x45ND_\x41\x54,\n\t\t\t\t\t\t\x73i\x74\x65\x5fi\x64  \x20\x20\x20     \x3d\x20:S\x49\x54\x45\x5fID,\n\t\t\t\t\t\tpost\x74\x79pe_\x69\x64\x20 \x20\x20 \x20\x3d\x20:\x50\x4fS\x54\x54YPE_I\x44,\n\t\t\t\t\t\t\x63\x61t\x65go\x72y\x5f\x69d  \x20\x20 \x20= :\x43\x41T\x45GO\x52Y_\x49D,\n\t\t\t\t\t\tt\x61\x67\x5f\x69d     \x20  \x20\x20\x20= :\x54\x41G_\x49D,\n\t\t\t\t\t\ts\x6cu\x67 \x20\x20 \x20 \x20 \x20\x20 \x20\x20\x3d\x20:\x53LUG,\n\t\t\t\t\t\t\x65\x79eca\x74\x63h\x20\x20\x20\x20\x20 \x20\x20\x20\x3d :\x45\x59E\x43\x41\x54\x43H,\n\t\t\t\t\t\t\x61nch\x6fr \x20\x20\x20\x20 \x20  \x20 \x3d\x20:A\x4eCHO\x52,\n\t\t\t\t\t\t\x75\x70\x64\x61ted_\x61\x74  \x20    = :\x55\x50\x44A\x54ED_\x41\x54,\n\t\t\t\t\t\tu\x70d\x61ted_by\x20\x20\x20\x20  \x20=\x20:U\x50\x44\x41\x54E\x44\x5f\x42\x59,\n\t\t\t\t\t\tg\x72ou\x70e\x64_\x62y  \x20\x20\x20 \x20= :GR\x4f\x55\x50\x45D_B\x59,\n\t\t\t\t\t\t\x73tat\x75s\x20 \x20 \x20 \x20 \x20\x20 = :S\x54AT\x55S\n\t\t\t\t\t\x57H\x45\x52\x45\x20\x69d \x3d\x20:I\x44 \x41N\x44 v\x65r\x73i\x6f\x6e\x20=\x20:V\x45\x52\x53\x49ON\n\t\t\t";${"\x47\x4c\x4f\x42A\x4c\x53"}["tgs\x73to\x73\x73\x72x"]="t\x61\x72\x67e\x74\x5f\x69\x64";${"\x47\x4c\x4f\x42A\x4cS"}["oe\x6f\x6arn\x73sz"]="\x73es\x73\x69\x6f\x6e_\x6bey";${${"GL\x4f\x42\x41\x4c\x53"}["\x62t\x69\x77q\x65\x67\x63u\x69my"]}=$pdo->prepare(${${"G\x4c\x4fB\x41\x4c\x53"}["\x6c\x61\x76\x68\x66dc\x72\x69\x66\x71l"]});$update_post_base->bindValue("\x50ER\x4d\x41L\x49N\x4b\x5fK\x45Y",$_POST["\x70er\x6d\x61\x6cin\x6b\x5f\x6b\x65y"]);${"GL\x4f\x42\x41L\x53"}["\x66o\x72\x79\x6awdp\x76"]="\x74\x61\x72\x67\x65t\x5f\x69\x64";$update_post_base->bindValue("\x50ER\x4d\x41\x4c\x49N\x4b\x5f\x55RI",$_POST["per\x6d\x61l\x69n\x6b_\x75\x72\x69"]);$update_post_base->bindValue("PU\x42\x4cISH\x5f\x44\x41T\x45\x54IME",${${"G\x4c\x4f\x42\x41L\x53"}["l\x73\x62z\x61\x73\x69l"]});$update_post_base->bindValue("PU\x42\x4c\x49SH\x5f\x45\x4e\x44\x5fA\x54",${${"\x47\x4cO\x42A\x4c\x53"}["\x73e\x74s\x66\x75\x66\x71\x6b\x66"]});$update_post_base->bindValue("SITE\x5f\x49\x44",$_POST["\x73\x69t\x65_\x69d"]);$update_post_base->bindValue("POSTTY\x50\x45_\x49\x44",$_POST["p\x6fst\x74yp\x65\x5fi\x64"]);$update_post_base->bindValue("C\x41T\x45GO\x52Y\x5fID",${${"G\x4cO\x42\x41LS"}["md\x6e\x6a\x68o\x64\x70\x79"]});$update_post_base->bindValue("TA\x47_\x49\x44",${${"G\x4c\x4f\x42A\x4c\x53"}["g\x70o\x72\x63\x64\x63"]});$update_post_base->bindValue("S\x4c\x55G",${$mkjuvnf});$update_post_base->bindValue("E\x59\x45CAT\x43H",${${"\x47\x4c\x4f\x42\x41\x4cS"}["\x6fs\x72\x62\x63o\x73\x67\x64"]});${"\x47\x4c\x4f\x42A\x4c\x53"}["\x63\x71i\x6f\x74\x74\x72p\x79\x71"]="ve\x72\x73\x69\x6f\x6e";$update_post_base->bindValue("\x41\x4e\x43H\x4f\x52",$_POST["anch\x6fr"]);$update_post_base->bindValue("\x55\x50D\x41\x54E\x44\x5f\x41T",date("\x59-\x6d-d H:i:\x73"));$update_post_base->bindValue("\x55\x50\x44\x41\x54\x45\x44\x5fBY",$_SESSION[${${"\x47\x4c\x4f\x42A\x4c\x53"}["o\x65\x6fjrn\x73\x73\x7a"]}]["\x75\x73e\x72"]["\x69d"]);$update_post_base->bindValue("G\x52\x4f\x55\x50\x45\x44_B\x59",$_SESSION[${$yearbyvuazuw}]["use\x72"]["\x67ro\x75p\x5f\x69d"]);$update_post_base->bindValue("S\x54ATU\x53",${${"\x47LOBA\x4c\x53"}["\x72infl\x75\x69"]});$update_post_base->bindValue("I\x44",${${"\x47\x4c\x4f\x42A\x4c\x53"}["\x74\x67s\x73to\x73s\x72x"]});$update_post_base->bindValue("\x56\x45R\x53\x49\x4fN",${${"\x47L\x4fB\x41\x4c\x53"}["c\x71\x69\x6ft\x74rpy\x71"]});$update_post_base->execute();unset(${${"G\x4c\x4f\x42\x41\x4c\x53"}["\x67\x6em\x78\x68b\x75\x73\x68\x73\x72k"]});if(!empty(${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x67\x62\x67\x74\x68\x72m\x66"]})){${${"G\x4cO\x42\x41\x4cS"}["l\x61\x76hf\x64c\x72\x69\x66\x71\x6c"]}="\n\t\t\t\t\t\t\x55\x50DAT\x45 {$table_prefix}\x70o\x73\x74\x73_\x62\x61s\x65 SET\n\t\t\t\t\t\t\tpu\x62l\x69s\x68\x5f\x64\x61\x74e\x74ime\x20= :\x50U\x42\x4cI\x53\x48\x5f\x44\x41\x54\x45T\x49\x4dE,\n\t\t\t\t\t\t\tpublis\x68\x5f\x65nd_\x61t\x20  \x3d :\x50UBL\x49\x53H_\x45\x4eD\x5fA\x54,\n\t\t\t\t\t\t\tsi\x74e_i\x64    \x20\x20\x20\x20  = :SIT\x45\x5f\x49\x44,\n\t\t\t\t\t\t\t\x70\x6fs\x74t\x79\x70e\x5fid\x20 \x20  \x20\x3d\x20:PO\x53\x54\x54YPE\x5f\x49\x44,\n\t\t\t\t\t\t\tcat\x65\x67or\x79\x5fi\x64  \x20\x20\x20\x20\x3d :\x43AT\x45GOR\x59\x5fID,\n\t\t\t\t\t\t\tt\x61\x67_id  \x20  \x20   \x20\x20=\x20:\x54AG\x5fI\x44,\n\t\t\t\t\t\t\ta\x6e\x63h\x6f\x72 \x20\x20\x20    \x20\x20\x20= :\x41\x4eC\x48OR\n\t\t\t\t\t\t\x57\x48ER\x45\x20p\x61\x72\x65nt_\x69d\x20\x3d :\x50\x41\x52ENT_\x49D\x20AND \x76\x65\x72\x73ion = :\x56\x45\x52\x53\x49\x4f\x4e\n\t\t\t\t";${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6b\x70g\x63r\x69\x6dj\x6an"]="\x75\x70\x64\x61\x74\x65_p\x6fs\x74\x73_\x62\x61\x73\x65";${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x73y\x7a\x6eu\x6b\x72"]="ta\x72\x67\x65t\x5f\x69d";$jusgvteu="sql";${"\x47\x4c\x4f\x42AL\x53"}["\x71\x6f\x65\x65\x75\x6b\x62"]="tag_i\x64";$bohikrtl="pu\x62\x6c\x69sh_\x65n\x64\x5f\x61\x74";${${"\x47L\x4f\x42AL\x53"}["\x6b\x70\x67c\x72imj\x6a\x6e"]}=$pdo->prepare(${$jusgvteu});$update_posts_base->bindValue("P\x55BL\x49\x53H_\x44\x41TE\x54I\x4dE",${${"\x47L\x4fBA\x4c\x53"}["\x65wm\x61\x74\x70"]});$update_posts_base->bindValue("P\x55B\x4c\x49S\x48_EN\x44\x5fA\x54",${$bohikrtl});$update_posts_base->bindValue("\x53ITE_\x49\x44",$_POST["site_\x69\x64"]);$update_posts_base->bindValue("P\x4f\x53T\x54\x59P\x45\x5fID",$_POST["\x70os\x74t\x79\x70\x65_id"]);$update_posts_base->bindValue("CA\x54\x45G\x4fRY_\x49\x44",${${"G\x4c\x4f\x42\x41L\x53"}["cr\x71\x68\x67\x77\x64"]});${"GL\x4f\x42\x41L\x53"}["\x72\x62xn\x6f\x66l\x66"]="\x75p\x64\x61\x74\x65\x5f\x70\x6f\x73\x74\x73\x5fb\x61\x73\x65";$update_posts_base->bindValue("\x54\x41G_I\x44",${${"\x47\x4c\x4f\x42\x41LS"}["qoe\x65\x75k\x62"]});$update_posts_base->bindValue("A\x4eC\x48\x4fR",$_POST["a\x6e\x63hor"]);$update_posts_base->bindValue("PAREN\x54\x5f\x49\x44",${${"\x47L\x4f\x42AL\x53"}["\x73\x79\x7a\x6e\x75k\x72"]});$update_posts_base->bindValue("VE\x52\x53I\x4fN",${${"\x47\x4c\x4fB\x41\x4c\x53"}["\x6fh\x6bp\x6c\x63w\x75\x73\x76"]});$update_posts_base->execute();unset(${${"\x47\x4c\x4fB\x41LS"}["\x72\x62\x78no\x66\x6c\x66"]});}foreach($_SESSION[${${"G\x4cOB\x41\x4cS"}["\x6f\x6e\x79\x71\x65\x77\x77rhu"]}]["\x63o\x6d\x6don"]["\x6cangua\x67\x65s"]as${${"GL\x4fB\x41LS"}["\x6b\x62fg\x67\x73\x6b\x75\x78\x6d\x76"]}=>${${"\x47L\x4f\x42AL\x53"}["r\x63a\x69\x67\x79\x6e\x7ah\x72"]}){${"\x47\x4cO\x42\x41L\x53"}["\x6fl\x65rp\x72\x74\x6e\x76\x6e"]="\x73\x71l";${"\x47L\x4f\x42\x41\x4cS"}["per\x67\x71\x70v\x73v"]="se\x61\x72\x63\x68\x5fp\x6f\x73\x74\x73\x5f\x74\x65x\x74";${${"\x47LOBAL\x53"}["\x6f\x6c\x65r\x70\x72t\x6e\x76\x6e"]}="\x53E\x4c\x45C\x54 C\x4fUN\x54(\x62as\x65_id)\x20AS\x20cou\x6e\x74 \x46\x52O\x4d {$table_prefix}po\x73\x74\x73\x5ft\x65\x78t W\x48\x45\x52\x45 \x62\x61s\x65_i\x64\x20\x3d\x20{$target_id}\x20A\x4eD\x20\x62\x61se_\x76\x65\x72si\x6f\x6e =\x20{$version}\x20A\x4e\x44\x20\x6cangu\x61\x67\x65_id\x20\x3d {$language_id}";$ycdjdjedt="\x73\x71\x6c";${${"\x47\x4c\x4f\x42\x41L\x53"}["p\x65\x72\x67\x71\x70\x76\x73v"]}=$pdo->prepare(${$ycdjdjedt});$search_posts_text->execute();if(${${"\x47\x4c\x4f\x42\x41L\x53"}["\x6fk\x76\x6brt\x6c"]}=$search_posts_text->fetch(PDO::FETCH_ASSOC)){unset(${${"G\x4c\x4f\x42A\x4cS"}["\x69j\x77\x66\x6b\x6b\x61q"]});}if(${${"\x47L\x4f\x42A\x4c\x53"}["o\x6b\x76\x6b\x72t\x6c"]}["\x63\x6fu\x6et"]){${"\x47\x4c\x4f\x42\x41L\x53"}["\x68p\x72ek\x67\x70"]="l\x61n\x67u\x61\x67\x65\x5f\x69\x64";${${"\x47LO\x42\x41\x4cS"}["\x6c\x61\x76\x68\x66dcr\x69f\x71\x6c"]}="\n\t\t\t\t\t\t\t\x55\x50DATE\x20{$table_prefix}\x70o\x73ts\x5ft\x65x\x74\x20\x53\x45T\n\t\t\t\t\t\t\t\ttitle \x20 \x20\x3d\x20:TIT\x4c\x45,\n\t\t\t\t\t\t\t\ta\x64d\x69t\x69on \x3d\x20:A\x44\x44IT\x49ON,\n\t\t\t\t\t\t\t\tc\x6f\x6e\x74\x65nt  \x3d\x20:\x43O\x4eT\x45NT\n\t\t\t\t\t\t\t\x57\x48ERE ba\x73\x65\x5f\x69\x64\x20\x3d\x20:\x42\x41\x53\x45_I\x44 \x41\x4eD b\x61se_v\x65r\x73i\x6fn \x3d\x20:\x42ASE_\x56\x45\x52SIO\x4e A\x4e\x44\x20la\x6e\x67\x75\x61ge\x5fid\x20\x3d\x20:\x4cA\x4e\x47\x55AG\x45_I\x44\n\t\t\t\t\t";${"\x47LO\x42\x41\x4c\x53"}["\x71\x78\x67t\x6dg\x63"]="c\x68\x69\x6cd\x72\x65\x6e";${"\x47\x4c\x4f\x42AL\x53"}["\x6f\x64\x63\x6c\x69\x68u"]="\x6c\x61\x6e\x67u\x61\x67e\x5fi\x64";${${"\x47\x4c\x4f\x42A\x4cS"}["n\x79\x6dr\x64o\x6f\x63\x76\x71"]}=$pdo->prepare(${${"G\x4cO\x42AL\x53"}["\x6c\x61v\x68fd\x63ri\x66\x71\x6c"]});$update_post_text->bindValue("TI\x54LE",$_POST["t\x69\x74\x6ce"][${${"G\x4cO\x42\x41\x4c\x53"}["\x68pr\x65k\x67\x70"]}]);$rrcbzor="l\x61\x6e\x67\x75\x61g\x65\x5fid";$update_post_text->bindValue("\x41\x44\x44\x49TION",$_POST["a\x64\x64\x69t\x69\x6f\x6e"][${${"\x47\x4c\x4f\x42\x41LS"}["o\x64c\x6c\x69\x68\x75"]}]);$update_post_text->bindValue("CO\x4eT\x45NT",$_POST["\x63\x6f\x6et\x65n\x74"][${$rrcbzor}]);$update_post_text->bindValue("B\x41\x53\x45_I\x44",${${"\x47\x4c\x4f\x42A\x4cS"}["\x6fy\x6b\x68\x72\x77\x64\x73"]});$update_post_text->bindValue("BA\x53\x45\x5f\x56\x45RS\x49ON",${${"G\x4c\x4f\x42A\x4c\x53"}["o\x68\x6b\x70lc\x77\x75\x73\x76"]});$update_post_text->bindValue("LA\x4e\x47UAG\x45_I\x44",${${"GL\x4f\x42ALS"}["\x6bbf\x67g\x73\x6bux\x6d\x76"]});$update_post_text->execute();unset(${${"GL\x4f\x42A\x4c\x53"}["\x6e\x79m\x72\x64\x6fo\x63\x76\x71"]});if(!empty(${${"G\x4cO\x42A\x4c\x53"}["\x71x\x67tmg\x63"]})){${"G\x4c\x4f\x42\x41\x4c\x53"}["\x6e\x74\x74g\x70\x69\x68"]="\x63hi\x6c\x64re\x6e";foreach(${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6ett\x67\x70\x69\x68"]} as${${"G\x4c\x4fB\x41\x4c\x53"}["bi\x6a\x68\x65\x6de\x6d\x79bt"]}){${"\x47\x4cO\x42\x41\x4cS"}["\x67q\x6b\x6e\x78\x78"]="\x73\x71\x6c";$rnezbursv="\x73\x71l";$pfnegml="u\x70da\x74e\x5fp\x6fst_t\x65\x78\x74";${$rnezbursv}="\n\t\t\t\t\t\t\t\t\tUP\x44\x41\x54E\x20{$table_prefix}po\x73ts_text \x53\x45\x54\n\t\t\t\t\t\t\t\t\t\tti\x74le\x20\x3d\x20:T\x49T\x4c\x45\n\t\t\t\t\t\t\t\t\tW\x48\x45R\x45 bas\x65\x5f\x69d \x3d\x20:\x42\x41\x53E\x5fID \x41N\x44\x20b\x61\x73\x65_\x76\x65\x72si\x6fn\x20\x3d :\x42ASE\x5f\x56E\x52\x53\x49\x4f\x4e\x20\x41ND\x20\x6cangu\x61g\x65\x5f\x69\x64\x20=\x20:\x4cANGU\x41G\x45_\x49D\n\t\t\t\t\t\t\t";$jwlzchp="\x63\x68i\x6c\x64\x5f\x69\x64";${${"\x47L\x4fB\x41\x4c\x53"}["n\x79m\x72\x64o\x6f\x63v\x71"]}=$pdo->prepare(${${"G\x4cO\x42\x41L\x53"}["\x67\x71k\x6e\x78\x78"]});$update_post_text->bindValue("TI\x54LE",$_POST["\x74\x69tl\x65"][${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["kb\x66\x67\x67s\x6b\x75\x78\x6dv"]}]);$update_post_text->bindValue("\x42ASE_\x49D",${$jwlzchp});$update_post_text->bindValue("\x42A\x53E\x5f\x56\x45RS\x49ON",${${"\x47\x4c\x4f\x42AL\x53"}["oh\x6b\x70l\x63wu\x73\x76"]});$update_post_text->bindValue("LAN\x47U\x41GE\x5f\x49D",${${"G\x4c\x4f\x42\x41\x4cS"}["\x6b\x62f\x67g\x73k\x75\x78\x6dv"]});$update_post_text->execute();unset(${$pfnegml});}}}else{${"\x47\x4c\x4fBA\x4c\x53"}["\x73\x73\x74\x68e\x6b\x77\x63y\x77\x73n"]="l\x61ng\x75\x61\x67e\x5fid";${"\x47L\x4fBA\x4c\x53"}["\x71jrdt\x62\x74\x61\x6exs"]="l\x61\x6e\x67\x75\x61\x67\x65\x5f\x69\x64";${${"\x47\x4c\x4fBA\x4c\x53"}["\x6ca\x76h\x66\x64\x63\x72ifq\x6c"]}="\n\t\t\t\t\t\t\tINSER\x54 \x49N\x54\x4f\x20{$table_prefix}\x70o\x73t\x73\x5f\x74\x65\x78\x74\n\t\t\t\t\t\t\t\t( bas\x65_id,\x20 \x62ase\x5fver\x73\x69on,\x20 l\x61ngu\x61\x67\x65\x5f\x69d,\x20\x20t\x69tl\x65,  \x61ddi\x74io\x6e,  \x63o\x6e\x74ent)\n\t\t\t\t\t\t\t\x56A\x4c\x55ES\n\t\t\t\t\t\t\t\t(:\x42\x41\x53E\x5f\x49\x44, :B\x41S\x45_\x56\x45\x52\x53ION,\x20:\x4cA\x4e\x47UA\x47E\x5fI\x44,\x20:TITL\x45,\x20:\x41DD\x49T\x49O\x4e, :CO\x4eT\x45\x4eT)\n\t\t\t\t\t";${${"\x47\x4c\x4f\x42A\x4c\x53"}["\x72\x74\x6fm\x73v\x65od\x72"]}=$pdo->prepare(${${"\x47\x4cO\x42\x41\x4c\x53"}["\x6c\x61\x76\x68\x66\x64c\x72ifq\x6c"]});$gqeevrqckkm="\x74\x61\x72\x67\x65\x74\x5f\x69\x64";$create_post_text->bindValue("\x42\x41\x53\x45_\x49\x44",${$gqeevrqckkm});$create_post_text->bindValue("B\x41S\x45\x5fV\x45\x52\x53ION",${${"\x47\x4cO\x42A\x4c\x53"}["\x6f\x68\x6bpl\x63\x77\x75\x73\x76"]});$create_post_text->bindValue("LANGU\x41\x47E\x5f\x49\x44",${${"\x47\x4c\x4fB\x41\x4c\x53"}["s\x73\x74h\x65k\x77c\x79\x77\x73n"]});$create_post_text->bindValue("\x54IT\x4c\x45",$_POST["t\x69\x74le"][${${"\x47\x4cO\x42AL\x53"}["k\x62\x66\x67gs\x6b\x75\x78\x6d\x76"]}]);$create_post_text->bindValue("A\x44\x44I\x54\x49\x4f\x4e",$_POST["a\x64d\x69\x74io\x6e"][${${"GL\x4f\x42\x41\x4cS"}["\x6b\x62\x66\x67g\x73\x6b\x75\x78\x6d\x76"]}]);$create_post_text->bindValue("CO\x4e\x54\x45N\x54",$_POST["\x63on\x74\x65\x6e\x74"][${${"\x47\x4c\x4f\x42\x41LS"}["qjrd\x74\x62t\x61n\x78\x73"]}]);$create_post_text->execute();unset(${${"G\x4c\x4f\x42\x41L\x53"}["r\x74\x6f\x6ds\x76e\x6f\x64r"]});$xvsslpqeo="c\x68i\x6c\x64\x72\x65\x6e";if(!empty(${$xvsslpqeo})){foreach(${${"G\x4cOB\x41L\x53"}["\x67\x62\x67\x74\x68rm\x66"]} as${${"GL\x4f\x42\x41\x4cS"}["\x62\x69\x6ah\x65m\x65m\x79\x62\x74"]}){$tygqexv="ch\x69\x6cd_i\x64";$rpnbystsknb="sql";$gwiheotoii="\x76e\x72\x73\x69\x6f\x6e";$ybixffik="\x6c\x61\x6e\x67\x75\x61\x67\x65_id";${$rpnbystsknb}="\n\t\t\t\t\t\t\t\t\tI\x4eS\x45R\x54 \x49\x4e\x54O {$table_prefix}po\x73\x74\x73\x5ft\x65x\x74\n\t\t\t\t\t\t\t\t\t\t(\x20base\x5f\x69\x64,  b\x61s\x65_\x76\x65rsi\x6fn,  la\x6egu\x61g\x65\x5f\x69d,\x20 t\x69t\x6c\x65)\n\t\t\t\t\t\t\t\t\tV\x41\x4cUE\x53\n\t\t\t\t\t\t\t\t\t\t(:BASE_\x49D,\x20:\x42\x41S\x45_V\x45RSIO\x4e,\x20:\x4c\x41\x4e\x47\x55\x41GE\x5fID,\x20:TITLE)\n\t\t\t\t\t\t\t";${${"\x47\x4cO\x42\x41\x4c\x53"}["r\x74\x6f\x6d\x73\x76\x65odr"]}=$pdo->prepare(${${"\x47L\x4fB\x41\x4c\x53"}["l\x61vh\x66\x64\x63r\x69f\x71l"]});$create_post_text->bindValue("\x42A\x53E_I\x44",${$tygqexv});$ihuiefxu="la\x6e\x67\x75a\x67\x65\x5fi\x64";$create_post_text->bindValue("\x42\x41S\x45_V\x45R\x53ION",${$gwiheotoii});$create_post_text->bindValue("L\x41\x4e\x47UAG\x45_I\x44",${$ihuiefxu});$create_post_text->bindValue("T\x49T\x4cE",$_POST["\x74i\x74l\x65"][${$ybixffik}]);$create_post_text->execute();unset(${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x72\x74\x6f\x6ds\x76\x65\x6f\x64\x72"]});}}}}if(!empty(${${"\x47\x4c\x4f\x42\x41\x4cS"}["f\x6f\x72y\x6aw\x64\x70\x76"]})&&!empty($_POST["\x69\x74\x65ms"])){$dupeqno="r\x65\x61d\x5f\x63\x75s\x74\x6fm\x5fit\x65ms";${"GLO\x42\x41L\x53"}["\x63\x6d\x69\x65fh\x6e\x6b\x68\x62"]="\x64\x61\x74\x61";$rusyjjr="\x73\x71\x6c";${"\x47\x4cO\x42\x41LS"}["\x70\x69u\x78s\x79\x75\x79\x73v\x74\x66"]="s\x71\x6c";${${"\x47LOBAL\x53"}["\x66fz\x6f\x68\x75"]}=array();${$rusyjjr}="SE\x4cEC\x54 i\x64, type\x20\x46\x52O\x4d\x20{$table_prefix}cus\x74\x6f\x6d_i\x74\x65\x6ds WHE\x52\x45\x20\x64\x65l\x65t\x65\x5f\x66l\x67 = \x30 \x41\x4e\x44\x20\x73\x74\x61t\x75s\x20= \x31";${${"\x47\x4cO\x42A\x4c\x53"}["\x6d\x67\x62h\x6b\x67n\x76"]}=$pdo->prepare(${${"\x47L\x4f\x42A\x4cS"}["\x70\x69\x75\x78\x73\x79\x75\x79\x73v\x74\x66"]});$read_custom_items->execute();while(${${"\x47\x4cO\x42ALS"}["\x6c\x6fh\x6a\x76\x68sp\x66i"]}=$read_custom_items->fetch(PDO::FETCH_ASSOC)){$vrqpbtmph="\x72\x65\x63\x6f\x72\x64";${${"G\x4c\x4f\x42\x41\x4c\x53"}["ff\x7ao\x68u"]}[${${"\x47\x4cO\x42\x41LS"}["\x6c\x6fh\x6a\x76\x68\x73\x70\x66\x69"]}["\x69\x64"]]=${$vrqpbtmph}["\x74\x79p\x65"];}unset(${$dupeqno});foreach($_POST["\x69\x74\x65\x6ds"]as${${"G\x4cO\x42\x41\x4cS"}["\x75\x6e\x6a\x64\x74o\x77"]}=>${${"\x47L\x4fBAL\x53"}["cm\x69e\x66\x68\x6ekh\x62"]}){${"\x47\x4c\x4f\x42\x41\x4cS"}["\x6a\x6baw\x78f\x79\x6f"]="\x76al\x75\x65";foreach(${${"\x47LOBA\x4cS"}["\x6a\x66\x6dgy\x6fp\x77w\x68\x72"]} as${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6b\x62\x66\x67\x67s\x6b\x75\x78\x6d\x76"]}=>${${"\x47LO\x42A\x4cS"}["\x6a\x6baw\x78\x66y\x6f"]}){$bpnkvbzryi="c\x75s\x74o\x6d_\x69\x74\x65\x6d_i\x64";${"\x47\x4cOB\x41LS"}["\x64\x6f\x78\x6b\x67\x6cw\x72ev\x68\x63"]="\x63\x75s\x74o\x6d\x5fi\x74\x65m\x73";$lruwdmwtjn="\x63\x75\x73\x74o\x6d\x5fi\x74\x65ms";if(is_array(${${"GLO\x42\x41\x4cS"}["\x72\x63\x61i\x67\x79nz\x68\x72"]})){${"\x47\x4c\x4f\x42ALS"}["\x65\x65\x76\x76\x6f\x6cf"]="val\x75e";${${"\x47\x4cOB\x41\x4cS"}["\x72\x63\x61\x69\x67y\x6e\x7a\x68\x72"]}=implode(",",${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x65e\x76v\x6f\x6cf"]});}${"\x47\x4c\x4fB\x41\x4c\x53"}["\x74\x70qc\x74\x7ah\x73"]="\x63\x75\x73t\x6f\x6d_\x69\x74\x65\x6d\x5fi\x64";$wlkwmlr="\x70\x6f\x73\x74\x73\x5f\x63\x75\x73t\x6f\x6d";if(${$lruwdmwtjn}[${${"\x47\x4cOB\x41L\x53"}["t\x70qc\x74\x7ah\x73"]}]=="\x69\x6da\x67\x65"){$tsycipgxzsn="\x73\x65\x73s\x69\x6fn\x5f\x6bey";if(!empty(${${"\x47\x4cOB\x41\x4c\x53"}["rca\x69\x67ynz\x68r"]})&&$_SESSION[${$tsycipgxzsn}]["\x63on\x66ig\x73"]["\x6de\x64ia\x5fpa\x72a\x6d\x65te\x72_fl\x67"]){$rzkltvpcowc="\x70\x61t\x74e\x72n\x5fp\x61\x72a\x6d";${"G\x4c\x4f\x42A\x4cS"}["\x68\x68m\x7a\x6b\x6ao\x66\x74\x68"]="\x76a\x6cu\x65";${"\x47\x4cO\x42AL\x53"}["\x6c\x79i\x7a\x71\x67t\x6d"]="\x6d\x65d\x69\x61\x5fpa\x72\x61me\x74\x65\x72";$kgysmuqeb="\x70\x61tt\x65r\x6e\x5f\x70\x61\x72\x61\x6d";if(preg_match(${$kgysmuqeb},${${"\x47L\x4f\x42\x41\x4c\x53"}["\x72\x63\x61i\x67\x79\x6e\x7a\x68\x72"]}))${${"\x47\x4c\x4fBALS"}["\x72\x63ai\x67\x79nz\x68\x72"]}=preg_replace(${$rzkltvpcowc},"",${${"\x47\x4cOBA\x4c\x53"}["\x68h\x6d\x7a\x6b\x6a\x6f\x66\x74h"]});${${"\x47\x4c\x4fB\x41LS"}["r\x63ai\x67\x79\x6e\x7ah\x72"]}=${${"\x47\x4c\x4f\x42\x41L\x53"}["\x72\x63\x61i\x67\x79nzh\x72"]}."?v\x3d".${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6c\x79\x69\x7a\x71gt\x6d"]};}}${"\x47\x4c\x4fB\x41\x4c\x53"}["\x6a\x64\x66\x77\x71\x6c\x67\x6e\x74"]="\x73\x71\x6c";if(${${"\x47LOBA\x4cS"}["do\x78\x6b\x67lwr\x65v\x68c"]}[${$bpnkvbzryi}]=="ga\x6cl\x65r\x79"){${"G\x4cO\x42A\x4c\x53"}["\x76r\x69\x6d\x6flm\x6aw"]="v\x61\x6c\x75\x65";if(!empty(${${"\x47\x4cOB\x41\x4cS"}["v\x72\x69m\x6f\x6cmj\x77"]})&&$_SESSION[${${"G\x4cO\x42\x41\x4c\x53"}["\x6fn\x79qe\x77\x77\x72\x68\x75"]}]["c\x6f\x6ef\x69\x67s"]["me\x64i\x61_pa\x72\x61m\x65ter_f\x6c\x67"]){$ftbokrjw="\x67\x61l\x6c\x65\x72\x79\x5f\x61\x72r";${"\x47\x4c\x4fBALS"}["\x74j\x6ex\x67\x74nr\x6bf"]="g\x61l\x6ce\x72\x79\x5f\x61\x72r";${${"\x47\x4c\x4f\x42\x41L\x53"}["i\x67y\x67q\x68dq\x69gh\x77"]}=explode(",",${${"\x47\x4c\x4fB\x41L\x53"}["r\x63\x61\x69gyn\x7a\x68r"]});foreach(${$ftbokrjw} as${${"\x47\x4c\x4f\x42A\x4cS"}["\x69\x6a\x67\x64\x71ec\x6c"]}=>${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["d\x76\x71tf\x65y\x79\x71"]}){$fixkmfpbkas="\x69\x6d\x61\x67\x65";$ifwaqvpe="i\x6d\x61g\x65";if(preg_match(${${"G\x4c\x4fB\x41LS"}["j\x6b\x68\x67\x62\x69z\x65\x77\x6b\x63"]},${$fixkmfpbkas}))${${"\x47\x4c\x4fB\x41\x4c\x53"}["\x64v\x71t\x66\x65\x79\x79q"]}=preg_replace(${${"\x47L\x4fBALS"}["\x6akhgb\x69\x7a\x65w\x6b\x63"]},"",${${"G\x4c\x4fB\x41L\x53"}["dv\x71\x74f\x65y\x79\x71"]});${"\x47\x4c\x4f\x42A\x4c\x53"}["qi\x78z\x79\x70ig\x74\x69"]="g\x61\x6c\x6c\x65\x72y\x5f\x61\x72\x72";${${"G\x4c\x4fB\x41\x4cS"}["\x71i\x78z\x79p\x69\x67\x74\x69"]}[${${"\x47L\x4fBA\x4cS"}["\x69\x6a\x67d\x71e\x63l"]}]=${$ifwaqvpe}."?v\x3d".${${"GL\x4f\x42A\x4c\x53"}["\x6e\x63\x78\x70\x77\x63\x69\x67"]};}${${"\x47L\x4fB\x41\x4c\x53"}["\x72ca\x69\x67y\x6e\x7a\x68\x72"]}=implode(",",${${"\x47L\x4fB\x41LS"}["\x74jn\x78gt\x6e\x72\x6b\x66"]});}}${${"\x47\x4cO\x42\x41\x4c\x53"}["\x6a\x64\x66\x77\x71\x6c\x67\x6e\x74"]}="\n\t\t\t\t\t\t\t\t\x53ELEC\x54 C\x4f\x55N\x54(b\x61s\x65_i\x64)\x20\x41S\x20co\x75nt\n\t\t\t\t\t\t\t\t\x46ROM {$table_prefix}p\x6f\x73\x74\x73\x5f\x63\x75s\x74o\x6d\n\t\t\t\t\t\t\t\t\x57\x48E\x52\x45\n\t\t\t\t\t\t\t\t\t\x62\x61se_\x69\x64 \x3d {$target_id}\n\t\t\t\t\t\t\t\t\t\x41\x4e\x44\x20b\x61s\x65_v\x65\x72sio\x6e\x20= {$version}\n\t\t\t\t\t\t\t\t\tA\x4eD\x20l\x61\x6egua\x67\x65_i\x64 =\x20{$language_id}\n\t\t\t\t\t\t\t\t\t\x41N\x44 cu\x73\x74\x6fm_\x69\x74\x65m_\x69d\x20\x3d {$custom_item_id}\n\t\t\t\t\t\t";${"\x47\x4c\x4fBA\x4c\x53"}["\x68\x79\x6bo\x73\x61jy\x68\x6e"]="\x70\x6f\x73t\x73_\x63u\x73\x74\x6fm";$ebpttlur="s\x65\x61rc\x68\x5f\x70o\x73\x74s_\x63\x75\x73t\x6f\x6d";${$ebpttlur}=$pdo->prepare(${${"\x47L\x4f\x42\x41\x4c\x53"}["l\x61v\x68\x66dc\x72\x69\x66q\x6c"]});$search_posts_custom->execute();if(${${"GL\x4f\x42A\x4c\x53"}["\x68\x79k\x6fs\x61\x6a\x79\x68\x6e"]}=$search_posts_custom->fetch(PDO::FETCH_ASSOC)){unset(${${"\x47\x4c\x4f\x42\x41L\x53"}["\x64x\x6dw\x6c\x69\x70\x64\x6a\x6a\x75"]});}if(${$wlkwmlr}["\x63o\x75\x6et"]){$ryossvwi="s\x71\x6c";$tohpfvjdx="\x76er\x73\x69\x6f\x6e";$qkheprwwhf="cu\x73\x74\x6fm\x5f\x69t\x65\x6d\x5f\x69\x64";${"\x47\x4c\x4fB\x41L\x53"}["\x74c\x62\x66\x70\x78\x6c\x6fp\x6e"]="\x6c\x61ng\x75\x61\x67e\x5fid";${"GLO\x42\x41\x4c\x53"}["\x6evv\x69\x71j"]="sq\x6c";${$ryossvwi}="\n\t\t\t\t\t\t\t\t\t\x55\x50\x44\x41\x54\x45 {$table_prefix}\x70\x6fs\x74s\x5f\x63\x75s\x74\x6fm\x20\x53E\x54\n\t\t\t\t\t\t\t\t\t\t\x76a\x6c\x75e\x20= :\x56\x41L\x55E\n\t\t\t\t\t\t\t\t\t\x57\x48ER\x45\n\t\t\t\t\t\t\t\t\t\t\x62a\x73e_i\x64 =\x20:BA\x53\x45\x5fID\n\t\t\t\t\t\t\t\t\t\tAN\x44\x20\x6c\x61\x6egu\x61\x67e\x5fi\x64\x20\x3d :LA\x4e\x47U\x41GE_\x49\x44\n\t\t\t\t\t\t\t\t\t\tA\x4eD base_v\x65r\x73ion\x20\x3d :BA\x53E\x5fV\x45R\x53ION\n\t\t\t\t\t\t\t\t\t\tA\x4e\x44\x20\x63ust\x6fm\x5f\x69\x74e\x6d\x5fid \x3d\x20:C\x55\x53\x54O\x4d_\x49T\x45M_\x49\x44\n\t\t\t\t\t\t\t";${${"\x47\x4cO\x42\x41L\x53"}["\x64\x62dby\x73\x71\x77\x61\x68\x72"]}=$pdo->prepare(${${"\x47\x4c\x4f\x42A\x4c\x53"}["\x6e\x76\x76\x69\x71\x6a"]});$update_post_custom->bindValue("\x56\x41LU\x45",${${"\x47\x4c\x4f\x42\x41\x4cS"}["\x72\x63aig\x79n\x7a\x68\x72"]});$update_post_custom->bindValue("\x42A\x53\x45\x5f\x49D",${${"\x47\x4c\x4f\x42ALS"}["\x6f\x79kh\x72w\x64\x73"]});$update_post_custom->bindValue("\x42ASE\x5f\x56\x45\x52S\x49\x4f\x4e",${$tohpfvjdx});$update_post_custom->bindValue("\x4cA\x4e\x47UAGE_I\x44",${${"G\x4cOB\x41\x4cS"}["t\x63bfp\x78\x6c\x6fpn"]});$update_post_custom->bindValue("CU\x53TOM\x5fITE\x4d_ID",${$qkheprwwhf});$update_post_custom->execute();unset(${${"\x47\x4c\x4f\x42A\x4c\x53"}["\x64\x62db\x79\x73qw\x61h\x72"]});}else{$yglmuvsiev="\x63r\x65\x61t\x65\x5f\x70\x6f\x73\x74\x5fc\x75\x73\x74\x6f\x6d";${"\x47\x4c\x4f\x42\x41\x4cS"}["\x63\x73t\x74\x6ct\x6cx\x6e"]="\x76\x65\x72s\x69\x6fn";${"\x47\x4c\x4fB\x41L\x53"}["\x61\x67\x6f\x66\x65su\x6d\x6fv"]="\x6ca\x6e\x67\x75age\x5fi\x64";$fhgvdcf="\x73\x71\x6c";${$fhgvdcf}="\n\t\t\t\t\t\t\t\t\t\x49N\x53\x45\x52T \x49\x4e\x54\x4f {$table_prefix}po\x73\x74\x73\x5fc\x75st\x6fm\n\t\t\t\t\t\t\t\t\t\t(\x20\x62\x61s\x65\x5fid,\x20\x20\x62\x61s\x65\x5fv\x65\x72si\x6fn,\x20 lan\x67\x75a\x67\x65\x5fid,\x20\x20cu\x73t\x6fm_\x69\x74\x65m\x5f\x69d,\x20\x20\x76al\x75e)\n\t\t\t\t\t\t\t\t\tVALUES\n\t\t\t\t\t\t\t\t\t\t(:BA\x53\x45\x5fID,\x20:BA\x53E_VER\x53IO\x4e, :LA\x4e\x47\x55AGE_\x49\x44,\x20:\x43\x55ST\x4fM\x5fITE\x4d_\x49D, :VALU\x45)\n\t\t\t\t\t\t\t";${$yglmuvsiev}=$pdo->prepare(${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6ca\x76\x68\x66d\x63\x72\x69f\x71l"]});$create_post_custom->bindValue("\x42A\x53E\x5fID",${${"G\x4c\x4f\x42\x41L\x53"}["\x6fy\x6b\x68\x72\x77\x64s"]});${"\x47\x4c\x4f\x42A\x4cS"}["\x68\x74\x69\x7a\x70\x67"]="c\x75s\x74\x6f\x6d_\x69\x74\x65m\x5f\x69\x64";$create_post_custom->bindValue("BASE_\x56E\x52S\x49\x4fN",${${"G\x4cO\x42\x41\x4c\x53"}["\x63\x73\x74\x74\x6ct\x6c\x78\x6e"]});$create_post_custom->bindValue("\x4c\x41NGU\x41\x47\x45\x5f\x49\x44",${${"\x47\x4c\x4f\x42\x41L\x53"}["a\x67\x6f\x66es\x75m\x6f\x76"]});$create_post_custom->bindValue("\x43USTOM\x5f\x49TEM_\x49D",${${"GL\x4f\x42\x41\x4cS"}["\x68\x74\x69\x7a\x70g"]});$create_post_custom->bindValue("\x56A\x4cU\x45",${${"\x47\x4c\x4f\x42ALS"}["\x72\x63\x61igyn\x7ah\x72"]});$create_post_custom->execute();unset(${${"\x47\x4c\x4f\x42A\x4c\x53"}["\x69\x6bt\x64\x64\x61v\x65\x6ffry"]});}}}}$pdo->commit();}catch(PDOException$e){$pdo->rollBack();header("L\x6fcat\x69\x6f\x6e: \x2e/?\x76ie\x77\x5f\x70\x61\x67e=\x70\x6fs\x74&\x70\x72\x6fc\x65ss={$process}&\x69\x64={$target_id}\x26ve\x72si\x6f\x6e={$version}\x26e\x72\x72\x6f\x72ms\x67=2");exit;}if(empty($_POST["\x70\x61\x72e\x6et_\x69\x64"])){header("\x4cocat\x69\x6fn:\x20./?\x76\x69ew\x5fp\x61g\x65=pos\x74s&pro\x63\x65s\x73\x3d{$process}&\x69\x64\x3d{$target_id}\x26\x6e\x75\x6dbe\x72\x3d1");exit;}else{header("L\x6fca\x74\x69\x6f\x6e:\x20\x2e/?vi\x65w\x5fpa\x67e\x3dp\x6fs\x74\x26id\x3d{$_POST['parent_id']}\x26ve\x72\x73\x69\x6f\x6e\x3d{$_POST['version']}\x26\x70\x72o\x63ess=1\x32\x26c\x68\x69l\x64\x5fproce\x73\x73\x3d{$process}");exit;}}if(!empty(${${"\x47L\x4fBA\x4c\x53"}["\x71hb\x6f\x6c\x6em\x6c\x77dy"]})&&${${"\x47\x4cO\x42\x41\x4cS"}["qh\x62\x6fl\x6em\x6c\x77d\x79"]}==19&&!empty(${${"\x47LO\x42\x41LS"}["o\x79\x6b\x68\x72\x77\x64\x73"]})){try{$pdo->beginTransaction();${"\x47\x4c\x4f\x42\x41L\x53"}["c\x64ne\x6e\x6eq\x66\x72\x6dk\x68"]="\x75p\x64\x61\x74e\x5f\x70o\x73\x74s_bas\x65";if(empty($_POST["pa\x72e\x6et\x5f\x69\x64"])){if(empty($_POST["\x63\x75rr\x65\x6et_\x66lg"])){${"\x47\x4c\x4fBA\x4c\x53"}["sp\x69\x67\x6e\x67w"]="s\x71\x6c";${${"\x47LO\x42\x41\x4c\x53"}["\x73\x70i\x67\x6e\x67w"]}="\n\t\t\t\t\t\t\t\x55P\x44AT\x45\x20{$table_prefix}\x70\x6fs\x74s\x5fb\x61s\x65\x20\x53\x45T\n\t\t\t\t\t\t\t\tup\x64\x61\x74\x65\x64\x5fat =\x20:U\x50\x44\x41\x54ED_\x41T,\n\t\t\t\t\t\t\t\tup\x64\x61ted\x5f\x62\x79 \x3d\x20:\x55\x50DATE\x44_BY,\n\t\t\t\t\t\t\t\t\x64\x65\x6c\x65t\x65_f\x6cg \x3d\x201\n\t\t\t\t\t\t\tWHE\x52\x45\x20(\x69d\x20\x3d :I\x44 O\x52 par\x65\x6et_\x69d = :\x49\x44) AND v\x65\x72s\x69\x6f\x6e = :VE\x52S\x49ON\n\t\t\t\t\t";}else{${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["l\x61v\x68\x66\x64\x63\x72\x69\x66q\x6c"]}="\n\t\t\t\t\t\t\tUPD\x41TE\x20{$table_prefix}pos\x74s\x5f\x62ase \x53\x45\x54\n\t\t\t\t\t\t\t\t\x75p\x64\x61ted_at\x20= :U\x50\x44\x41\x54\x45\x44_AT,\n\t\t\t\t\t\t\t\t\x75\x70d\x61\x74ed_\x62y =\x20:\x55PD\x41T\x45D_\x42Y,\n\t\t\t\t\t\t\t\t\x64e\x6ce\x74e_\x66\x6c\x67 \x3d\x201\n\t\t\t\t\t\t\t\x57\x48E\x52\x45 (\x69\x64\x20\x3d\x20:ID\x20OR \x70are\x6e\x74\x5fi\x64 \x3d\x20:ID) \x41\x4e\x44\x20v\x65\x72\x73ion =\x20:\x56ERSIO\x4e\n\t\t\t\t\t";}}else{${"\x47\x4c\x4f\x42\x41LS"}["\x6d\x64\x6cm\x76\x67\x6dyoo"]="\x73\x71\x6c";${${"\x47L\x4fBALS"}["md\x6c\x6dvg\x6d\x79\x6fo"]}="\n\t\t\t\t\t\tUPDAT\x45\x20{$table_prefix}p\x6f\x73\x74\x73_\x62as\x65\x20SET\n\t\t\t\t\t\t\t\x75\x70\x64a\x74e\x64_a\x74 \x3d :\x55PD\x41\x54E\x44_AT,\n\t\t\t\t\t\t\tu\x70\x64\x61\x74\x65\x64_\x62y =\x20:\x55P\x44\x41\x54ED_BY,\n\t\t\t\t\t\t\t\x64\x65let\x65\x5ffl\x67\x20=\x20\x31\n\t\t\t\t\t\t\x57\x48\x45R\x45\x20id\x20= :ID A\x4e\x44\x20\x76\x65rs\x69on =\x20:VER\x53ION\n\t\t\t\t";}$dexjtij="\x73\x71l";$oqlpxmwvvvf="v\x65\x72\x73\x69o\x6e";${${"GLO\x42A\x4c\x53"}["\x63\x64n\x65n\x6e\x71fr\x6dk\x68"]}=$pdo->prepare(${$dexjtij});$update_posts_base->bindValue("\x55P\x44\x41T\x45\x44_AT",date("\x59-m-\x64\x20H:\x69:\x73"));$flrprtum="\x75\x70\x64\x61\x74\x65\x5f\x70\x6f\x73\x74\x73\x5fb\x61\x73e";$update_posts_base->bindValue("\x55P\x44\x41\x54\x45D\x5fBY",$_SESSION[${${"\x47LO\x42\x41L\x53"}["\x6f\x6ey\x71e\x77\x77rh\x75"]}]["u\x73e\x72"]["id"]);$update_posts_base->bindValue("I\x44",${${"\x47\x4c\x4f\x42ALS"}["\x6fy\x6bh\x72\x77\x64\x73"]});$update_posts_base->bindValue("\x56\x45\x52SIO\x4e",${$oqlpxmwvvvf});$update_posts_base->execute();unset(${$flrprtum});$pdo->commit();}catch(PDOException$e){$pdo->rollBack();header("\x4c\x6f\x63at\x69o\x6e: \x2e/?\x76\x69\x65w_\x70\x61\x67\x65=\x70ost\x26pr\x6f\x63es\x73\x3d{$process}\x26i\x64={$target_id}\x26v\x65\x72\x73\x69\x6f\x6e\x3d{$version}&\x65rrorm\x73\x67=\x33");exit;}if(empty($_POST["p\x61r\x65\x6et_\x69\x64"])){if(empty($_POST["c\x75\x72rent_f\x6c\x67"])){header("\x4coca\x74i\x6f\x6e:\x20./?\x76i\x65w_\x70ag\x65=po\x73\x74\x26\x69\x64={$target_id}&p\x72\x6f\x63\x65s\x73=\x312&v\x65rsi\x6f\x6e\x5fpr\x6f\x63\x65ss\x3d{$process}");exit;}else{header("\x4c\x6f\x63a\x74\x69on:\x20\x2e/?v\x69\x65\x77_pa\x67\x65\x3dposts\x26\x70r\x6f\x63e\x73s\x3d{$process}&i\x64={$target_id}&\x6eumb\x65\x72\x3d1");exit;}}else{header("\x4coc\x61\x74\x69o\x6e:\x20./?\x76i\x65\x77_pag\x65=\x70os\x74\x26id\x3d{$_POST['parent_id']}\x26\x76\x65\x72\x73\x69o\x6e={$_POST['version']}&proc\x65\x73s\x3d\x31\x32&child\x5f\x70r\x6fc\x65\x73\x73\x3d{$process}");exit;}}}if($_SESSION[${${"G\x4cO\x42A\x4cS"}["\x68j\x75\x67\x6bg\x73\x69\x75b"]}]["\x63\x6fm\x6d\x6f\x6e"]["\x76\x69\x65\x77_\x70\x61ge"]=="co\x6dm\x65\x6et"){$goswmg="\x74y\x70\x65";${"\x47\x4cOB\x41LS"}["\x6c\x6a\x65l\x6dcel\x78"]="\x74\x61\x72\x67\x65\x74_\x69\x64";$sxgnjio="p\x72\x6f\x63\x65s\x73";${$goswmg}=(isset($_POST["\x74\x79p\x65"]))?$_POST["typ\x65"]:1;${"\x47LO\x42\x41\x4cS"}["l\x6fj\x62\x6bm\x7a"]="\x6e\x6fte";$wbkydpigvds="p\x72\x6f\x63\x65s\x73";${"\x47\x4c\x4f\x42\x41L\x53"}["\x78\x6d\x78j\x7a\x62\x73t\x72"]="\x70\x6fs\x74\x65\x64\x5f\x61t";${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x7ad\x74\x74ew\x62i"]="p\x72o\x63\x65s\x73";${"\x47\x4c\x4f\x42\x41L\x53"}["cn\x6ee\x74l\x6a"]="\x70\x6f\x73\x74\x65\x64_\x61\x74";$rfiummdqzl="p\x6f\x73t\x65d\x5f\x61\x74";if(isset($_POST["typ\x65"])&&$_POST["\x74\x79\x70e"]==3&&${$wbkydpigvds}==22)${${"GL\x4f\x42A\x4c\x53"}["qhbo\x6c\x6e\x6d\x6c\x77\x64\x79"]}=23;${$rfiummdqzl}=(!empty($_POST["\x70\x6fs\x74e\x64_at"]))?$_POST["\x70\x6f\x73\x74e\x64\x5fa\x74"].":\x300":${${"GL\x4f\x42\x41\x4c\x53"}["c\x6e\x6e\x65\x74l\x6a"]}=date("Y-\x6d-d\x20H:i:s");if(strtotime(${${"\x47LO\x42\x41\x4c\x53"}["x\x6d\x78\x6a\x7a\x62\x73\x74r"]})<strtotime("1900-\x30\x31-\x301\x20\x30\x30:00:\x30\x30")||!checkDatetime(${${"G\x4cO\x42\x41\x4cS"}["z\x6bo\x71\x6b\x6e\x6a\x64"]})){${${"\x47L\x4fB\x41\x4c\x53"}["\x7a\x6bo\x71\x6b\x6ej\x64"]}=date("Y-m-d H:i:\x73");}${"\x47\x4cOBALS"}["\x65n\x77\x70\x67\x76\x77\x79\x72"]="p\x72o\x63\x65s\x73";${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6fsr\x62co\x73g\x64"]}=(!empty($_POST["eyeca\x74ch"]))?$_POST["e\x79e\x63a\x74\x63\x68"]:null;$nyxnkcnuu="\x70\x72\x6f\x63\x65s\x73";$ipbbnmym="\x70r\x6f\x63e\x73s";${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6co\x6a\x62k\x6d\x7a"]}=(!empty($_POST["not\x65"]))?$_POST["\x6e\x6f\x74e"]:null;$odejtnu="\x70\x72\x6f\x63\x65\x73s";if(!empty(${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x65\x6ewp\x67\x76\x77\x79\x72"]})&&${$sxgnjio}==21){try{$glvemugueg="\x73\x71\x6c";$vglyreuvhm="\x63r\x65\x61\x74e_co\x6d\x6d\x65\x6e\x74";$npjnjyfdrfum="\x73\x65\x73\x73\x69o\x6e_\x6bey";$pdo->beginTransaction();${${"\x47L\x4f\x42\x41LS"}["\x6ca\x76\x68f\x64\x63r\x69f\x71\x6c"]}="\n\t\t\t\t\tI\x4e\x53E\x52T \x49N\x54O {$table_prefix}co\x6d\x6dent\x73\n\t\t\t\t\t\t( \x70o\x73\x74_\x69d,\x20\x20c\x6f\x6d\x6de\x6e\x74\x5f\x69\x64,  p\x61rent\x5f\x69\x64,\x20 s\x69\x74\x65\x5f\x69\x64,  \x70ost\x74y\x70\x65\x5fid,\x20\x20\x74ype,\x20 \x73\x63o\x72e,\x20\x20n\x69ckn\x61me,\x20\x20\x65\x6da\x69l, \x20\x65\x79\x65\x63\x61\x74\x63h,  tit\x6ce,\x20\x20\x63onte\x6et, \x20n\x6f\x74\x65, \x20\x70o\x73\x74\x65d\x5f\x61\x74,\x20\x20p\x6fsted_by, \x20s\x74\x61\x74\x75s)\n\t\t\t\t\tV\x41L\x55\x45S\n\t\t\t\t\t\t(:P\x4fS\x54\x5f\x49\x44,\x20:\x43\x4fMM\x45NT_\x49\x44,\x20:\x50ARE\x4e\x54\x5fID, :S\x49TE\x5f\x49\x44, :\x50\x4fSTTYP\x45_ID,\x20:T\x59\x50\x45,\x20:S\x43\x4f\x52E,\x20:\x4eIC\x4b\x4eAME,\x20:EMA\x49L,\x20:EY\x45C\x41T\x43\x48, :T\x49TLE,\x20:C\x4f\x4e\x54\x45N\x54, :\x4e\x4fTE,\x20:PO\x53\x54E\x44_AT, :\x50\x4fST\x45\x44\x5fBY,\x20:S\x54A\x54\x55\x53)\n\t\t\t";${$vglyreuvhm}=$pdo->prepare(${$glvemugueg});$create_comment->bindValue(":\x50\x4fS\x54\x5fI\x44",$_POST["\x70o\x73\x74_\x69\x64"]);$create_comment->bindValue(":CO\x4dM\x45\x4e\x54_\x49\x44",$_POST["\x63\x6fm\x6dent\x5fid"]);$create_comment->bindValue(":PARE\x4e\x54\x5f\x49D",$_POST["p\x61re\x6e\x74\x5fi\x64"]);$create_comment->bindValue(":\x53\x49T\x45\x5fID",$_SESSION[${${"\x47\x4cO\x42\x41LS"}["\x6fn\x79\x71\x65\x77\x77\x72h\x75"]}]["comm\x6f\x6e"]["\x74\x68\x69\x73_\x73\x69te"]);${"\x47\x4c\x4fBA\x4c\x53"}["eayh\x69\x6diaz\x6e\x67\x68"]="t\x79\x70\x65";$create_comment->bindValue(":PO\x53TT\x59P\x45_\x49\x44",$_SESSION[${${"\x47L\x4f\x42A\x4c\x53"}["o\x6ey\x71e\x77\x77r\x68u"]}]["c\x6f\x6d\x6do\x6e"]["t\x68i\x73\x5f\x70o\x73\x74\x74y\x70\x65"]);$create_comment->bindValue(":T\x59PE",${${"G\x4cOB\x41\x4c\x53"}["\x65\x61\x79\x68im\x69a\x7a\x6e\x67h"]});$create_comment->bindValue(":SC\x4f\x52E",$_POST["s\x63or\x65"]);$gdfkbjl="\x6e\x6f\x74\x65";$create_comment->bindValue(":\x4e\x49\x43\x4bNAME",$_POST["\x6e\x69\x63knam\x65"]);$create_comment->bindValue(":E\x4dAIL",$_POST["\x65ma\x69\x6c"]);$create_comment->bindValue(":\x45\x59E\x43AT\x43\x48",${${"\x47L\x4f\x42\x41\x4c\x53"}["o\x73\x72\x62\x63\x6f\x73\x67\x64"]});$create_comment->bindValue(":\x54\x49\x54LE",$_POST["\x74i\x74\x6ce"]);$create_comment->bindValue(":\x43\x4fNTENT",$_POST["\x63o\x6ete\x6et"]);${"GL\x4fB\x41L\x53"}["q\x73\x66\x70h\x69\x6d\x6f\x67"]="\x63r\x65\x61\x74e\x5fc\x6f\x6d\x6de\x6e\x74";$create_comment->bindValue(":N\x4fTE",${$gdfkbjl});$create_comment->bindValue(":\x50O\x53TE\x44\x5fAT",${${"G\x4c\x4f\x42\x41L\x53"}["\x7ak\x6f\x71knj\x64"]});$create_comment->bindValue(":\x50OS\x54ED\x5f\x42Y",$_SESSION[${$npjnjyfdrfum}]["u\x73e\x72"]["id"]);$create_comment->bindValue(":\x53TATU\x53",$_POST["s\x74\x61t\x75\x73"]);$create_comment->execute();unset(${${"\x47\x4cOB\x41\x4c\x53"}["qs\x66\x70\x68\x69\x6do\x67"]});$pdo->commit();}catch(PDOException$e){$pdo->rollBack();header("\x4co\x63at\x69o\x6e:\x20./?vi\x65\x77\x5f\x70age=c\x6fmm\x65n\x74&\x70\x72o\x63\x65ss={$process}\x26\x65r\x72orm\x73\x67=\x31");exit;}header("\x4co\x63a\x74\x69\x6f\x6e: ./?\x76i\x65w_p\x61g\x65=co\x6d\x6d\x65\x6et\x73\x26pr\x6f\x63e\x73s\x3d{$process}&type={$type}");exit;}if(!empty(${${"\x47\x4cO\x42A\x4cS"}["\x7a\x64\x74tewb\x69"]})&&${${"\x47\x4c\x4fBAL\x53"}["\x71h\x62\x6f\x6cnm\x6c\x77dy"]}==22&&!empty(${${"\x47L\x4fB\x41\x4cS"}["\x6f\x79k\x68r\x77\x64\x73"]})){$posupyzl="\x73\x74\x61t\x75\x73";${$posupyzl}=(isset($_POST["\x73tat\x75\x73"]))?$_POST["\x73ta\x74u\x73"]:2;try{$kwcddr="t\x61\x72\x67e\x74\x5fi\x64";${"\x47\x4cO\x42A\x4cS"}["\x6bpx\x6f\x7a\x72\x76\x62b"]="\x73q\x6c";$obqwit="\x75\x70\x64\x61\x74e_\x63\x6f\x6d\x6d\x65\x6e\x74";$vbibkxurm="s\x74\x61\x74\x75\x73";$pdo->beginTransaction();${${"GL\x4f\x42\x41\x4cS"}["\x6bp\x78\x6fz\x72vb\x62"]}="\n\t\t\t\t\tU\x50\x44\x41TE {$table_prefix}\x63\x6f\x6dme\x6e\x74s\x20\x53\x45T\n\t\t\t\t\t\t\x6eo\x74e \x20    \x20= :N\x4fTE,\n\t\t\t\t\t\tup\x64\x61te\x64_at\x20= :UP\x44AT\x45D_A\x54,\n\t\t\t\t\t\tup\x64a\x74\x65d\x5fby\x20=\x20:\x55\x50DA\x54\x45D_BY,\n\t\t\t\t\t\t\x73tatus\x20\x20   \x3d :\x53\x54A\x54US\n\t\t\t\t\t\x57\x48E\x52E\x20\x69d\x20=\x20:ID\n\t\t\t";${$obqwit}=$pdo->prepare(${${"\x47\x4c\x4f\x42A\x4cS"}["\x6c\x61\x76\x68\x66\x64\x63\x72i\x66\x71\x6c"]});$update_comment->bindValue(":\x4eOTE",$_POST["\x6e\x6f\x74\x65"]);$update_comment->bindValue(":\x55PD\x41T\x45D_AT",date("\x59-m-\x64 H:\x69:\x73"));$update_comment->bindValue(":U\x50\x44\x41\x54ED\x5fBY",$_SESSION[${${"\x47L\x4fB\x41L\x53"}["\x6f\x6ey\x71\x65\x77w\x72\x68u"]}]["\x75\x73er"]["id"]);$update_comment->bindValue(":\x53\x54A\x54\x55\x53",${$vbibkxurm});$update_comment->bindValue(":\x49D",${$kwcddr});$update_comment->execute();unset(${${"G\x4c\x4f\x42A\x4c\x53"}["\x77b\x73\x72\x63qcv"]});$pdo->commit();}catch(PDOException$e){$pdo->rollBack();header("\x4co\x63\x61t\x69o\x6e: \x2e/?vi\x65\x77_p\x61\x67\x65\x3d\x63\x6f\x6d\x6d\x65\x6et&p\x72oc\x65s\x73\x3d{$process}\x26i\x64\x3d{$target_id}\x26er\x72\x6f\x72\x6ds\x67\x3d2");exit;}header("Loca\x74\x69\x6f\x6e: ./?vi\x65w\x5f\x70\x61\x67\x65\x3d\x63o\x6d\x6de\x6e\x74\x73\x26\x70\x72\x6fc\x65\x73\x73\x3d{$process}\x26i\x64\x3d{$target_id}&type={$type}&n\x75\x6d\x62e\x72=\x31");exit;}if(!empty(${${"G\x4c\x4f\x42\x41\x4c\x53"}["\x71hb\x6f\x6cnm\x6c\x77d\x79"]})&&${$ipbbnmym}==23&&!empty(${${"G\x4c\x4f\x42AL\x53"}["\x6cje\x6c\x6dc\x65\x6c\x78"]})){try{$xaflqg="\x6eote";$pdo->beginTransaction();${"\x47\x4c\x4f\x42\x41L\x53"}["eb\x6f\x77\x72\x6e\x65\x69"]="\x70ost\x65\x64_\x61t";${${"G\x4c\x4f\x42A\x4c\x53"}["lav\x68\x66\x64\x63\x72i\x66\x71l"]}="\n\t\t\t\t\tU\x50\x44AT\x45\x20{$table_prefix}c\x6f\x6dm\x65\x6e\x74\x73\x20SE\x54\n\t\t\t\t\t\t\x73\x63ore\x20 \x20  \x20\x3d\x20:SC\x4fRE,\n\t\t\t\t\t\tn\x69\x63k\x6e\x61m\x65  \x20=\x20:\x4eICKNAME,\n\t\t\t\t\t\t\x65m\x61\x69l\x20   \x20\x20= :\x45\x4dA\x49\x4c,\n\t\t\t\t\t\teyecat\x63h\x20  \x3d\x20:\x45\x59EC\x41T\x43H,\n\t\t\t\t\t\t\x74\x69t\x6ce\x20\x20   \x20\x3d\x20:T\x49T\x4c\x45,\n\t\t\t\t\t\t\x63o\x6et\x65n\x74   \x20\x3d\x20:C\x4fNTENT,\n\t\t\t\t\t\tn\x6f\x74\x65\x20   \x20\x20 \x3d :\x4eO\x54E,\n\t\t\t\t\t\t\x70o\x73te\x64\x5fat\x20\x20\x3d\x20:\x50OS\x54\x45\x44\x5f\x41\x54,\n\t\t\t\t\t\t\x75pdated\x5f\x61\x74 = :U\x50\x44AT\x45D_A\x54,\n\t\t\t\t\t\tupd\x61t\x65\x64\x5fby\x20=\x20:U\x50\x44\x41\x54ED_\x42Y,\n\t\t\t\t\t\t\x73ta\x74u\x73 \x20\x20\x20\x20= :\x53T\x41T\x55\x53\n\t\t\t\t\tWHE\x52\x45\x20\x69d\x20=\x20:\x49D\n\t\t\t";${${"G\x4c\x4fB\x41\x4c\x53"}["w\x62s\x72cqcv"]}=$pdo->prepare(${${"GL\x4f\x42A\x4c\x53"}["\x6c\x61\x76hfd\x63\x72\x69\x66\x71l"]});$update_comment->bindValue(":SC\x4f\x52E",$_POST["\x73c\x6fr\x65"]);$update_comment->bindValue(":N\x49\x43KN\x41ME",$_POST["\x6eick\x6ea\x6de"]);$update_comment->bindValue(":EM\x41I\x4c",$_POST["\x65ma\x69\x6c"]);$update_comment->bindValue(":EY\x45C\x41\x54CH",${${"\x47LO\x42A\x4cS"}["os\x72b\x63\x6fs\x67d"]});$update_comment->bindValue(":\x54\x49T\x4c\x45",$_POST["\x74\x69\x74\x6ce"]);$update_comment->bindValue(":CON\x54\x45NT",$_POST["c\x6fn\x74\x65n\x74"]);${"\x47L\x4f\x42A\x4c\x53"}["\x66\x6fd\x6ce\x6d\x72h\x73\x6bv"]="\x74\x61\x72ge\x74\x5f\x69\x64";$update_comment->bindValue(":NOTE",${$xaflqg});$update_comment->bindValue(":POS\x54E\x44_\x41\x54",${${"G\x4c\x4f\x42\x41\x4c\x53"}["\x65\x62\x6f\x77rn\x65\x69"]});$update_comment->bindValue(":U\x50DA\x54\x45\x44\x5fA\x54",date("\x59-\x6d-\x64\x20H:\x69:\x73"));$update_comment->bindValue(":\x55PD\x41\x54ED_B\x59",$_SESSION[${${"\x47L\x4f\x42\x41\x4cS"}["\x6fn\x79\x71\x65ww\x72h\x75"]}]["\x75\x73\x65\x72"]["i\x64"]);$update_comment->bindValue(":S\x54\x41TUS",$_POST["\x73t\x61tus"]);$update_comment->bindValue(":ID",${${"GLOBAL\x53"}["\x66\x6f\x64l\x65\x6d\x72\x68\x73k\x76"]});$update_comment->execute();unset(${${"GLO\x42\x41\x4c\x53"}["w\x62s\x72\x63qc\x76"]});$pdo->commit();}catch(PDOException$e){$pdo->rollBack();header("\x4c\x6fca\x74\x69on: \x2e/?\x76i\x65\x77\x5f\x70ag\x65\x3dc\x6f\x6dmen\x74\x26\x70r\x6fces\x73\x3d{$process}&id\x3d{$target_id}&err\x6f\x72\x6dsg\x3d\x32");exit;}header("\x4c\x6f\x63\x61ti\x6fn:\x20./?\x76iew_pa\x67e=\x63\x6f\x6d\x6dent\x73\x26p\x72oc\x65\x73\x73\x3d{$process}\x26id={$target_id}&\x74\x79pe={$type}&\x6e\x75\x6db\x65r\x3d\x31");exit;}if(!empty(${$nyxnkcnuu})&&${$odejtnu}==29&&!empty(${${"\x47\x4cO\x42A\x4c\x53"}["\x6fy\x6bh\x72\x77\x64\x73"]})){try{${"GL\x4f\x42A\x4cS"}["lm\x63\x65l\x6ee\x6d\x6f\x6c\x63\x70"]="s\x65s\x73\x69\x6f\x6e\x5f\x6b\x65y";$pdo->beginTransaction();${"\x47L\x4f\x42\x41L\x53"}["ey\x77\x61m\x62\x67\x79vb"]="\x73\x71l";${"\x47\x4c\x4f\x42A\x4c\x53"}["\x72mom\x75\x67\x6dm\x6eg"]="\x73\x71l";${${"G\x4c\x4fB\x41\x4c\x53"}["\x72\x6dom\x75\x67\x6d\x6d\x6e\x67"]}="\n\t\t\t\t\t\x55PDA\x54\x45 {$table_prefix}\x63\x6fmment\x73\x20SE\x54\n\t\t\t\t\t\tup\x64\x61\x74\x65\x64\x5fa\x74\x20= :\x55PD\x41T\x45D_AT,\n\t\t\t\t\t\tu\x70\x64\x61\x74\x65\x64_by\x20= :\x55PDA\x54\x45D_\x42Y,\n\t\t\t\t\t\tde\x6cet\x65_\x66l\x67\x20\x3d 1\n\t\t\t\t\t\x57HER\x45 \x69\x64\x20= :ID O\x52\x20c\x6f\x6d\x6d\x65n\x74_i\x64 \x3d :I\x44\n\t\t\t\t";${${"\x47\x4cOB\x41\x4c\x53"}["\x77\x62\x73r\x63q\x63\x76"]}=$pdo->prepare(${${"GL\x4fB\x41\x4c\x53"}["\x65y\x77a\x6db\x67\x79v\x62"]});${"GL\x4f\x42\x41\x4c\x53"}["n\x72\x6b\x72dlk\x62"]="\x75\x70\x64\x61\x74\x65_\x63\x6fmme\x6et";$update_comment->bindValue(":U\x50D\x41\x54\x45D_\x41T",date("Y-\x6d-d \x48:\x69:s"));$update_comment->bindValue(":\x55\x50\x44A\x54\x45D\x5f\x42Y",$_SESSION[${${"\x47L\x4fB\x41\x4cS"}["\x6c\x6d\x63\x65ln\x65\x6d\x6flc\x70"]}]["\x75\x73\x65\x72"]["id"]);$update_comment->bindValue(":I\x44",${${"G\x4cOB\x41L\x53"}["o\x79\x6bh\x72\x77d\x73"]});$update_comment->execute();unset(${${"\x47\x4c\x4f\x42A\x4c\x53"}["\x6erkrd\x6ck\x62"]});$pdo->commit();}catch(PDOException$e){$pdo->rollBack();header("L\x6fc\x61\x74io\x6e: ./?\x76ie\x77_\x70\x61g\x65=c\x6fm\x6den\x74\x26\x70r\x6fces\x73={$process}\x26\x69d={$target_id}&\x65\x72r\x6fr\x6d\x73\x67\x3d3");exit;}header("L\x6fc\x61tio\x6e:\x20\x2e/?\x76i\x65w\x5fp\x61g\x65\x3dc\x6f\x6d\x6d\x65n\x74s&\x70\x72\x6fcess\x3d{$process}&id\x3d{$target_id}&t\x79\x70e\x3d{$type}&\x6eumber=1");exit;}}if($_SESSION[${${"\x47\x4c\x4fB\x41\x4c\x53"}["\x6f\x6e\x79\x71e\x77w\x72\x68u"]}]["common"]["vie\x77\x5fp\x61g\x65"]=="c\x6f\x6e\x74ac\x74"){$umqumksli="\x70\x72\x6fc\x65\x73s";${"\x47LOB\x41\x4c\x53"}["\x79\x6d\x63\x79\x73j\x72\x72\x6c\x79\x73\x6c"]="\x63a\x74\x65\x67o\x72y\x5fi\x64";${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6cs\x77h\x67vg\x73\x6a\x6ec"]}=(!empty($_POST["c\x6fn\x74\x61\x63\x74e\x64_\x61\x74"]))?$_POST["\x63\x6f\x6e\x74ac\x74\x65d\x5fa\x74"].":\x30\x30":null;if(strtotime(${${"\x47L\x4fB\x41\x4c\x53"}["\x6cswh\x67\x76\x67\x73\x6a\x6e\x63"]})<strtotime("\x31\x3900-\x30\x31-\x30\x31\x200\x30:\x300:\x300")||!checkDatetime(${${"G\x4c\x4f\x42\x41\x4c\x53"}["\x6c\x73\x77\x68gv\x67\x73\x6a\x6ec"]})){${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6cs\x77hg\x76\x67\x73\x6anc"]}=date("\x59-m-\x64\x20H:\x69:s");}$boachnd="\x70\x72\x6f\x63\x65s\x73";$suwwgy="\x70\x72\x6fc\x65\x73\x73";$eliobxlqq="\x73\x74\x61t\x75\x73";${${"G\x4c\x4f\x42\x41\x4cS"}["ri\x6e\x66\x6c\x75\x69"]}=(isset($_POST["\x73\x74at\x75s"]))?$_POST["sta\x74\x75s"]:0;if(isset($_POST["\x74\x6f\x5fsta\x74\x75s_\x31"]))${${"GLO\x42A\x4cS"}["\x72\x69\x6e\x66l\x75\x69"]}=1;$mbegnbneu="\x70\x72oc\x65s\x73";if(isset($_POST["\x74\x6f\x5f\x73\x74\x61t\x75s_7"]))${$eliobxlqq}=7;${${"G\x4cOB\x41\x4c\x53"}["y\x6d\x63\x79\x73jrr\x6cy\x73\x6c"]}="0\x300\x30";${"G\x4c\x4f\x42A\x4cS"}["fo\x6f\x62i\x76\x6c\x6b"]="\x74a\x72g\x65t_\x69d";if(!empty($_POST["cat\x65\x67o\x72ie\x73"])){$fisksmt="\x63\x61\x74\x65\x67o\x72\x79_i\x64";${"G\x4c\x4f\x42\x41\x4cS"}["\x78\x72\x72o\x65\x74bp\x6e\x73\x78"]="\x76a\x6c\x75\x65";foreach($_POST["c\x61t\x65\x67\x6fri\x65\x73"]as${${"\x47\x4c\x4f\x42\x41L\x53"}["x\x72r\x6f\x65\x74\x62\x70\x6esx"]}){${"G\x4cOB\x41\x4c\x53"}["y\x72j\x6d\x69\x63r\x73q\x70h"]="\x70\x6fs\x74\x65d_\x63\x61t\x65g\x6fr\x69\x65\x73";${${"\x47\x4cOBA\x4c\x53"}["y\x72j\x6dicrs\x71\x70h"]}[]=sprintf("%0\x34d",${${"\x47\x4c\x4f\x42ALS"}["rc\x61\x69\x67ynz\x68\x72"]});}${$fisksmt}=implode(",",${${"\x47L\x4f\x42\x41\x4c\x53"}["\x71\x65\x69\x65\x67\x6a\x77\x62\x67\x76\x6an"]});}${"\x47\x4cO\x42\x41L\x53"}["\x70\x79\x66\x71\x6aocw"]="\x70\x72\x6fce\x73\x73";if(!empty(${${"GLO\x42AL\x53"}["\x71\x68\x62\x6f\x6cn\x6d\x6c\x77dy"]})&&${${"\x47\x4cO\x42\x41\x4c\x53"}["\x71\x68\x62o\x6cnm\x6c\x77d\x79"]}==31){try{$pdo->beginTransaction();${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6d\x6c\x79\x6a\x77a\x72\x6d\x76"]="\x63\x72\x65\x61\x74\x65\x5f\x63\x6f\x6e\x74\x61\x63\x74_\x62a\x73e";${${"\x47LOBALS"}["\x6c\x61vh\x66\x64c\x72\x69fql"]}="\n\t\t\t\t\t\x49NSERT\x20\x49N\x54\x4f\x20{$table_prefix}\x63on\x74acts\x5f\x62\x61\x73e\n\t\t\t\t\t\t(\x20\x73i\x74\x65\x5fi\x64,\x20 \x70o\x73\x74t\x79pe\x5fid,  \x6cang\x75\x61ge\x5f\x69\x64,  c\x61t\x65\x67\x6f\x72\x79\x5f\x69\x64,  t\x69\x74l\x65, \x20co\x6e\x74e\x6et,\x20\x20n\x61me, \x20\x65ma\x69\x6c,\x20 tel,\x20\x20conta\x63t\x65\x64_\x61\x74,  n\x6fte,  c\x72eate\x64_at,\x20 c\x72\x65a\x74ed\x5fby,\x20\x20gr\x6fu\x70ed\x5f\x62y, \x20\x73t\x61t\x75\x73)\n\t\t\t\t\tVALU\x45S\n\t\t\t\t\t\t(:\x53I\x54E\x5f\x49D,\x20:POS\x54T\x59PE_\x49\x44,\x20:L\x41\x4eGUA\x47E\x5fI\x44, :CA\x54E\x47\x4f\x52\x59_ID,\x20:\x54\x49T\x4c\x45, :\x43ONTENT, :N\x41\x4dE, :EM\x41IL,\x20:T\x45L,\x20:\x43\x4fNT\x41\x43\x54E\x44\x5fAT,\x20:\x4eOTE, :C\x52EATED\x5f\x41T, :\x43RE\x41\x54\x45D\x5fB\x59,\x20:G\x52O\x55\x50\x45\x44\x5f\x42Y, :STA\x54US)\n\t\t\t";${${"\x47L\x4fBA\x4c\x53"}["\x6dl\x79\x6a\x77arm\x76"]}=$pdo->prepare(${${"\x47L\x4f\x42\x41\x4cS"}["\x6ca\x76\x68fdc\x72\x69\x66\x71\x6c"]});$create_contact_base->bindValue("SI\x54\x45_ID",$_POST["\x73\x69\x74e_\x69d"]);$create_contact_base->bindValue("PO\x53T\x54Y\x50E_\x49D",$_POST["p\x6f\x73t\x74\x79\x70\x65\x5f\x69\x64"]);$create_contact_base->bindValue("\x4c\x41\x4e\x47U\x41G\x45\x5fI\x44",$_POST["\x6c\x61\x6e\x67\x75\x61\x67e\x5fid"]);$create_contact_base->bindValue("CATE\x47\x4f\x52\x59\x5fID",${${"\x47\x4c\x4f\x42A\x4c\x53"}["\x63\x72q\x68\x67\x77d"]});$wktnyrh="se\x73si\x6fn\x5f\x6b\x65y";$create_contact_base->bindValue("\x54\x49TLE",$_POST["ti\x74\x6c\x65"]);$hsrpfsk="s\x74a\x74\x75\x73";$create_contact_base->bindValue("C\x4f\x4e\x54\x45NT",$_POST["\x63\x6f\x6e\x74\x65\x6e\x74"]);$create_contact_base->bindValue("\x4eA\x4d\x45",$_POST["\x6ea\x6d\x65"]);$create_contact_base->bindValue("\x45M\x41IL",$_POST["e\x6d\x61\x69\x6c"]);$create_contact_base->bindValue("\x54\x45L",$_POST["\x74\x65\x6c"]);$create_contact_base->bindValue("CO\x4eTA\x43TE\x44_AT",${${"\x47\x4c\x4f\x42\x41L\x53"}["\x6c\x73\x77\x68\x67\x76gs\x6a\x6e\x63"]});$create_contact_base->bindValue("\x4eO\x54E",$_POST["\x6e\x6f\x74e"]);$create_contact_base->bindValue("C\x52EATE\x44_AT",date("Y-m-d H:i:s"));$create_contact_base->bindValue("C\x52\x45AT\x45\x44\x5f\x42\x59",$_SESSION[${$wktnyrh}]["use\x72"]["\x69d"]);$create_contact_base->bindValue("\x47R\x4fUP\x45\x44\x5f\x42Y",$_SESSION[${${"\x47L\x4fBALS"}["\x6f\x6e\x79q\x65\x77\x77r\x68\x75"]}]["u\x73er"]["\x67\x72o\x75\x70\x5f\x69\x64"]);$create_contact_base->bindValue("\x53TATUS",${$hsrpfsk});$create_contact_base->execute();unset(${${"\x47\x4c\x4fBA\x4c\x53"}["\x73\x75f\x75\x6e\x6br\x62c"]});${${"G\x4c\x4f\x42\x41L\x53"}["\x6c\x61v\x68\x66d\x63\x72i\x66\x71\x6c"]}="SE\x4cE\x43\x54 i\x64\x20F\x52OM\x20{$table_prefix}co\x6et\x61cts\x5fb\x61s\x65\x20\x4f\x52DE\x52\x20\x42Y\x20\x69\x64\x20\x44\x45\x53C\x20\x4cIMIT \x30, 1";$qslltkuuidk="n\x65\x77\x5f\x63\x6f\x6e\x74\x61c\x74";${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x62\x72u\x63hp\x70\x7a"]}=$pdo->prepare(${${"\x47\x4cO\x42A\x4c\x53"}["\x6cavh\x66\x64c\x72\x69\x66ql"]});$get_new_contact->execute();if(${${"G\x4c\x4f\x42\x41\x4c\x53"}["\x6ak\x74m\x71a\x6db"]}=$get_new_contact->fetch(PDO::FETCH_ASSOC)){unset(${${"GL\x4f\x42\x41L\x53"}["b\x72\x75chpp\x7a"]});}if(!empty(${$qslltkuuidk}["\x69d"])&&!empty($_POST["\x69tem\x73"])){${"GL\x4fB\x41\x4cS"}["e\x66\x6c\x64\x6a\x69j\x7a"]="\x76\x61l\x75\x65";foreach($_POST["\x69\x74ems"]as${${"\x47\x4c\x4f\x42\x41LS"}["\x75\x6e\x6adt\x6f\x77"]}=>${${"\x47\x4cOBA\x4c\x53"}["e\x66l\x64\x6a\x69\x6az"]}){${"\x47L\x4fB\x41\x4c\x53"}["x\x79\x73\x78\x7a\x6f\x78r\x6dx\x75q"]="\x63\x72e\x61t\x65_con\x74a\x63t\x5f\x63\x75st\x6fm";${"\x47\x4c\x4f\x42AL\x53"}["j\x72d\x62h\x6al\x62\x69\x64\x75"]="\x76a\x6c\x75\x65";$bfnedgfb="\x76\x61\x6c\x75\x65";${"\x47\x4c\x4f\x42\x41\x4cS"}["d\x6am\x74\x67\x74x\x68xm"]="\x73\x71\x6c";if(is_array(${${"GL\x4fB\x41LS"}["j\x72\x64b\x68\x6a\x6c\x62\x69d\x75"]})){${"\x47L\x4f\x42A\x4c\x53"}["\x65\x6e\x75\x71\x65\x67\x75\x66h"]="\x76al\x75\x65";$cgnywqg="v\x61lue";${$cgnywqg}=implode(",",${${"\x47L\x4fB\x41L\x53"}["\x65\x6e\x75q\x65g\x75\x66\x68"]});}${${"G\x4c\x4f\x42\x41\x4c\x53"}["la\x76\x68f\x64\x63r\x69f\x71\x6c"]}="\n\t\t\t\t\t\t\t\x49N\x53\x45\x52T \x49NTO {$table_prefix}c\x6fnt\x61\x63t\x73\x5fc\x75sto\x6d\n\t\t\t\t\t\t\t\t(base\x5fi\x64,\x20\x20cu\x73tom_i\x74em\x5f\x69d,\x20 \x76a\x6cu\x65)\n\t\t\t\t\t\t\t\x56A\x4c\x55\x45S\n\t\t\t\t\t\t\t\t(:BA\x53\x45\x5f\x49\x44,\x20:C\x55\x53TOM_\x49\x54\x45\x4d_ID,\x20:\x56\x41LU\x45)\n\t\t\t\t\t";$hfbpjqeqpy="ne\x77_\x63o\x6e\x74a\x63\x74";${"\x47\x4cO\x42\x41LS"}["\x6crj\x63n\x6e\x74\x62\x79\x77m\x73"]="c\x75\x73\x74o\x6d\x5f\x69\x74e\x6d_\x69\x64";${${"G\x4c\x4fB\x41\x4cS"}["\x77\x64\x77\x72\x79\x68\x73l"]}=$pdo->prepare(${${"\x47\x4c\x4fB\x41\x4c\x53"}["\x64\x6amt\x67\x74\x78\x68x\x6d"]});$create_contact_custom->bindValue("\x42\x41\x53\x45\x5fI\x44",${$hfbpjqeqpy}["id"]);$create_contact_custom->bindValue("C\x55\x53T\x4fM_ITE\x4d\x5fI\x44",${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6c\x72\x6ac\x6e\x6e\x74by\x77\x6ds"]});$create_contact_custom->bindValue("\x56A\x4c\x55\x45",${$bfnedgfb});$create_contact_custom->execute();unset(${${"\x47LO\x42\x41L\x53"}["xy\x73\x78\x7a\x6fx\x72\x6dx\x75\x71"]});}}$pdo->commit();}catch(PDOException$e){$pdo->rollBack();header("Locat\x69on: \x2e/?\x76\x69\x65\x77\x5f\x70age=c\x6f\x6et\x61\x63\x74&pr\x6fcess\x3d{$process}&e\x72ror\x6ds\x67\x3d\x31");exit;}header("Lo\x63atio\x6e: \x2e/?vie\x77\x5f\x70a\x67e=c\x6f\x6et\x61\x63ts\x26proc\x65ss\x3d{$process}");exit;}if(!empty(${$suwwgy})&&${$umqumksli}==32&&!empty(${${"GL\x4fB\x41\x4cS"}["\x6fy\x6b\x68r\x77\x64\x73"]})){try{$pdo->beginTransaction();$wxrntorva="\x73\x74\x61\x74u\x73";$catbtfb="s\x71\x6c";${"\x47\x4c\x4fB\x41L\x53"}["\x79\x73pq\x75\x68\x79\x78\x6ch"]="\x75p\x64\x61\x74\x65\x5f\x63\x6fn\x74a\x63\x74\x5f\x62\x61\x73\x65";${${"G\x4c\x4f\x42\x41\x4cS"}["\x6ca\x76\x68\x66dc\x72\x69\x66\x71\x6c"]}="\n\t\t\t\t\tUP\x44\x41TE {$table_prefix}\x63\x6f\x6e\x74ac\x74\x73_bas\x65 \x53\x45\x54\n\t\t\t\t\t\tn\x6f\x74\x65\x20 \x20\x20\x20\x20 = :\x4eO\x54\x45,\n\t\t\t\t\t\t\x75\x70d\x61ted_at \x3d :\x55P\x44AT\x45\x44\x5f\x41T,\n\t\t\t\t\t\t\x75\x70da\x74e\x64\x5fby \x3d\x20:\x55PD\x41\x54\x45\x44\x5f\x42\x59,\n\t\t\t\t\t\t\x73\x74a\x74\x75s \x20\x20  = :S\x54\x41TU\x53\n\t\t\t\t\t\x57H\x45\x52E\x20\x69d = :ID\n\t\t\t";${${"\x47LOB\x41\x4c\x53"}["y\x73p\x71u\x68\x79\x78l\x68"]}=$pdo->prepare(${$catbtfb});$update_contact_base->bindValue("\x4e\x4fTE",$_POST["\x6e\x6f\x74\x65"]);$update_contact_base->bindValue("UPDA\x54ED\x5fAT",date("\x59-m-d \x48:i:s"));$update_contact_base->bindValue("\x55PD\x41TED_\x42\x59",$_SESSION[${${"\x47\x4c\x4f\x42A\x4cS"}["\x6fn\x79\x71\x65\x77\x77\x72\x68u"]}]["use\x72"]["\x69\x64"]);$update_contact_base->bindValue("\x53TA\x54\x55S",${$wxrntorva});${"\x47L\x4f\x42A\x4c\x53"}["q\x73\x6b\x74\x62\x6e\x73k\x71q"]="\x74\x61\x72\x67\x65t\x5f\x69d";$update_contact_base->bindValue("ID",${${"G\x4c\x4f\x42\x41LS"}["qs\x6bt\x62n\x73kq\x71"]});$update_contact_base->execute();unset(${${"\x47L\x4fB\x41\x4c\x53"}["rg\x6a\x76\x75\x70\x75\x71"]});$pdo->commit();}catch(PDOException$e){$pdo->rollBack();header("\x4cocat\x69\x6f\x6e:\x20\x2e/?\x76\x69ew\x5f\x70\x61\x67e\x3d\x63\x6f\x6etac\x74\x26\x70\x72ocess\x3d{$process}\x26\x65\x72\x72\x6f\x72m\x73g\x3d2");exit;}header("\x4c\x6f\x63at\x69\x6fn: ./?\x76\x69ew_p\x61ge=c\x6fntact\x73\x26\x70\x72\x6fcess\x3d{$process}\x26\x69d={$target_id}&numb\x65r\x3d\x31");exit;}if(!empty(${$mbegnbneu})&&${$boachnd}==33&&!empty(${${"\x47LO\x42\x41LS"}["oy\x6b\x68\x72w\x64s"]})){try{$pdo->beginTransaction();${${"\x47L\x4fBA\x4c\x53"}["l\x61\x76\x68\x66d\x63\x72\x69\x66\x71l"]}="\n\t\t\t\t\t\x55P\x44\x41\x54E {$table_prefix}\x63o\x6et\x61cts_ba\x73\x65 SE\x54\n\t\t\t\t\t\t\x63at\x65g\x6fry\x5fi\x64 \x20=\x20:\x43\x41\x54\x45\x47\x4f\x52Y_\x49D,\n\t\t\t\t\t\t\x74itl\x65 \x20\x20 \x20\x20 \x20\x3d :TIT\x4cE,\n\t\t\t\t\t\t\x63o\x6ete\x6et\x20\x20 \x20\x20 =\x20:\x43\x4f\x4eT\x45NT,\n\t\t\t\t\t\tnam\x65\x20   \x20\x20 \x20\x20\x3d\x20:N\x41\x4d\x45,\n\t\t\t\t\t\t\x65\x6d\x61\x69l\x20\x20    \x20\x20=\x20:\x45\x4d\x41\x49L,\n\t\t\t\t\t\tt\x65l \x20        =\x20:T\x45L,\n\t\t\t\t\t\t\x63o\x6e\x74\x61\x63t\x65d\x5f\x61t\x20=\x20:CONT\x41CTED_AT,\n\t\t\t\t\t\tn\x6f\x74e\x20\x20  \x20\x20\x20  \x3d :NO\x54E,\n\t\t\t\t\t\tu\x70\x64at\x65d_at  \x20\x3d :UP\x44A\x54ED_\x41T,\n\t\t\t\t\t\tupdated\x5fb\x79\x20\x20\x20\x3d :U\x50DAT\x45D_\x42\x59,\n\t\t\t\t\t\tgr\x6f\x75p\x65d_b\x79   \x3d\x20:\x47RO\x55P\x45\x44\x5fBY,\n\t\t\t\t\t\t\x73\x74at\x75s\x20\x20\x20    \x3d\x20:\x53T\x41\x54\x55\x53\n\t\t\t\t\tWHE\x52\x45 id =\x20:\x49D\n\t\t\t";$vfpuqcfxe="\x75\x70d\x61\x74\x65\x5fc\x6f\x6e\x74\x61\x63\x74";${$vfpuqcfxe}=$pdo->prepare(${${"G\x4c\x4f\x42\x41\x4c\x53"}["la\x76\x68\x66d\x63r\x69\x66q\x6c"]});$update_contact->bindValue("CA\x54EG\x4fR\x59\x5f\x49\x44",${${"G\x4cOBAL\x53"}["c\x72\x71h\x67w\x64"]});$update_contact->bindValue("TIT\x4c\x45",$_POST["t\x69t\x6ce"]);$update_contact->bindValue("CONTEN\x54",$_POST["con\x74e\x6e\x74"]);$lxpcegqmjh="\x75\x70\x64a\x74e\x5fco\x6e\x74\x61ct";$epcsqzedhefe="\x73\x74atu\x73";$update_contact->bindValue("NAM\x45",$_POST["name"]);$update_contact->bindValue("\x45\x4d\x41IL",$_POST["\x65\x6d\x61\x69\x6c"]);$update_contact->bindValue("TE\x4c",$_POST["t\x65l"]);${"GL\x4fBA\x4c\x53"}["\x6f\x63\x6a\x6a\x71\x75\x76y\x6e\x73"]="\x73e\x73\x73i\x6fn_\x6b\x65\x79";$update_contact->bindValue("\x43\x4fN\x54\x41\x43\x54ED\x5f\x41T",${${"G\x4cOB\x41\x4cS"}["\x6c\x73\x77\x68\x67vg\x73j\x6e\x63"]});$update_contact->bindValue("N\x4fTE",$_POST["no\x74\x65"]);$update_contact->bindValue("UP\x44AT\x45\x44_\x41\x54",date("\x59-\x6d-d\x20H:i:\x73"));$update_contact->bindValue("\x55\x50DA\x54ED\x5f\x42\x59",$_SESSION[${${"\x47L\x4f\x42A\x4c\x53"}["oc\x6aj\x71u\x76\x79\x6e\x73"]}]["\x75\x73e\x72"]["id"]);$update_contact->bindValue("G\x52\x4fUPED_\x42Y",$_SESSION[${${"\x47L\x4fB\x41L\x53"}["o\x6e\x79\x71\x65\x77\x77rhu"]}]["\x75s\x65r"]["gr\x6f\x75p\x5f\x69\x64"]);$update_contact->bindValue("S\x54\x41\x54US",${$epcsqzedhefe});$update_contact->bindValue("\x49D",${${"G\x4c\x4fB\x41\x4cS"}["\x6f\x79k\x68\x72wd\x73"]});$update_contact->execute();unset(${$lxpcegqmjh});if(!empty(${${"\x47\x4cO\x42\x41LS"}["\x6f\x79\x6b\x68\x72wd\x73"]})&&!empty($_POST["it\x65\x6ds"])){$dpftxtvgt="v\x61\x6c\x75\x65";foreach($_POST["\x69te\x6ds"]as${${"G\x4c\x4f\x42ALS"}["\x75n\x6a\x64\x74\x6f\x77"]}=>${$dpftxtvgt}){$eicelnwc="s\x71\x6c";if(is_array(${${"G\x4cO\x42\x41\x4cS"}["\x72\x63\x61i\x67y\x6e\x7ah\x72"]})){$dvqtggwvun="\x76\x61lu\x65";$qgxwvs="v\x61\x6cu\x65";${$dvqtggwvun}=implode(",",${$qgxwvs});}${$eicelnwc}="\n\t\t\t\t\t\t\x53ELE\x43\x54\x20C\x4f\x55NT(\x62\x61se_\x69\x64) \x41\x53\x20\x63\x6f\x75n\x74\n\t\t\t\t\t\t\x46R\x4f\x4d\x20{$table_prefix}\x63\x6f\x6e\x74a\x63\x74s\x5fcust\x6f\x6d\n\t\t\t\t\t\tWH\x45\x52\x45\n\t\t\t\t\t\t\tb\x61s\x65\x5fid\x20= {$target_id}\n\t\t\t\t\t\t\tA\x4eD\x20\x63\x75\x73\x74o\x6d_\x69\x74e\x6d_\x69\x64 = {$custom_item_id}\n\t\t\t\t\t";${${"\x47L\x4f\x42\x41\x4c\x53"}["\x79\x62\x69\x69\x6ak\x71"]}=$pdo->prepare(${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6c\x61\x76h\x66dc\x72\x69\x66ql"]});$search_contacts_custom->execute();${"\x47\x4c\x4f\x42\x41L\x53"}["\x74\x78\x6a\x65tv\x62"]="c\x6f\x6e\x74ac\x74s\x5f\x63\x75\x73\x74\x6fm";if(${${"\x47\x4c\x4f\x42\x41\x4cS"}["\x74xj\x65\x74vb"]}=$search_contacts_custom->fetch(PDO::FETCH_ASSOC)){unset(${${"\x47L\x4f\x42\x41L\x53"}["\x79b\x69\x69j\x6bq"]});}if(${${"GL\x4f\x42\x41L\x53"}["n\x65\x6e\x6d\x71\x6c\x72w"]}["\x63\x6fu\x6e\x74"]){${"\x47LOB\x41\x4c\x53"}["\x64\x6a\x69\x77y\x6d\x6a\x64\x65\x75\x68"]="c\x75s\x74\x6f\x6d\x5f\x69\x74e\x6d_\x69d";${"\x47\x4cOB\x41\x4cS"}["\x66\x6e\x7a\x78tne\x67\x63\x6c"]="s\x71\x6c";${"\x47LO\x42\x41\x4cS"}["\x66\x79\x71\x70\x6b\x79\x69\x67e\x66\x6b"]="upd\x61\x74e\x5fc\x6f\x6e\x74\x61ct_\x63\x75s\x74\x6f\x6d";${${"\x47\x4c\x4f\x42\x41LS"}["\x6c\x61vh\x66d\x63\x72\x69f\x71\x6c"]}="\n\t\t\t\t\t\t\x55P\x44\x41TE\x20{$table_prefix}co\x6et\x61ct\x73_\x63u\x73t\x6fm SET\n\t\t\t\t\t\t\t\x76\x61\x6c\x75\x65 \x3d :V\x41\x4cUE\n\t\t\t\t\t\tW\x48\x45\x52\x45\n\t\t\t\t\t\t\tbas\x65\x5f\x69\x64 =\x20:\x42AS\x45\x5f\x49D\n\t\t\t\t\t\t\tAN\x44\x20c\x75\x73t\x6fm_i\x74\x65m_\x69d\x20= :C\x55S\x54\x4f\x4d\x5f\x49TEM_ID\n\t\t\t\t\t\t";${${"\x47\x4c\x4fB\x41L\x53"}["\x66y\x71\x70\x6b\x79i\x67e\x66\x6b"]}=$pdo->prepare(${${"G\x4c\x4fBALS"}["f\x6e\x7a\x78\x74\x6e\x65\x67c\x6c"]});$update_contact_custom->bindValue("V\x41\x4c\x55E",${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["r\x63\x61\x69\x67\x79n\x7a\x68r"]});$update_contact_custom->bindValue("B\x41S\x45\x5f\x49\x44",${${"\x47\x4c\x4f\x42A\x4c\x53"}["\x6fy\x6b\x68\x72\x77\x64\x73"]});$update_contact_custom->bindValue("\x43\x55S\x54\x4f\x4d\x5f\x49\x54EM_I\x44",${${"G\x4c\x4fB\x41L\x53"}["dj\x69\x77y\x6d\x6a\x64eu\x68"]});$update_contact_custom->execute();unset(${${"\x47\x4c\x4f\x42ALS"}["zqz\x64\x74yad"]});}else{${"\x47L\x4f\x42\x41\x4c\x53"}["q\x6eh\x63\x72fg"]="\x73\x71l";${${"GL\x4fBA\x4c\x53"}["\x6c\x61\x76h\x66d\x63\x72i\x66\x71\x6c"]}="\n\t\t\t\t\t\t\t\x49NS\x45RT\x20INTO\x20{$table_prefix}\x63ont\x61cts\x5f\x63\x75\x73\x74\x6f\x6d\n\t\t\t\t\t\t\t\t(\x20\x62a\x73e\x5fi\x64, \x20custom_\x69\x74e\x6d\x5fid,\x20 \x76a\x6cu\x65)\n\t\t\t\t\t\t\t\x56A\x4c\x55ES\n\t\t\t\t\t\t\t\t(:\x42\x41\x53\x45_ID, :\x43UST\x4f\x4d\x5fITEM_\x49\x44,\x20:VA\x4c\x55E)\n\t\t\t\t\t\t";${${"\x47\x4cO\x42\x41\x4cS"}["\x77\x64w\x72\x79\x68\x73\x6c"]}=$pdo->prepare(${${"\x47\x4c\x4f\x42\x41\x4cS"}["\x71n\x68\x63\x72\x66\x67"]});$lowhdvswb="\x63\x72e\x61\x74e_\x63\x6fn\x74\x61c\x74_c\x75\x73to\x6d";$create_contact_custom->bindValue("\x42\x41\x53\x45_ID",${${"\x47\x4c\x4f\x42A\x4c\x53"}["o\x79k\x68r\x77ds"]});$create_contact_custom->bindValue("C\x55S\x54OM_\x49TEM_\x49D",${${"GL\x4fBA\x4c\x53"}["un\x6ad\x74\x6f\x77"]});$create_contact_custom->bindValue("\x56A\x4cUE",${${"G\x4c\x4f\x42\x41\x4cS"}["rc\x61\x69\x67\x79\x6ez\x68\x72"]});$create_contact_custom->execute();unset(${$lowhdvswb});}}}$pdo->commit();}catch(PDOException$e){$pdo->rollBack();header("\x4c\x6fc\x61\x74\x69\x6f\x6e: ./?vi\x65w\x5f\x70age=\x63ontac\x74&p\x72o\x63\x65\x73\x73\x3d{$process}&er\x72o\x72m\x73g=2");exit;}header("L\x6f\x63\x61\x74\x69on:\x20./?\x76i\x65\x77_\x70age\x3d\x63ont\x61ct\x73\x26\x70ro\x63\x65s\x73\x3d{$process}\x26i\x64\x3d{$target_id}\x26num\x62\x65r=\x31");exit;}if(!empty(${${"\x47\x4c\x4f\x42A\x4cS"}["\x70\x79\x66q\x6a\x6fcw"]})&&${${"\x47L\x4f\x42\x41L\x53"}["\x71h\x62\x6f\x6cn\x6d\x6c\x77\x64\x79"]}==39&&!empty(${${"G\x4c\x4f\x42\x41\x4c\x53"}["\x66\x6fo\x62\x69v\x6c\x6b"]})){try{$pdo->beginTransaction();${"\x47\x4cOB\x41\x4c\x53"}["f\x65\x71\x67z\x62"]="\x73ql";${"\x47\x4cOBA\x4cS"}["c\x7a\x77\x6div\x77\x61kfu\x66"]="\x73\x65\x73\x73ion\x5f\x6b\x65\x79";${${"\x47\x4cO\x42\x41\x4c\x53"}["\x6c\x61\x76\x68fdc\x72\x69\x66\x71\x6c"]}="\n\t\t\t\t\t\x55\x50D\x41\x54\x45\x20{$table_prefix}\x63\x6fn\x74\x61cts_ba\x73e SE\x54\n\t\t\t\t\t\t\x75\x70\x64\x61\x74\x65d\x5f\x61t\x20=\x20:\x55P\x44A\x54\x45\x44\x5f\x41T,\n\t\t\t\t\t\t\x75p\x64\x61\x74e\x64_\x62\x79\x20\x3d\x20:\x55PDATED_BY,\n\t\t\t\t\t\td\x65\x6ce\x74e\x5ff\x6cg =\x201\n\t\t\t\t\tW\x48E\x52\x45 id \x3d :I\x44\n\t\t\t\t";${${"\x47\x4c\x4fBAL\x53"}["zss\x74l\x77\x6d\x75l"]}=$pdo->prepare(${${"\x47\x4cO\x42\x41\x4c\x53"}["f\x65qg\x7ab"]});$update_contact->bindValue("\x55\x50\x44ATE\x44\x5fA\x54",date("\x59-m-d\x20\x48:i:s"));$update_contact->bindValue("U\x50\x44\x41\x54ED_\x42\x59",$_SESSION[${${"G\x4c\x4f\x42\x41L\x53"}["\x63z\x77m\x69\x76w\x61\x6b\x66u\x66"]}]["us\x65r"]["i\x64"]);$update_contact->bindValue("ID",${${"\x47L\x4fB\x41\x4c\x53"}["\x6fy\x6b\x68\x72\x77d\x73"]});$update_contact->execute();unset(${${"G\x4c\x4fB\x41\x4c\x53"}["\x7a\x73\x73t\x6c\x77\x6d\x75l"]});$pdo->commit();}catch(PDOException$e){$pdo->rollBack();header("L\x6f\x63\x61\x74i\x6f\x6e: \x2e/?\x76\x69\x65w\x5fp\x61\x67e\x3dc\x6f\x6etac\x74\x26\x70r\x6f\x63\x65\x73s\x3d{$process}\x26e\x72r\x6fr\x6d\x73g\x3d\x33");exit;}header("L\x6fcat\x69o\x6e: \x2e/?v\x69\x65\x77\x5fpa\x67\x65\x3dco\x6eta\x63t\x73\x26\x70\x72\x6f\x63e\x73s={$process}\x26id\x3d{$target_id}&\x6e\x75mbe\x72=\x31");exit;}}
-?>
+<?php
+require_once './_system_header.php';
+
+
+/* PROCESS NUMBER
+ -----------------
+
+ [Post] Process
+ -----------------
+ 11.Create Post
+ 12.Update Post
+ 19.Delete Post
+
+ [Comment] Process
+ -----------------
+ 21.Create comment
+ 22.Update comment (only memo and status)
+ 23.Update comment (all items)
+ 29.Delete comment
+
+ [Contact] Process
+ -----------------
+ 31.Create contact
+ 32.Update contact (only memo and status)
+ 23.Update contact (all items)
+ 39.Delete contact
+
+ ----------------- */
+
+// print '<pre>';
+// print_r($_SESSION);
+// print '</pre>';
+// exit;
+
+
+//print '<pre>';
+//print_r($_POST);
+//print '</pre>';
+//exit;
+
+
+/*
+ * Common Parameters
+ * ------------------------------------------------------------------------------------------------ */
+$target_id   = (isset($_POST['target_id']))    ? $_POST['target_id']    : null;
+$version     = (isset($_POST['version']))      ? $_POST['version']      : null;
+$process     = (isset($_POST['process']))      ? $_POST['process']      : null;
+$submit_type = (isset($_POST['submit_type']))  ? $_POST['submit_type']  : null;
+
+// Media-parameter
+$media_parameter = date('YmdHis');
+$pattern_param   = '/\?v=\d{14}/';
+
+
+/*
+ * [Post] Process
+ * ------------------------------------------------------------------------------------------------ */
+if ($_SESSION[$session_key]['common']['view_page'] == 'post')
+{
+	// Make publish_datetime
+	$publish_datetime = (! empty($_POST['publish_datetime'])) ? $_POST['publish_datetime'] . ':00' : null;
+	if (! empty($publish_datetime) && (strtotime($publish_datetime) < strtotime('1900-01-01 00:00:00') || ! checkDatetime($publish_datetime)))
+	{
+		$publish_datetime = date('Y-m-d H:i') . ':00';
+	}
+	
+	// Make publish_end_at
+	$publish_end_at = (! empty($_POST['publish_end_at'])) ? $_POST['publish_end_at'] . ':00' : null;
+	if (! empty($publish_end_at) && (strtotime($publish_end_at) < strtotime('1900-01-01 00:00:00') || ! checkDatetime($publish_end_at)))
+	{
+		$publish_end_at = date('Y-m-d H:i') . ':00';
+	}
+
+	// Make status from submit_type (execute only)
+	$status = ($submit_type == 'publish') ? 1 : $_POST['status'];
+
+	// Reset publish_datetime
+	if (empty($publish_datetime) && $status == 1)
+	{
+		$publish_datetime = date('Y-m-d H:i') . ':00';
+	}
+
+	// Make categories
+	$category_id = '0000';
+	if (! empty($_POST['categories']))
+	{
+		foreach ($_POST['categories'] as $value)
+		{
+			$posted_categories[] = sprintf('%04d', $value);
+		}
+		$category_id = implode(',', $posted_categories);
+	}
+
+	// Make tags
+	$tag_id = '0000';
+	if (! empty($_POST['tags']))
+	{
+		foreach ($_POST['tags'] as $value)
+		{
+			$posted_tags[] = sprintf('%04d', $value);
+		}
+		$tag_id = implode(',', $posted_tags);
+	}
+
+	// Shape slug
+	$slug = (! empty($_POST['slug'])) ? $_POST['slug'] : '';
+
+	// Add Media-parameter to eyecatch
+	$eyecatch = null;
+	if (! empty($_POST['eyecatch']) && $_SESSION[$session_key]['configs']['media_parameter_flg'])
+	{
+		if (preg_match($pattern_param, $_POST['eyecatch'])) $_POST['eyecatch'] = preg_replace($pattern_param, '', $_POST['eyecatch']);
+		$eyecatch = $_POST['eyecatch'].'?v='.$media_parameter;
+	}
+
+	// Convert image-src from relative path to complete path
+	$replace_img = (! empty($_SESSION[$session_key]['configs']['dir_name']))
+		? 'src="'.$_SESSION[$session_key]['configs']['domain'].'/'.$_SESSION[$session_key]['configs']['dir_name'].'/upload/fr_main/'
+		: 'src="'.$_SESSION[$session_key]['configs']['domain'].'/upload/fr_main/';
+	$replace_pdf = (! empty($_SESSION[$session_key]['configs']['dir_name']))
+		? 'href="'.$_SESSION[$session_key]['configs']['domain'].'/'.$_SESSION[$session_key]['configs']['dir_name'].'/upload/fr_main/'
+		: 'href="'.$_SESSION[$session_key]['configs']['domain'].'/upload/fr_main/';
+	$target_img  = 'src="upload/fr_main/';
+	$target_pdf  = 'href="upload/fr_main/';
+	if (! empty($_POST['content']))
+	{
+		foreach ($_POST['content'] as $language_id => $value)
+		{
+			if (strstr($value, $target_img)) $_POST['content'][$language_id] = str_replace($target_img, $replace_img, $value);
+			if (strstr($value, $target_pdf)) $_POST['content'][$language_id] = str_replace($target_pdf, $replace_pdf, $value);
+		}
+
+		// Add Media-parameter to content
+		if ($_SESSION[$session_key]['configs']['media_parameter_flg'])
+		{
+			// remove media parameter
+			foreach ($_POST['content'] as $language_id => $value)
+			{
+				if (preg_match($pattern_param, $value))
+				{
+					$_POST['content'][$language_id] = preg_replace($pattern_param, '', $value);
+				}
+			}
+			// add media parameter
+			foreach ($operators as $operator => $regex)
+			{
+				foreach ($_POST['content'] as $language_id => $value)
+				{
+					if (preg_match($regex, $value))
+					{
+						$_POST['content'][$language_id] = preg_replace($regex, $operator.'?v='.$media_parameter, $value);
+					}
+				}
+			}
+		}
+	}
+
+	// 11.Create Post
+	if (! empty($process) && $process == 11)
+	{
+		try
+		{
+			$pdo -> beginTransaction();
+
+			// Get new id
+			$target_table = $table_prefix . 'posts_base';
+			$new_id       = getNextId($target_table);
+			$hash_id      = generateHashId($new_id);
+
+			// Create posts_base
+			$sql = "
+					INSERT INTO {$table_prefix}posts_base
+						( id,  version,  versioned_at,  hash_id,  permalink_key,  permalink_uri,  publish_datetime,  publish_end_at,  site_id,  posttype_id,  parent_id,  category_id,  tag_id,  slug,  eyecatch,  anchor,  created_at,  created_by,  grouped_by,  status)
+					VALUES
+						(:ID, :VERSION, :VERSIONED_AT, :HASH_ID, :PERMALINK_KEY, :PERMALINK_URI, :PUBLISH_DATETIME, :PUBLISH_END_AT, :SITE_ID, :POSTTYPE_ID, :PARENT_ID, :CATEGORY_ID, :TAG_ID, :SLUG, :EYECATCH, :ANCHOR, :CREATED_AT, :CREATED_BY, :GROUPED_BY, :STATUS)
+			";
+			$create_post_base = $pdo->prepare($sql);
+			$create_post_base -> bindValue('ID',               $new_id);
+			$create_post_base -> bindValue('VERSION',          $version);
+			$create_post_base -> bindValue('VERSIONED_AT',     date('Y-m-d H:i:s'));
+			$create_post_base -> bindValue('HASH_ID',          $hash_id);
+			$create_post_base -> bindValue('PERMALINK_KEY',    $_POST['permalink_key']);
+			$create_post_base -> bindValue('PERMALINK_URI',    $_POST['permalink_uri']);
+			$create_post_base -> bindValue('PUBLISH_DATETIME', $publish_datetime);
+			$create_post_base -> bindValue('PUBLISH_END_AT',   $publish_end_at);
+			$create_post_base -> bindValue('SITE_ID',          $_POST['site_id']);
+			$create_post_base -> bindValue('POSTTYPE_ID',      $_POST['posttype_id']);
+			$create_post_base -> bindValue('PARENT_ID',        $_POST['parent_id']);
+			$create_post_base -> bindValue('CATEGORY_ID',      $category_id);
+			$create_post_base -> bindValue('TAG_ID',           $tag_id);
+			$create_post_base -> bindValue('SLUG',             $slug);
+			$create_post_base -> bindValue('EYECATCH',         $eyecatch);
+			$create_post_base -> bindValue('ANCHOR',           $_POST['anchor']);
+			$create_post_base -> bindValue('CREATED_AT',       date('Y-m-d H:i:s'));
+			$create_post_base -> bindValue('CREATED_BY',       $_SESSION[$session_key]['user']['id']);
+			$create_post_base -> bindValue('GROUPED_BY',       $_SESSION[$session_key]['user']['group_id']);
+			$create_post_base -> bindValue('STATUS',           $status);
+			$create_post_base -> execute();
+			$count_insert = $create_post_base -> rowCount();
+			unset($create_post_base);
+
+			// Create posts_text
+			if (! empty($count_insert))
+			{
+				foreach ($_POST['title'] as $language_id => $value)
+				{
+					$sql = "
+							INSERT INTO {$table_prefix}posts_text
+								(base_id,  language_id,  title,  addition,  content)
+							VALUES
+								(:BASE_ID, :LANGUAGE_ID, :TITLE, :ADDITION, :CONTENT)
+					";
+					$create_post_text = $pdo -> prepare($sql);
+					$create_post_text -> bindValue('BASE_ID',     $new_id);
+					$create_post_text -> bindValue('LANGUAGE_ID', $language_id);
+					$create_post_text -> bindValue('TITLE',       $_POST['title'][$language_id]);
+					$create_post_text -> bindValue('ADDITION',    $_POST['addition'][$language_id]);
+					$create_post_text -> bindValue('CONTENT',     $_POST['content'][$language_id]);
+					$create_post_text -> execute();
+					unset($create_post_text);
+				}
+			}
+
+			// Create post_custom
+			if (! empty($count_insert) && ! empty($_POST['items']))
+			{
+				// Get registered custom_items
+				$custom_items = array();
+				$sql = "SELECT id, type FROM {$table_prefix}custom_items WHERE delete_flg = 0 AND status = 1";
+				$read_custom_items = $pdo -> prepare($sql);
+				$read_custom_items -> execute();
+				while ($record = $read_custom_items -> fetch(PDO::FETCH_ASSOC))
+				{
+					$custom_items[$record['id']] = $record['type'];
+				}
+				unset($read_custom_items);
+
+				foreach ($_POST['items'] as $custom_item_id => $data)
+				{
+					foreach ($data as $language_id => $value)
+					{
+						if (is_array($value))
+						{
+							$value = implode(',', $value);
+						}
+
+						// Add Media-parameter to image
+						if ($custom_items[$custom_item_id] == 'image')
+						{
+							if (! empty($value) && $_SESSION[$session_key]['configs']['media_parameter_flg'])
+							{
+								if (preg_match($pattern_param, $value)) $value = preg_replace($pattern_param, '', $value);
+								$value = $value.'?v='.$media_parameter;
+							}
+						}
+						
+						// Add Media-parameter to gallery
+						if ($custom_items[$custom_item_id] == 'gallery')
+						{
+							if (!empty($value) && $_SESSION[$session_key]['configs']['media_parameter_flg'])
+							{
+								$prepared_data  = $str = str_replace(array("\r\n", "\r", "\n"), "\n", $value);
+								$separated_data = explode("\n", $prepared_data);
+								$urls_arr       = (!empty($separated_data[0])) ? explode(',', $separated_data[0]) : array();
+								$gallery_arr    = array();
+								foreach ($urls_arr as $url_key => $url)
+								{
+									if (preg_match($pattern_param, $url)) $url = preg_replace($pattern_param, '', $url);
+									$gallery_arr[$url_key] = $url . '?v=' . $media_parameter;
+								}
+								$value = implode(',', $gallery_arr);
+								if (!empty($separated_data[1])) $value .= ("\n" . $separated_data[1]);
+							}
+						}
+							
+						$sql = "
+							INSERT INTO {$table_prefix}posts_custom
+								(base_id,  language_id,  custom_item_id,  value)
+							VALUES
+								(:BASE_ID, :LANGUAGE_ID, :CUSTOM_ITEM_ID, :VALUE)
+						";
+						$create_post_custom = $pdo -> prepare($sql);
+						$create_post_custom -> bindValue('BASE_ID',        $new_id);
+						$create_post_custom -> bindValue('LANGUAGE_ID',    $language_id);
+						$create_post_custom -> bindValue('CUSTOM_ITEM_ID', $custom_item_id);
+						$create_post_custom -> bindValue('VALUE',          $value);
+						$create_post_custom -> execute();
+						unset($create_post_custom);
+					}
+				}
+			}
+			$pdo -> commit();
+		}
+		catch(PDOException $e)
+		{
+			$pdo -> rollBack();
+			header("Location: ./?view_page=post&process={$process}&id={$target_id}&errormsg=1");
+			//var_dump($e -> getMessage());
+			exit;
+		}
+
+		if (empty($_POST['parent_id']))
+		{
+			// Redirect to list When parent
+			header("Location: ./?view_page=posts&process={$process}");
+			exit;
+		}
+		else {
+			// Redirect to detail of self When children
+			header("Location: ./?view_page=post&id={$_POST['parent_id']}&version={$_POST['version']}&process=12&child_process={$process}");
+			exit;
+		}
+	}
+
+	// 12.Update Post
+	if (! empty($process) && $process == 12 && ! empty($target_id) && ! empty($version))
+	{
+		try
+		{
+			$pdo -> beginTransaction();
+
+			// Check children
+			$children = array();
+			$sql = "SELECT id FROM {$table_prefix}posts_base WHERE parent_id <> 0 AND parent_id = :PARENT_ID AND version = :VERSION";
+			$search_children = $pdo -> prepare($sql);
+			$search_children -> bindValue('PARENT_ID', $target_id);
+			$search_children -> bindValue('VERSION',   $version);
+			$search_children -> execute();
+			while ($record = $search_children -> fetch(PDO::FETCH_ASSOC))
+			{
+				$children[] = $record['id'];
+			}
+
+			// Update posts_base (parent)
+			$sql = "
+					UPDATE {$table_prefix}posts_base SET
+						permalink_key    = :PERMALINK_KEY,
+						permalink_uri    = :PERMALINK_URI,
+						publish_datetime = :PUBLISH_DATETIME,
+						publish_end_at   = :PUBLISH_END_AT,
+						site_id          = :SITE_ID,
+						posttype_id      = :POSTTYPE_ID,
+						category_id      = :CATEGORY_ID,
+						tag_id           = :TAG_ID,
+						slug             = :SLUG,
+						eyecatch         = :EYECATCH,
+						anchor           = :ANCHOR,
+						updated_at       = :UPDATED_AT,
+						updated_by       = :UPDATED_BY,
+						grouped_by       = :GROUPED_BY,
+						status           = :STATUS
+					WHERE id = :ID AND version = :VERSION
+			";
+			$update_post_base = $pdo -> prepare($sql);
+			$update_post_base -> bindValue('PERMALINK_KEY',    $_POST['permalink_key']);
+			$update_post_base -> bindValue('PERMALINK_URI',    $_POST['permalink_uri']);
+			$update_post_base -> bindValue('PUBLISH_DATETIME', $publish_datetime);
+			$update_post_base -> bindValue('PUBLISH_END_AT',   $publish_end_at);
+			$update_post_base -> bindValue('SITE_ID',          $_POST['site_id']);
+			$update_post_base -> bindValue('POSTTYPE_ID',      $_POST['posttype_id']);
+			$update_post_base -> bindValue('CATEGORY_ID',      $category_id);
+			$update_post_base -> bindValue('TAG_ID',           $tag_id);
+			$update_post_base -> bindValue('SLUG',             $slug);
+			$update_post_base -> bindValue('EYECATCH',         $eyecatch);
+			$update_post_base -> bindValue('ANCHOR',           $_POST['anchor']);
+			$update_post_base -> bindValue('UPDATED_AT',       date('Y-m-d H:i:s'));
+			$update_post_base -> bindValue('UPDATED_BY',       $_SESSION[$session_key]['user']['id']);
+			$update_post_base -> bindValue('GROUPED_BY',       $_SESSION[$session_key]['user']['group_id']);
+			$update_post_base -> bindValue('STATUS',           $status);
+			$update_post_base -> bindValue('ID',               $target_id);
+			$update_post_base -> bindValue('VERSION',          $version);
+			$update_post_base -> execute();
+			unset($update_post_base);
+
+			// Update posts_base (children)
+			// ! items to copy from parent
+			if (! empty($children))
+			{
+				$sql = "
+						UPDATE {$table_prefix}posts_base SET
+							publish_datetime = :PUBLISH_DATETIME,
+							publish_end_at   = :PUBLISH_END_AT,
+							site_id          = :SITE_ID,
+							posttype_id      = :POSTTYPE_ID,
+							category_id      = :CATEGORY_ID,
+							tag_id           = :TAG_ID,
+							anchor           = :ANCHOR
+						WHERE parent_id = :PARENT_ID AND version = :VERSION
+				";
+				$update_posts_base = $pdo -> prepare($sql);
+				$update_posts_base -> bindValue('PUBLISH_DATETIME', $publish_datetime);
+				$update_posts_base -> bindValue('PUBLISH_END_AT',   $publish_end_at);
+				$update_posts_base -> bindValue('SITE_ID',          $_POST['site_id']);
+				$update_posts_base -> bindValue('POSTTYPE_ID',      $_POST['posttype_id']);
+				$update_posts_base -> bindValue('CATEGORY_ID',      $category_id);
+				$update_posts_base -> bindValue('TAG_ID',           $tag_id);
+				$update_posts_base -> bindValue('ANCHOR',           $_POST['anchor']);
+				$update_posts_base -> bindValue('PARENT_ID',        $target_id);
+				$update_posts_base -> bindValue('VERSION',          $version);
+				$update_posts_base -> execute();
+				unset($update_posts_base);
+			}
+
+			// Update or Create posts_text
+			foreach ($_SESSION[$session_key]['common']['languages'] as $language_id => $value)
+			{
+				// check exist
+				$sql = "SELECT COUNT(base_id) AS count FROM {$table_prefix}posts_text WHERE base_id = {$target_id} AND base_version = {$version} AND language_id = {$language_id}";
+				$search_posts_text = $pdo -> prepare($sql);
+				$search_posts_text -> execute();
+				if ($posts_text = $search_posts_text -> fetch(PDO::FETCH_ASSOC))
+				{
+					unset($search_posts_text);
+				}
+
+				// Update
+				if ($posts_text['count'])
+				{
+					// parent
+					$sql = "
+							UPDATE {$table_prefix}posts_text SET
+								title    = :TITLE,
+								addition = :ADDITION,
+								content  = :CONTENT
+							WHERE base_id = :BASE_ID AND base_version = :BASE_VERSION AND language_id = :LANGUAGE_ID
+					";
+					$update_post_text = $pdo -> prepare($sql);
+					$update_post_text -> bindValue('TITLE',        $_POST['title'][$language_id]);
+					$update_post_text -> bindValue('ADDITION',     $_POST['addition'][$language_id]);
+					$update_post_text -> bindValue('CONTENT',      $_POST['content'][$language_id]);
+					$update_post_text -> bindValue('BASE_ID',      $target_id);
+					$update_post_text -> bindValue('BASE_VERSION', $version);
+					$update_post_text -> bindValue('LANGUAGE_ID',  $language_id);
+					$update_post_text -> execute();
+					unset($update_post_text);
+
+					// children
+					if (! empty($children))
+					{
+						foreach ($children as $child_id)
+						{
+							$sql = "
+									UPDATE {$table_prefix}posts_text SET
+										title = :TITLE
+									WHERE base_id = :BASE_ID AND base_version = :BASE_VERSION AND language_id = :LANGUAGE_ID
+							";
+							$update_post_text = $pdo -> prepare($sql);
+							$update_post_text -> bindValue('TITLE',        $_POST['title'][$language_id]);
+							$update_post_text -> bindValue('BASE_ID',      $child_id);
+							$update_post_text -> bindValue('BASE_VERSION', $version);
+							$update_post_text -> bindValue('LANGUAGE_ID',  $language_id);
+							$update_post_text -> execute();
+							unset($update_post_text);
+						}
+					}
+				}
+
+				// Create
+				else {
+					// parent
+					$sql = "
+							INSERT INTO {$table_prefix}posts_text
+								( base_id,  base_version,  language_id,  title,  addition,  content)
+							VALUES
+								(:BASE_ID, :BASE_VERSION, :LANGUAGE_ID, :TITLE, :ADDITION, :CONTENT)
+					";
+					$create_post_text = $pdo -> prepare($sql);
+					$create_post_text->bindValue('BASE_ID',      $target_id);
+					$create_post_text->bindValue('BASE_VERSION', $version);
+					$create_post_text->bindValue('LANGUAGE_ID',  $language_id);
+					$create_post_text->bindValue('TITLE',        $_POST['title'][$language_id]);
+					$create_post_text->bindValue('ADDITION',     $_POST['addition'][$language_id]);
+					$create_post_text->bindValue('CONTENT',      $_POST['content'][$language_id]);
+					$create_post_text->execute();
+					unset($create_post_text);
+
+					// children
+					if (! empty($children))
+					{
+						foreach ($children as $child_id)
+						{
+							$sql = "
+									INSERT INTO {$table_prefix}posts_text
+										( base_id,  base_version,  language_id,  title)
+									VALUES
+										(:BASE_ID, :BASE_VERSION, :LANGUAGE_ID, :TITLE)
+							";
+							$create_post_text = $pdo -> prepare($sql);
+							$create_post_text->bindValue('BASE_ID',      $child_id);
+							$create_post_text->bindValue('BASE_VERSION', $version);
+							$create_post_text->bindValue('LANGUAGE_ID',  $language_id);
+							$create_post_text->bindValue('TITLE',        $_POST['title'][$language_id]);
+							$create_post_text->execute();
+							unset($create_post_text);
+						}
+					}
+				}
+			}
+
+			// Update or Create post_custom
+			if (! empty($target_id) && ! empty($_POST['items']))
+			{
+				// Get registered custom_items
+				$custom_items = array();
+				$sql = "SELECT id, type FROM {$table_prefix}custom_items WHERE delete_flg = 0 AND status = 1";
+				$read_custom_items = $pdo -> prepare($sql);
+				$read_custom_items -> execute();
+				while ($record = $read_custom_items -> fetch(PDO::FETCH_ASSOC))
+				{
+					$custom_items[$record['id']] = $record['type'];
+				}
+				unset($read_custom_items);
+
+				foreach ($_POST['items'] as $custom_item_id => $data)
+				{
+					foreach ($data as $language_id => $value)
+					{
+						if (is_array($value))
+						{
+							$value = implode(',', $value);
+						}
+
+						// Add Media-parameter to image
+						if ($custom_items[$custom_item_id] == 'image')
+						{
+							if (! empty($value) && $_SESSION[$session_key]['configs']['media_parameter_flg'])
+							{
+								if (preg_match($pattern_param, $value)) $value = preg_replace($pattern_param, '', $value);
+								$value = $value.'?v='.$media_parameter;
+							}
+						}
+						
+						// Add Media-parameter to gallery
+						if ($custom_items[$custom_item_id] == 'gallery')
+						{
+							if (!empty($value) && $_SESSION[$session_key]['configs']['media_parameter_flg'])
+							{
+								$prepared_data  = $str = str_replace(array("\r\n", "\r", "\n"), "\n", $value);
+								$separated_data = explode("\n", $prepared_data);
+								$urls_arr       = (!empty($separated_data[0])) ? explode(',', $separated_data[0]) : array();
+								$gallery_arr    = array();
+								foreach ($urls_arr as $url_key => $url)
+								{
+									if (preg_match($pattern_param, $url)) $url = preg_replace($pattern_param, '', $url);
+									$gallery_arr[$url_key] = $url . '?v=' . $media_parameter;
+								}
+								$value = implode(',', $gallery_arr);
+								if (!empty($separated_data[1])) $value .= ("\n" . $separated_data[1]);
+							}
+						}
+
+						// Check exist
+						$sql = "
+								SELECT COUNT(base_id) AS count
+								FROM {$table_prefix}posts_custom
+								WHERE
+									base_id = {$target_id}
+									AND base_version = {$version}
+									AND language_id = {$language_id}
+									AND custom_item_id = {$custom_item_id}
+						";
+						$search_posts_custom = $pdo -> prepare($sql);
+						$search_posts_custom -> execute();
+						if ($posts_custom = $search_posts_custom -> fetch(PDO::FETCH_ASSOC))
+						{
+							unset($search_posts_custom);
+						}
+
+						// Update
+						if ($posts_custom['count'])
+						{
+							$sql = "
+									UPDATE {$table_prefix}posts_custom SET
+										value = :VALUE
+									WHERE
+										base_id = :BASE_ID
+										AND language_id = :LANGUAGE_ID
+										AND base_version = :BASE_VERSION
+										AND custom_item_id = :CUSTOM_ITEM_ID
+							";
+							$update_post_custom = $pdo -> prepare($sql);
+							$update_post_custom -> bindValue('VALUE',          $value);
+							$update_post_custom -> bindValue('BASE_ID',        $target_id);
+							$update_post_custom -> bindValue('BASE_VERSION',   $version);
+							$update_post_custom -> bindValue('LANGUAGE_ID',    $language_id);
+							$update_post_custom -> bindValue('CUSTOM_ITEM_ID', $custom_item_id);
+							$update_post_custom -> execute();
+							unset($update_post_custom);
+						}
+
+						// Create
+						else {
+							$sql = "
+									INSERT INTO {$table_prefix}posts_custom
+										( base_id,  base_version,  language_id,  custom_item_id,  value)
+									VALUES
+										(:BASE_ID, :BASE_VERSION, :LANGUAGE_ID, :CUSTOM_ITEM_ID, :VALUE)
+							";
+							$create_post_custom = $pdo -> prepare($sql);
+							$create_post_custom -> bindValue('BASE_ID',        $target_id);
+							$create_post_custom -> bindValue('BASE_VERSION',   $version);
+							$create_post_custom -> bindValue('LANGUAGE_ID',    $language_id);
+							$create_post_custom -> bindValue('CUSTOM_ITEM_ID', $custom_item_id);
+							$create_post_custom -> bindValue('VALUE',          $value);
+							$create_post_custom -> execute();
+							unset($create_post_custom);
+						}
+					}
+				}
+			}
+
+			$pdo -> commit();
+		}
+		catch(PDOException $e)
+		{
+			$pdo -> rollBack();
+			header("Location: ./?view_page=post&process={$process}&id={$target_id}&version={$version}&errormsg=2");
+			//var_dump($e -> getMessage());
+			exit;
+		}
+		if (empty($_POST['parent_id']))
+		{
+			// Redirect to list When parent
+			header("Location: ./?view_page=posts&process={$process}&id={$target_id}&number=1");
+			exit;
+		}
+		else {
+			// Redirect to detail of parent When children
+			header("Location: ./?view_page=post&id={$_POST['parent_id']}&version={$_POST['version']}&process=12&child_process={$process}");
+			exit;
+		}
+	}
+
+	// 19.Delete Post
+	if (! empty($process) && $process == 19 && ! empty($target_id))
+	{
+		try {
+			$pdo -> beginTransaction();
+
+			// When Parent
+			if (empty($_POST['parent_id']))
+			{
+				// When Private(delete parent and children of version)
+				if (empty($_POST['current_flg']))
+				{
+					$sql = "
+							UPDATE {$table_prefix}posts_base SET
+								updated_at = :UPDATED_AT,
+								updated_by = :UPDATED_BY,
+								delete_flg = 1
+							WHERE (id = :ID OR parent_id = :ID) AND version = :VERSION
+					";
+				}
+				// When Current(delete all)
+				else {
+					$sql = "
+							UPDATE {$table_prefix}posts_base SET
+								updated_at = :UPDATED_AT,
+								updated_by = :UPDATED_BY,
+								delete_flg = 1
+							WHERE (id = :ID OR parent_id = :ID) AND version = :VERSION
+					";
+				}
+			}
+			// When Child (delete as one)
+			else {
+				$sql = "
+						UPDATE {$table_prefix}posts_base SET
+							updated_at = :UPDATED_AT,
+							updated_by = :UPDATED_BY,
+							delete_flg = 1
+						WHERE id = :ID AND version = :VERSION
+				";
+			}
+			$update_posts_base = $pdo -> prepare($sql);
+			$update_posts_base -> bindValue('UPDATED_AT', date('Y-m-d H:i:s'));
+			$update_posts_base -> bindValue('UPDATED_BY', $_SESSION[$session_key]['user']['id']);
+			$update_posts_base -> bindValue('ID',         $target_id);
+			$update_posts_base -> bindValue('VERSION',    $version);
+			$update_posts_base -> execute();
+			unset($update_posts_base);
+
+			$pdo -> commit();
+		}
+		catch(PDOException $e)
+		{
+			$pdo -> rollBack();
+			header("Location: ./?view_page=post&process={$process}&id={$target_id}&version={$version}&errormsg=3");
+			//var_dump($e -> getMessage());
+			exit;
+		}
+
+		// When parent
+		if (empty($_POST['parent_id']))
+		{
+			if (empty($_POST['current_flg']))
+			{
+				// Redirect to detail of current version
+				header("Location: ./?view_page=post&id={$target_id}&process=12&version_process={$process}");
+				exit;
+			}
+			else {
+				// Redirect to list
+				header("Location: ./?view_page=posts&process={$process}&id={$target_id}&number=1");
+				exit;
+			}
+		}
+		// When child
+		else {
+			// Redirect to detail of parent
+			header("Location: ./?view_page=post&id={$_POST['parent_id']}&version={$_POST['version']}&process=12&child_process={$process}");
+			exit;
+		}
+	}
+}
+
+
+/*
+ * [Comment] Process
+ * ------------------------------------------------------------------------------------------------ */
+if ($_SESSION[$session_key]['common']['view_page'] == 'comment')
+{
+	// Set type
+	$type = (isset($_POST['type'])) ? $_POST['type'] : 1;
+
+	// Reset process for type 3
+	if (isset($_POST['type']) && $_POST['type'] == 3 && $process == 22) $process = 23;
+
+	// Make posted_at
+	$posted_at = (! empty($_POST['posted_at'])) ? $_POST['posted_at'].':00' : $posted_at = date('Y-m-d H:i:s');
+	if (strtotime($posted_at) < strtotime('1900-01-01 00:00:00') || ! checkDatetime($posted_at))
+	{
+		$posted_at = date('Y-m-d H:i:s');
+	}
+
+	// Fix null items
+	$eyecatch = (! empty($_POST['eyecatch'])) ? $_POST['eyecatch'] : null;
+	$note     = (! empty($_POST['note']))     ? $_POST['note']     : null;
+
+	// 21.Create comment
+	if (! empty($process) && $process == 21)
+	{
+		try {
+			$pdo -> beginTransaction();
+			$sql = "
+					INSERT INTO {$table_prefix}comments
+						( post_id,  comment_id,  parent_id,  site_id,  posttype_id,  type,  score,  nickname,  email,  eyecatch,  title,  content,  note,  posted_at,  posted_by,  status)
+					VALUES
+						(:POST_ID, :COMMENT_ID, :PARENT_ID, :SITE_ID, :POSTTYPE_ID, :TYPE, :SCORE, :NICKNAME, :EMAIL, :EYECATCH, :TITLE, :CONTENT, :NOTE, :POSTED_AT, :POSTED_BY, :STATUS)
+			";
+			$create_comment = $pdo -> prepare($sql);
+			$create_comment -> bindValue(':POST_ID',     $_POST['post_id']);
+			$create_comment -> bindValue(':COMMENT_ID',  $_POST['comment_id']);
+			$create_comment -> bindValue(':PARENT_ID',   $_POST['parent_id']);
+			$create_comment -> bindValue(':SITE_ID',     $_SESSION[$session_key]['common']['this_site']);
+			$create_comment -> bindValue(':POSTTYPE_ID', $_SESSION[$session_key]['common']['this_posttype']);
+			$create_comment -> bindValue(':TYPE',        $type);
+			$create_comment -> bindValue(':SCORE',       $_POST['score']);
+			$create_comment -> bindValue(':NICKNAME',    $_POST['nickname']);
+			$create_comment -> bindValue(':EMAIL',       $_POST['email']);
+			$create_comment -> bindValue(':EYECATCH',    $eyecatch);
+			$create_comment -> bindValue(':TITLE',       $_POST['title']);
+			$create_comment -> bindValue(':CONTENT',     $_POST['content']);
+			$create_comment -> bindValue(':NOTE',        $note);
+			$create_comment -> bindValue(':POSTED_AT',   $posted_at);
+			$create_comment -> bindValue(':POSTED_BY',   $_SESSION[$session_key]['user']['id']);
+			$create_comment -> bindValue(':STATUS',      $_POST['status']);
+			$create_comment -> execute();
+			unset($create_comment);
+			$pdo -> commit();
+		}
+		catch(PDOException $e)
+		{
+			$pdo -> rollBack();
+			header("Location: ./?view_page=comment&process={$process}&errormsg=1");
+			//var_dump($e -> getMessage());
+			exit;
+		}
+		header("Location: ./?view_page=comments&process={$process}&type={$type}");
+		exit;
+	}
+
+	// 22.Update comment (only memo and status)
+	if (! empty($process) && $process == 22 && ! empty($target_id))
+	{
+		// Make status
+		$status = (isset($_POST['status'])) ? $_POST['status'] : 2;
+
+		try {
+			$pdo -> beginTransaction();
+			$sql = "
+					UPDATE {$table_prefix}comments SET
+						note       = :NOTE,
+						updated_at = :UPDATED_AT,
+						updated_by = :UPDATED_BY,
+						status     = :STATUS
+					WHERE id = :ID
+			";
+			$update_comment = $pdo->prepare($sql);
+			$update_comment -> bindValue(':NOTE',       $_POST['note']);
+			$update_comment -> bindValue(':UPDATED_AT', date('Y-m-d H:i:s'));
+			$update_comment -> bindValue(':UPDATED_BY', $_SESSION[$session_key]['user']['id']);
+			$update_comment -> bindValue(':STATUS',     $status);
+			$update_comment -> bindValue(':ID',         $target_id);
+			$update_comment -> execute();
+			unset($update_comment);
+			$pdo -> commit();
+		}
+		catch(PDOException $e)
+		{
+			$pdo -> rollBack();
+			header("Location: ./?view_page=comment&process={$process}&id={$target_id}&errormsg=2");
+			//var_dump($e -> getMessage());
+			exit;
+		}
+		header("Location: ./?view_page=comments&process={$process}&id={$target_id}&type={$type}&number=1");
+		exit;
+	}
+
+	// 23.Update comment (all items)
+	if (! empty($process) && $process == 23 && ! empty($target_id))
+	{
+		try {
+			$pdo -> beginTransaction();
+			$sql = "
+					UPDATE {$table_prefix}comments SET
+						score      = :SCORE,
+						nickname   = :NICKNAME,
+						email      = :EMAIL,
+						eyecatch   = :EYECATCH,
+						title      = :TITLE,
+						content    = :CONTENT,
+						note       = :NOTE,
+						posted_at  = :POSTED_AT,
+						updated_at = :UPDATED_AT,
+						updated_by = :UPDATED_BY,
+						status     = :STATUS
+					WHERE id = :ID
+			";
+			$update_comment = $pdo -> prepare($sql);
+			$update_comment -> bindValue(':SCORE',      $_POST['score']);
+			$update_comment -> bindValue(':NICKNAME',   $_POST['nickname']);
+			$update_comment -> bindValue(':EMAIL',      $_POST['email']);
+			$update_comment -> bindValue(':EYECATCH',   $eyecatch);
+			$update_comment -> bindValue(':TITLE',      $_POST['title']);
+			$update_comment -> bindValue(':CONTENT',    $_POST['content']);
+			$update_comment -> bindValue(':NOTE',       $note);
+			$update_comment -> bindValue(':POSTED_AT',  $posted_at);
+			$update_comment -> bindValue(':UPDATED_AT', date('Y-m-d H:i:s'));
+			$update_comment -> bindValue(':UPDATED_BY', $_SESSION[$session_key]['user']['id']);
+			$update_comment -> bindValue(':STATUS',     $_POST['status']);
+			$update_comment -> bindValue(':ID',         $target_id);
+			$update_comment -> execute();
+			unset($update_comment);
+			$pdo -> commit();
+		}
+		catch(PDOException $e)
+		{
+			$pdo -> rollBack();
+			header("Location: ./?view_page=comment&process={$process}&id={$target_id}&errormsg=2");
+			//var_dump($e -> getMessage());
+			exit;
+		}
+		header("Location: ./?view_page=comments&process={$process}&id={$target_id}&type={$type}&number=1");
+		exit;
+	}
+
+	// 29.Delete comment
+	if (! empty($process) && $process == 29 && ! empty($target_id))
+	{
+		try {
+			$pdo -> beginTransaction();
+			$sql = "
+					UPDATE {$table_prefix}comments SET
+						updated_at = :UPDATED_AT,
+						updated_by = :UPDATED_BY,
+						delete_flg = 1
+					WHERE id = :ID OR comment_id = :ID
+				";
+			$update_comment = $pdo -> prepare($sql);
+			$update_comment -> bindValue(':UPDATED_AT', date('Y-m-d H:i:s'));
+			$update_comment -> bindValue(':UPDATED_BY', $_SESSION[$session_key]['user']['id']);
+			$update_comment -> bindValue(':ID',         $target_id);
+			$update_comment -> execute();
+			unset($update_comment);
+			$pdo -> commit();
+		}
+		catch(PDOException $e)
+		{
+			$pdo -> rollBack();
+			header("Location: ./?view_page=comment&process={$process}&id={$target_id}&errormsg=3");
+			//var_dump($e -> getMessage());
+			exit;
+		}
+		header("Location: ./?view_page=comments&process={$process}&id={$target_id}&type={$type}&number=1");
+		exit;
+	}
+}
+
+
+/*
+ * [Contact] Process
+ * ------------------------------------------------------------------------------------------------ */
+if ($_SESSION[$session_key]['common']['view_page'] == 'contact')
+{
+	// Make contacted_at
+	$contacted_at = (! empty($_POST['contacted_at'])) ? $_POST['contacted_at'].':00' : null;
+	if (strtotime($contacted_at) < strtotime('1900-01-01 00:00:00') || ! checkDatetime($contacted_at))
+	{
+		$contacted_at = date('Y-m-d H:i:s');
+	}
+
+	// Make status
+	$status = (isset($_POST['status'])) ? $_POST['status'] : 0;
+	if (isset($_POST['to_status_1'])) $status = 1;
+	if (isset($_POST['to_status_7'])) $status = 7;
+
+	// Make categories
+	$category_id = '0000';
+	if (! empty($_POST['categories'])){
+		foreach ($_POST['categories'] as $value){
+			$posted_categories[] = sprintf('%04d', $value);
+		}
+		$category_id = implode(',', $posted_categories);
+	}
+
+	// 31.Create contact
+	if (! empty($process) && $process == 31)
+	{
+		try {
+			$pdo -> beginTransaction();
+
+			// contacts_base
+			$sql = "
+					INSERT INTO {$table_prefix}contacts_base
+						( site_id,  posttype_id,  language_id,  category_id,  title,  content,  name,  email,  tel,  contacted_at,  note,  created_at,  created_by,  grouped_by,  status)
+					VALUES
+						(:SITE_ID, :POSTTYPE_ID, :LANGUAGE_ID, :CATEGORY_ID, :TITLE, :CONTENT, :NAME, :EMAIL, :TEL, :CONTACTED_AT, :NOTE, :CREATED_AT, :CREATED_BY, :GROUPED_BY, :STATUS)
+			";
+			$create_contact_base = $pdo->prepare($sql);
+			$create_contact_base -> bindValue('SITE_ID',      $_POST['site_id']);
+			$create_contact_base -> bindValue('POSTTYPE_ID',  $_POST['posttype_id']);
+			$create_contact_base -> bindValue('LANGUAGE_ID',  $_POST['language_id']);
+			$create_contact_base -> bindValue('CATEGORY_ID',  $category_id);
+			$create_contact_base -> bindValue('TITLE',        $_POST['title']);
+			$create_contact_base -> bindValue('CONTENT',      $_POST['content']);
+			$create_contact_base -> bindValue('NAME',         $_POST['name']);
+			$create_contact_base -> bindValue('EMAIL',        $_POST['email']);
+			$create_contact_base -> bindValue('TEL',          $_POST['tel']);
+			$create_contact_base -> bindValue('CONTACTED_AT', $contacted_at);
+			$create_contact_base -> bindValue('NOTE',         $_POST['note']);
+			$create_contact_base -> bindValue('CREATED_AT',   date('Y-m-d H:i:s'));
+			$create_contact_base -> bindValue('CREATED_BY',   $_SESSION[$session_key]['user']['id']);
+			$create_contact_base -> bindValue('GROUPED_BY',   $_SESSION[$session_key]['user']['group_id']);
+			$create_contact_base -> bindValue('STATUS',       $status);
+			$create_contact_base -> execute();
+			unset($create_contact_base);
+
+			// post_custom
+			$sql = "SELECT id FROM {$table_prefix}contacts_base ORDER BY id DESC LIMIT 0, 1";
+			$get_new_contact = $pdo -> prepare($sql);
+			$get_new_contact -> execute();
+			if ($new_contact = $get_new_contact -> fetch(PDO::FETCH_ASSOC))
+			{
+				unset($get_new_contact);
+			}
+
+			if (! empty($new_contact['id']) && ! empty($_POST['items']))
+			{
+				foreach ($_POST['items'] as $custom_item_id => $value)
+				{
+					if (is_array($value))
+					{
+						$value = implode(',', $value);
+					}
+					$sql = "
+							INSERT INTO {$table_prefix}contacts_custom
+								(base_id,  custom_item_id,  value)
+							VALUES
+								(:BASE_ID, :CUSTOM_ITEM_ID, :VALUE)
+					";
+					$create_contact_custom = $pdo -> prepare($sql);
+					$create_contact_custom -> bindValue('BASE_ID',        $new_contact['id']);
+					$create_contact_custom -> bindValue('CUSTOM_ITEM_ID', $custom_item_id);
+					$create_contact_custom -> bindValue('VALUE',          $value);
+					$create_contact_custom -> execute();
+					unset($create_contact_custom);
+				}
+			}
+			$pdo -> commit();
+		}
+		catch(PDOException $e)
+		{
+			$pdo -> rollBack();
+			header("Location: ./?view_page=contact&process={$process}&errormsg=1");
+			//var_dump($e -> getMessage());
+			exit;
+		}
+		header("Location: ./?view_page=contacts&process={$process}");
+		exit;
+	}
+
+	// 32.Update contact (only memo and status)
+	if (! empty($process) && $process == 32 && ! empty($target_id))
+	{
+		try {
+			$pdo -> beginTransaction();
+			$sql = "
+					UPDATE {$table_prefix}contacts_base SET
+						note       = :NOTE,
+						updated_at = :UPDATED_AT,
+						updated_by = :UPDATED_BY,
+						status     = :STATUS
+					WHERE id = :ID
+			";
+			$update_contact_base = $pdo->prepare($sql);
+			$update_contact_base -> bindValue('NOTE',       $_POST['note']);
+			$update_contact_base -> bindValue('UPDATED_AT', date('Y-m-d H:i:s'));
+			$update_contact_base -> bindValue('UPDATED_BY', $_SESSION[$session_key]['user']['id']);
+			$update_contact_base -> bindValue('STATUS',     $status);
+			$update_contact_base -> bindValue('ID',         $target_id);
+			$update_contact_base -> execute();
+			unset($update_contact_base);
+			$pdo -> commit();
+		}
+		catch(PDOException $e)
+		{
+			$pdo -> rollBack();
+			header("Location: ./?view_page=contact&process={$process}&errormsg=2");
+			//var_dump($e -> getMessage());
+			exit;
+		}
+		header("Location: ./?view_page=contacts&process={$process}&id={$target_id}&number=1");
+		exit;
+	}
+
+	// Update (all)
+	if (! empty($process) && $process == 33 && ! empty($target_id))
+	{
+		try {
+			$pdo -> beginTransaction();
+			$sql = "
+					UPDATE {$table_prefix}contacts_base SET
+						category_id  = :CATEGORY_ID,
+						title        = :TITLE,
+						content      = :CONTENT,
+						name         = :NAME,
+						email        = :EMAIL,
+						tel          = :TEL,
+						contacted_at = :CONTACTED_AT,
+						note         = :NOTE,
+						updated_at   = :UPDATED_AT,
+						updated_by   = :UPDATED_BY,
+						grouped_by   = :GROUPED_BY,
+						status       = :STATUS
+					WHERE id = :ID
+			";
+			$update_contact = $pdo->prepare($sql);
+			$update_contact -> bindValue('CATEGORY_ID',  $category_id);
+			$update_contact -> bindValue('TITLE',        $_POST['title']);
+			$update_contact -> bindValue('CONTENT',      $_POST['content']);
+			$update_contact -> bindValue('NAME',         $_POST['name']);
+			$update_contact -> bindValue('EMAIL',        $_POST['email']);
+			$update_contact -> bindValue('TEL',          $_POST['tel']);
+			$update_contact -> bindValue('CONTACTED_AT', $contacted_at);
+			$update_contact -> bindValue('NOTE',         $_POST['note']);
+			$update_contact -> bindValue('UPDATED_AT',   date('Y-m-d H:i:s'));
+			$update_contact -> bindValue('UPDATED_BY',   $_SESSION[$session_key]['user']['id']);
+			$update_contact -> bindValue('GROUPED_BY',   $_SESSION[$session_key]['user']['group_id']);
+			$update_contact -> bindValue('STATUS',       $status);
+			$update_contact -> bindValue('ID',           $target_id);
+			$update_contact -> execute();
+			unset($update_contact);
+
+			// post_custom
+			if (! empty($target_id) && ! empty($_POST['items']))
+			{
+				foreach ($_POST['items'] as $custom_item_id => $value)
+				{
+					if (is_array($value)){
+						$value = implode(',', $value);
+					}
+
+					// check exist
+					$sql = "
+						SELECT COUNT(base_id) AS count
+						FROM {$table_prefix}contacts_custom
+						WHERE
+							base_id = {$target_id}
+							AND custom_item_id = {$custom_item_id}
+					";
+					$search_contacts_custom = $pdo -> prepare($sql);
+					$search_contacts_custom -> execute();
+					if ($contacts_custom = $search_contacts_custom -> fetch(PDO::FETCH_ASSOC))
+					{
+						unset($search_contacts_custom);
+					}
+
+					// update
+					if ($contacts_custom['count']){
+					$sql = "
+						UPDATE {$table_prefix}contacts_custom SET
+							value = :VALUE
+						WHERE
+							base_id = :BASE_ID
+							AND custom_item_id = :CUSTOM_ITEM_ID
+						";
+						$update_contact_custom = $pdo -> prepare($sql);
+						$update_contact_custom -> bindValue('VALUE',          $value);
+						$update_contact_custom -> bindValue('BASE_ID',        $target_id);
+						$update_contact_custom -> bindValue('CUSTOM_ITEM_ID', $custom_item_id);
+						$update_contact_custom -> execute();
+						unset($update_contact_custom);
+					}
+
+					// create
+					else {
+						$sql = "
+							INSERT INTO {$table_prefix}contacts_custom
+								( base_id,  custom_item_id,  value)
+							VALUES
+								(:BASE_ID, :CUSTOM_ITEM_ID, :VALUE)
+						";
+						$create_contact_custom = $pdo -> prepare($sql);
+						$create_contact_custom -> bindValue('BASE_ID',        $target_id);
+						$create_contact_custom -> bindValue('CUSTOM_ITEM_ID', $custom_item_id);
+						$create_contact_custom -> bindValue('VALUE',          $value);
+						$create_contact_custom -> execute();
+						unset($create_contact_custom);
+					}
+				}
+			}
+			$pdo -> commit();
+		}
+		catch(PDOException $e)
+		{
+			$pdo -> rollBack();
+			header("Location: ./?view_page=contact&process={$process}&errormsg=2");
+			//var_dump($e -> getMessage());
+			exit;
+		}
+		header("Location: ./?view_page=contacts&process={$process}&id={$target_id}&number=1");
+		exit;
+	}
+
+	// 39.Delete contact
+	if (! empty($process) && $process == 39 && ! empty($target_id))
+	{
+		try {
+			$pdo -> beginTransaction();
+			$sql = "
+					UPDATE {$table_prefix}contacts_base SET
+						updated_at = :UPDATED_AT,
+						updated_by = :UPDATED_BY,
+						delete_flg = 1
+					WHERE id = :ID
+				";
+			$update_contact = $pdo -> prepare($sql);
+			$update_contact -> bindValue('UPDATED_AT', date('Y-m-d H:i:s'));
+			$update_contact -> bindValue('UPDATED_BY', $_SESSION[$session_key]['user']['id']);
+			$update_contact -> bindValue('ID',         $target_id);
+			$update_contact -> execute();
+			unset($update_contact);
+			$pdo -> commit();
+		}
+		catch(PDOException $e)
+		{
+			$pdo -> rollBack();
+			header("Location: ./?view_page=contact&process={$process}&errormsg=3");
+			//var_dump($e -> getMessage());
+			exit;
+		}
+		header("Location: ./?view_page=contacts&process={$process}&id={$target_id}&number=1");
+		exit;
+	}
+}

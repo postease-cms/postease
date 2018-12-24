@@ -6,7 +6,7 @@ function generateRewriteRule($permalink_style, $resource_uri, $rewrite_url_flg =
 											"<IfModule mod_rewrite.c>" . "\n" .
 											"RewriteEngine On" . "\n";
 	
-	$rewrite_rule_operator =  "RewriteCond %{REQUEST_FILENAME}.{$rewrite_operator} -f" . "\n" .
+	$rewrite_rule_operator =  "RewriteCond %{REQUEST_FILENAME}\.{$rewrite_operator} -f" . "\n" .
 														"RewriteRule ^(.*)$ $1.{$rewrite_operator}" . "\n";
 	
 	$base_text_bottom = "</IfModule>" . "\n" .

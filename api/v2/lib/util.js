@@ -1,6 +1,6 @@
 /**
  * Get Post Key
- * @return string post_key
+ * @return string $post_key
  */
 function getPostKey()
 {
@@ -48,7 +48,7 @@ function getPostKey()
 /**
  * Get URL parameter
  * @param string $key
- * @returns string $result(value)
+ * @return string $result(value)
  */
 function getParam($key)
 {
@@ -70,10 +70,21 @@ function getParam($key)
 
 
 /**
+ * New-line to br
+ * @param $string
+ * @returns string $string
+ */
+function nl2br($string)
+{
+	return $string.replace(/\r\n/g, '<br />').replace(/(\n|\r)/g, '<br />');
+}
+
+
+/**
  * Fetch URI from URL
  * @param string $url
  * @param bool $with_slash
- * @return string uri
+ * @return string $uri
  */
 function fetchUriFromUrl ($url, $with_slash)
 {

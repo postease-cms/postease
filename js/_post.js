@@ -87,17 +87,15 @@ $(function ()
 	{
 		if (e.keyCode === 9)
 		{
-    		e.preventDefault();
-    		var elem = e.target;
-    		var val = elem.value;
-    		var pos = elem.selectionStart;
-   			elem.value = val.substr(0, pos) + '\t' + val.substr(pos, val.length);
-    		elem.setSelectionRange(pos + 1, pos + 1);
+      e.preventDefault();
+      var elem = e.target;
+      var val = elem.value;
+      var pos = elem.selectionStart;
+      elem.value = val.substr(0, pos) + '\t' + val.substr(pos, val.length);
+      elem.setSelectionRange(pos + 1, pos + 1);
 		}
 	});
-
-
-
+	
 	// When Type Text (Auto Save On)
 	if ($auto_save_flg)
 	{
@@ -123,6 +121,7 @@ $(function ()
 			$('#publish_post').removeClass('hidden');
 		});
 	}
+	
 	// When Type Text (Auto Save Off)
 	else {
 		$('input, textarea').keyup(function(e)
@@ -146,6 +145,16 @@ $(function ()
 			$('#publish_post').removeClass('hidden');
 		});
 	}
+	
+	// Submit
+	$(document).on('click', '#publish_post', function ()
+	{
+		setGalleryCaption();
+		setTimeout(function () {
+			$('#post').submit();
+		},1)
+		
+	})
 
 	// Syntax highlighte
 	$('.syntax').each(function(e)
@@ -282,7 +291,7 @@ $(function ()
 	});
 
 	// Remove Image From Gallery
-	$('#trash').droppable({
+	$('.custom_gallery_trash').droppable({
 		hoverClass: "custom_gallery_trash_on",
 	    drop: function(event, ui) {
 	    	ui.draggable.remove();
@@ -323,7 +332,6 @@ $(function ()
 	$('#version_allow_delete').on('click', function()
 	{
 		$('.version-delete').toggleClass('active');
-
 	});
 
 
@@ -335,7 +343,7 @@ $(function ()
 		'minWidth'  : 860,
 		'minHeight' : 520,
 		'type'		: 'iframe',
-	    'autoScale' : true,
+		'autoScale' : true,
 	});
 
 	// Refresh Image (with auto save)
@@ -503,7 +511,7 @@ function loadCustomGallery($process)
 			var $custome_gallery_target = '/upload/' + $('.custom_gallery_target', this).val() + '/';
 			var $src = $('.custom_gallery_addition', this).val().replace('/upload/fr_main/', $custome_gallery_target);
 			if ($src != ''){
-				$('.custom_gallery_display ul', this).append('<li class="col-xs-6 col-md-3"><img class="thumbnail" src="' + $src + '" alt=""></li>');
+				$('.custom_gallery_display ul', this).append('<li class="col-xs-6 col-md-3"><img class="thumbnail" src="' + $src + '" alt=""><input class="thumbnailCaption" placeholder="' + TXT_POST_GALLERY_CAPTION + '"></li>');
 			}
 		}
 		var $custom_gallery_value = '';
@@ -527,7 +535,34 @@ function loadCustomGallery($process)
 			$('.custom_gallery_trash', this).css({display: 'none', opacity: 0});
 		}
 	});
+	//setGalleryCaption();
 }
+
+
+/**
+ * Set Gallery Caption
+ */
+function setGalleryCaption()
+{
+	$('.custome_gallery_container').each(function ()
+	{
+		var $parent_container = $(this);
+		var $thumbnail = '';
+		var $thumbnailCaption = '';
+		$parent_container.find('.thumbnail').each(function (e)
+		{
+			if ($thumbnail) $thumbnail += ',';
+			$thumbnail += $(this).attr('src');
+		});
+		$parent_container.find('.thumbnailCaption').each(function (i, e)
+		{
+			if (i > 0) $thumbnailCaption += ',';
+			$thumbnailCaption += $(this).val();
+		});
+		$parent_container.find('.custom_gallery').val($thumbnail + "\n" + $thumbnailCaption);
+	});
+}
+
 
 /**
  * Execute delete
@@ -597,6 +632,9 @@ function saveArticle($designated_status)
 		return false;
 	}
 	else {
+		// Set gallery caption
+		setGalleryCaption();
+		
 		// Set execute flg
 		$execute_update_flg = 1;
 
@@ -664,9 +702,10 @@ function saveArticle($designated_status)
 		var $items = {};
 		$('[data-group="custom"]').each(function()
 		{
-			var $language_id    = $(this).attr('data-language_id');
-			var $custom_item_id = $(this).attr('data-custom_item_id');
-			var $type           = $(this).attr('type');
+			var $language_id     = $(this).attr('data-language_id');
+			var $custom_item_id  = $(this).attr('data-custom_item_id');
+			var $type            = $(this).attr('type');
+			var $additional_type = ($(this).data('additional_type') != 'undefined') ? $(this).data('additional_type') : '';
 			if ($type == 'checkbox' || $type == 'radio')
 			{
 				if ($(this).is(':checked'))
@@ -809,12 +848,14 @@ function createNewVersionPost($target_id, $version)
 function generatePermalink ()
 {
 	var $language_id      = $('#permalink_display').data('language_id');
+	var $title            = $('#title_' + $language_id).val().replace(/\//g, '').replace(/^\s+|\s+$/g,'');
+	var $title_slug       = ($title.match(/[^\x01-\x7E]+/)) ? $title.replace(/\s+/g, '') : $title.replace(/\s+/g, '-');
 	var $permalink_type   = $('#permalink_display').data('permalink_type');
 	var $permalink_style  = $('#permalink_display').data('permalink_style');
 	var $permalink_base   = $('#permalink_display').data('permalink_base');
 	var $id               = $('#permalink_display').data('id');
 	var $hash_id          = $('#permalink_display').data('hash_id');
-	var $slug             = ($('#slug').val()) ? $('#slug').val() : $('#title_' + $language_id).val();
+	var $slug             = ($('#slug').val()) ? $('#slug').val() : $title_slug;
 	var $publish_datetime = String($('#publish_datetime').val());
 	var $category_slug    = $("input[name='categories[]']:checked").data('slug');
 	

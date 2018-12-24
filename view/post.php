@@ -74,7 +74,7 @@
 			
 			<!-- FORM -->
 			<?php if (count($_SESSION[$session_key]['common']['languages'])):?>
-				<form id="post" role="form" action="./_execute.php" method="post">
+				<form id="post" name="post" role="form" action="./_execute.php" method="post">
 					
 					<!-- Left// -->
 					<div class="col-md-9">
@@ -109,17 +109,28 @@
 								<div class="tab-pane <?=($language_id==1)?'active':''?>" id="text<?=$language_id?>">
 									
 									<?php if ($customitem_position > 1):?>
+										
 										<!-- title -->
-										<div class="form-group post_item_container">
+										<div class="form-group <?=($use_slug_flg)?'':'post_item_container'?>">
 											<label class="control-label" for="title_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_title?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
-											<div><input class="form-control" type="text" data-group="title" data-num="<?=$language_id?>" id="title_<?=$language_id?>" name="title[<?=$language_id?>]" value="<?=$text[$language_id]['title']?>" placeholder="<?=$label_title?>" <?=($child_flg)?'disabled':''?>></div>
+											<div><input class="form-control" type="text" data-group="title" data-num="<?=$language_id?>" id="title_<?=$language_id?>" name="title[<?=$language_id?>]" value="<?=$text[$language_id]['title']?>" placeholder="<?=($use_slug_flg)?TXT_POST_PLH_TITLEWITHSLUG:$label_title?>" <?=($child_flg)?'disabled':''?>></div>
 											<?php if ($config_posttype['use_multipage_flg'] && (count($post_pages) > 1 || ! empty($parent_id))):?>
-												<span class="label label-primary">
-									<i class="fa fa-clone"></i>
-													<?=$this_post_page?> / <?=count($post_pages)?>
-								</span>
+											<span class="label label-primary">
+												<i class="fa fa-clone"></i>
+												<?=$this_post_page?> / <?=count($post_pages)?>
+											</span>
 											<?php endif?>
 										</div>
+
+										<!-- slug -->
+										<div class="form-group post_item_container <?=($use_slug_flg)?'':'hidden'?>">
+											<label class="control-label" for="slug"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?=TXT_POST_LBL_SLUG?></label>
+											<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
+											<div id="input_wrapper_slug" data-target_table="<?=$table_prefix?>posts_base" data-classification="" data-this_id="<?=$id?>">
+												<input class="form-control needValidation" data-valid_type="slug" type="text" id="slug" name="slug" value="<?=$slug?>" placeholder="<?=TXT_POST_PLH_SLUG?>">
+											</div>
+										</div>
+									
 										<!-- addition -->
 										<div class="form-group post_item_container <?=($use_addition_flg)?'':'hidden'?>">
 											<label class="control-label" for="addition_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_addition?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
@@ -256,22 +267,26 @@
 														<button type="button" id="remove_<?=$custom_item_id?>_<?=$language_id?>" class="btn btn-warning hidden remove_custom_image"><?=TXT_POST_BTN_IMG_DELETE?></button>
 													</div>
 												<?php elseif ($row_cust['type'] == 'gallery'):?>
+													<?php //print '<pre>';print_r($items);print '</pre>'; ?>
 													<div class="form-group post_item_container custome_gallery_container" id="custome_gallery_container_<?=$custom_item_id?>_<?=$language_id?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-th"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div class="row custom_gallery_display">
 															<ul class="sortable">
 																<?php if (count($items[$custom_item_id][$language_id])):?>
-																	<?php foreach ($items[$custom_item_id][$language_id] as $value):?>
-																		<li class="col-xs-6 col-md-3 dropme"><img class="thumbnail" src="<?=$value?>" alt=""></li>
+																	<?php foreach ($items[$custom_item_id][$language_id] as $figure):?>
+																		<li class="col-xs-6 col-md-3 dropme">
+																			<img class="thumbnail" src="<?=$figure['url']?>" alt="*">
+																			<input class="thumbnailCaption" placeholder="<?=TXT_POST_PLH_GALLERY_CAPTION?>" value="<?=$figure['caption']?>">
+																		</li>
 																	<?php endforeach?>
 																<?php endif?>
 															</ul>
 														</div>
-														<div class="custom_gallery_trash" id="trash"><i class="fa fa-trash-o"></i></div>
+														<div class="custom_gallery_trash"><i class="fa fa-trash-o"></i></div>
 														<div id="<?=$custom_item_id?>_<?=$language_id?>_wrap" class="custom_gallery_wrap">
 															<input type="hidden" class="custom_gallery_addition" id="addition_<?=$custom_item_id?>_<?=$language_id?>" value="">
 															<input type="hidden" class="custom_gallery_target" id="items_<?=$custom_item_id?>_<?=$language_id?>_target" name="items_<?=$custom_item_id?>_<?=$language_id?>_target" value="<?=$row_cust['choices']?>">
-															<input type="hidden" class="custom_gallery" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]" value="">
+															<input type="hidden" class="custom_gallery" data-additional_type="gallery" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]" value="">
 														</div>
 														<a href="filemanager/dialog.php?type=2&field_id=addition_<?=$custom_item_id?>_<?=$language_id?>" type="button" id="set_<?=$custom_item_id?>_<?=$language_id?>" class="btn btn-default openFilemanager set_custom_gallery notLink"><?=TXT_POST_BTN_IMG_SET?></a>
 														<button type="button" id="remove_<?=$custom_item_id?>_<?=$language_id?>" class="btn btn-warning hidden remove_custom_gallery justButton"><?=TXT_POST_BTN_IMG_DELETE?></button>
@@ -402,9 +417,9 @@
 						<div class="form-group post_operator_container post_item_container">
 							<span class="btn btn-default" id="save_post" name="save_post"><?=TXT_POST_BTN_SAVE?></span>
 							<?php if ($publish_flg):?>
-								<button class="btn btn-primary <?=($process==12&&$status==2&&$publish_flg)?'':'hidden'?>" type="submit" id="publish_post" name="submit" value="<?=$submit_value?>"><?=$submit_label?></button>
+								<button class="btn btn-primary <?=($process==12&&$status==2&&$publish_flg)?'':'hidden'?>" type="button" id="publish_post" name="submit_type" value="<?=$submit_value?>"><?=$submit_label?></button>
 							<?php endif?>
-							<button class="btn btn-danger" type="submit" id="delete_post" name="submit" onclick="return deletePost('<?=$delete_msg?>');"><?=TXT_POST_BTN_DELETE?></button>
+							<button class="btn btn-danger" type="submit" id="delete_post" name="submit_type" onclick="return deletePost('<?=$delete_msg?>');"><?=TXT_POST_BTN_DELETE?></button>
 						</div>
 						
 						<!-- version (operation) -->
@@ -438,15 +453,6 @@
 								<input type="hidden" id="current_version" value="<?=$current_version?>">
 							</div>
 						<?php endif?>
-						
-						<!-- slug -->
-						<div class="form-group post_item_container <?=($use_slug_flg)?'':'hidden'?>">
-							<label class="control-label" for="slug"><i class="fa fa-link" aria-hidden="true"></i> <?=TXT_POST_LBL_SLUG?></label>
-							<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
-              <div id="input_wrapper_slug" data-target_table="<?=$table_prefix?>posts_base" data-classification="" data-this_id="<?=$id?>">
-                <input class="form-control needValidation" data-valid_type="slug" type="text" id="slug" name="slug" value="<?=$slug?>" placeholder="<?=TXT_POST_PLH_SLUG?>">
-              </div>
-						</div>
 						
 						<!-- anchor -->
 						<div class="form-group post_item_container <?=($child_flg)?'hidden':''?>">

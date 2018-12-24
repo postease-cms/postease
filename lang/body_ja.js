@@ -31,7 +31,7 @@ var TXT_INDEX_CNF_CONFIRMUPDATE = 'アップデートしてもよろしいです
 var TXT_INDEX_LBL_VERSION       = 'バージョン';
 function TXT_UPDATE_INDEX_NOTICEUPDATE($update_level)        {
 	var $text = '新しい' + TXT_UPDATE_CLASSIFICATION[$update_level] + 'があります。';
-	if ($update_level == 3) $text = $text + 'このアップデートには回線状況により数分〜数十分かかる可能性があります。';
+	if ($update_level == 3) $text = $text + 'このアップデートには数分〜数十分かかる可能性があります。';
 	return $text;
 }
 function TXT_UPDATE_MSG_03($update_level, $target_version)   { var $text = TXT_UPDATE_CLASSIFICATION[$update_level] + 'が完了しました。新しいバージョン' + $target_version + 'が適用されました。'; return $text;}
@@ -61,6 +61,7 @@ var TXT_POST_STATUS_SCHEDULED   = '公開予定';
 var TXT_POST_STATUS_ENDED       = '公開終了';
 var TXT_POST_STATUS_CANCELED    = '非公開';
 var TXT_POST_PREVIEW            = 'プレビュー';
+var TXT_POST_GALLERY_CAPTION    = 'キャプション';
 
 
 /*
