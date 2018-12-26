@@ -14,6 +14,7 @@ $(function ()
 		autoclose: true,
 		todayHighlight: true,
 		todayBtn: true,
+		fontAwesome: true,
 	});
 
 	// Datetimepicker On
@@ -28,6 +29,7 @@ $(function ()
 		minuteStep: 1,
 		todayHighlight: true,
 		todayBtn: true,
+		fontAwesome: true,
 	});
 
 	// CSS fix

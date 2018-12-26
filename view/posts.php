@@ -432,7 +432,7 @@
 
 </main>
 <link rel="stylesheet" href="plugin/datetimepicker/bootstrap-datetimepicker.min.css" media="screen">
-<script src="plugin/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="plugin/datetimepicker/bootstrap-datetimepicker-custom.min.js"></script>
 <script src="plugin/prism-dark/prism.js"></script>
 <?php if ($_SESSION[$session_key]['user']['lang'] != 'en'):?>
 	<script src="plugin/datetimepicker/locales/bootstrap-datetimepicker.<?=$_SESSION[$session_key]['user']['lang']?>.js"></script>

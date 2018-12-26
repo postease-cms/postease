@@ -417,7 +417,8 @@
 						<div class="form-group post_operator_container post_item_container">
 							<span class="btn btn-default" id="save_post" name="save_post"><?=TXT_POST_BTN_SAVE?></span>
 							<?php if ($publish_flg):?>
-								<button class="btn btn-primary <?=($process==12&&$status==2&&$publish_flg)?'':'hidden'?>" type="button" id="publish_post" name="submit_type" value="<?=$submit_value?>"><?=$submit_label?></button>
+								<input type="hidden" name="submit_type" value="<?=$submit_value?>">
+								<button class="btn btn-primary <?=($process==12&&$status==2&&$publish_flg)?'':'hidden'?>" type="button" id="publish_post"><?=$submit_label?></button>
 							<?php endif?>
 							<button class="btn btn-danger" type="submit" id="delete_post" name="submit_type" onclick="return deletePost('<?=$delete_msg?>');"><?=TXT_POST_BTN_DELETE?></button>
 						</div>

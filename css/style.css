@@ -471,6 +471,11 @@ input:-webkit-autofill {
 	table-layout: fixed;
 	border: 1px solid #ddd;
 }
+.postList th {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
 .postList th:nth-child(1) {
 	padding-left: 2.2em;
 }
