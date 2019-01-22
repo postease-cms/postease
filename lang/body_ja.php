@@ -28,7 +28,8 @@ define('TXT_HEADER_TITLE', '管理画面');
 
 /*
  * global_navi
- * ------------------------------------------------------------------------------------------------ */
+ *
+ *  */
 define('TXT_GNAVI_LNK_LOGOUT', 'ログアウト');
 
 
@@ -272,7 +273,7 @@ function TXT_POSTS_WAR_NOPOST($target)            { return $text = "この条件
 function TXT_POSTS_LBL_CHANGESTATU_TO($target)    { return $text = "チェックした{$target}を";}
 function TXT_POSTS_LBL_CHANGECATEGORY_TO($target) { return $text = "チェックした{$target}に";}
 function TXT_POSTS_LBL_PUBLISHTENDAT($datetime)   { return $text = "{$datetime}まで";}
-function TXT_POSTS_LNK_GETSDKPHP($url) { return $text = 'リモートAPIに接続するためのクライアントツール <a target="_blank" href="' . $url . '">SDK "PecRpc" を手に入れる</a>';}
+function TXT_POSTS_LNK_GETSDKPHP($url) { return $text = 'POSTEASE APIからデータを取得するためのSDK（クライアントツール） <a target="_blank" href="' . $url . '">SDK "Pec" を手に入れる</a>';}
 
 
 /*
@@ -697,8 +698,9 @@ define('TXT_CONFIGCORE_LBL_ALLOWUPDATEFLG',              'アップデートの�
 define('TXT_CONFIGCORE_LBL_AUTOUPDATEFLG',               '自動アップデート');
 define('TXT_CONFIGCORE_LBL_UPDATELEVEL',                 'アップデートレベル');
 define('TXT_CONFIGCORE_LBL_APIACCESS',                   'APIアクセス');
-define('TXT_CONFIGCORE_LBL_REMOTE_ADDRESS_ALLOWED',      'アクセス許可IP（PHP）');
-define('TXT_CONFIGCORE_LBL_ORIGIN_ALLOWED',              'クロスオリジン許可ドメイン（Ajax）');
+define('TXT_CONFIGCORE_LBL_REMOTE_ADDRESS_ALLOWED',      '許可IP');
+define('TXT_CONFIGCORE_LBL_ORIGIN_ALLOWED',              '許可ドメイン');
+define('TXT_CONFIGCORE_LBL_APIFORCECACHETIME',           '強制キャッシュ時間(分)');
 define('TXT_CONFIGCORE_LBL_CHANGEDATABASE',              'データベース移行');
 define('TXT_CONFIGCORE_BTN_SUBMIT',                      '更新');
 function TXT_CONFIGCORE_LBL_MORETHAN($target){ return $text = "{$target} (以上)";}
@@ -1215,16 +1217,15 @@ function TXT_CUSTOMVALUE_LBL_NOWEDIT($target) { return $text = "{$target} を編
  * code
  * ------------------------------------------------------------------------------------------------ */
 define('TXT_CODE_LNK_CHANGE_LANGUAGE',               '実装コード表示の設定を変更する');
-define('TXT_CODE_COM_IMPLEMENT_LOCALPHP',            'ローカルAPI に接続（POSTEASE 設置パス [your-postease-path] は書き換えてください）');
-define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP01',         'リモートAPI に接続');
+define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP01',         'エンドポイント（POSTEASE APIのURL）をセット');
 define('TXT_CODE_COM_IMPLEMENT_GETPOSTKEY',          'post_key を取得');
-define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP02',         'GitHub ページより "PecRpc" を入手して任意の場所 [your-path] に設置（パスは書き換えて下さい）');
+define('TXT_CODE_COM_IMPLEMENT_REMOTEPHP02',         'POSTEASE API からデータを取得するためのSDK（クライアントツール）を読み込み');
 define('TXT_CODE_COM_IMPLEMENT_JQUERY',              '共通コードは不要です。');
 define('TXT_CODE_COM_IMPLEMENT_JQUERYATTENTION',     'リモートサーバから接続する場合は以下のディレクトリにCORS開放を記述した .htaccess を設置してください。');
 
 define('TXT_CODE_COM_IMPLEMENT_POSTSCONFIG',         'ポスト一覧の取得条件を設定');
 define('TXT_CODE_COM_IMPLEMENT_GETPOSTS',            'ポスト一覧を取得');
-define('TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYPOSTKEY', 'post_key を指定してポストを取得');
+define('TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYPOSTKEY', 'post_key をセットしてポストを取得');
 define('TXT_CODE_COM_IMPLEMENT_RENDERPOSTS',         'ポストデータをHTMLに書き出し');
 
 define('TXT_CODE_COM_IMPLEMENT_CATEGORIESCONFIG',  'カテゴリーデータの取得条件を設定');

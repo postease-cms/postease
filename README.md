@@ -20,15 +20,15 @@
 
 :us: 'POSTEASE install type' run with MySQL or SQLite.
 
-### 3. XML-RPCとJSONをサポート / Support for XML-RPC and JSON
-:jp: POSTEASE install type は XML-RPC もしくは json 形式でのデータ取得をサポートしています。PHP もしくは javascript ( jQuery ) で実装できます。
+### 3. API実装 / API implementation
+:jp: APIによる実装のため、ローカル・リモート問わず、あらゆる環境、あらゆる言語で実装可能です。データはJSON形式で取得可能です。
 
-:us: 'POSTEASE install type' supports data retrieval in XML-RPC or JSON format. Can be implemented in PHP or JavaScript (jQuery).
+:us: Implemented by API, can be implemented in any environment, any language, regardless of local or remote. Data can be retrieved in JSON format.
 
 
 ## サーバ要件 / Server requirements
 
-- \>=PHP5.1
+- \>=PHP5.2
 - SQLite3.x or MySQL5.x
 - PHP FTP-extension (ftp.so)
 
@@ -67,11 +67,12 @@ $posts = get_posts();
 
 ## 最新バージョン / Latest version
 
-**3.1.3 ( 04.Jan.2019 )**
+**3.2.0 ( 22.Jan.2019 )**
 
 ---
 
 #### Update History
+- 3.2.0 ( 22.Jan.2019 )
 - 3.1.3 ( 04.Jan.2019 )
 - 3.1.2 ( 26.Dec.2018 )
 - 3.1.1 ( 25.Dec.2018 )

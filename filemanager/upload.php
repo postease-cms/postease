@@ -54,6 +54,7 @@ while ($cycle && $i < $max_cycles)
 if ( ! empty($_FILES))
 {
 	$info = pathinfo($_FILES['file']['name']);
+	$system_file_name = dechex(time()) . '-' . hash('crc32', uniqid(rand()));
 
 	// fix code for php 5.1
 	if (empty($info['filename']))
@@ -72,7 +73,8 @@ if ( ! empty($_FILES))
 		$tempFile = $_FILES['file']['tmp_name'];
 		$targetPath = $storeFolder;
 		$targetPathThumb = $storeFolderThumb;
-		$_FILES['file']['name'] = fix_filename($_FILES['file']['name'],$transliteration,$convert_spaces, $replace_with);
+		//$_FILES['file']['name'] = fix_filename($_FILES['file']['name'],$transliteration,$convert_spaces, $replace_with);
+		$_FILES['file']['name'] = $system_file_name . "." . $info['extension'];
 
 	 	// Gen. new file name if exists
 		if (file_exists($targetPath.$_FILES['file']['name']))
@@ -96,7 +98,8 @@ if ( ! empty($_FILES))
 			while(file_exists($targetPath.$info['filename']."_".$i.".".$info['extension'])) {
 				$i++;
 			}
-			$_FILES['file']['name'] = $info['filename']."_".$i.".".$info['extension'];
+			//$_FILES['file']['name'] = $info['filename']."_".$i.".".$info['extension'];
+			$_FILES['file']['name'] = $system_file_name . "_" . $i . "." . $info['extension'];
 		}
 
 		$targetFile =  $targetPath. $_FILES['file']['name'];

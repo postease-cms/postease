@@ -18,7 +18,7 @@
 		<!-- MAIN CONTENTS -->
 		<div class="slow-show config">
 			
-			<!-- Config Core -->
+			<!-- System -->
 			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_SYSTEM?></h3>
@@ -79,6 +79,7 @@
 						</div>
 						
 						<!-- display_errors -->
+						<?php if ($_SESSION[$session_key]['license']['classification'] > 2):?>
 						<div class="form-group">
 							<label class="control-label col-md-4" for="display_errors"><?=TXT_CONFIGCORE_LBL_DISPLAYERRORS?>
 								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGCORE_LBL_DISPLAYERRORS?>" data-content="<?=$popover['display_errors']?>">[?]</a>
@@ -92,6 +93,7 @@
 							</div>
 							<div class="col-md-4"></div>
 						</div>
+						<?php endif?>
 						
 						<!-- default_password -->
 						<div class="form-group">
@@ -114,7 +116,8 @@
 					</form>
 				</div>
 			</div>
-			
+
+			<!-- Edit Role -->
 			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_AUTHORITY?></h3>
@@ -204,7 +207,8 @@
 					</form>
 				</div>
 			</div>
-			
+
+			<!-- Media -->
 			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_MEDIA?></h3>
@@ -257,7 +261,8 @@
 					</form>
 				</div>
 			</div>
-			
+
+			<!-- Update -->
 			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_UPDATE?></h3>
@@ -356,10 +361,22 @@
 								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGCORE_LBL_ORIGIN_ALLOWED?>" data-content="<?=$popover['origin_allowed']?>">[?]</a>
 							</label>
 							<div class="col-md-7">
-								<input class="form-control" type="text" id="origin_allowed" name="origin_allowed" value="<?=$records['origin_allowed']['value']?>" placeholder="https://sample.com, http://sample.com">
+								<input class="form-control" type="text" id="origin_allowed" name="origin_allowed" value="<?=$records['origin_allowed']['value']?>" placeholder="sample.com, dev.sample.com">
 							</div>
 							<div class="col-md-1"></div>
 						</div>
+
+						<!-- api_force_cache_time -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="api_force_cache_time"><?=TXT_CONFIGCORE_LBL_APIFORCECACHETIME?>
+								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGCORE_LBL_APIFORCECACHETIME?>" data-content="<?=$popover['api_force_cache_time']?>">[?]</a>
+							</label>
+							<div class="col-md-4">
+								<input class="form-control" type="text" id="api_force_cache_time" name="api_force_cache_time" value="<?=$records['api_force_cache_time']['value']?>">
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+						
 						<hr>
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
@@ -371,7 +388,8 @@
 					</form>
 				</div>
 			</div>
-			
+
+			<!-- Data Manipulate -->
 			<div class="panel panel-danger">
 				<div class="panel-heading">
 					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_DATAMANIPULATION?></h3>

@@ -1,9 +1,8 @@
 <?php
 $remote_url = $_SESSION[$session_key]['configs']['domain'];
 if ($_SESSION[$session_key]['configs']['dir_name']) $remote_url .= '/' . $_SESSION[$session_key]['configs']['dir_name'];
-$delimiter = ($_SESSION[$session_key]['configs']['implement_code'] == 3) ? ':' : '=>';
+$delimiter = ($_SESSION[$session_key]['configs']['implement_code'] == 2) ? ':' : '=>';
 
-$comment_local_php        = TXT_CODE_COM_IMPLEMENT_LOCALPHP;
 $comment_remote_php_01    = TXT_CODE_COM_IMPLEMENT_REMOTEPHP01;
 $comment_remote_php_02    = TXT_CODE_COM_IMPLEMENT_REMOTEPHP02;
 $comment_jquery           = TXT_CODE_COM_IMPLEMENT_JQUERY;
@@ -33,7 +32,7 @@ $html_code_php = htmlspecialchars("
 <h3>{$comment_category_title}</h3>
 <ul class=\"{$html_class}Categories\">
   <?php foreach (\$categories as \$row ):?>
-  <li><a href=\"?category=<?=\$row['slug']?>\"><?=\$row['label']?></a></li>
+  <li><a href=\"?category=<?=\$row->slug?>\"><?=\$row->label?></a></li>
   <?php endforeach ?>
 </ul>
 </body>
@@ -67,42 +66,20 @@ $html_code_jquery = htmlspecialchars("
 
 <pre><code class="language-php"><?php echo "&lt;?php
 
-// {$comment_local_php}
-require_once '[your-postease-path]/api/v2/local.php';
-
-// {$comment_category_config}
-\$config = array (
-{$conditions}
-);
-
-// {$comment_get_categories}
-\$categories = get_categories (\$config);
-
-?&gt;
-";
-				?>
-</code></pre>
-<pre><code class="language-html"><?php echo $html_code_php?></code></pre>
-
-<?php elseif ($_SESSION[$session_key]['configs']['implement_code'] == 2):?>
-<?=TXT_POSTS_LNK_GETSDKPHP('https://github.com/postease-classic/sdk-php-rpc')?>
-
-<pre><code class="language-php"><?php echo "&lt;?php
-
 // {$comment_remote_php_02}
-require_once '[your-path]/PecRpc/Pec.php';
+require_once '[your-postease-path]/api/v3/Pec/PecHttp.php';
 
 // {$comment_remote_php_01}
-\$pe = new Pec ();
-\$pe -> connect ('{$remote_url}/api/v2/remote.php');
+\$endpoint = '{$remote_url}/api/v3/endpoint.php';
+\$pec = new PecHttp (\$endpoint);
 
 // {$comment_category_config}
-\$config = array (
+\$params = array (
 {$conditions}
 );
 
 // {$comment_get_categories}
-\$categories = \$pe -> get_categories (\$config);
+\$categories = \$pec -> set_params (\$params) -> get_categories ();
 
 ?&gt;
 ";
@@ -110,7 +87,7 @@ require_once '[your-path]/PecRpc/Pec.php';
 </code></pre>
 <pre><code class="language-html"><?php echo $html_code_php?></code></pre>
 	
-<?php elseif ($_SESSION[$session_key]['configs']['implement_code'] == 3):?>
+<?php elseif ($_SESSION[$session_key]['configs']['implement_code'] == 2):?>
 
 <pre><code class="language-html"><?php echo $html_code_jquery?></code></pre>
 <pre><code class="language-javascript"><?php echo htmlspecialchars("
@@ -118,19 +95,21 @@ require_once '[your-path]/PecRpc/Pec.php';
 $(function()
 {
   // {$comment_category_config}
-  var config = {
+  var params = {
   {$conditions}
   };
   
   // {$comment_get_categories}
   $.ajax(
   {
-    url : '{$remote_url}/api/v2/json.php?get_categories',
-    type : 'POST',
+    url : '{$remote_url}/api/v3/endpoint.php',
+    type : 'GET',
     data : {
-      config: config,
+    	action: 'get_categories',
+    	params: params,
     },
     dataType : 'json',
+    ifModified: true,
   })
   .done(function(data)
   {

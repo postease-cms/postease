@@ -13,6 +13,8 @@ tinymce.init({
 	toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor emoticons | responsivefilemanager link print media codesample code preview fullscreen',
 	image_advtab: true,
 	media_live_embeds: true,
+	convert_urls: false,
+	relative_urls : false,
 	ement_format: 'html', // html or xhtml
 	content_css : $css_path,
 	setup : function(ed)

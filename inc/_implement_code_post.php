@@ -1,9 +1,8 @@
 <?php
 $remote_url = $_SESSION[$session_key]['configs']['domain'];
 if ($_SESSION[$session_key]['configs']['dir_name']) $remote_url .= '/' . $_SESSION[$session_key]['configs']['dir_name'];
-$delimiter = ($_SESSION[$session_key]['configs']['implement_code'] == 3) ? ':' : '=>';
+$delimiter = ($_SESSION[$session_key]['configs']['implement_code'] == 2) ? ':' : '=>';
 
-$comment_local_php     = TXT_CODE_COM_IMPLEMENT_LOCALPHP;
 $comment_get_post_key  = TXT_CODE_COM_IMPLEMENT_GETPOSTKEY;
 $comment_remote_php_01 = TXT_CODE_COM_IMPLEMENT_REMOTEPHP01;
 $comment_remote_php_02 = TXT_CODE_COM_IMPLEMENT_REMOTEPHP02;
@@ -19,10 +18,10 @@ $html_code_php = htmlspecialchars("
 </head>
 <body>
 <div class=\"{$html_class}\">
-  <h2><?=\$post['title']?></h2>
-  <time><?=\$post['publish_date']?></time>
-  <p><?=\$post['category_text']?></p>
-  <div><?=\$post['content']?></div>
+  <h2><?=\$post->title?></h2>
+  <time><?=\$post->publish_date?></time>
+  <p><?=\$post->category_text?></p>
+  <div><?=\$post->content?></div>
 </div>
 </body>
 </html>
@@ -54,41 +53,21 @@ $html_code_jquery = htmlspecialchars("
 	<small>（<a href="?view_page=config_general&target=implement_code"><?=TXT_CODE_LNK_CHANGE_LANGUAGE?></a>）</small>
 </h4>
 <?php if ($_SESSION[$session_key]['configs']['implement_code'] == 1):?>
-
-<pre><code class="language-php"><?php echo "&lt;?php
-
-// {$comment_local_php}
-require_once '[your-postease-path]/api/v2/local.php';
-
-// {$comment_get_post_key}
-\$post_key = \$_GET['post_key'];
-
-// {$comment_get_post}
-\$post = get_post (\$post_key);
-
-?&gt;
-";
-?>
-</code></pre>
-<pre><code class="language-html"><?php echo $html_code_php?></code></pre>
-
-<?php elseif ($_SESSION[$session_key]['configs']['implement_code'] == 2):?>
-<?=TXT_POSTS_LNK_GETSDKPHP('https://github.com/postease-classic/sdk-php-rpc')?>
   
 <pre><code class="language-php"><?php echo "&lt;?php
 
 // {$comment_remote_php_02}
-require_once '[your-path]/PecRpc/Pec.php';
+require_once '[your-postease-path]/api/v3/Pec/PecHttp.php';
 
 // {$comment_remote_php_01}
-\$pe = new Pec ();
-\$pe -> connect ('{$remote_url}/api/v2/remote.php');
+\$endpoint = '{$remote_url}/api/v3/endpoint.php';
+\$pec = new PecHttp (\$endpoint);
 
 // {$comment_get_post_key}
 \$post_key = \$_GET['post_key'];
 
 // {$comment_get_post}
-\$post = \$pe->get_post (\$post_key);
+\$post = \$pec -> set_key (\$post_key) -> get_post ();
 
 ?&gt;
 ";
@@ -96,11 +75,11 @@ require_once '[your-path]/PecRpc/Pec.php';
 </code></pre>
 <pre><code class="language-html"><?php echo $html_code_php?></code></pre>
 	
-<?php elseif ($_SESSION[$session_key]['configs']['implement_code'] == 3):?>
+<?php elseif ($_SESSION[$session_key]['configs']['implement_code'] == 2):?>
 
 <pre><code class="language-html"><?php echo $html_code_jquery?></code></pre>
 <pre><code class="language-javascript"><?php echo htmlspecialchars("
-<script src=\"{$remote_url}/api/v2/lib/util.js\"></script>
+<script src=\"{$remote_url}/api/v3/lib/util.js\"></script>
 <script>
 $(function()
 {
@@ -108,18 +87,20 @@ $(function()
 	
   $.ajax(
   {
-    url : '{$remote_url}/api/v2/json.php?get_post',
-    type : 'POST',
+    url : '{$remote_url}/api/v3/endpoint.php',
+    type : 'GET',
     data : {
-      post_key: post_key
+    	action: 'get_post',
+    	post_key: post_key,
     },
     dataType : 'json',
+    ifModified: true,
   })
   .done(function(data)
   {
     $('.title').text(data.title);
     $('.publishDate').text(data.publish_date);
-    $('.category').text(data.categories_text);
+    $('.category').text(data.category_text);
     $('.content').html(data.content);
   });
 });

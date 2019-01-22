@@ -1,5 +1,5 @@
 PostEase
-v3.0
+v3.2
 
 [Copyright]
 Copyright© khiten Inc.

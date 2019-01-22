@@ -213,6 +213,12 @@ $common_flg_use = array
 		1 => '使用する',
 );
 
+$common_flg_utilize = array
+(
+	0 => '利用しない',
+	1 => '利用する',
+);
+
 $common_flg_display = array
 (
 		0 => '表示しない',
@@ -255,9 +261,8 @@ $editable_role_list = array
 );
 $implement_code_list = array
 (
-	1 => 'PHPローカル',
-	2 => 'PHPリモート',
-	3 => 'jQuery',
+	1 => 'PHP',
+	2 => 'jQuery',
 );
 
 

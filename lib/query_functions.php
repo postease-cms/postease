@@ -207,3 +207,62 @@ function getPostChildren($target_id)
 	return $post_children;
 }
 
+
+
+/**
+ * Reset Cache Params
+ * @param int $modified
+ * @param int $last_modified
+ * @param int $expires
+ * @return bool
+ */
+function resetCacheParams($modified = 1, $last_modified = null, $expires = 0)
+{
+	global $pdo;
+	global $table_prefix;
+	
+	$cache_params_path = dirname(__FILE__) . '/../core/api';
+	$cache_params_file_name = 'params.php';
+	$publish_datetime = 9999999999;
+	$publish_end_at = 9999999999;
+	
+	if ($last_modified === null) $last_modified = time();
+	if ($pdo)
+	{
+		$now = date('Y-m-d H:i:s');
+		$sql = "
+					SELECT `publish_datetime`
+					FROM `{$table_prefix}posts_base`
+					WHERE `delete_flg` = 0 AND `status` = 1 AND `publish_datetime` IS NOT NULL AND `publish_datetime` > '{$now}'
+					ORDER BY `publish_datetime` ASC
+					LIMIT 0, 1
+			";
+		$read_publish_datetime = $pdo->prepare($sql);
+		$read_publish_datetime -> execute();
+		if ($record = $read_publish_datetime->fetch(PDO::FETCH_ASSOC))
+		{
+			$publish_datetime = strtotime($record['publish_datetime']);
+		}
+		unset($read_publish_datetime);
+		$sql = "
+					SELECT `publish_end_at`
+					FROM `{$table_prefix}posts_base`
+					WHERE `delete_flg` = 0 AND `status` = 1 AND `publish_end_at` IS NOT NULL AND `publish_end_at` > '{$now}'
+					ORDER BY `publish_end_at` ASC
+					LIMIT 0, 1
+			";
+		$read_publish_end_at = $pdo->prepare($sql);
+		$read_publish_end_at -> execute();
+		if ($record = $read_publish_end_at->fetch(PDO::FETCH_ASSOC))
+		{
+			$publish_end_at = strtotime($record['publish_end_at']);
+		}
+		unset($read_publish_end_at);
+	}
+	$expires = ($publish_datetime < $publish_end_at) ? $publish_datetime : $publish_end_at;
+	$cache_params = "<?php\n\ndefine('MODIFIED', '{$modified}');\ndefine('LAST_MODIFIED', '{$last_modified}');\ndefine('EXPIRES', '{$expires}');\n";
+	if (false === file_exists($cache_params_path)) mkdir($cache_params_path);
+	return file_put_contents($cache_params_path . '/' . $cache_params_file_name, $cache_params);
+}
+
+

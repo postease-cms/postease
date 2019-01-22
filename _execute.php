@@ -289,6 +289,9 @@ if ($_SESSION[$session_key]['common']['view_page'] == 'post')
 					}
 				}
 			}
+			
+			// Cache
+			resetCacheParams();
 			$pdo -> commit();
 		}
 		catch(PDOException $e)
@@ -608,7 +611,9 @@ if ($_SESSION[$session_key]['common']['view_page'] == 'post')
 					}
 				}
 			}
-
+			
+			// Cache
+			resetCacheParams();
 			$pdo -> commit();
 		}
 		catch(PDOException $e)
@@ -679,7 +684,9 @@ if ($_SESSION[$session_key]['common']['view_page'] == 'post')
 			$update_posts_base -> bindValue('VERSION',    $version);
 			$update_posts_base -> execute();
 			unset($update_posts_base);
-
+			
+			// Cache
+			resetCacheParams();
 			$pdo -> commit();
 		}
 		catch(PDOException $e)
@@ -767,6 +774,9 @@ if ($_SESSION[$session_key]['common']['view_page'] == 'comment')
 			$create_comment -> bindValue(':STATUS',      $_POST['status']);
 			$create_comment -> execute();
 			unset($create_comment);
+			
+			// Cache
+			resetCacheParams();
 			$pdo -> commit();
 		}
 		catch(PDOException $e)
@@ -804,6 +814,9 @@ if ($_SESSION[$session_key]['common']['view_page'] == 'comment')
 			$update_comment -> bindValue(':ID',         $target_id);
 			$update_comment -> execute();
 			unset($update_comment);
+			
+			// Cache
+			resetCacheParams();
 			$pdo -> commit();
 		}
 		catch(PDOException $e)
@@ -852,6 +865,9 @@ if ($_SESSION[$session_key]['common']['view_page'] == 'comment')
 			$update_comment -> bindValue(':ID',         $target_id);
 			$update_comment -> execute();
 			unset($update_comment);
+			
+			// Cache
+			resetCacheParams();
 			$pdo -> commit();
 		}
 		catch(PDOException $e)
@@ -883,6 +899,9 @@ if ($_SESSION[$session_key]['common']['view_page'] == 'comment')
 			$update_comment -> bindValue(':ID',         $target_id);
 			$update_comment -> execute();
 			unset($update_comment);
+			
+			// Cache
+			resetCacheParams();
 			$pdo -> commit();
 		}
 		catch(PDOException $e)

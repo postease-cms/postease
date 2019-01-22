@@ -1,7 +1,7 @@
 <?php
 $remote_url = $_SESSION[$session_key]['configs']['domain'];
 if ($_SESSION[$session_key]['configs']['dir_name']) $remote_url .= '/' . $_SESSION[$session_key]['configs']['dir_name'];
-$delimiter = ($_SESSION[$session_key]['configs']['implement_code'] == 3) ? ':' : '=>';
+$delimiter = ($_SESSION[$session_key]['configs']['implement_code'] == 2) ? ':' : '=>';
 $permalink_flg = (! empty($_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['rewrite_url'])) ? 1 : 0;
 
 $conditions = null;
@@ -32,7 +32,6 @@ if ($_SESSION[$session_key]['posts']['sc_text']) $conditions .= "\n" . "\t" . "'
 if ($_SESSION[$session_key]['posts']['sc_anchor']) $conditions .= "\n" . "\t" . "'anchor_equal' {$delimiter} '{$_SESSION[$session_key]['posts']['sc_anchor']}',";
 if ($_SESSION[$session_key]['posts']['sc_created_by']) $conditions .= "\n" . "\t" . "'created_by' {$delimiter} {$_SESSION[$session_key]['posts']['sc_created_by']},";
 
-$comment_local_php     = TXT_CODE_COM_IMPLEMENT_LOCALPHP;
 $comment_remote_php_01 = TXT_CODE_COM_IMPLEMENT_REMOTEPHP01;
 $comment_remote_php_02 = TXT_CODE_COM_IMPLEMENT_REMOTEPHP02;
 $comment_jquery        = TXT_CODE_COM_IMPLEMENT_JQUERY;
@@ -43,7 +42,7 @@ $comment_render_posts  = TXT_CODE_COM_IMPLEMENT_RENDERPOSTS;
 $html_title = $_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['name'];
 $html_class = $_SESSION[$session_key]['common']['posttypes'][$_SESSION[$session_key]['common']['this_posttype']]['slug'];
 
-$single_link = ($permalink_flg) ? '<h3><a href="<?=$row[\'permalink\']?>"><?=$row[\'title\']?></a></h3>' : '<h3><a href="?post_key=<?=$row[\'id\']?>"><?=$row[\'title\']?></a></h3>';
+$single_link = ($permalink_flg) ? '<h3><a href="<?=$row->permalink_uri?>"><?=$row->title?></a></h3>' : '<h3><a href="single.php?post_key=<?=$row->id?>"><?=$row->title?></a></h3>';
 
 $html_code_php = htmlspecialchars("
 <html>
@@ -53,11 +52,11 @@ $html_code_php = htmlspecialchars("
 <body>
 <div class=\"{$html_class}List\">
   <h2>{$html_title}</h2>
-  <?php foreach (\$posts['list'] as \$row ):?>
+  <?php foreach (\$posts->list as \$row ):?>
   <div class=\"{$html_class}\">
-    <figure><img src=\"<?=\$row['eyecatch']?>\"></figure>
-    <time><?=\$row['publish_date']?></time>
-    <p><?=\$row['category_text']?></p>
+    <figure><img src=\"<?=\$row->eyecatch->src->x2?>\"></figure>
+    <time><?=\$row->publish_date?></time>
+    <p><?=\$row->category_text?></p>
     {$single_link}
   </div>
   <?php endforeach ?>
@@ -93,16 +92,20 @@ $html_code_jquery = htmlspecialchars("
 
 <pre><code class="language-php"><?php echo "&lt;?php
 
-// {$comment_local_php}
-require_once '[your-postease-path]/api/v2/local.php';
+// {$comment_remote_php_02}
+require_once '[your-postease-path]/api/v3/Pec/PecHttp.php';
+
+// {$comment_remote_php_01}
+\$endpoint = '{$remote_url}/api/v3/endpoint.php';
+\$pec = new PecHttp (\$endpoint);
 
 // {$comment_posts_config}
-\$config = array (
+\$params = array (
 {$conditions}
 );
 
 // {$comment_get_posts}
-\$posts = get_posts (\$config);
+\$posts = \$pec -> set_params(\$params) -> get_posts();
 
 ?&gt;
 ";
@@ -111,32 +114,6 @@ require_once '[your-postease-path]/api/v2/local.php';
 <pre><code class="language-html"><?php echo $html_code_php?></code></pre>
 
 <?php elseif ($_SESSION[$session_key]['configs']['implement_code'] == 2):?>
-<?=TXT_POSTS_LNK_GETSDKPHP('https://github.com/postease-classic/sdk-php-rpc')?>
-
-<pre><code class="language-php"><?php echo "&lt;?php
-
-// {$comment_remote_php_02}
-require_once '[your-path]/PecRpc/Pec.php';
-
-// {$comment_remote_php_01}
-\$pe = new Pec ();
-\$pe -> connect ('{$remote_url}/api/v2/remote.php');
-
-// {$comment_posts_config}
-\$config = array (
-{$conditions}
-);
-
-// {$comment_get_posts}
-\$posts = \$pe -> get_posts (\$config);
-
-?&gt;
-";
-				?>
-</code></pre>
-<pre><code class="language-html"><?php echo $html_code_php?></code></pre>
-
-<?php elseif ($_SESSION[$session_key]['configs']['implement_code'] == 3):?>
 
 <pre><code class="language-html"><?php echo $html_code_jquery?></code></pre>
 <pre><code class="language-javascript"><?php echo htmlspecialchars("
@@ -144,19 +121,21 @@ require_once '[your-path]/PecRpc/Pec.php';
 $(function()
 {
   // {$comment_posts_config}
-  var config = {
+  var params = {
   {$conditions}
   };
   
   // {$comment_get_posts}
   $.ajax(
   {
-    url : '{$remote_url}/api/v2/json.php?get_posts',
-    type : 'POST',
+    url : '{$remote_url}/api/v3/endpoint.php',
+    type : 'GET',
     data : {
-      config: config,
+    	action: 'get_posts',
+    	params: params,
     },
     dataType : 'json',
+    ifModified: true,
   })
   .done(function(data)
   {
@@ -164,7 +143,7 @@ $(function()
     $.each(data.list, function(key, row)
     {
       var html = '<div class=\"{$html_class}\">';
-      if (row.eyecatch) html += '<img src=\"' + row.eyecatch + '\">';
+      if (row.eyecatch) html += '<img src=\"' + row.eyecatch.src.x2 + '\">';
       html += '<time>' + row.publish_date + '</time>';
       if (row.category_text) html += '<p>' + row.category_text + '</p>';
       html += '<h3><a href=\"?post_id=' + row.id + '\">' + row.title + '</a></h3>';
