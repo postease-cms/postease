@@ -54,18 +54,26 @@ function generateRewriteRule($permalink_style, $resource_uri, $rewrite_url_flg =
 		'5'  => array
 		(
 			'0' =>  "RewriteCond %{REQUEST_URI} ^\/[^\/]+$" . "\n" .
+							"RewriteCond %{REQUEST_FILENAME} !-f" . "\n" .
+							"RewriteCond %{REQUEST_FILENAME} !-d" . "\n" .
 							"RewriteCond %{REQUEST_FILENAME} !^(.*)\.(css|js|gif|png|jpe?g|ico|svg)$ [NC]" . "\n" .
 							"RewriteRule ([^\/]+)$ /{$resource_uri}?post_key=$1 [QSA,L]" . "\n",
 			'1' =>  "RewriteCond %{REQUEST_URI} {$rewrite_uri_base}\/[^\/]+$" . "\n" .
+							"RewriteCond %{REQUEST_FILENAME} !-f" . "\n" .
+							"RewriteCond %{REQUEST_FILENAME} !-d" . "\n" .
 							"RewriteCond %{REQUEST_FILENAME} !^(.*)\.(css|js|gif|png|jpe?g|ico|svg)$ [NC]" . "\n" .
 							"RewriteRule ([^\/]+)$ /{$resource_uri}?post_key=$1 [QSA,L]" . "\n",
 		),
 		'6'  => array
 		(
 			'0' =>  "RewriteCond %{REQUEST_URI} ^\/[^\/]+\/[^\/]+$" . "\n" .
+							"RewriteCond %{REQUEST_FILENAME} !-f" . "\n" .
+							"RewriteCond %{REQUEST_FILENAME} !-d" . "\n" .
 							"RewriteCond %{REQUEST_FILENAME} !^(.*)\.(css|js|gif|png|jpe?g|ico|svg)$ [NC]" . "\n" .
 							"RewriteRule ([^\/]+)\/([^\/]+)$ /{$resource_uri}?post_key=$1-$2 [QSA,L]" . "\n",
 			'1' =>  "RewriteCond %{REQUEST_URI} {$rewrite_uri_base}\/[^\/]+\/[^\/]+$" . "\n" .
+							"RewriteCond %{REQUEST_FILENAME} !-f" . "\n" .
+							"RewriteCond %{REQUEST_FILENAME} !-d" . "\n" .
 							"RewriteCond %{REQUEST_FILENAME} !^(.*)\.(css|js|gif|png|jpe?g|ico|svg)$ [NC]" . "\n" .
 							"RewriteRule ([^\/]+)\/([^\/]+)$ /{$resource_uri}?post_key=$1-$2 [QSA,L]" . "\n",
 		),

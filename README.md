@@ -57,9 +57,13 @@ Constitute Example
 
 index.php
 ```php
-require_once dirname(__FILE__) . '/postease/api/v2/local.php';
+require_once dirname(__FILE__) . '/postease/api/v3/endpoint.php';
 
-$posts = get_posts();
+$endpoint = 'https://sample.com/postease/api/v3/endpoint.php';
+
+$pe = new Pec($endpoint);
+
+$posts = $pe -> get_posts();
 ```
 
 
@@ -67,11 +71,12 @@ $posts = get_posts();
 
 ## 最新バージョン / Latest version
 
-**3.2.0 ( 22.Jan.2019 )**
+**3.2.1 ( 25.Jan.2019 )**
 
 ---
 
 #### Update History
+- 3.2.1 ( 25.Jan.2019 )
 - 3.2.0 ( 22.Jan.2019 )
 - 3.1.3 ( 04.Jan.2019 )
 - 3.1.2 ( 26.Dec.2018 )

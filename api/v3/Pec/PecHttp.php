@@ -306,9 +306,14 @@ class PecHttp
 						}
 						
 						// Not 2xx, 3xx
-						if ($info['http_code'] >= 400)
+						$decoded_body = json_decode($this->response_body, true);
+						if (empty($decoded_body['hasError']) && $info['http_code'] >= 400)
 						{
-							if (false === in_array($info['http_code'], array('403', '404')))
+							if ($info['http_code'] == '404')
+							{
+								return $this->generateErrorResponse((string)$info['http_code'], 'Invalid endpoint (Check URL)');
+							}
+							else
 							{
 								return $this->generateErrorResponse($info['http_code'], 'An unexpected error occurred');
 							}

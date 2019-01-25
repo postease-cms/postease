@@ -76,7 +76,11 @@ function getParam($key)
  */
 function nl2br($string)
 {
-	return $string.replace(/\r\n/g, '<br />').replace(/(\n|\r)/g, '<br />');
+	if ($string)
+	{
+		return String($string).replace(/\r\n/g, '<br />').replace(/(\n|\r)/g, '<br />');
+	}
+	return '';
 }
 
 
