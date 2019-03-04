@@ -4,6 +4,7 @@ vendor/
 composer.lock
 composer.phar
 .htaccess
+.well-known
 php.ini
 php.cgi
 core/db/config.php

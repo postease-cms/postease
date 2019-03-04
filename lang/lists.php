@@ -370,7 +370,7 @@ $posttype_mata_individual = array
 $contact_mata_common = array
 (
 		// additional function
-		'use_customitem_flg'        => '0',
+		'use_customitem_flg'        => '1',
 		'email_admin'               => '',
 		
 		// mail config

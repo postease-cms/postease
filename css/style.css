@@ -87,7 +87,8 @@ input:-webkit-autofill {
 	top: calc(50% - 30px);
 	font-size: 60px;
 	color: #337ab7	;
-	opacity: .7
+	opacity: .8;
+	z-index: 100;
 }
 
 
@@ -101,6 +102,9 @@ input:-webkit-autofill {
 .loginInfo-group, .loginInfo-user {
 	margin-right: .5em;
 	color: #fff;
+}
+.logoDefault {
+	padding: 3px 0;
 }
 
 
@@ -514,7 +518,9 @@ input:-webkit-autofill {
 	width: 4.6em;
 	height: 4.6em;
 	margin: 0 .5em;
-	border: 1px solid #eee;
+}
+.postPanelEyecatch.stretched {
+	padding: .6em;
 }
 
 .batchCheck {
@@ -1587,6 +1593,7 @@ h5 {
 }
 .form-control {
 	font-size: 13px;
+	line-height: 1.5;
 }
 .navbar-default {
 	background-color: #fff;

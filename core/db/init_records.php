@@ -259,7 +259,7 @@ $init_records = array
 	"INSERT INTO `{$table_prefix}posttypes` (`id`, `site_id`, `name`, `slug`, `line_order`, `status`, `delete_flg`) VALUES
 	(1001, '0001', '{$REC_POSTTYPE_DEFAULTCONTACT[$lang]}', 'contact', 1, 1, 0)",
 	
-	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1001, 'use_customitem_flg', '0')",
+	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1001, 'use_customitem_flg', '1')",
 	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1001, 'contacts_list_num', '10')",
 	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1001, 'contacts_sort_order', 'DESC')",
 	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1001, 'contacts_column01', '1')",

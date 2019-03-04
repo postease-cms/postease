@@ -5,7 +5,7 @@
 //exit;
 ?>
 <!-- OUTER WRAP -->
-<main id="content" class="col-md-10" data-auto_save_flg="<?=$auto_save_flg?>" data-tinymce_init="<?=$tinymce_init?>" data-tinymce_css="<?=$tinymce_css?>" data-editable_flg="<?=$editable_flg?>">
+<main id="content" class="col-md-10" data-site="<?=$site_slug?>" data-posttype="<?=$posttype_slug?>" data-auto_save_flg="<?=$auto_save_flg?>" data-tinymce_init="<?=$tinymce_init?>" data-tinymce_css="<?=$tinymce_css?>" data-editable_flg="<?=$editable_flg?>">
 	
 	<!-- PAGE TITLE -->
 	<div id="page_title" class="panel panel-default">
@@ -263,7 +263,7 @@
 															<input type="hidden" class="custom_image_target" id="items_<?=$custom_item_id?>_<?=$language_id?>_target" name="items_<?=$custom_item_id?>_<?=$language_id?>_target" value="<?=$row_cust['choices']?>">
 															<input type="hidden" class="custom_image" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]" value="<?=$items[$custom_item_id][$language_id]?>">
 														</div>
-														<a href="filemanager/dialog.php?type=2&field_id=items_<?=$custom_item_id?>_<?=$language_id?>" type="button" id="set_<?=$custom_item_id?>_<?=$language_id?>" class="btn btn-default openFilemanager set_custom_image"><?=TXT_POST_BTN_IMG_SET?></a>
+														<a href="filemanager/dialog.php?type=2&field_id=items_<?=$custom_item_id?>_<?=$language_id?>" type="button" id="set_<?=$custom_item_id?>_<?=$language_id?>" class="btn btn-default notLink openFilemanager set_custom_image"><?=TXT_POST_BTN_IMG_SET?></a>
 														<button type="button" id="remove_<?=$custom_item_id?>_<?=$language_id?>" class="btn btn-warning hidden remove_custom_image"><?=TXT_POST_BTN_IMG_DELETE?></button>
 													</div>
 												<?php elseif ($row_cust['type'] == 'gallery'):?>

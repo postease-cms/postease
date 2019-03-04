@@ -226,7 +226,7 @@
 							<?php endif?>
 							
 							<?php if ($use_list_eyecatch_flg):?>
-							<a href="./?view_page=post&amp;id=<?=$row['id']?>&amp;version=<?=$row['version']?>&amp;process=12"><img class="postPanelEyecatch" src="<?=$row['eyecatch']?>"></a>
+							<a href="./?view_page=post&amp;id=<?=$row['id']?>&amp;version=<?=$row['version']?>&amp;process=12"><img class="postPanelEyecatch <?=(!empty($row['noimage']))?'stretched':''?>" src="<?=$row['eyecatch']?>"></a>
 							<?php endif?>
 							
 							<span>

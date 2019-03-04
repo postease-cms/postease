@@ -274,7 +274,7 @@ function shapeSingleByte($string, $type)
 {
 	$shaped_string     = null;
 	$processing_string = null;
-	$type_regex = array('slug' => '/^[a-z0-9_]+$/', 'account' => '/^[a-z0-9]+$/');
+	$type_regex = array('slug' => '/^[a-z0-9_-]+$/', 'account' => '/^[a-z0-9_-]+$/');
 	if ($string)
 	{
 		$processing_string = str_replace(' ', '_', strtolower(mb_convert_kana($string, 'rns', 'UTF-8')));
