@@ -430,18 +430,21 @@ $(function ()
 	/*
 	 * Permalink
 	 * ------------------------------------------------------------------------------------------------ */
-	generatePermalink();
-	$('#slug, #publish_datetime, #title_1, input[name="categories[]"]').change(function ()
+	if ($('main').data('use_permalink') == 1)
 	{
-		$.when(
-			generatePermalink()
-		).done(function ()
+		generatePermalink();
+		$('#slug, #publish_datetime, #title_1, input[name="categories[]"]').change(function ()
 		{
-			delay(function() {
-				saveArticle();
-			}, 1500 );
+			$.when(
+				generatePermalink()
+			).done(function ()
+			{
+				delay(function() {
+					saveArticle();
+				}, 1500 );
+			})
 		})
-	})
+	}
 
 });
 
@@ -858,14 +861,14 @@ function generatePermalink ()
 	var $slug             = ($('#slug').val()) ? $('#slug').val() : $title_slug;
 	var $publish_datetime = String($('#publish_datetime').val());
 	var $category_slug    = $("input[name='categories[]']:checked").data('slug');
-	
+
 	var $consolidation_first  = ($permalink_type == 2) ? '/' : '?post_key=';
 	var $consolidation_common = ($permalink_type == 2) ? '/' : '-';
-	
+
 	var $permalink_key = '';
 	var $permalink_uri = '';
 	var $permalink_url = '';
-	
+
 	switch ($permalink_style)
 	{
 		case 1:

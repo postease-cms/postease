@@ -5,7 +5,7 @@
 //exit;
 ?>
 <!-- OUTER WRAP -->
-<main id="content" class="col-md-10" data-site="<?=$site_slug?>" data-posttype="<?=$posttype_slug?>" data-auto_save_flg="<?=$auto_save_flg?>" data-tinymce_init="<?=$tinymce_init?>" data-tinymce_css="<?=$tinymce_css?>" data-editable_flg="<?=$editable_flg?>">
+<main id="content" class="col-md-10" data-site="<?=$site_slug?>" data-posttype="<?=$posttype_slug?>" data-auto_save_flg="<?=$auto_save_flg?>" data-tinymce_init="<?=$tinymce_init?>" data-tinymce_css="<?=$tinymce_css?>" data-editable_flg="<?=$editable_flg?>" data-use_permalink="<?=($resource_url||$rewrite_url)?1:0?>">
 	
 	<!-- PAGE TITLE -->
 	<div id="page_title" class="panel panel-default">

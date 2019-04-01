@@ -187,7 +187,7 @@ function TXT_INDEX_LBL_NOTICE_DRAFT($count_parent = 0, $count_child = 0)
 /*
  * about_system
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_ABOUTSYSTEM_LBL_TITLE',            'POSTEASE install type について');
+define('TXT_ABOUTSYSTEM_LBL_TITLE',            'POSTEASE について');
 define('TXT_ABOUTSYSTEM_THD_THISVERSION',      'バージョン');
 define('TXT_ABOUTSYSTEM_THD_LICENSE',          'ライセンス');
 define('TXT_ABOUTSYSTEM_LBL_LICENSEBASIC',     'ベーシック');

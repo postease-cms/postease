@@ -190,7 +190,7 @@
 			<?php endif?>
 			<div class="packageInfo">
 				<div class="ly_packageInfo-logoWrapper">
-					<a href="https://classic.postease.org" target="_blank">POSTEASE install type</a> ver <?=$_SESSION[$session_key]['configs']['postease_version']?> <?=($_SESSION[$session_key]['license']['type'])?TXT_INDEX_MSG_LICENSEBUSINESS:TXT_INDEX_MSG_LICENSEBASIC?>
+					<a href="https://classic.postease.org" target="_blank">POSTEASE</a> ver <?=$_SESSION[$session_key]['configs']['postease_version']?> <?=($_SESSION[$session_key]['license']['type'])?TXT_INDEX_MSG_LICENSEBUSINESS:TXT_INDEX_MSG_LICENSEBASIC?>
 					<?php if ($_SESSION[$session_key]['license']['validity'] == 1 && $_SESSION[$session_key]['license']['type'] == 0):?>
           (<a target="_blank" href="https://classic.postease.org/license/"><?=TXT_INDEX_MSG_PUSHBUSINESS?></a>)
           <?php endif?>

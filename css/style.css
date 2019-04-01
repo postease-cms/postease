@@ -605,6 +605,7 @@ input:-webkit-autofill {
 }
 figure > figcaption {
 	margin: -.5em 0 1.5em 0;
+	word-break: break-all;
 }
 
 

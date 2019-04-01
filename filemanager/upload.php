@@ -74,7 +74,7 @@ if ( ! empty($_FILES))
 		$targetPath = $storeFolder;
 		$targetPathThumb = $storeFolderThumb;
 		//$_FILES['file']['name'] = fix_filename($_FILES['file']['name'],$transliteration,$convert_spaces, $replace_with);
-		$_FILES['file']['name'] = $system_file_name . "." . $info['extension'];
+		$_FILES['file']['name'] = ($info['extension'] == 'pdf' || $_FILES['file']['type'] == 'application/pdf') ? $_FILES['file']['name'] : $system_file_name . "." . $info['extension'];
 
 	 	// Gen. new file name if exists
 		if (file_exists($targetPath.$_FILES['file']['name']))

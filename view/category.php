@@ -84,6 +84,8 @@
 						<div class="form-group col-md-1">
 							<input type="hidden" id="process" name="process" value="<?=$process?>">
 							<input type="hidden" id="update_id" name="update_id" value="<?=$this_id?>"><br>
+              <input type="hidden" id="permalink_engage" name="permalink_engage" value="<?=$permalink_engage?>"><br>
+              <input type="hidden" id="former_slug" name="former_slug" value="<?=$this_slug?>"><br>
 							<input class="btn btn-primary" type="submit" id="do_update" name="<?=$submit_name?>" value="<?=TXT_CATEGORY_BTN_UPDATE?>">
 							<span class="spinner hidden"><i class="fa fa-spinner fa-pulse"></i></span>
 							<input class="btn btn-danger" type="button" id="do_delete" name="do_delete" value="<?=TXT_CATEGORY_BTN_DELETE?>">
