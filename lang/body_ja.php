@@ -341,6 +341,7 @@ define('TXT_POST_LBL_DELETEVERSION',            'このバージョンを削除�
 define('TXT_POST_LBL_NEWVERSION',               '新しいバージョン');
 define('TXT_POST_LBL_ALLOWDELETEVERSION',       'バージョンの削除を許可する');
 define('TXT_POST_LBL_SLUG',                     'スラッグ');
+define('TXT_POST_LBL_CHANGE_SLUG',              '変更する');
 define('TXT_POST_PLH_SLUG',                     'タイトルより優先的にURLの一部になります。半角英数字と「_」「-」が利用可能です。');
 define('TXT_POST_PLH_TITLEWITHSLUG',            'スラッグが設定されていない場合はURLの一部になります。');
 define('TXT_POST_LBL_PUBLISHDATETIME',          '公開日時');

@@ -145,6 +145,16 @@ $(function ()
 			$('#publish_post').removeClass('hidden');
 		});
 	}
+
+	// Change Slug
+	$('#change_slug').on('click', function()
+	{
+		if (window.confirm(TXT_POST_CFM_CHANGE_SLUG))
+		{
+			$('#slug').prop('disabled', false);
+			$(this).hide();
+		}
+	});
 	
 	// Submit
 	$(document).on('click', '#publish_post', function ()

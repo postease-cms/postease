@@ -124,10 +124,14 @@
 
 										<!-- slug -->
 										<div class="form-group post_item_container <?=($use_slug_flg)?'':'hidden'?>">
-											<label class="control-label" for="slug"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?=TXT_POST_LBL_SLUG?></label>
+											<label class="control-label" for="slug"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?=TXT_POST_LBL_SLUG?>
+                      <?php if ($slug):?>
+                      <small><a id="change_slug">(<?=TXT_POST_LBL_CHANGE_SLUG?>)</a></small>
+                      <?php endif?>
+                      </label>
 											<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
 											<div id="input_wrapper_slug" data-target_table="<?=$table_prefix?>posts_base" data-classification="" data-this_id="<?=$id?>">
-												<input class="form-control needValidation" data-valid_type="slug" type="text" id="slug" name="slug" value="<?=$slug?>" placeholder="<?=TXT_POST_PLH_SLUG?>">
+												<input class="form-control needValidation" data-valid_type="slug" type="text" id="slug" name="slug" value="<?=$slug?>" <?=($slug)?'disabled':''?> placeholder="<?=TXT_POST_PLH_SLUG?>">
 											</div>
 										</div>
 									
@@ -152,52 +156,52 @@
 										<?php if (count($custom_items)):?>
 											<?php foreach ($custom_items as $custom_item_id => $row_cust):?>
 												<?php if ($row_cust['type'] == 'text'):?>
-													<div class="form-group post_item_container">
+													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div><input class="form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" type="text" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]" value="<?=$items[$custom_item_id][$language_id]?>"></div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'datetime'):?>
-                          <div class="form-group post_item_container">
+                          <div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
                             <label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-calendar"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
                             <div><input class="form-control customDateTime" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" type="text" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]" value="<?=$items[$custom_item_id][$language_id]?>"></div>
                           </div>
                         <?php elseif ($row_cust['type'] == 'date'):?>
-													<div class="form-group post_item_container">
+													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-calendar"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div><input class="form-control customDate" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" type="text" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]" value="<?=$items[$custom_item_id][$language_id]?>"></div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'time'):?>
-                          <div class="form-group post_item_container">
+                          <div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
                             <label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-calendar"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
                             <div><input class="form-control customTime" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" type="text" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]" value="<?=$items[$custom_item_id][$language_id]?>"></div>
                           </div>
 												<?php elseif ($row_cust['type'] == 'textarea-s'):?>
-													<div class="form-group post_item_container">
+													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div><textarea class="small form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]"><?=$items[$custom_item_id][$language_id]?></textarea></div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'textarea-m'):?>
-													<div class="form-group post_item_container">
+													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div><textarea class="medium form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]"><?=$items[$custom_item_id][$language_id]?></textarea></div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'textarea-l'):?>
-													<div class="form-group post_item_container">
+													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div><textarea class="large form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]"><?=$items[$custom_item_id][$language_id]?></textarea></div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'list'):?>
-													<div class="form-group post_item_container">
+													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-list-ul"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div><textarea class="medium form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]" placeholder="<?=TXT_POST_PLH_LIST?>"><?=$items[$custom_item_id][$language_id]?></textarea></div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'table'):?>
-													<div class="form-group post_item_container">
+													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-table"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div><textarea class="medium form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]" placeholder="<?=TXT_POST_PLH_TABLE($column_delimiter_list[$row_cust['choices']])?>"><?=$items[$custom_item_id][$language_id]?></textarea></div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'syntax'):?>
-													<div class="form-group post_item_container">
+													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div class="syntaxDisplay clearfix">
 															<div class="col-md-6 col-xs-12" id="syntax_<?=$custom_item_id?>_<?=$language_id?>"></div>
@@ -207,7 +211,7 @@
 														</div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'relation'):?>
-                          <div class="form-group post_item_container">
+                          <div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
                             <label class="control-label" for="items_<?=$custom_item_id?>"><i class="fa fa-link"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
                             <div>
                               <select class="form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]">
@@ -221,7 +225,7 @@
                             </div>
                           </div>
 												<?php elseif ($row_cust['type'] == 'select'):?>
-													<div class="form-group post_item_container">
+													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>"><i class="fa fa-share-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div>
 															<select class="form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]">
@@ -235,7 +239,7 @@
 														</div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'checkbox'):?>
-													<div class="form-group post_item_container">
+													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>"><i class="fa fa-check-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div>
 															<?php foreach ($row_cust['choices'][$language_id] as $key_choi => $choice):?>
@@ -246,7 +250,7 @@
 														</div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'radio'):?>
-													<div class="form-group post_item_container">
+													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>"><i class="fa fa-check-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div>
 															<?php foreach ($row_cust['choices'][$language_id] as $key_choi => $choice):?>
@@ -257,7 +261,7 @@
 														</div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'image'):?>
-													<div class="form-group post_item_container custome_image_container" id="custome_image_container_<?=$custom_item_id?>_<?=$language_id?>">
+													<div class="form-group post_item_container custome_image_container" id="custome_image_container_<?=$custom_item_id?>_<?=$language_id?>" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-picture-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div id="<?=$custom_item_id?>_<?=$language_id?>_wrap" class="custom_image_wrap">
 															<input type="hidden" class="custom_image_target" id="items_<?=$custom_item_id?>_<?=$language_id?>_target" name="items_<?=$custom_item_id?>_<?=$language_id?>_target" value="<?=$row_cust['choices']?>">
@@ -268,7 +272,7 @@
 													</div>
 												<?php elseif ($row_cust['type'] == 'gallery'):?>
 													<?php //print '<pre>';print_r($items);print '</pre>'; ?>
-													<div class="form-group post_item_container custome_gallery_container" id="custome_gallery_container_<?=$custom_item_id?>_<?=$language_id?>">
+													<div class="form-group post_item_container custome_gallery_container" id="custome_gallery_container_<?=$custom_item_id?>_<?=$language_id?>" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-th"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div class="row custom_gallery_display">
 															<ul class="sortable">

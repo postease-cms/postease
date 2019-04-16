@@ -55,6 +55,7 @@ var TXT_POST_MSG_SYNTAX         = '「Shift」 + 「Enter」 で更新反映';
 var TXT_POST_LBL_NEWPAGE        = '新しいページ';
 var TXT_POST_MSG_SAVE           = '保存';
 var TXT_POST_CFM_DELETE         = 'このバージョンを削除しますか？（削除したバージョンは元に戻せません。）';
+var TXT_POST_CFM_CHANGE_SLUG    = 'スラッグを変更するとURLも変更になる可能性があります。変更しますか？';
 var TXT_POST_STATUS_DRAFTED     = '下書き';
 var TXT_POST_STATUS_PUBLISHED   = '公開中';
 var TXT_POST_STATUS_SCHEDULED   = '公開予定';
