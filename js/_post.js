@@ -151,7 +151,7 @@ $(function ()
 	{
 		if (window.confirm(TXT_POST_CFM_CHANGE_SLUG))
 		{
-			$('#slug').prop('disabled', false);
+			$('#slug').prop('readonly', false);
 			$(this).hide();
 		}
 	});
