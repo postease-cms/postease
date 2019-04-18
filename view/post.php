@@ -131,7 +131,7 @@
                       </label>
 											<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
 											<div id="input_wrapper_slug" data-target_table="<?=$table_prefix?>posts_base" data-classification="" data-this_id="<?=$id?>">
-												<input class="form-control needValidation" data-valid_type="slug" type="text" id="slug" name="slug" value="<?=$slug?>" <?=($slug)?'disabled':''?> placeholder="<?=TXT_POST_PLH_SLUG?>">
+												<input class="form-control needValidation" data-valid_type="slug" type="text" id="slug" name="slug" value="<?=$slug?>" <?=($slug)?'readonly':''?> placeholder="<?=TXT_POST_PLH_SLUG?>">
 											</div>
 										</div>
 									
