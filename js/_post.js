@@ -345,6 +345,19 @@ $(function ()
 	});
 
 
+  /*
+   * String length (input-text, textarea)
+   * ------------------------------------------------------------------------------------------------ */
+	$('input[type="text"], textarea').keyup(function(){
+    var length = $(this).val().toString().length;
+		$(this).parents('.form-group').find('.strlen').text(length);
+	});
+  $('input[type="text"], textarea').each(function(){
+    var length = $(this).val().toString().length;
+    $(this).parents('.form-group').find('.strlen').text(length);
+  });
+
+
 	/*
 	 * Media(image)
 	 * ------------------------------------------------------------------------------------------------ */

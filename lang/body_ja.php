@@ -1226,7 +1226,8 @@ define('TXT_CODE_COM_IMPLEMENT_JQUERYATTENTION',     'リモートサーバか�
 
 define('TXT_CODE_COM_IMPLEMENT_POSTSCONFIG',         'ポスト一覧の取得条件を設定');
 define('TXT_CODE_COM_IMPLEMENT_GETPOSTS',            'ポスト一覧を取得');
-define('TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYPOSTKEY', 'post_key をセットしてポストを取得');
+define('TXT_CODE_COM_IMPLEMENT_POSTCONFIG',          'ポストの取得条件を設定（スラッグ利用の場合）');
+define('TXT_CODE_COM_IMPLEMENT_POSTCONFIGBYPOSTKEY', 'ポストを取得');
 define('TXT_CODE_COM_IMPLEMENT_RENDERPOSTS',         'ポストデータをHTMLに書き出し');
 
 define('TXT_CODE_COM_IMPLEMENT_CATEGORIESCONFIG',  'カテゴリーデータの取得条件を設定');

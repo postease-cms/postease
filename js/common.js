@@ -169,8 +169,8 @@ function validOne($string, $type)
 	var $regex =
 	{
 			email     : /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/,
-			account   : /^([a-z0-9_.-@]{2,32})$/,
-			slug      : /^([a-zA-Z]+[a-zA-Z0-9_-]*)$/,
+			account   : /^([a-z0-9\_\.\-\@]{2,64})$/,
+			slug      : /^([a-zA-Z0-9_-]*)$/,
 			password  : /^[a-zA-Z0-9\/\*\-\+\.\,\!\?\#\$\%\(\)\~\|\_]{7,32}$/,
 			prefix    : /^[a-z]{2,8}[_]$/,
 			activation_key    : /^[A-Z]{4}[-][0-9]{4}[-][0-9]{4}[-][0-9]{4}[-][A-Z]{4}$/,

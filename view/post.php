@@ -112,7 +112,7 @@
 										
 										<!-- title -->
 										<div class="form-group <?=($use_slug_flg)?'':'post_item_container'?>">
-											<label class="control-label" for="title_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_title?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+											<label class="control-label" for="title_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_title?>&nbsp;<span class="strlen label label-info"></span> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 											<div><input class="form-control" type="text" data-group="title" data-num="<?=$language_id?>" id="title_<?=$language_id?>" name="title[<?=$language_id?>]" value="<?=$text[$language_id]['title']?>" placeholder="<?=($use_slug_flg)?TXT_POST_PLH_TITLEWITHSLUG:$label_title?>" <?=($child_flg)?'disabled':''?>></div>
 											<?php if ($config_posttype['use_multipage_flg'] && (count($post_pages) > 1 || ! empty($parent_id))):?>
 											<span class="label label-primary">
@@ -125,6 +125,7 @@
 										<!-- slug -->
 										<div class="form-group post_item_container <?=($use_slug_flg)?'':'hidden'?>">
 											<label class="control-label" for="slug"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?=TXT_POST_LBL_SLUG?>
+                      <span class="strlen label label-info"></span>
                       <?php if ($slug):?>
                       <small><a id="change_slug">(<?=TXT_POST_LBL_CHANGE_SLUG?>)</a></small>
                       <?php endif?>
@@ -137,7 +138,7 @@
 									
 										<!-- addition -->
 										<div class="form-group post_item_container <?=($use_addition_flg)?'':'hidden'?>">
-											<label class="control-label" for="addition_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_addition?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+											<label class="control-label" for="addition_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_addition?> <span class="strlen label label-info"></span> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 											<div><input class="form-control" type="text" data-group="addition" data-num="<?=$language_id?>" id="addition_<?=$language_id?>" name="addition[<?=$language_id?>]" value="<?=$text[$language_id]['addition']?>" placeholder="<?=$label_addition?>"></div>
 										</div>
 									<?php endif?>
@@ -146,7 +147,7 @@
 										<!-- content -->
 										<div class="form-group post_item_container <?=($use_content_flg)?'':'hidden'?> <?=($use_content_flg && $use_wisiwyg_flg)?'tinymceWrapper':''?>">
 											<input type="hidden" id="judge_flg_wisiwyg" value="<?=$use_wisiwyg_flg?>">
-											<label class="control-label" for="content_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_content?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+											<label class="control-label" for="content_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_content?>&nbsp;<?=($use_wisiwyg_flg)?'':'<span class="strlen label label-info"></span>'?> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 											<textarea class="content <?=($use_wisiwyg_flg)?'mce':'form-control'?>" data-group="content" data-num="<?=$language_id?>" id="content_<?=$language_id?>" name="content[<?=$language_id?>]"><?=htmlentities($text[$language_id]['content'], ENT_QUOTES, 'UTF-8')?></textarea>
 										</div>
 									<?php endif?>
@@ -157,7 +158,7 @@
 											<?php foreach ($custom_items as $custom_item_id => $row_cust):?>
 												<?php if ($row_cust['type'] == 'text'):?>
 													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
-														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?> <span class="strlen label label-info"></span> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div><input class="form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" type="text" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]" value="<?=$items[$custom_item_id][$language_id]?>"></div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'datetime'):?>
@@ -177,17 +178,17 @@
                           </div>
 												<?php elseif ($row_cust['type'] == 'textarea-s'):?>
 													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
-														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?> <span class="strlen label label-info"></span> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div><textarea class="small form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]"><?=$items[$custom_item_id][$language_id]?></textarea></div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'textarea-m'):?>
 													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
-														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?> <span class="strlen label label-info"></span> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div><textarea class="medium form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]"><?=$items[$custom_item_id][$language_id]?></textarea></div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'textarea-l'):?>
 													<div class="form-group post_item_container" data-custom_item_name="custom_<?=$row_cust['slug']?>">
-														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$row_cust['name']?> <span class="strlen label label-info"></span> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 														<div><textarea class="large form-control" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]"><?=$items[$custom_item_id][$language_id]?></textarea></div>
 													</div>
 												<?php elseif ($row_cust['type'] == 'list'):?>
@@ -303,18 +304,18 @@
 									<?php if ($customitem_position == 1):?>
 										<!-- title -->
 										<div class="form-group post_item_container">
-											<label class="control-label" for="title_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_title?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+											<label class="control-label" for="title_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_title?> <span class="strlen label label-info"></span>&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 											<div><input class="form-control" type="text" data-group="title" data-num="<?=$language_id?>" id="title_<?=$language_id?>" name="title[<?=$language_id?>]" value="<?=$text[$language_id]['title']?>" placeholder="<?=$label_title?>" <?=($child_flg)?'disabled':''?>></div>
 											<?php if ($config_posttype['use_multipage_flg'] && (count($post_pages) > 1 || ! empty($parent_id))):?>
-												<span class="label label-primary">
-									<i class="fa fa-clone"></i>
-													<?=$this_post_page?> / <?=count($post_pages)?>
-								</span>
+                      <span class="label label-primary">
+                      <i class="fa fa-clone"></i>
+                      <?=$this_post_page?> / <?=count($post_pages)?>
+                      </span>
 											<?php endif?>
 										</div>
 										<!-- addition -->
 										<div class="form-group post_item_container <?=($use_addition_flg)?'':'hidden'?>">
-											<label class="control-label" for="addition_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_addition?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+											<label class="control-label" for="addition_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_addition?>&nbsp;<span class="strlen label label-info"></span> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 											<div><input class="form-control" type="text" data-group="addition" data-num="<?=$language_id?>" id="addition_<?=$language_id?>" name="addition[<?=$language_id?>]" value="<?=$text[$language_id]['addition']?>" placeholder="<?=$label_addition?>"></div>
 										</div>
 									<?php endif?>
@@ -323,7 +324,7 @@
 										<!-- content -->
 										<div class="form-group post_item_container <?=($use_content_flg)?'':'hidden'?> <?=($use_content_flg && $use_wisiwyg_flg)?'tinymceWrapper':''?>">
 											<input type="hidden" id="judge_flg_wisiwyg" value="<?=$use_wisiwyg_flg?>">
-											<label class="control-label" for="content_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_content?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+											<label class="control-label" for="content_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_content?>&nbsp;<?=($use_wisiwyg_flg)?'':'<span class="strlen label label-info"></span>'?> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 											<textarea class="content <?=($use_wisiwyg_flg)?'mce':'form-control'?>" data-group="content" data-num="<?=$language_id?>" id="content_<?=$language_id?>" name="content[<?=$language_id?>]"><?=htmlentities($text[$language_id]['content'], ENT_QUOTES, 'UTF-8')?></textarea>
 										</div>
 									<?php endif?>
@@ -622,6 +623,6 @@
 <?php if ($use_wisiwyg_flg):?>
 	<script src="<?=$tinymce_init?>"></script>
 <?php endif?>
-<?php if ($permalink_type == 2 && $permalink_style == 5):?>
-<script src="js/check_slug.js"></script>
+<?php if ($permalink_type == 2 && $permalink_style >= 5):?>
+<script src="js/check_post_slug.js"></script>
 <?php endif?>

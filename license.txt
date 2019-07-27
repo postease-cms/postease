@@ -1,13 +1,13 @@
-PostEase
-v3.2
+POSTEASE
+v3.3
 
 [Copyright]
 Copyright© khiten Inc.
-2015-2018 khiten Inc. All rights reserved.
+2015-2019 khiten Inc. All rights reserved.
 contact@khiten.co.jp
 
 [License]
-Rights of distribution of this software belong to postease.org basically,
+Rights of distribution of this software belong to khiten Inc. basically,
 and use license is given to every users.
 contact@postease.org
 

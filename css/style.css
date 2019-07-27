@@ -930,6 +930,9 @@ textarea.content {
 	padding: .2em .4em;
 	margin-top: .2em;
 }
+.strlen {
+	margin: 0 .3em;
+}
 
 
 
@@ -1445,6 +1448,9 @@ textarea.content {
  ***********************/
 
 .hidden {
+	display: none;
+}
+.invalid {
 	display: none;
 }
 .color-red {
