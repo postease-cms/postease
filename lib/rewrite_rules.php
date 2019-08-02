@@ -7,8 +7,9 @@ function generateRewriteRule($permalink_style, $resource_uri, $rewrite_url_flg =
 											"RewriteEngine On" . "\n";
 	
 	$rewrite_rule_operator =  "RewriteCond %{REQUEST_FILENAME}\.{$rewrite_operator} -f" . "\n" .
+                            "RewriteCond %{REQUEST_FILENAME} !-d" . "\n" .
 														"RewriteCond %{REQUEST_FILENAME} !^(.*)\.(css|js|gif|png|jpe?g|ico|svg)$ [NC]" . "\n" .
-														"RewriteRule ^(.*)$ $1.{$rewrite_operator}" . "\n";
+														"RewriteRule ^(.*)/$ $1.{$rewrite_operator}" . "\n";
 	
 	$base_text_bottom = "</IfModule>" . "\n" .
 											"# END POSTEASE REWRITE";

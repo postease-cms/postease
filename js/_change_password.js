@@ -39,6 +39,16 @@ $(function(){
   $('#download_password').on('click', function () {
 		$('#download_password').remove();
   })
+
+	// Change Slug
+	$('#change_account').on('click', function()
+	{
+		if (window.confirm(TXT_POST_CFM_CHANGE_ACCOUNT))
+		{
+			$('#account').prop('readonly', false);
+			$(this).hide();
+		}
+	});
   
 });
 

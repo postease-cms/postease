@@ -50,7 +50,7 @@ define('TXT_MAINMENU_LBL_MEDIA',          'メディア');
 define('TXT_MAINMENU_LBL_IMAGE_CONFIG',   'イメージフレーム');
 define('TXT_MAINMENU_LBL_USER',           'ユーザ');
 define('TXT_MAINMENU_LBL_GROUP',          'グループ');
-define('TXT_MAINMENU_LBL_CHANGE_PASS',    'パスワード変更');
+define('TXT_MAINMENU_LBL_CHANGE_PASS',    'アカウント更新');
 define('TXT_MAINMENU_LBL_SITE_OPTION',    'サイトオプション');
 define('TXT_MAINMENU_LBL_SITE',           'マルチサイト');
 define('TXT_MAINMENU_LBL_POSTTYPE',       'マルチポストタイプ');
@@ -140,7 +140,7 @@ define('TXT_LOGIN_VAL_SUBMIT',         'ログイン');
  * index
  * ------------------------------------------------------------------------------------------------ */
 define('TXT_INDEX_WAR_PASSWORD_01',         'パスワードが初期設定のままです。<a href="?view_page=change_password">こちら</a>から変更してください');
-define('TXT_INDEX_WAR_PASSWORD_02',         '３ヶ月以上パスワードが変更されていません。メニュー「ユーザ」「パスワード変更」で変更してください。');
+define('TXT_INDEX_WAR_PASSWORD_02',         '３ヶ月以上パスワードが変更されていません。メニュー「ユーザ」「アカウント更新」で変更してください。');
 define('TXT_INDEX_LBL_SUMMARY',             'サマリー');
 define('TXT_INDEX_LBL_POST',                'ポスト');
 define('TXT_INDEX_LBL_PAGE',                '下層ページ');
@@ -609,7 +609,7 @@ function TXT_USER_MSG_ADDED($default_password){ return $text = "ユーザの追�
 define('TXT_USER_LBL_ALLOWDELETE',     '削除を許可');
 define('TXT_USER_LBL_CANCELEDIT',      '編集をキャンセル');
 define('TXT_USER_LBL_NEW',             '新規');
-define('TXT_USER_LBL_ACCOUNT',         'アカウント');
+define('TXT_USER_LBL_ACCOUNT',         'アカウント（メールアドレス推奨）');
 define('TXT_USER_PLH_ACCOUNT',         'richard');
 define('TXT_USER_LBL_NICKNAME',        'ニックネーム');
 define('TXT_USER_PLH_NICKNAME',        'リック');
@@ -624,7 +624,7 @@ define('TXT_USER_BTN_UPDATE',          '送信');
 define('TXT_USER_BTN_DELETE',          '削除');
 define('TXT_USER_LBL_LIST',            '一覧');
 define('TXT_USER_THD_ID',              'ID');
-define('TXT_USER_THD_ACCOUNT',         'アカウント');
+define('TXT_USER_THD_ACCOUNT',         'アカウント（メールアドレス推奨）');
 define('TXT_USER_THD_NICKNAME',        'ニックネーム');
 define('TXT_USER_THD_GROUPNAME',       'グループ');
 define('TXT_USER_THD_ROLE',            '権限');
@@ -637,8 +637,8 @@ function TXT_USER_LBL_NOWEDIT($target){ return $text = "{$target} を編集中";
  * _change_password
  * ------------------------------------------------------------------------------------------------ */
 define('TXT_CHANGEPASSWORD_PAGETITLEMAIN',   'ユーザ');
-define('TXT_CHANGEPASSWORD_PAGETITLESUB',    'パスワード変更');
-define('TXT_CHANGEPASSWORD_MSG_CHANGED',     'パスワードの変更が完了しました。セキュリティ保全のため一度<a href="./_logout.php">ログアウト</a>して再ログインしてください。');
+define('TXT_CHANGEPASSWORD_PAGETITLESUB',    'アカウント更新');
+define('TXT_CHANGEPASSWORD_MSG_CHANGED',     'アカウントを更新しました。');
 
 /*
  * change_password
@@ -650,7 +650,10 @@ define('TXT_CHANGEPASSWORD_PLH_NEW',         '新しいパスワードを入力�
 define('TXT_CHANGEPASSWORD_LBL_CONFIRM',     '新しいパスワード（再入力）');
 define('TXT_CHANGEPASSWORD_PLH_CONFIRM',     '新しいパスワードを入力してください（再入力）');
 define('TXT_CHANGEPASSWORD_LBL_AUTOGENERATE','新しいパスワードを自動生成');
-define('TXT_CHANGEPASSWORD_LBL_NICKNAME',    'ニックネームの変更（オプション）');
+define('TXT_CHANGEPASSWORD_LBL_ACCOUNT',     'アカウント名の変更（メールアドレス推奨）');
+define('TXT_POST_LBL_CHANGE_ACCOUNT',        '変更する');
+define('TXT_CHANGEPASSWORD_LBL_NICKNAME',    'ニックネームの変更');
+define('TXT_CHANGEPASSWORD_PLH_ACCOUNT',     'アカウント名を入力してください');
 define('TXT_CHANGEPASSWORD_PLH_NICKNAME',    'ニックネームを入力してください');
 define('TXT_CHANGEPASSWORD_BTN_SUBMIT',      '変更');
 

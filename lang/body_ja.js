@@ -129,6 +129,11 @@ var TXT_USER_ALT_CANTSETGROUP   = 'サイト管理者はグループに設定で
 
 
 /*
+ * change_password
+ * ------------------------------------------------------------------------------------------------ */
+var TXT_POST_CFM_CHANGE_ACCOUNT    = '変更しますか？';
+
+/*
  * edit_hierarchy
  * ------------------------------------------------------------------------------------------------ */
 function TXT_EDITHIERARCHY_ALT_DELETE($target_name) { var $text = '画面右の削除ボタンで' + $target_name + 'が削除されます。\n一度削除した' + $target_name + 'は元に戻せません。'; return $text;};

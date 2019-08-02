@@ -1,2 +1,162 @@
-<?php ${"\x47\x4c\x4f\x42\x41L\x53"}["\x68\x6d\x6cc\x71ua\x76\x63k\x63\x66"]="\x70\x72o\x63es\x73\x5f\x6dsg_ty\x70e";${"G\x4c\x4fBA\x4cS"}["\x79ur\x67r\x74t"]="\x70\x72\x6f\x63\x65\x73\x73\x5f\x6ds\x67\x5f\x73\x74\x79\x6ce";${"\x47\x4c\x4f\x42\x41LS"}["\x73p\x64\x64hp\x73"]="er\x72\x6fr\x6ds\x67_\x6c\x69\x73t";${"GL\x4f\x42\x41\x4cS"}["\x79h\x6aj\x66\x6d\x6cwz\x78"]="\x70\x72\x6f\x63\x65\x73s\x5f\x6d\x73\x67";${"\x47\x4c\x4f\x42A\x4c\x53"}["\x68d\x71r\x72\x74\x61ldg\x68\x6a"]="\x75\x70\x64ate\x5fu\x73\x65r";${"\x47LO\x42\x41L\x53"}["\x77\x63\x7ab\x7a\x73"]="\x73e\x73\x73ion\x5f\x6b\x65y";${"\x47\x4c\x4f\x42\x41\x4cS"}["z\x67\x6b\x6b\x73h\x6f\x7a\x62\x64"]="\x6e\x65\x77\x5f\x6e\x69\x63\x6bname";${"GL\x4fB\x41L\x53"}["\x63\x6a\x6c\x6do\x79m"]="\x73\x71l";${"\x47\x4c\x4fB\x41\x4c\x53"}["\x65gp\x63\x68bl\x6d\x73\x70b"]="\x75\x73\x65\x72";${"G\x4c\x4f\x42A\x4c\x53"}["\x6cb\x77\x75\x75\x64\x70e\x76n\x67"]="\x72\x65a\x64_u\x73\x65\x72";${"\x47LO\x42\x41\x4c\x53"}["\x68\x73\x6f\x68\x67\x69\x63h\x6f"]="\x70\x61ge_i\x63on";${"\x47\x4cOB\x41\x4c\x53"}["\x65\x75iu\x6f\x72\x6f"]="\x70r\x6fc\x65\x73\x73\x5f\x6dsg_s\x74y\x6c\x65";${"GL\x4fB\x41LS"}["\x6d\x6b\x61wch"]="\x70\x61ge\x5ft\x69\x74\x6ce\x5f\x6d\x61i\x6e";${"\x47\x4c\x4fBA\x4c\x53"}["\x71of\x66\x6d\x66"]="\x70\x61\x67\x65_s\x75\x62";${"\x47\x4cO\x42\x41L\x53"}["\x68\x67t\x73\x74\x69\x67"]="\x70a\x67\x65\x5f\x74\x69\x74\x6c\x65\x5fs\x75\x62";$iquwdon="\x70\x72o\x63e\x73s";${"\x47L\x4f\x42\x41\x4cS"}["y\x63it\x6b\x69"]="\x70a\x67\x65_\x6d\x61\x69\x6e";$knswyc="\x69\x64";${${"\x47\x4c\x4fBA\x4c\x53"}["\x79c\x69\x74\x6bi"]}=$PageNum->getMain("u\x73\x65r");${"\x47\x4cO\x42\x41\x4c\x53"}["e\x6a\x76g\x69n\x74w\x62"]="\x6d\x6f\x64\x65";${${"\x47L\x4fB\x41\x4c\x53"}["\x71\x6f\x66\x66\x6d\x66"]}=$PageNum->getSubUser("\x70\x61ssw\x6fr\x64");${${"GL\x4f\x42A\x4cS"}["\x6dka\x77c\x68"]}=TXT_CHANGEPASSWORD_PAGETITLEMAIN;${${"\x47L\x4fB\x41\x4c\x53"}["\x68gt\x73\x74i\x67"]}=TXT_CHANGEPASSWORD_PAGETITLESUB;$pgwjnkw="p\x72oc\x65s\x73\x5fm\x73\x67";${${"\x47L\x4fBALS"}["\x68\x73\x6f\x68\x67\x69c\x68\x6f"]}="f\x61-\x75\x73\x65r";${$knswyc}=(isset($_GET["id"]))?$_GET["\x69d"]:null;${$iquwdon}=(isset($_GET["p\x72\x6fces\x73"]))?$_GET["pr\x6f\x63e\x73\x73"]:null;$tbrjhhrpl="p\x72\x6f\x63\x65\x73\x73\x5f\x6d\x73\x67\x5f\x74\x79pe";${${"G\x4c\x4f\x42\x41\x4cS"}["e\x6a\x76\x67int\x77b"]}=(isset($_GET["m\x6fd\x65"]))?$_GET["\x6do\x64e"]:1;${$pgwjnkw}=null;${${"G\x4c\x4f\x42A\x4c\x53"}["\x65uiu\x6f\x72o"]}=null;${$tbrjhhrpl}=null;if(isset($_POST["do\x5f\x73ubmi\x74"])){try{$ytramlpcf="\x73q\x6c";${$ytramlpcf}="\x53E\x4c\x45CT\x20* \x46R\x4fM\x20{$table_prefix}use\x72s W\x48E\x52\x45 ac\x63\x6f\x75n\x74\x20\x3d \x27{$_SESSION[$session_key]['user']['account']}\x27\x20\x41ND\x20\x64\x65\x6c\x65\x74e\x5f\x66lg \x3d\x200";$vjqkmi="\x73ql";${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6cbw\x75\x75\x64\x70\x65\x76\x6eg"]}=$pdo->prepare(${$vjqkmi});$read_user->execute();$rqqdsdbc="\x72\x65\x61\x64\x5fu\x73\x65r";${${"\x47L\x4f\x42\x41\x4cS"}["\x65\x67\x70\x63hb\x6c\x6d\x73p\x62"]}=$read_user->fetch(PDO::FETCH_ASSOC);unset(${$rqqdsdbc});}catch(PDOException$e){${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x77\x79\x6c\x6a\x70\x74\x68v\x75"]="\x72\x65\x61\x64\x5fe\x72\x72o\x72";${${"\x47\x4cOB\x41L\x53"}["\x77y\x6c\x6a\x70\x74h\x76\x75"]}=1;header("Lo\x63a\x74i\x6fn: ./?\x76\x69\x65\x77\x5fp\x61g\x65\x3d\x65\x72r\x6fr\x26pag\x65={$page}\x26\x72ea\x64\x5fe\x72\x72\x6f\x72={$read_error}");exit;}if(!empty($_POST["\x70ass\x77or\x64_c\x75\x72re\x6et"])&&!empty($_POST["\x70\x61s\x73wo\x72d_n\x65w"])&&!empty($_POST["p\x61s\x73\x77\x6f\x72d\x5f\x63\x6fnfirm"])){if($_POST["p\x61\x73sw\x6f\x72d_new"]==$_POST["p\x61\x73\x73\x77\x6f\x72d_\x63on\x66i\x72\x6d"]){if($_POST["password\x5f\x6e\x65\x77"]!=$_POST["password_\x63u\x72ren\x74"]){$ewzlnrtae="use\x72";$gfpdvb="us\x65\x72";if(crypt($_POST["p\x61\x73\x73\x77\x6fr\x64\x5f\x63\x75r\x72ent"],${$ewzlnrtae}["p\x61\x73\x73\x77o\x72\x64"])===${$gfpdvb}["\x70a\x73\x73w\x6fr\x64"]){$tdrocsrst="n\x65\x77_\x6e\x69c\x6bn\x61m\x65";${$tdrocsrst}=(!empty($_POST["\x6e\x69c\x6bn\x61m\x65"]))?$_POST["n\x69\x63kn\x61\x6d\x65"]:${${"\x47LO\x42\x41\x4c\x53"}["\x65\x67\x70\x63h\x62lm\x73\x70\x62"]}["\x61\x63c\x6f\x75nt"];$qwblucpx="\x6eew\x5f\x6e\x69c\x6bn\x61\x6de";try{$hwnugpsyygrp="u\x70\x64\x61t\x65_u\x73e\x72";$pdo->beginTransaction();${"G\x4cOBA\x4c\x53"}["\x6e\x71p\x76efmw\x69\x72"]="sq\x6c";${${"\x47\x4c\x4f\x42ALS"}["n\x71\x70\x76\x65\x66m\x77i\x72"]}="\n\t\t\t\t\t\t\t\x55P\x44\x41\x54E {$table_prefix}\x75se\x72\x73\x20\x53\x45T\n\t\t\t\t\t\t\t\t\x6eic\x6bn\x61\x6d\x65 \x20\x20\x3d\x20:N\x49\x43KN\x41\x4dE,\n\t\t\t\t\t\t\t\t\x70\x61sswo\x72d\x20  \x3d :P\x41\x53\x53\x57O\x52\x44,\n\t\t\t\t\t\t\t\t\x75pda\x74\x65\x64\x5f\x61t =\x20:UPD\x41\x54\x45D_A\x54\n\t\t\t\t\t\t\tWH\x45RE\x20a\x63cou\x6e\x74 \x3d\x20:\x41\x43CO\x55NT\n\t\t\t\t\t\t";${$hwnugpsyygrp}=$pdo->prepare(${${"\x47\x4c\x4f\x42A\x4cS"}["c\x6a\x6cmo\x79\x6d"]});$update_user->bindValue("N\x49\x43K\x4eA\x4d\x45",${${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x7ag\x6b\x6b\x73\x68\x6f\x7a\x62d"]});$update_user->bindValue("\x50AS\x53WOR\x44",blowfish($_POST["pa\x73\x73\x77o\x72d_n\x65w"]));$update_user->bindValue("U\x50D\x41\x54ED\x5fA\x54",date("\x59-m-d H:\x69:s"));$update_user->bindValue("A\x43C\x4fUNT",$_SESSION[${${"\x47\x4c\x4f\x42\x41\x4cS"}["wcz\x62\x7a\x73"]}]["\x75\x73e\x72"]["\x61cco\x75nt"]);$update_user->execute();unset(${${"G\x4cO\x42\x41\x4c\x53"}["\x68\x64\x71\x72r\x74\x61l\x64\x67\x68j"]});$pdo->commit();}catch(PDOException$e){$pdo->rollBack();${${"G\x4cO\x42\x41\x4c\x53"}["\x79\x68j\x6a\x66\x6dl\x77\x7a\x78"]}=${${"G\x4cO\x42\x41\x4c\x53"}["\x73\x70d\x64\x68\x70\x73"]}["\x355"];${${"\x47\x4cO\x42A\x4c\x53"}["\x79\x75r\x67\x72tt"]}="\x64ange\x72";${${"\x47\x4cO\x42\x41L\x53"}["\x68ml\x63\x71ua\x76c\x6bc\x66"]}="\x45\x72r\x6f\x72";}$_SESSION[${${"\x47LOBA\x4cS"}["\x77\x63\x7a\x62\x7a\x73"]}]["\x75ser"]["n\x69\x63\x6bna\x6d\x65"]=${$qwblucpx};${${"\x47LO\x42\x41LS"}["\x79\x68\x6aj\x66m\x6cw\x7a\x78"]}=TXT_CHANGEPASSWORD_MSG_CHANGED;${${"GL\x4f\x42\x41\x4c\x53"}["\x79\x75\x72gr\x74\x74"]}="s\x75cc\x65\x73\x73";${${"\x47\x4c\x4fBA\x4c\x53"}["\x68\x6d\x6c\x63\x71\x75\x61\x76\x63kc\x66"]}="";}else{${"\x47\x4cO\x42A\x4c\x53"}["rm\x73d\x73\x79\x6ds\x6er\x70"]="\x70\x72\x6f\x63\x65\x73\x73\x5f\x6ds\x67";${"\x47\x4c\x4f\x42\x41\x4c\x53"}["\x6fevd\x76\x68\x6c\x6e\x68"]="\x70r\x6f\x63e\x73\x73_m\x73\x67_\x73t\x79\x6c\x65";${${"\x47\x4c\x4fB\x41\x4cS"}["rm\x73\x64s\x79\x6d\x73n\x72\x70"]}=${${"\x47\x4c\x4f\x42A\x4cS"}["\x73p\x64dh\x70s"]}["\x35\x34"];${${"GL\x4f\x42A\x4cS"}["o\x65\x76\x64v\x68\x6c\x6e\x68"]}="\x64\x61\x6ege\x72";${${"\x47\x4cO\x42AL\x53"}["\x68\x6dlc\x71u\x61vck\x63f"]}="\x45\x72ror";}}else{$jmscdjehtpn="pr\x6f\x63\x65\x73\x73\x5f\x6ds\x67_\x74\x79p\x65";${"\x47\x4cO\x42\x41L\x53"}["m\x66\x62\x73\x68u\x6e\x70"]="e\x72\x72\x6f\x72ms\x67\x5flis\x74";${${"G\x4c\x4f\x42A\x4c\x53"}["\x79\x68\x6a\x6af\x6d\x6c\x77\x7a\x78"]}=${${"G\x4cO\x42\x41\x4c\x53"}["\x6dfb\x73hu\x6e\x70"]}["5\x33"];$ldfmbqrvmcl="\x70ro\x63\x65\x73\x73\x5f\x6dsg\x5f\x73\x74y\x6c\x65";${$ldfmbqrvmcl}="\x64a\x6e\x67\x65\x72";${$jmscdjehtpn}="\x45rr\x6fr";}}else{$edfuilck="\x70\x72\x6fc\x65\x73\x73\x5f\x6d\x73\x67";$ywbfhphdomf="p\x72\x6f\x63e\x73s_m\x73g\x5fs\x74y\x6c\x65";${$edfuilck}=${${"\x47\x4c\x4f\x42\x41\x4cS"}["s\x70\x64\x64\x68ps"]}["52"];$xvrwsrd="\x70roc\x65\x73s_\x6d\x73g\x5fty\x70e";${$ywbfhphdomf}="da\x6eger";${$xvrwsrd}="Err\x6f\x72";}}else{${"G\x4cO\x42\x41\x4c\x53"}["\x77\x69\x72\x64\x75\x69l\x6b\x73"]="proces\x73_\x6d\x73\x67";$bqokvbqqeji="e\x72\x72\x6frm\x73\x67\x5f\x6c\x69s\x74";${"\x47\x4cOBAL\x53"}["\x75\x71\x65vt\x73\x69\x69h"]="\x70\x72\x6fc\x65\x73s\x5f\x6d\x73\x67\x5f\x74\x79\x70e";${${"\x47\x4c\x4fB\x41L\x53"}["\x77\x69\x72\x64\x75\x69\x6cks"]}=${$bqokvbqqeji}["51"];${${"G\x4cO\x42ALS"}["\x79\x75\x72g\x72\x74\x74"]}="\x64a\x6eg\x65r";${${"G\x4c\x4f\x42\x41\x4c\x53"}["\x75q\x65\x76ts\x69\x69h"]}="E\x72ro\x72";}}
-?>
+<?php
+
+// print '<pre>';
+// print_r($_POST);
+// print '</pre>';
+// exit;
+
+/*
+ * Page Config
+ * ------------------------------------------------------------------------------------------------ */
+// Default
+$page_main       = $PageNum -> getMain('user');
+$page_sub        = $PageNum -> getSubUser('password');
+$page_title_main = TXT_CHANGEPASSWORD_PAGETITLEMAIN;
+$page_title_sub  = TXT_CHANGEPASSWORD_PAGETITLESUB;
+$page_icon       = 'fa-user';
+
+// Parameters
+$process = (isset($_GET['process'])) ? $_GET['process'] : null;
+
+// Parameters of process message
+$process_msg       = null;
+$process_msg_style = null;
+$process_msg_type  = null;
+
+/*
+ * Execute Verification
+ * ------------------------------------------------------------------------------------------------ */
+if (isset($_POST['do_submit']))
+{
+  $this_id = $_SESSION[$session_key]['user']['id'];
+	try
+	{
+		$sql = "SELECT * FROM {$table_prefix}users WHERE id = {$this_id} AND delete_flg = 0";
+		$read_user = $pdo -> prepare($sql);
+		$read_user -> execute();
+		$user = $read_user -> fetch(PDO::FETCH_ASSOC);
+		unset($read_user);
+	}
+	catch(PDOException $e)
+	{
+		$read_error = 1;
+		header("Location: ./?view_page=error&page={$page}&read_error={$read_error}");
+		//var_dump($e->getMessage());
+		exit;
+	}
+
+	// Verification Process
+	if (! empty($_POST['password_current']) && ! empty($_POST['password_new']) && ! empty($_POST['password_confirm']))
+	{
+		if ($_POST['password_new'] == $_POST['password_confirm'])
+		{
+			if ($_POST['password_new'] != $_POST['password_current'])
+			{
+				if (crypt($_POST['password_current'], $user['password']) === $user['password'])
+				{
+					// Set new nickname
+          $new_account  = (! empty($_POST['account']))  ? $_POST['account']  : $_SESSION[$session_key]['user']['account'];
+					$new_nickname = (! empty($_POST['nickname'])) ? $_POST['nickname'] : $_SESSION[$session_key]['user']['nickname'];
+
+					try {
+						$pdo -> beginTransaction();
+						$sql = "
+							UPDATE {$table_prefix}users SET
+								account    = :ACCOUNT,
+								nickname   = :NICKNAME,
+								password   = :PASSWORD,
+								updated_at = :UPDATED_AT
+							WHERE id = :ID
+						";
+						$update_user = $pdo -> prepare($sql);
+            $update_user -> bindValue('ACCOUNT',    $new_account);
+						$update_user -> bindValue('NICKNAME',   $new_nickname);
+						$update_user -> bindValue('PASSWORD',   blowfish($_POST['password_new']));
+						$update_user -> bindValue('UPDATED_AT', date('Y-m-d H:i:s'));
+						$update_user -> bindValue('ID',         $this_id);
+						$update_user -> execute();
+						unset($update_user);
+						$pdo -> commit();
+					}
+					catch(PDOException $e)
+					{
+						$pdo -> rollBack();
+						$process_msg = $errormsg_list['55'];
+						$process_msg_style = 'danger';
+						$process_msg_type  = 'Error';
+						//var_dump($e->getMessage());
+					}
+
+          $_SESSION[$session_key]['user']['account']  = $new_account;
+					$_SESSION[$session_key]['user']['nickname'] = $new_nickname;
+					$process_msg = TXT_CHANGEPASSWORD_MSG_CHANGED;
+					$process_msg_style = 'success';
+					$process_msg_type  = '';
+				}
+				else {
+					$process_msg = $errormsg_list['54'];
+					$process_msg_style = 'danger';
+					$process_msg_type  = 'Error';
+				}
+			}
+			else {
+				$process_msg = $errormsg_list['53'];
+				$process_msg_style = 'danger';
+				$process_msg_type  = 'Error';
+			}
+		}
+		else {
+			$process_msg = $errormsg_list['52'];
+			$process_msg_style = 'danger';
+			$process_msg_type  = 'Error';
+		}
+	}
+	elseif ((! empty($_POST['account']) && $_POST['account'] != $_SESSION[$session_key]['user']['account']) || (! empty($_POST['nickname']) && $_POST['nickname'] != $_SESSION[$session_key]['user']['nickname']))
+  {
+    // Set new nickname
+    $new_account  = $_SESSION[$session_key]['user']['account']  = (! empty($_POST['account']))  ? $_POST['account']  : $_SESSION[$session_key]['user']['account'];
+    $new_nickname = $_SESSION[$session_key]['user']['nickname'] = (! empty($_POST['nickname'])) ? $_POST['nickname'] : $_SESSION[$session_key]['user']['nickname'];
+
+    try {
+      $pdo -> beginTransaction();
+      $sql = "
+							UPDATE {$table_prefix}users SET
+								account    = :ACCOUNT,
+								nickname   = :NICKNAME,
+								updated_at = :UPDATED_AT
+							WHERE id = :ID
+						";
+      $update_user = $pdo -> prepare($sql);
+      $update_user -> bindValue('ACCOUNT',    $new_account);
+      $update_user -> bindValue('NICKNAME',   $new_nickname);
+      $update_user -> bindValue('UPDATED_AT', date('Y-m-d H:i:s'));
+      $update_user -> bindValue('ID',         $this_id);
+      $update_user -> execute();
+      unset($update_user);
+      $pdo -> commit();
+    }
+    catch(PDOException $e)
+    {
+      $pdo -> rollBack();
+      $process_msg = $errormsg_list['56'];
+      $process_msg_style = 'danger';
+      $process_msg_type  = 'Error';
+      //var_dump($e->getMessage());
+    }
+
+    $_SESSION[$session_key]['user']['account']  = $new_account;
+    $_SESSION[$session_key]['user']['nickname'] = $new_nickname;
+    $process_msg = TXT_CHANGEPASSWORD_MSG_CHANGED;
+    $process_msg_style = 'success';
+    $process_msg_type  = '';
+  }
+	else {
+		$process_msg = $errormsg_list['51'];
+		$process_msg_style = 'warning';
+		$process_msg_type  = 'Error';
+	}
+}
+
+//print '<pre>';
+//print_r($_COOKIE);
+//print '</pre>';

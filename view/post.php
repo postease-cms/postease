@@ -147,7 +147,7 @@
 										<!-- content -->
 										<div class="form-group post_item_container <?=($use_content_flg)?'':'hidden'?> <?=($use_content_flg && $use_wisiwyg_flg)?'tinymceWrapper':''?>">
 											<input type="hidden" id="judge_flg_wisiwyg" value="<?=$use_wisiwyg_flg?>">
-											<label class="control-label" for="content_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_content?>&nbsp;<?=($use_wisiwyg_flg)?'':'<span class="strlen label label-info"></span>'?> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+											<label class="control-label" for="content_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_content?>&nbsp;<span class="label label-info" id="strlen_tinymce"></span> <?=($use_wisiwyg_flg)?'':'<span class="strlen label label-info"></span>'?> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 											<textarea class="content <?=($use_wisiwyg_flg)?'mce':'form-control'?>" data-group="content" data-num="<?=$language_id?>" id="content_<?=$language_id?>" name="content[<?=$language_id?>]"><?=htmlentities($text[$language_id]['content'], ENT_QUOTES, 'UTF-8')?></textarea>
 										</div>
 									<?php endif?>
@@ -324,7 +324,7 @@
 										<!-- content -->
 										<div class="form-group post_item_container <?=($use_content_flg)?'':'hidden'?> <?=($use_content_flg && $use_wisiwyg_flg)?'tinymceWrapper':''?>">
 											<input type="hidden" id="judge_flg_wisiwyg" value="<?=$use_wisiwyg_flg?>">
-											<label class="control-label" for="content_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_content?>&nbsp;<?=($use_wisiwyg_flg)?'':'<span class="strlen label label-info"></span>'?> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+											<label class="control-label" for="content_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_content?>&nbsp;<span class="label label-info" id="strlen_tinymce"></span> <?=($use_wisiwyg_flg)?'':'<span class="strlen label label-info"></span>'?> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
 											<textarea class="content <?=($use_wisiwyg_flg)?'mce':'form-control'?>" data-group="content" data-num="<?=$language_id?>" id="content_<?=$language_id?>" name="content[<?=$language_id?>]"><?=htmlentities($text[$language_id]['content'], ENT_QUOTES, 'UTF-8')?></textarea>
 										</div>
 									<?php endif?>

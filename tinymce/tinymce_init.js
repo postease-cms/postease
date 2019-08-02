@@ -19,6 +19,9 @@ tinymce.init({
 	content_css : $css_path,
 	setup : function(ed)
 	{
+    ed.on('init', function(e) {
+      document.getElementById('strlen_tinymce').innerHTML = ed.getContent({ format: 'text' }).replace(/\s/g, '').length;
+    });
 		ed.on('change', function()
 		{
 			if ($auto_save_flg)
@@ -27,7 +30,11 @@ tinymce.init({
 			}
 			$('#draft_post').removeClass('hidden');
 			$('#publish_post').removeClass('hidden');
+      document.getElementById('strlen_tinymce').innerHTML = ed.getContent({ format: 'text' }).replace(/\s/g, '').length;
 		});
+    ed.on('keyup', function(e) {
+      document.getElementById('strlen_tinymce').innerHTML = ed.getContent({ format: 'text' }).replace(/\s/g, '').length;
+    });
 	},
 	readonly : $readonly,
 	// file-manager description

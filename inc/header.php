@@ -2,6 +2,8 @@
 <html lang="<?=$_SESSION[$session_key]['user']['lang']?>">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
 <title>
 	<?php $view_page = $_SESSION[$session_key]['common']['view_page']?>
 	<?php if (isset($view_page_type[$view_page])):?>
@@ -18,7 +20,6 @@
 	<?php endif?>
 	<?=($site_name = $_SESSION[$session_key]['configs']['site_name'])?$site_name:'POSTEASE'?>
 </title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/style.css?v=<?=$_SESSION[$session_key]['configs']['postease_version']?>">
 <link rel="stylesheet" href="plugin/jquery/jquery-ui.min.css">

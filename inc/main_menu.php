@@ -133,7 +133,7 @@
 </nav>
 <script>
 var page = $('body').attr('id');
-if (page != 0)
+if (page != 'index' && page != 0)
 {
 	page = page.split('-');
 	var page_main = '#main_menu li.list-group-item:nth-of-type(' + page[0] + ')';
