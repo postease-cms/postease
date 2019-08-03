@@ -90,43 +90,23 @@ $(function(){
 			},
 		});
 	}
-	
-	// Correct Domain
-	if ($check_domain == '1')
-	{
-    $.ajax({
-      type : 'GET',
-      url  : './ajax/correct_domain.php',
-      data : {
-        domain : $this_domain,
-      },
-      dataType : 'json',
-      success  : function(data)
-      {
-        if (data.result == 1)
-        {
-          console.log('Correct Domain complete!');
-          location.href = './?view_page=index&change=1';
-        }
-      },
-    });
-	}
- 
-	// Correct Dir name
-  if ($check_dir_name == '1')
+
+  // Correct Url
+  if ($check_domain == '1' || $check_dir_name == '1')
   {
     $.ajax({
       type : 'GET',
-      url  : './ajax/correct_dir_name.php',
+      url  : './ajax/correct_url.php',
       data : {
-        dir_name : $this_dir_name,
+        domain : $this_domain,
+				dir_name: $this_dir_name,
       },
       dataType : 'json',
       success  : function(data)
       {
         if (data.result == 1)
         {
-          console.log('Correct Dir name complete!');
+          console.log('Correct Url complete!');
           location.href = './?view_page=index&change=1';
         }
       },
