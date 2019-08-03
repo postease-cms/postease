@@ -3738,6 +3738,21 @@ function get_contact_items($config = array(), $with_hidden = false)
     $item_slug = array('slug' => $new_key);
     unset($row['item']);
     unset($row['name']);
+
+    $options = array();
+    if (is_array($row['select_values']) && count($row['select_values']) > 0)
+    {
+      foreach ($row['select_values'] as $value)
+      {
+        $options[$value['value']]['value'] = $value['value'];
+        $options[$value['value']]['label'] = $value['label'];
+      }
+    }
+    else {
+      $options = $row['select_values'];
+    }
+    $row['options'] = $options;
+    unset($row['select_values']);
     $shaped_items[$new_key] = $item_slug + $row;
   }
   return $shaped_items;
