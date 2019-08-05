@@ -88,8 +88,8 @@ define('TXT_RESETSYSTEM_WAR_REUSE_ACTIVATIONKEY', 'このアクティベーシ�
 define('TXT_RESETSYSTEM_WAR_RESET_ACTIVATIONKEY', 'システムのコピー（移動）もしくはドメインの変更でシステムを再設定する場合は、ダウンロードの際に使用したメールアドレスを入力してください。<br>このシステムを再設定した場合、同じアクティベーションキーが割当てられた他のシステムは使用できなくなります。');
 define('TXT_RESETSYSTEM_LBL_SITENAME',            'サイト名');
 define('TXT_RESETSYSTEM_PLH_SITENAME',            'サイト名（後から変更できます）');
-define('TXT_RESETSYSTEM_LBL_ACCOUNT',             'アカウント');
-define('TXT_RESETSYSTEM_PLH_ACCOUNT',             'ログインアカウント（後から変更できません）');
+define('TXT_RESETSYSTEM_LBL_ACCOUNT',             'アカウント（メールアドレス推奨）');
+define('TXT_RESETSYSTEM_PLH_ACCOUNT',             'ログインアカウント');
 define('TXT_RESETSYSTEM_ALT_ACCOUNT',             'アルファベットで始まる[ 半角英数小文字_ ]３文字以上32文字以内で入力してください。');
 define('TXT_RESETSYSTEM_LBL_NICKNAME',            'ニックネーム');
 define('TXT_RESETSYSTEM_PLH_NICKNAME',            'ログイン表示名（後から変更できます）');
