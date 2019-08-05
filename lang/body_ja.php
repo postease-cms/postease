@@ -87,14 +87,14 @@ define('TXT_RESETSYSTEM_PLH_EMAIL',               'メールアドレス');
 define('TXT_RESETSYSTEM_WAR_REUSE_ACTIVATIONKEY', 'このアクティベーションキーを再利用する場合はダウンロードの際に使用したメールアドレスを入力してください。アクティベーションキーを再利用した場合、同じアクティベーションキーでインストールした以前のシステムは使用できなくなります。');
 define('TXT_RESETSYSTEM_WAR_RESET_ACTIVATIONKEY', 'システムのコピー（移動）もしくはドメインの変更でシステムを再設定する場合は、ダウンロードの際に使用したメールアドレスを入力してください。<br>このシステムを再設定した場合、同じアクティベーションキーが割当てられた他のシステムは使用できなくなります。');
 define('TXT_RESETSYSTEM_LBL_SITENAME',            'サイト名');
-define('TXT_RESETSYSTEM_PLH_SITENAME',            'サイト名（後から変更できます）');
-define('TXT_RESETSYSTEM_LBL_ACCOUNT',             'アカウント（メールアドレス推奨）');
-define('TXT_RESETSYSTEM_PLH_ACCOUNT',             'ログインアカウント');
+define('TXT_RESETSYSTEM_PLH_SITENAME',            'サイト名（あとから変更できます）');
+define('TXT_RESETSYSTEM_LBL_ACCOUNT',             'アカウント');
+define('TXT_RESETSYSTEM_PLH_ACCOUNT',             'ログインアカウント（メールアドレス推奨 / あとから変更できます）');
 define('TXT_RESETSYSTEM_ALT_ACCOUNT',             'アルファベットで始まる[ 半角英数小文字_ ]３文字以上32文字以内で入力してください。');
 define('TXT_RESETSYSTEM_LBL_NICKNAME',            'ニックネーム');
-define('TXT_RESETSYSTEM_PLH_NICKNAME',            'ログイン表示名（後から変更できます）');
+define('TXT_RESETSYSTEM_PLH_NICKNAME',            'ログイン表示名（あとから変更できます）');
 define('TXT_RESETSYSTEM_LBL_PASSWORD',            'パスワード');
-define('TXT_RESETSYSTEM_PLH_PASSWORD',            'ログインパスワード（後から変更できます）');
+define('TXT_RESETSYSTEM_PLH_PASSWORD',            'ログインパスワード（あとから変更できます）');
 define('TXT_RESETSYSTEM_BTN_AUTOGENERATEPASSWORD','自動生成');
 define('TXT_RESETSYSTEM_ALT_PASSWORD',            '使用できるのは半角英数字と記号（/*-+.,!?#$%()~|_）です。７文字以上32文字以内で入力してください。');
 define('TXT_RESETSYSTEM_LBL_TIMEZONE',            'タイムゾーン');
@@ -168,19 +168,19 @@ function TXT_INDEX_LBL_NOTICE_UNCONFIRMED($count)    { return $text = "{$count}�
 function TXT_INDEX_LBL_NOTICE_ONGOING($count)        { return $text = "{$count}件の対応中コンタクトがあります。";}
 function TXT_INDEX_LBL_NOTICE_DRAFT($count_parent = 0, $count_child = 0)
 {
-	if ($count_parent > 0 && $count_child == 0)
-	{
-		return $text = $count_parent . '件の下書きポストがあります。';
-	}
-	elseif ($count_parent == 0 && $count_child > 0)
-	{
-		return $text = $count_child . '件の下書きページがあります。';
-	}
-	elseif ($count_parent > 0 && $count_child > 0)
-	{
-		return $text = $count_parent . '件の下書きポストと'.$count_child . '件の下書きページがあります。';
-	}
-	return false;
+  if ($count_parent > 0 && $count_child == 0)
+  {
+    return $text = $count_parent . '件の下書きポストがあります。';
+  }
+  elseif ($count_parent == 0 && $count_child > 0)
+  {
+    return $text = $count_child . '件の下書きページがあります。';
+  }
+  elseif ($count_parent > 0 && $count_child > 0)
+  {
+    return $text = $count_parent . '件の下書きポストと'.$count_child . '件の下書きページがあります。';
+  }
+  return false;
 }
 
 
@@ -296,17 +296,17 @@ define('TXT_POST_LBL_IMPLEMENT_CODE',     '実装コード');
 function TXT_POST_LNK_PREVIEW($preview_link) { return $text = "プレビュー ({$preview_link})";} // no use after v3.0.0
 function TXT_POST_STATUSTEXT($status, $label)
 {
-	$status_text = array(
-		'primary' => '公開中',
-		'warning' => '下書き',
-		'default' => '非公開',
-	);
-	$publish_status_text = array(
-		'primary' => '公開中',
-		'info'    => '公開予定',
-		'default' => '公開終了',
-	);
-	return $text = ($status) ? ($status == 1) ? $publish_status_text[$label] : $status_text[$label] : '作成前';
+  $status_text = array(
+    'primary' => '公開中',
+    'warning' => '下書き',
+    'default' => '非公開',
+  );
+  $publish_status_text = array(
+    'primary' => '公開中',
+    'info'    => '公開予定',
+    'default' => '公開終了',
+  );
+  return $text = ($status) ? ($status == 1) ? $publish_status_text[$label] : $status_text[$label] : '作成前';
 }
 
 /*
