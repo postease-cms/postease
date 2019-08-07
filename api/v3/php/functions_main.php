@@ -317,6 +317,7 @@ function get_post($post_key, $config = array(), $recursive = true)
 						pb.eyecatch AS 'eyecatch_raw',
 						null AS 'eyecatch',
 						pt.title AS 'title',
+						pt.addition AS 'description',
 						pt.addition AS 'addition',
 						pt.content AS 'content',
 						pb.category_id AS 'category_id',
@@ -668,6 +669,7 @@ function get_post($post_key, $config = array(), $recursive = true)
 							pb.eyecatch AS 'eyecatch_raw',
 							null AS 'eyecatch',
 							pt.title AS 'title',
+							pt.addition AS 'description',
 							pt.addition AS 'addition',
 							pt.content AS 'content'
 						FROM {$table_prefix}posts_base AS pb
@@ -731,7 +733,8 @@ function get_post($post_key, $config = array(), $recursive = true)
             'permalink'      => $record['permalink'],
             'permalink_uri'  => $record['permalink_uri'],
             'slug'           => $record['slug'],
-            'addition'       => $record['additin'],
+            'description'    => $record['description'],
+            'addition'       => $record['addition'],
             'eyecatch'       => $record['eyecatch'],
             'content_head'   => substructString($record['content'], $content_head_length),
           );
@@ -832,12 +835,14 @@ function get_post($post_key, $config = array(), $recursive = true)
             {
               $post_page_navi['page_navi']['prev_page']['page']         = $key - 1;
               $post_page_navi['page_navi']['prev_page']['id']           = $post_family['family']['list'][$key - 1]['id'];
+              $post_page_navi['page_navi']['prev_page']['description']  = $post_family['family']['list'][$key - 1]['description'];
               $post_page_navi['page_navi']['prev_page']['addition']     = $post_family['family']['list'][$key - 1]['addition'];
               $post_page_navi['page_navi']['prev_page']['content_head'] = $post_family['family']['list'][$key - 1]['content'];
             }
 
             $post_page_navi['page_navi']['this_page']['page']         = $key;
             $post_page_navi['page_navi']['this_page']['id']           = $row_family['id'];
+            $post_page_navi['page_navi']['this_page']['description']  = $row_family['description'];
             $post_page_navi['page_navi']['this_page']['addition']     = $row_family['addition'];
             $post_page_navi['page_navi']['this_page']['content_head'] = $row_family['content'];
 
@@ -845,6 +850,7 @@ function get_post($post_key, $config = array(), $recursive = true)
             {
               $post_page_navi['page_navi']['next_page']['page']         = $key + 1;
               $post_page_navi['page_navi']['next_page']['id']           = $post_family['family']['list'][$key + 1]['id'];
+              $post_page_navi['page_navi']['next_page']['description']  = $post_family['family']['list'][$key + 1]['description'];
               $post_page_navi['page_navi']['next_page']['addition']     = $post_family['family']['list'][$key + 1]['addition'];
               $post_page_navi['page_navi']['next_page']['content_head'] = $post_family['family']['list'][$key + 1]['content'];
             }
@@ -1561,6 +1567,7 @@ function get_posts($config = array())
 						pb.eyecatch AS 'eyecatch_raw',
 						null AS 'eyecatch',
 						pt.title AS 'title',
+						pt.addition AS 'description',
 						pt.addition AS 'addition',
 						pt.content AS 'content',
 						0 AS 'content_cut_flg',
@@ -2641,6 +2648,7 @@ function get_categories($config = array())
   $with_count   = (isset($config['with_count']))  ? intval($config['with_count'])  : 1;
   $preview      = (isset($config['preview']))     ? intval($config['preview'])     : 0;
   $in_use       = (isset($config['in_use']))      ? intval($config['in_use'])      : 1;
+  $key_by       = (! empty($config['key_by']))    ? $config['key_by']              : null;
 
   // Get site_id from slug
   if ($site)
@@ -2839,9 +2847,71 @@ function get_categories($config = array())
       }
     }
   }
-  $categories = index_fromone($categories);
-  $categories = index_fromone_recursive($categories);
-  return $categories;
+
+  // Fix Array Style
+  $categories_fixed = array();
+  if (! empty($key_by))
+  {
+    if ($key_by == 'id')
+    {
+      foreach($categories as $row)
+      {
+        if (! empty($row['children']))
+        {
+          $children_fixed = array();
+          foreach($row['children'] as $child)
+          {
+            $children_fixed[$child['id']] = $child;
+          }
+          $row['children'] = $children_fixed;
+        }
+        $categories_fixed[$row['id']] = $row;
+
+      }
+    }
+    elseif ($key_by == 'slug')
+    {
+      foreach($categories as $row)
+      {
+        if (! empty($row['children']))
+        {
+          $children_fixed = array();
+          foreach($row['children'] as $child)
+          {
+            $children_fixed[$child['slug']] = $child;
+          }
+          $row['children'] = $children_fixed;
+        }
+        $categories_fixed[$row['slug']] = $row;
+      }
+    }
+    elseif ($key_by == 'label')
+    {
+      foreach($categories as $row)
+      {
+        if (! empty($row['children']))
+        {
+          $children_fixed = array();
+          foreach($row['children'] as $child)
+          {
+            $children_fixed[$child['label']] = $child;
+          }
+          $row['children'] = $children_fixed;
+        }
+        $categories_fixed[$row['label']] = $row;
+      }
+    }
+    else {
+      $categories_fixed = index_fromone($categories);
+      $categories_fixed = index_fromone_recursive($categories_fixed);
+    }
+  }
+  else {
+    $categories_fixed = index_fromone($categories);
+    $categories_fixed = index_fromone_recursive($categories_fixed);
+  }
+
+  return $categories_fixed;
 }
 
 
@@ -2874,6 +2944,7 @@ function get_tags($config = array())
   $with_count  = (isset($config['with_count']))  ? intval($config['with_count'])  : 1;
   $preview     = (isset($config['preview']))     ? intval($config['preview'])     : 0;
   $in_use      = (isset($config['in_use']))      ? intval($config['in_use'])      : 1;
+  $key_by      = (! empty($config['key_by']))    ? $config['key_by']              : null;
 
   // Get site_id from slug
   if ($site)
@@ -2970,7 +3041,7 @@ function get_tags($config = array())
   $read_tags -> execute();
   while ($record = $read_tags -> fetch(PDO::FETCH_ASSOC))
   {
-    $tags[$record['id']] = $record;
+    $tags[] = $record;
   }
 
   if ($with_count || $in_use)
@@ -3008,8 +3079,41 @@ function get_tags($config = array())
       }
     }
   }
-  $tags = index_fromone($tags);
-  return $tags;
+
+  // Fix Array Style
+  $tags_fixed = array();
+  if (! empty($key_by))
+  {
+    if ($key_by == 'id')
+    {
+      foreach($tags as $row)
+      {
+        $tags_fixed[$row['id']] = $row;
+      }
+    }
+    elseif ($key_by == 'slug')
+    {
+      foreach($tags as $row)
+      {
+        $tags_fixed[$row['slug']] = $row;
+      }
+    }
+    elseif ($key_by == 'label')
+    {
+      foreach($tags as $row)
+      {
+        $tags_fixed[$row['label']] = $row;
+      }
+    }
+    else {
+      $tags_fixed = index_fromone($tags);
+    }
+  }
+  else {
+    $tags_fixed = index_fromone($tags);
+  }
+  
+  return $tags_fixed;
 }
 
 
@@ -3017,18 +3121,21 @@ function get_tags($config = array())
  * Get Sites
  * @return array $sites
  */
-function get_sites()
+function get_sites($config = array())
 {
   global $database;
   global $pdo;
   global $table_prefix;
+
+  // Set parameters
+  $key_by = (! empty($config['key_by'])) ? $config['key_by'] : null;
 
   $sites = array();
   try {
     $sql = "
 				SELECT
 					st.id AS 'id',
-					st.name AS 'name',
+					st.name AS 'label',
 					st.slug AS 'slug',
 					cv.cover_image
 				FROM {$table_prefix}sites AS st
@@ -3043,7 +3150,7 @@ function get_sites()
     $read_sites -> execute();
     while ($record = $read_sites -> fetch(PDO::FETCH_ASSOC))
     {
-      $sites[$record['id']] = $record;
+      $sites[] = $record;
     }
     unset($read_sites);
   }
@@ -3051,8 +3158,41 @@ function get_sites()
   {
     var_dump($e->getMessage());
   }
-  $sites = index_fromone($sites);
-  return $sites;
+
+  // Fix Array Style
+  $sites_fixed = array();
+  if (! empty($key_by))
+  {
+    if ($key_by == 'id')
+    {
+      foreach($sites as $row)
+      {
+        $sites_fixed[$row['id']] = $row;
+      }
+    }
+    elseif ($key_by == 'slug')
+    {
+      foreach($sites as $row)
+      {
+        $sites_fixed[$row['slug']] = $row;
+      }
+    }
+    elseif ($key_by == 'label')
+    {
+      foreach($sites as $row)
+      {
+        $sites_fixed[$row['label']] = $row;
+      }
+    }
+    else {
+      $sites_fixed = index_fromone($sites);
+    }
+  }
+  else {
+    $sites_fixed = index_fromone($sites);
+  }
+  
+  return $sites_fixed;
 }
 
 
@@ -3071,8 +3211,9 @@ function get_posttypes($config = array())
   global $table_prefix;
 
   // Set parameters
-  $site    = (! empty($config['site']))  ? $config['site']            : null;
-  $site_id = (isset($config['site_id'])) ? intval($config['site_id']) : 1;
+  $site    = (! empty($config['site']))   ? $config['site']            : null;
+  $site_id = (isset($config['site_id']))  ? intval($config['site_id']) : 1;
+  $key_by  = (! empty($config['key_by'])) ? $config['key_by']          : null;
 
   // Get site_id from slug
   if ($site)
@@ -3099,7 +3240,7 @@ function get_posttypes($config = array())
       $sql = "
 					SELECT
 						pt.id AS 'id',
-						pt.name AS 'name',
+						pt.name AS 'label',
 						pt.slug AS 'slug',
 						cv.cover_image
 					FROM {$table_prefix}posttypes AS pt
@@ -3124,9 +3265,42 @@ function get_posttypes($config = array())
     {
       var_dump($e->getMessage());
     }
-    $posttypes = index_fromone($posttypes);
+
+    // Fix Array Style
+    $posttypes_fixed = array();
+    if (! empty($key_by))
+    {
+      if ($key_by == 'id')
+      {
+        foreach($posttypes as $row)
+        {
+          $posttypes_fixed[$row['id']] = $row;
+        }
+      }
+      elseif ($key_by == 'slug')
+      {
+        foreach($posttypes as $row)
+        {
+          $posttypes_fixed[$row['slug']] = $row;
+        }
+      }
+      elseif ($key_by == 'label')
+      {
+        foreach($posttypes as $row)
+        {
+          $posttypes_fixed[$row['label']] = $row;
+        }
+      }
+      else {
+        $posttypes_fixed = index_fromone($posttypes);
+      }
+    }
+    else {
+      $posttypes_fixed = index_fromone($posttypes);
+    }
   }
-  return $posttypes;
+
+  return $posttypes_fixed;
 }
 
 
@@ -3146,6 +3320,7 @@ function get_languages($config = array())
   // Set parameters
   $posttype    = (! empty($config['posttype']))  ? $config['posttype']            : null;
   $posttype_id = (isset($config['posttype_id'])) ? intval($config['posttype_id']) : 1;
+  $key_by      = (! empty($config['key_by']))    ? $config['key_by']              : null;
 
   // Get posttype_id from slug
   if ($posttype)
@@ -3199,7 +3374,7 @@ function get_languages($config = array())
     $sql = "
 				SELECT
 					lg.id AS 'id',
-					lg.name AS 'name',
+					lg.name AS 'label',
 					lg.slug AS 'slug',
 					cv.cover_image
 				FROM {$table_prefix}languages AS lg
@@ -3223,9 +3398,41 @@ function get_languages($config = array())
   {
     var_dump($e->getMessage());
   }
-  $languages = index_fromone($languages);
 
-  return $languages;
+  // Fix Array Style
+  $languages_fixed = array();
+  if (! empty($key_by))
+  {
+    if ($key_by == 'id')
+    {
+      foreach($languages as $row)
+      {
+        $languages_fixed[$row['id']] = $row;
+      }
+    }
+    elseif ($key_by == 'slug')
+    {
+      foreach($languages as $row)
+      {
+        $languages_fixed[$row['slug']] = $row;
+      }
+    }
+    elseif ($key_by == 'label')
+    {
+      foreach($languages as $row)
+      {
+        $languages_fixed[$row['label']] = $row;
+      }
+    }
+    else {
+      $languages_fixed = index_fromone($languages);
+    }
+  }
+  else {
+    $languages_fixed = index_fromone($languages);
+  }
+
+  return $languages_fixed;
 }
 
 

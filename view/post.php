@@ -139,8 +139,8 @@
 										<!-- addition -->
 										<div class="form-group post_item_container <?=($use_addition_flg)?'':'hidden'?>">
 											<label class="control-label" for="addition_<?=$language_id?>"><i class="fa fa-pencil-square-o"></i> <?=$label_addition?> <span class="strlen label label-info"></span> <?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
-											<div><input class="form-control" type="text" data-group="addition" data-num="<?=$language_id?>" id="addition_<?=$language_id?>" name="addition[<?=$language_id?>]" value="<?=$text[$language_id]['addition']?>" placeholder="<?=$label_addition?>"></div>
-										</div>
+											<div><textarea class="extra_small form-control" data-group="addition" data-num="<?=$language_id?>" data-language_id="<?=$language_id?>" id="addition_<?=$language_id?>" name="addition[<?=$language_id?>]"><?=$text[$language_id]['addition']?></textarea></div>
+                    </div>
 									<?php endif?>
 									
 									<?php if ($customitem_position == 3):?>

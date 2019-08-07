@@ -802,6 +802,9 @@ figure > figcaption {
 	color: #fff;
 	border: 1px solid #5cb85c;
 }
+textarea.extra_small {
+	min-height: 60px;
+}
 textarea.small {
 	min-height: 100px;
 }

@@ -412,7 +412,7 @@ $posttype_comment_type = array
 $posttype_mata_text = array
 (
 		'label_title'     => 'タイトル',
-		'label_addition'  => '追加テキスト',
+		'label_addition'  => 'ディスクリプション',
 		'label_content'   => '本文',
 );
 

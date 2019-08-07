@@ -168,19 +168,19 @@ function TXT_INDEX_LBL_NOTICE_UNCONFIRMED($count)    { return $text = "{$count}�
 function TXT_INDEX_LBL_NOTICE_ONGOING($count)        { return $text = "{$count}件の対応中コンタクトがあります。";}
 function TXT_INDEX_LBL_NOTICE_DRAFT($count_parent = 0, $count_child = 0)
 {
-  if ($count_parent > 0 && $count_child == 0)
-  {
-    return $text = $count_parent . '件の下書きポストがあります。';
-  }
-  elseif ($count_parent == 0 && $count_child > 0)
-  {
-    return $text = $count_child . '件の下書きページがあります。';
-  }
-  elseif ($count_parent > 0 && $count_child > 0)
-  {
-    return $text = $count_parent . '件の下書きポストと'.$count_child . '件の下書きページがあります。';
-  }
-  return false;
+	if ($count_parent > 0 && $count_child == 0)
+	{
+		return $text = $count_parent . '件の下書きポストがあります。';
+	}
+	elseif ($count_parent == 0 && $count_child > 0)
+	{
+		return $text = $count_child . '件の下書きページがあります。';
+	}
+	elseif ($count_parent > 0 && $count_child > 0)
+	{
+		return $text = $count_parent . '件の下書きポストと'.$count_child . '件の下書きページがあります。';
+	}
+	return false;
 }
 
 
@@ -296,17 +296,17 @@ define('TXT_POST_LBL_IMPLEMENT_CODE',     '実装コード');
 function TXT_POST_LNK_PREVIEW($preview_link) { return $text = "プレビュー ({$preview_link})";} // no use after v3.0.0
 function TXT_POST_STATUSTEXT($status, $label)
 {
-  $status_text = array(
-    'primary' => '公開中',
-    'warning' => '下書き',
-    'default' => '非公開',
-  );
-  $publish_status_text = array(
-    'primary' => '公開中',
-    'info'    => '公開予定',
-    'default' => '公開終了',
-  );
-  return $text = ($status) ? ($status == 1) ? $publish_status_text[$label] : $status_text[$label] : '作成前';
+	$status_text = array(
+		'primary' => '公開中',
+		'warning' => '下書き',
+		'default' => '非公開',
+	);
+	$publish_status_text = array(
+		'primary' => '公開中',
+		'info'    => '公開予定',
+		'default' => '公開終了',
+	);
+	return $text = ($status) ? ($status == 1) ? $publish_status_text[$label] : $status_text[$label] : '作成前';
 }
 
 /*
@@ -324,7 +324,7 @@ define('TXT_POST_LBL_SELECTDEFAULT',            '選択');
 define('TXT_POST_BTN_IMG_SET',                  '設定');
 define('TXT_POST_BTN_IMG_DELETE',               '削除');
 define('TXT_POST_LBL_TITLE',                    'タイトル');
-define('TXT_POST_LBL_ADDITION',                 '追加テキスト');
+define('TXT_POST_LBL_ADDITION',                 'ディスクリプション');
 define('TXT_POST_LBL_CONTENT',                  '本文');
 define('TXT_POST_BTN_SAVE',                     '保存');
 define('TXT_POST_BTN_DELETE',                   '削除');
@@ -853,7 +853,7 @@ define('TXT_CONFIGPOSTTYPE_LBL_USECUSTOMITEMFLG',     'カスタムアイテム'
 define('TXT_CONFIGPOSTTYPE_LBL_USEMULTIPAGEFLG',      'マルチページ');
 define('TXT_CONFIGPOSTTYPE_LBL_COMMNETTYPE',          'コメントタイプ');
 define('TXT_CONFIGPOSTTYPE_LBL_USEPUBLISHENDATFLG',   '公開終了日時');
-define('TXT_CONFIGPOSTTYPE_LBL_USEADDITIONFLG',       '追加テキスト');
+define('TXT_CONFIGPOSTTYPE_LBL_USEADDITIONFLG',       'ディスクリプション');
 define('TXT_CONFIGPOSTTYPE_LBL_USECONTENTFLG',        '本文');
 define('TXT_CONFIGPOSTTYPE_LBL_USESLUGFLG',           'スラッグ');
 define('TXT_CONFIGPOSTTYPE_LBL_USECATEGORYFLG',       'カテゴリー');
@@ -870,7 +870,7 @@ define('TXT_CONFIGPOSTTYPE_LBL_REWRITEOPERATORFLG',   'サイト全体で拡張�
 define('TXT_CONFIGPOSTTYPE_LBL_REWRITEOPERATOR',      'URLから除去するファイル拡張子');
 define('TXT_CONFIGPOSTTYPE_LBL_REWRITE_RULE',         'リライトルール');
 define('TXT_CONFIGPOSTTYPE_LBL_LABELTITLE',           'タイトルラベル');
-define('TXT_CONFIGPOSTTYPE_LBL_LABELADDITION',        '追加テキストラベル');
+define('TXT_CONFIGPOSTTYPE_LBL_LABELADDITION',        'ディスクリプションラベル');
 define('TXT_CONFIGPOSTTYPE_LBL_LABELCONTENT',         '本文ラベル');
 define('TXT_CONFIGPOSTTYPE_LBL_CUSTOMITEMPOSITION',   'カスタムアイテム表示位置');
 define('TXT_CONFIGPOSTTYPE_LBL_LISTNUM',              '一覧表示件数');

@@ -83,7 +83,7 @@ $REC_POSTTYPE_LABELTITLE = array
 $REC_POSTTYPE_LABELADDITION = array
 (
 	'en' => 'addition',
-	'ja' => '追加テキスト',
+	'ja' => 'ディスクリプション',
 );
 
 $REC_POSTTYPE_LABELCONTENT = array
@@ -239,7 +239,7 @@ $init_records = array
 	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1, 'use_publish_end_at_flg', '1')", // added in v3.0.0
 	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1, 'use_category_flg', '1')", // added in v3.0.0
 	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1, 'use_tag_flg', '1')", // added in v3.0.0
-	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1, 'use_addition_flg', '0')",
+	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1, 'use_addition_flg', '1')",
 	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1, 'use_content_flg', '1')",
 	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1, 'use_slug_flg', '0')",
 	"INSERT INTO `{$table_prefix}configs_posttype` (`site_id`, `posttype_id`, `item`, `value`) VALUES(0, 1, 'use_list_eyecatch_flg', '1')", // added in v3.0.0
