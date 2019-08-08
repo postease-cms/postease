@@ -2869,22 +2869,6 @@ function get_categories($config = array())
 
       }
     }
-    elseif ($key_by == 'slug')
-    {
-      foreach($categories as $row)
-      {
-        if (! empty($row['children']))
-        {
-          $children_fixed = array();
-          foreach($row['children'] as $child)
-          {
-            $children_fixed[$child['slug']] = $child;
-          }
-          $row['children'] = $children_fixed;
-        }
-        $categories_fixed[$row['slug']] = $row;
-      }
-    }
     elseif ($key_by == 'label')
     {
       foreach($categories as $row)
@@ -2901,14 +2885,41 @@ function get_categories($config = array())
         $categories_fixed[$row['label']] = $row;
       }
     }
-    else {
+    elseif ($key_by == 'number')
+    {
       $categories_fixed = index_fromone($categories);
       $categories_fixed = index_fromone_recursive($categories_fixed);
     }
+    else {
+      foreach($categories as $row)
+      {
+        if (! empty($row['children']))
+        {
+          $children_fixed = array();
+          foreach($row['children'] as $child)
+          {
+            $children_fixed[$child['slug']] = $child;
+          }
+          $row['children'] = $children_fixed;
+        }
+        $categories_fixed[$row['slug']] = $row;
+      }
+    }
   }
   else {
-    $categories_fixed = index_fromone($categories);
-    $categories_fixed = index_fromone_recursive($categories_fixed);
+    foreach($categories as $row)
+    {
+      if (! empty($row['children']))
+      {
+        $children_fixed = array();
+        foreach($row['children'] as $child)
+        {
+          $children_fixed[$child['slug']] = $child;
+        }
+        $row['children'] = $children_fixed;
+      }
+      $categories_fixed[$row['slug']] = $row;
+    }
   }
 
   return $categories_fixed;
@@ -3091,13 +3102,6 @@ function get_tags($config = array())
         $tags_fixed[$row['id']] = $row;
       }
     }
-    elseif ($key_by == 'slug')
-    {
-      foreach($tags as $row)
-      {
-        $tags_fixed[$row['slug']] = $row;
-      }
-    }
     elseif ($key_by == 'label')
     {
       foreach($tags as $row)
@@ -3105,12 +3109,22 @@ function get_tags($config = array())
         $tags_fixed[$row['label']] = $row;
       }
     }
-    else {
+    elseif ($key_by == 'number')
+    {
       $tags_fixed = index_fromone($tags);
+    }
+    else {
+      foreach($tags as $row)
+      {
+        $tags_fixed[$row['slug']] = $row;
+      }
     }
   }
   else {
-    $tags_fixed = index_fromone($tags);
+    foreach($tags as $row)
+    {
+      $tags_fixed[$row['slug']] = $row;
+    }
   }
   
   return $tags_fixed;
@@ -3170,13 +3184,6 @@ function get_sites($config = array())
         $sites_fixed[$row['id']] = $row;
       }
     }
-    elseif ($key_by == 'slug')
-    {
-      foreach($sites as $row)
-      {
-        $sites_fixed[$row['slug']] = $row;
-      }
-    }
     elseif ($key_by == 'label')
     {
       foreach($sites as $row)
@@ -3184,12 +3191,22 @@ function get_sites($config = array())
         $sites_fixed[$row['label']] = $row;
       }
     }
-    else {
+    elseif ($key_by == 'number')
+    {
       $sites_fixed = index_fromone($sites);
+    }
+    else {
+      foreach($sites as $row)
+      {
+        $sites_fixed[$row['slug']] = $row;
+      }
     }
   }
   else {
-    $sites_fixed = index_fromone($sites);
+    foreach($sites as $row)
+    {
+      $sites_fixed[$row['slug']] = $row;
+    }
   }
   
   return $sites_fixed;
@@ -3277,13 +3294,6 @@ function get_posttypes($config = array())
           $posttypes_fixed[$row['id']] = $row;
         }
       }
-      elseif ($key_by == 'slug')
-      {
-        foreach($posttypes as $row)
-        {
-          $posttypes_fixed[$row['slug']] = $row;
-        }
-      }
       elseif ($key_by == 'label')
       {
         foreach($posttypes as $row)
@@ -3291,12 +3301,22 @@ function get_posttypes($config = array())
           $posttypes_fixed[$row['label']] = $row;
         }
       }
-      else {
+      elseif ($key_by == 'number')
+      {
         $posttypes_fixed = index_fromone($posttypes);
+      }
+      else {
+        foreach($posttypes as $row)
+        {
+          $posttypes_fixed[$row['slug']] = $row;
+        }
       }
     }
     else {
-      $posttypes_fixed = index_fromone($posttypes);
+      foreach($posttypes as $row)
+      {
+        $posttypes_fixed[$row['slug']] = $row;
+      }
     }
   }
 
@@ -3410,13 +3430,6 @@ function get_languages($config = array())
         $languages_fixed[$row['id']] = $row;
       }
     }
-    elseif ($key_by == 'slug')
-    {
-      foreach($languages as $row)
-      {
-        $languages_fixed[$row['slug']] = $row;
-      }
-    }
     elseif ($key_by == 'label')
     {
       foreach($languages as $row)
@@ -3424,12 +3437,22 @@ function get_languages($config = array())
         $languages_fixed[$row['label']] = $row;
       }
     }
-    else {
+    elseif ($key_by == 'number')
+    {
       $languages_fixed = index_fromone($languages);
+    }
+    else {
+      foreach($languages as $row)
+      {
+        $languages_fixed[$row['slug']] = $row;
+      }
     }
   }
   else {
-    $languages_fixed = index_fromone($languages);
+    foreach($languages as $row)
+    {
+      $languages_fixed[$row['slug']] = $row;
+    }
   }
 
   return $languages_fixed;
