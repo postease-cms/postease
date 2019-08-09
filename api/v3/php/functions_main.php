@@ -3461,16 +3461,18 @@ function get_languages($config = array())
 
 /**
  * Get Image-frames
- * [@param  string $type ( '' | auto | crop )]
+ * [@param  array $config]
  * @return array  $image_frames
  */
-function get_image_frames($type = '')
+function get_image_frames($config = array())
 {
   global $database;
   global $pdo;
   global $table_prefix;
 
-  $image_frames = array();
+  // Set parameters
+  $type = (! empty($config['type'])) ? $config['type'] : null;
+
   try {
     $sql = "
 				SELECT
@@ -3491,7 +3493,8 @@ function get_image_frames($type = '')
     $read_image_frames -> execute();
     while ($record = $read_image_frames -> fetch(PDO::FETCH_ASSOC))
     {
-      $image_frames[] = $record;
+      $key = $record['parent_dir'] . '/' . $record['child_dir'];
+      $image_frames[$key] = $record;
     }
     unset($read_image_frames);
   }
@@ -3499,6 +3502,7 @@ function get_image_frames($type = '')
   {
     var_dump($e->getMessage());
   }
+
   return $image_frames;
 }
 
