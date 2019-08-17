@@ -3,6 +3,8 @@
 require_once dirname(__FILE__) . '/php/response.php';
 require_once dirname(__FILE__) . '/../../lib/query_functions.php';
 
+ini_set('display_errors', 1);
+
 
 // Check and Read Configs
 $cache_params_path = dirname(__FILE__) . '/../../core/api';
@@ -78,6 +80,36 @@ if (! empty($origin_allowed) && ! empty($_SERVER['HTTP_ORIGIN']))
 		echo json_encode(responseGetOrigin403($resource));
 		exit;
 	}
+}
+
+
+// Last Modified Check (use advanced cache, PHP SSL only)
+if ($resource == 'advanced_cache')
+{
+  $advanced_cache = array(
+    'allow'         => 0,
+    'last_modified' => 0,
+  );
+  if (file_exists($cache_params_path . '/license.php'))
+  {
+    require_once $cache_params_path . '/license.php';
+    $advanced_cache['allow'] = LICENSE_TYPE;
+  }
+  $advanced_cache['last_modified'] = LAST_MODIFIED;
+
+  // Response
+  $php_version = (float)phpversion();
+  if ($php_version < 5.2) // for php 5.1
+  {
+    // Treat json function for PHP 5.1
+    require_once dirname(__FILE__).'/../../../class/Jsphon/Jsphon.php';
+    $json = new Jsphon();
+    echo($json -> encode($advanced_cache));
+  }
+  else {
+    echo json_encode($advanced_cache);
+  }
+  exit;
 }
 
 

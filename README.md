@@ -1,81 +1,116 @@
-# POSTEASE install type
+# POSTEASE（ポストイーズ）
 
-:earth_americas: [POSTEASE install type](https://postease.in)
+### カンタン“後付け”快速ヘッドレスCMS  
+独自開発のスマートキャッシュで静的サイト並みのハイパフォーマンスと低負荷を実現
 
-## 概要 / Outline
-:jp: POSTEASE install type はAPI接続式の超軽量ヘッドレスCMSです。  
+[POSTEASE公式サイト](https://postease.in)
 
-:us: 'POSTEASE install type' is an ultra-lightweight headless CMS with API connection.
+## 特徴
 
+### 1. 快速ヘッドレスCMS
+安定したパフォーマンスと低負荷が自慢のヘッドレスCMS POSTEASE。静的サイトと同等のパフォーマンスで大量アクセスも軽々とさばきます。
 
-## 特徴 / Features
+### 2. カンタン“後付け”
+プラグイン感覚で、どんなWEBサイトにも「カンタンに」「後付け」できる新しいCMS。静的サイトがわずか数時間で動的サイトに変身します。
 
-### 1. レガシー環境で動作 / Works in a legacy environment
-:jp: POSTEASE install type はレガシーなサーバ環境でも動作します。PHPバージョン5.1以上（最新版まで）で動作します。
-
-:us: 'POSTEASE install type' also works in a legacy server environment. It works with PHP version 5.1 or higher (up to the latest version).
-
-### 2. データベースサーバ不要 / No database server required
-:jp: POSTEASE install type は、MySQL または SQLite で実行されます。
-
-:us: 'POSTEASE install type' run with MySQL or SQLite.
-
-### 3. API実装 / API implementation
-:jp: APIによる実装のため、ローカル・リモート問わず、あらゆる環境、あらゆる言語で実装可能です。データはJSON形式で取得可能です。
-
-:us: Implemented by API, can be implemented in any environment, any language, regardless of local or remote. Data can be retrieved in JSON format.
+### 3. 柔軟な仕様
+POSTEASEは柔軟な仕様で、カスタマイズや拡張もラクラク。CMSによるWEBサイトの仕様制限が一切ないから、どんな仕様のWEBサイトでも構築可能です。
 
 
-## サーバ要件 / Server requirements
+---
 
-- \>=PHP5.2
+
+## サーバー要件
+
+下記の要件を満たしたサーバー上で稼働します。
+- PHP5.1以上（推奨5.2以上）
 - SQLite3.x or MySQL5.x
-- PHP FTP-extension (ftp.so)
 
 
-## ダウンロード / Download
+---
+
+
+## ダウンロード
+
+ダウンロードしてどなたでも無料でご利用いただけます。
 
 ```sh
 git clone git@github.com:postease-cms/postease.git
 ```
 
 
-## 実装 / Implements
+---
 
-Constitute Example
+
+## 実装
+
+### 設置例
+基本的なファイル構成
+
 ```
 /*
  * root
  *  |
- *  |-- postease
+ *  |-- postease（POSTEASE本体）
  *  |
- *  |-- index.php
+ *  |-- index.php（WEBサイトのトップページ）
  *
  */
 ```
 
+### 実装コード例
+
+トップページに最新のお知らせを３件表示するためのコードサンプル
 
 index.php
 ```php
-require_once dirname(__FILE__) . '/postease/api/v3/endpoint.php';
+<?php
+
+require_once 'postease/api/v3/endpoint.php';
 
 $endpoint = 'https://sample.com/postease/api/v3/endpoint.php';
 
 $pe = new Pec($endpoint);
 
+$params = array(
+  'posttype' => 'news',
+  'limit'    => 3,
+  'order'    => 'desc'
+);
+
 $posts = $pe -> get_posts();
+
+?>
+<html>
+...
+<?php foreach ($posts->list as $row):?>
+<div class="news">
+  <figure class="news-figure">
+    <img src="<?=$row->eyecatch->src->x1?>" alt="<?=$row->title?>">
+  </figure>
+  <div class="news-texts">
+    <h3 class="news-title"><?=$row->title?></h3>
+    <time class="news-publishDate" datetime="<?=$row->publish_date?>"><?=$row->publish_date?></time>
+    <p class="news-description"><?=$row->description?></p>
+  </div>
+</div>
+<?php endforeach?>
+...
+</html>
+
 ```
 
 
 
 
-## 最新バージョン / Latest version
+## 最新バージョン
 
-**3.3.12 ( 14.Aug.2019 )**
+**3.4.0 ( 17.Aug.2019 )**
 
 ---
 
-#### Update History
+#### 更新履歴
+- 3.4.0 ( 17.Aug.2019 )
 - 3.3.12 ( 14.Aug.2019 )
 - 3.3.11 ( 09.Aug.2019 )
 - 3.3.10 ( 09.Aug.2019 )
