@@ -142,13 +142,13 @@ define('TXT_LOGIN_VAL_SUBMIT',         'ログイン');
 define('TXT_INDEX_WAR_PASSWORD_01',         'パスワードが初期設定のままです。<a href="?view_page=change_password">こちら</a>から変更してください');
 define('TXT_INDEX_WAR_PASSWORD_02',         '３ヶ月以上パスワードが変更されていません。メニュー「ユーザ」「アカウント更新」で変更してください。');
 define('TXT_INDEX_LBL_SUMMARY',             'サマリー');
-define('TXT_INDEX_LBL_POST',                'ポスト');
+define('TXT_INDEX_LBL_POST_TOTAL',          'ポスト合計');
 define('TXT_INDEX_LBL_PAGE',                '下層ページ');
 define('TXT_INDEX_LBL_POSTPAGE',            '総ページ');
 define('TXT_INDEX_WAR_NO_POSTTYPE',         'このサイトにはポストタイプが設定されていません。');
 define('TXT_INDEX_WAR_CORRECT_DOMAIN',      'ドメインの変更を適用しています。このメッセージが出ている間は操作をしないでください。');
 define('TXT_INDEX_WAR_CORRECT_DIRNAME',     'パスの変更を適用しています。このメッセージが出ている間は操作をしないでください。');
-define('TXT_INDEX_LBL_CONTACT',             'コンタクト');
+define('TXT_INDEX_LBL_CONTACT_TOTAL',       'コンタクト合計');
 define('TXT_INDEX_WAR_NO_CONTACT',          'このサイトにはコンタクトが設定されていません。');
 define('TXT_INDEX_LBL_IMPLEMENT_CODE',      '共通実装コード');
 define('TXT_INDEX_MSG_LOGINASSITEADMIN',    '[サイト管理者] 権限でログインしています。');
@@ -157,15 +157,23 @@ define('TXT_INDEX_MSG_ABOUTSYSTEM',         'このシステムについて');
 define('TXT_INDEX_MSG_LICENSEBASIC',        'ベーシックライセンス');
 define('TXT_INDEX_MSG_LICENSEBUSINESS',     'ビジネスライセンス');
 define('TXT_INDEX_MSG_PUSHBUSINESS',        'ビジネスライセンスの取得');
+define('TXT_INDEX_MSG_SMARTCACHE',         'この機能は常に有効です');
+
 function TXT_INDEX_WELCOME($nickname)                { return $text = 'ようこそ ' . $nickname . ' さん！';}
 function TXT_INDEX_WAR_DOMAIN($domain)               { return $text = 'アクセス中のドメインと設定ドメインが違います（設定ドメインは ' . $domain . ' ）。メニュー「設定」「コア」で修正してください。';}
 function TXT_INDEX_WAR_DIR($dir)                     { return $text = 'アクセス中のディレクトリ名と設定ディレクトリ名が違います（設定ディレクトリ名は ' . $dir . ' ）。メニュー「設定」「コア」で修正してください。';}
 function TXT_INDEX_WAR_SQLITEPERMISSION($perm)       { return $text = 'SQLite に書込権限がありません。適切なパーミッションに変更して下さい（現在のパーミッションは ' . $perm . ' ）。';}
 function TXT_INDEX_WAR_BUSINESSLICENSE($days, $date) { return $text = 'ビジネスライセンスの有効期限が残り ' . $days . '日 になりました（有効期限は ' . $date . ' ）。<a target="_blank" href="https://classic.postease.org/license/">サービスサイト</a>より新しいビジネスライセンスを購入してください。<br>ビジネスライセンスの購入に必要なアクティベーションキーの確認は<a href="?view_page=about_system">こちら</a>から。';}
 function TXT_INDEX_MSG_LOGIN_DATETIME($datetime)     { return $text = $datetime . ' にログインしました。';}
-function TXT_INDEX_LBL_NOTICE_PEND($count, $type)    { return $text = "{$count}件の保留{$type}があります。";}
-function TXT_INDEX_LBL_NOTICE_UNCONFIRMED($count)    { return $text = "{$count}件の未確認コンタクトがあります。";}
-function TXT_INDEX_LBL_NOTICE_ONGOING($count)        { return $text = "{$count}件の対応中コンタクトがあります。";}
+function TXT_INDEX_LBL_SMARTCACHE($license = 0)
+{
+  $label = 'スマートキャッシュ';
+  if ($license > 0)
+  {
+    $label = 'スマートキャッシュ・アドバンス';
+  }
+  return $label;
+}
 function TXT_INDEX_LBL_NOTICE_DRAFT($count_parent = 0, $count_child = 0)
 {
 	if ($count_parent > 0 && $count_child == 0)

@@ -132,6 +132,16 @@ if (! $check_live_host = checkLiveHost($_SESSION[$session_key]['configs']['host_
 
 
 /*
+ * Redirect Index without Update
+ * ------------------------------------------------------------------------------------------------ */
+if (isset($_GET['auto_update']) && $_GET['auto_update'] == 0)
+{
+  header('Location: ./?view_page=index&update=9');
+  exit;
+}
+
+
+/*
  * For update ajax
  * ------------------------------------------------------------------------------------------------ */
 $update_allowed_role = ($_SESSION[$session_key]['user']['role'] <= $_SESSION[$session_key]['configs']['update_allowed_role']) ? 1 : 0;

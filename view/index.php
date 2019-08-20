@@ -49,18 +49,25 @@
 		</div>
 		
 		<!-- summary -->
+    <div class="row col-md-12">
+      <div class="col-md-4 col-sm-6">
+        <div class="alert alert-primary">
+          <p><i class="fa fa-fighter-jet" aria-hidden="true"></i> <b><?=TXT_INDEX_LBL_SMARTCACHE($_SESSION[$session_key]['license']['type'])?></b></p>
+          <p><i class="fa fa-toggle-on" aria-hidden="true"></i> <?=$common_flg_valid[1]?> <small><?=TXT_INDEX_MSG_SMARTCACHE?></small></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row col-md-12">
 		<?php if (! empty($summary_post)):?>
-			<?php foreach ($summary_post as $posttype => $rows):?>
+      <?php foreach ($summary_post as $posttype => $rows):?>
 				<div class="col-md-6">
-					<div class="panel panel-info summaryMenu summaryPost">
+					<div class="panel panel-primary summaryMenu summaryPost">
 						<div class="panel-heading" id="panel_heading_<?=$posttype?>">
 							<h3 class="panel-title" id="panel_title_<?=$posttype?>">
 								<a href="./?view_page=posts&amp;this_posttype=<?=$posttype?>&this_posttype_order=<?=$rows['post']['line_order']?>&page=1"><?=$_SESSION[$session_key]['common']['posttypes'][$posttype]['name']?></a>
-								<span class="badge" id="badge_<?=$posttype?>"><?=$rows['post']['total']['parent']?></span>
+                <?=TXT_INDEX_LBL_SUMMARY?>
 							</h3>
-							<?php if (! empty($rows['post'][2]['parent']) || ! empty($rows['post'][2]['child'])):?>
-								<small><a href="./?view_page=posts&amp;this_posttype=<?=$posttype?>&this_posttype_order=<?=$rows['post']['line_order']?>&page=1&sc_status=2"><?=TXT_INDEX_LBL_NOTICE_DRAFT($rows['post'][2]['parent'], $rows['post'][2]['child'])?></a></small><br>
-							<?php endif?>
 							<?php if (! empty($rows['comment_parent'])):?>
 								<?php foreach($rows['comment_parent'] as $type => $comments):?>
 									<?php foreach($comments as $status => $count):?>
@@ -77,11 +84,17 @@
 								<?php if (! empty($rows['post'])):?>
 									<?php if ($rows['post']['total']['parent'] >= 0):?>
 										<tr>
-											<th><?=TXT_INDEX_LBL_POST?></th>
+                      <th><?=TXT_INDEX_LBL_POST_TOTAL?> : <?=$rows['post']['total']['parent']?></th>
 											<?php foreach ($rows['post'] as $status => $row):?>
 												<?php if (is_numeric($status)):?>
 													<td>
-														<?=$post_status[$status]?> : <?=$row['parent']?>
+                            <?php if (intval($status) == 1 && $row['parent'] > 0):?>
+                            <?=$post_status_icon[$status]?> <?=$post_status[$status]?> <span class="badge" id="badge_<?=$status?>"><?=$row['parent']?></span>
+                            <?php elseif (intval($status) == 2 && $row['parent'] > 0):?>
+                              <a href="./?view_page=posts&amp;this_posttype=<?=$posttype?>&this_posttype_order=<?=$rows['post']['line_order']?>&page=1&sc_status=2"><?=$post_status_icon[$status]?> <?=$post_status[$status]?></a> <span class="badge" id="badge_<?=$status?>"><?=$row['parent']?></span>
+                            <?php else:?>
+														<?=$post_status_icon[$status]?> <?=$post_status[$status]?> : <?=$row['parent']?>
+                            <?php endif?>
 													</td>
 												<?php endif?>
 											<?php endforeach?>
@@ -94,8 +107,8 @@
 												<?php foreach ($rows['post'] as $status => $row):?>
 													<?php if (is_numeric($status)):?>
 														<td>
-															<?=$post_status[$status]?> : <?=$row['child']?>
-														</td>
+                              <?=$post_status[$status]?> : <?=$row['child']?>
+                            </td>
 													<?php endif?>
 												<?php endforeach?>
 											</tr>
@@ -148,27 +161,28 @@
 			<?php if (! empty($summary_contact)):?>
 				<?php foreach ($summary_contact as $posttype => $row):?>
 					<div class="col-md-6">
-						<div class="panel panel-default summaryMenu summaryContact">
+						<div class="panel panel-primary summaryMenu summaryContact">
 							<div class="panel-heading" id="panel_heading_<?=$posttype?>">
 								<h3 class="panel-title" id="panel_title_<?=$posttype?>">
-									<a href="./?view_page=contacts&amp;this_posttype=<?=$posttype?>&this_posttype_order=<?=$row['line_order']?>&page=1"><?=$_SESSION[$session_key]['common']['posttypes_extra'][$posttype]['name']?></a>
-									<span class="badge" id="badge_contact"><?=$row['total']?></span>
+									<a href="./?view_page=contacts&amp;this_posttype=<?=$posttype?>&this_posttype_order=<?=$row['line_order']?>&page=1"><?=$_SESSION[$session_key]['common']['posttypes_extra'][$posttype]['name']?></a> <?=TXT_INDEX_LBL_SUMMARY?>
 								</h3>
-								<?php if ($row[8] > 0):?>
-									<small><a href="./?view_page=contacts&amp;this_posttype=<?=$posttype?>&this_posttype_order=<?=$row['line_order']?>&page=1&sc_status=8"><?=TXT_INDEX_LBL_NOTICE_UNCONFIRMED($row[8])?></a></small><br>
-								<?php endif?>
-								<?php if ($row[7] > 0):?>
-									<small><a href="./?view_page=contacts&amp;this_posttype=<?=$posttype?>&this_posttype_order=<?=$row['line_order']?>&page=1&sc_status=7"><?=TXT_INDEX_LBL_NOTICE_ONGOING($row[7])?></a></small><br>
-								<?php endif?>
 							</div>
 							<div class="panel-body">
 								<table class="table">
 									<tr>
-										<th><?=TXT_INDEX_LBL_CONTACT?></th>
+                    <th><?=TXT_INDEX_LBL_CONTACT_TOTAL?> : <?=$row['total']?></th>
 										<?php foreach ($row as $key => $value):?>
-											<?php if (is_numeric($key)):?>
-												<td><?=$contact_status[$key]?> : <?=$value?></td>
-											<?php endif?>
+                    <?php if (is_numeric($key)):?>
+                    <td>
+                    <?php if ($key == 8 && $value > 0):?>
+                    <a href="./?view_page=contacts&amp;this_posttype=<?=$posttype?>&this_posttype_order=<?=$row['line_order']?>&page=1&sc_status=8"><?=$contact_status_icon[$key]?> <?=$contact_status[$key]?></a> <span class="badge" id="badge_<?=$key?>"><?=$value?></span>
+                    <?php elseif ($key == 7 && $value > 0):?>
+                    <a href="./?view_page=contacts&amp;this_posttype=<?=$posttype?>&this_posttype_order=<?=$row['line_order']?>&page=1&sc_status=7"><?=$contact_status_icon[$key]?> <?=$contact_status[$key]?></a> <span class="badge" id="badge_<?=$key?>"><?=$value?></span>
+                    <?php else:?>
+                      <?=$contact_status_icon[$key]?> <?=$contact_status[$key]?> : <?=$value?>
+                    <?php endif?>
+                    </td>
+                    <?php endif?>
 										<?php endforeach?>
 									</tr>
 								</table>
@@ -178,6 +192,7 @@
 				<?php endforeach?>
 			<?php endif?>
 		<?php endif?>
+    </div>
 		
 		<div class="col-md-12">
 			<!-- information -->
