@@ -12,7 +12,7 @@
 		
 		<div id="warnings" class="col-md-12">
 			<!-- welcome -->
-			<?php if (strtotime($_SESSION[$session_key]['user']['login_time']) > (time() - 60)):?>
+			<?php if (strtotime($_SESSION[$session_key]['user']['login_time']) > (time() - 10)):?>
 				<?php if (isset($_SERVER['HTTP_REFERER']) && (strstr($_SERVER['HTTP_REFERER'], 'update') || strstr($_SERVER['HTTP_REFERER'], 'login') || strstr($_SERVER['HTTP_REFERER'], 'index'))):?>
 					<p class="alert alert-success processDone" id="process_msg"><?=TXT_INDEX_WELCOME($_SESSION[$session_key]['user']['nickname'])?></p>
 				<?php endif?>
@@ -48,16 +48,25 @@
       <?php endif?>
 		</div>
 		
-		<!-- summary -->
+		<!-- functions -->
     <div class="row col-md-12">
       <div class="col-md-4 col-sm-6">
-        <div class="alert alert-primary">
-          <p><i class="fa fa-fighter-jet" aria-hidden="true"></i> <b><?=TXT_INDEX_LBL_SMARTCACHE($_SESSION[$session_key]['license']['type'])?></b></p>
-          <p><i class="fa fa-toggle-on" aria-hidden="true"></i> <?=$common_flg_valid[1]?> <small><?=TXT_INDEX_MSG_SMARTCACHE?></small></p>
+        <div class="alert alert-<?=$advanced_cache_color?>">
+          <p><i class="fa fa-<?=$advanced_cache_icon?>" aria-hidden="true"></i> <b><?=$advanced_cache_label?></b></p>
+          <p><span><?=$advanced_cache_turn?></span><small><?=$advanced_cache_message?></small></p>
+          <p><i class="fa fa-<?=$switch_icon?>" aria-hidden="true"></i><small><?=$advanced_cache_turn_link?></small></p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="alert alert-<?=$version_color?>">
+          <p><i class="fa fa-<?=$version_icon?>" aria-hidden="true"></i> <b><?=$version_label?></b></p>
+          <p><span><?=$version_turn?></span><small><?=$version_message?></small></p>
+          <p><i class="fa fa-<?=$switch_icon?>" aria-hidden="true"></i><small><?=$version_turn_link?></small></p>
         </div>
       </div>
     </div>
 
+    <!-- summary -->
     <div class="row col-md-12">
 		<?php if (! empty($summary_post)):?>
       <?php foreach ($summary_post as $posttype => $rows):?>
@@ -205,10 +214,7 @@
 			<?php endif?>
 			<div class="packageInfo">
 				<div class="ly_packageInfo-logoWrapper">
-					<a href="https://classic.postease.org" target="_blank">POSTEASE</a> ver <?=$_SESSION[$session_key]['configs']['postease_version']?> <?=($_SESSION[$session_key]['license']['type'])?TXT_INDEX_MSG_LICENSEBUSINESS:TXT_INDEX_MSG_LICENSEBASIC?>
-					<?php if ($_SESSION[$session_key]['license']['validity'] == 1 && $_SESSION[$session_key]['license']['type'] == 0):?>
-          (<a target="_blank" href="https://classic.postease.org/license/"><?=TXT_INDEX_MSG_PUSHBUSINESS?></a>)
-          <?php endif?>
+					<a href="https://classic.postease.org" target="_blank">POSTEASE</a> ver <?=$_SESSION[$session_key]['configs']['postease_version']?> <?=$postease_license_ja[$_SESSION[$session_key]['license']['type']]?>
 				</div>
 				<?php if ($_SESSION[$session_key]['user']['role'] == 1):?>
 					<span class="aboutSystem"><a href="./?view_page=about_system"><i class="fa fa-info-circle" aria-hidden="true"></i><?=TXT_INDEX_MSG_ABOUTSYSTEM?></a></span>

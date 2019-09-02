@@ -103,6 +103,10 @@ input:-webkit-autofill {
 	margin-right: .5em;
 	color: #fff;
 }
+.loginInfo-user a {
+	color: inherit;
+	text-decoration: none;
+}
 .logoDefault {
 	padding: 3px 0;
 }
@@ -292,6 +296,14 @@ input:-webkit-autofill {
 	margin-top: 1em;
 	opacity: .4;
 	padding-right: .5em;
+}
+.plan {
+	color: #aaa;
+	margin-top: .3em;
+	text-align: right;
+	padding-right: .6em;
+	font-size: 75%;
+	letter-spacing: .02em;
 }
 .errorMsg {
 	display: block;
@@ -726,7 +738,7 @@ figure > figcaption {
 }
 .post_operator_container span,
 .post_operator_container button {
-	min-width: 70px;
+	min-width: 49%;
 }
 .panel-left {
 	display: inline-block;
@@ -852,9 +864,6 @@ textarea.content {
 	max-width: 100%;
 	margin: 5px 0 15px 0;
 }
-#delete_post {
-	display: none;
-}
 .statusText, .previewLink {
 	font-size: 1em;
 }
@@ -904,13 +913,25 @@ textarea.content {
 	font-weight: normal;
 }
 .version-list {
+	position: relative;
 	margin: .5em 0;
 }
 .version-list li {
 	margin-bottom: .2em;
 }
+.version-edit {
+	position: absolute;
+	left: 2px;
+}
 .version-changeLink {
-	margin-left: 1.3em;
+	margin-left: 1.4em;
+	margin-light: .5em;
+}
+.version-status {
+	margin: 0 .5em;
+}
+.version-status.archive {
+	color: #777;
 }
 .version-new {
 	display: inline-block;
@@ -1662,14 +1683,32 @@ label, .alert, .control-label, .help-block, .checkbox, .radio {
 .alert a,
 .alert a:link,
 .alert a:hover {
-	color: #fff;
-	text-decoration: underline;
+	color: inherit;
+	text-decoration: none;
 }
 .alert * {
 	color: inherit;
 }
+.alert p {
+	display: flex;
+	align-items: center;
+}
+.alert p > span {
+	display: inline-block;
+	width: 2em;
+	text-align: center;
+	font-style: normal;
+	font-weight: bold;
+}
+.alert p > i {
+	display: inline-block;
+	width: 2em;
+	text-align: center;
+}
 .alert p > small {
-	margin-left: 2em;
+	display: inline-block;
+	margin-left: .5em;
+	width: 99%;
 }
 .alert-primary {
 	background-color: #008cba;
@@ -1682,12 +1721,11 @@ label, .alert, .control-label, .help-block, .checkbox, .radio {
 }
 .alert-default {
 	background-color: #e1e1e1;
-	color: #222;
+	color: #555;
 }
 .alert small, .alert b {
 	color: inherit;
 }
-
 .popover-content {
 	color: #fff;
 }
@@ -1706,8 +1744,10 @@ label, .alert, .control-label, .help-block, .checkbox, .radio {
 .radio-block input {
 	margin-right: 4px;
 }
-
 .progress.index-panel {
 	height: 16px;
 	margin: .2em 0 0 0;
+}
+button.wide, span.wide {
+	min-width: 100%;
 }

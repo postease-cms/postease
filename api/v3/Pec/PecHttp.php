@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PecHttp (v1.1 Released at 17.Aug.2019)
+ * PecHttp (v1.2 Released at 02.Sep.2019)
  * ------------------------------------------------------------------
  * POSTEASE CLIENT (SDK FOR POSTEASE API)
  *
@@ -351,9 +351,12 @@ class PecHttp
       // Check Endpoint (are set)
       if ($this->endpoint)
       {
+        // Check Preview (avoid making cache file when preview)
+        $preview = ((key_exists('preview', $this->params) && $this->params['preview'] == 1) || (! empty($this->key) && preg_match('/^[a-z0-9]{32}$/', $this->key))) ? true : false;
+
         // Check and Use Advanced Cache
         $advanced_cache_file_name = hash('tiger128,4', $this->generateQueryString()) . '.json';
-        if ($this->use_advanced_cache && file_exists($this->advanced_cache_data_path . "/{$advanced_cache_file_name}"))
+        if (! $preview && $this->use_advanced_cache && file_exists($this->advanced_cache_data_path . "/{$advanced_cache_file_name}"))
         {
           $this->response_body = file_get_contents($this->advanced_cache_data_path . "/{$advanced_cache_file_name}");
           return json_decode($this->response_body, $this->response_type);
@@ -405,7 +408,7 @@ class PecHttp
               curl_close($ch);
 
               // Response 2xx, 3xx
-              if ($this->use_advanced_cache) file_put_contents($this->advanced_cache_data_path . "/{$advanced_cache_file_name}", $this->response_body);
+              if (! $preview && $this->use_advanced_cache) file_put_contents($this->advanced_cache_data_path . "/{$advanced_cache_file_name}", $this->response_body);
               return json_decode($this->response_body, $this->response_type);
             }
           }

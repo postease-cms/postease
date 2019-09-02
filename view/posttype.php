@@ -6,7 +6,6 @@
 		<div class="panel-heading">
 			<h3 class="panel-title">
 				<i class="fa <?=$page_icon?>"></i>
-				<?=$page_title_main?>
 				<?php if ($_SESSION[$session_key]['configs']['use_contact_flg']):?>
 					<?php if ($post_type == 'post'):?>
 						<?=TXT_POSTTYPE_LBL_POST?>
@@ -70,19 +69,23 @@
 				<?php else:?>
 					<div class="panel-heading" id="panel_new">
 						<i class="fa fa-plus-circle"></i> <?=TXT_POSTTYPE_LBL_NEW?>
-						<?php if ($post_type == 'post'):?>
-							<?=TXT_POSTTYPE_LBL_POST?>
-						<?php else:?>
-							<?=TXT_POSTTYPE_LBL_CONTACT?>
-						<?php endif?>
+						<?=($post_type == 'post')?TXT_POSTTYPE_LBL_POST:TXT_POSTTYPE_LBL_CONTACT?>
+            <?php if ($_SESSION[$session_key]['license']['type'] < 2):?>
+            <?php if ($creation_left):?>
+            <span class="label label-success" style="margin-left: 1em"><?=TXT_POSTTYPE_MSG_CREATION_LEFT($creation_left)?></span>
+            <?php else:?>
+            <span class="label label-warning" style="margin-left: 1em"><?=TXT_POSTTYPE_MSG_CREATION_LIMIT?></span>
+            <?php endif?>
+            <?php endif?>
 					</div>
 				<?php endif?>
+
 				<div class="panel-body">
 					<form id="posttype" role="form" action="./?mode=3" method="post">
 						<div class="form-group col-md-3">
 							<label class="control-label" for="name"><?=TXT_POSTTYPE_LBL_NAME?></label>
 							<div class="multistep10">
-								<input class="form-control" tabindex="1" type="text" id="name" name="name" value="<?=$this_name?>" placeholder="<?=TXT_POSTTYPE_PLH_NAME?>" required>
+								<input class="form-control" tabindex="1" type="text" id="name" name="name" value="<?=$this_name?>" placeholder="<?=TXT_POSTTYPE_PLH_NAME?>" required <?=($creation_left)?null:'disabled'?>>
 							</div>
 						</div>
 						
@@ -91,7 +94,7 @@
 							<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
 							<span class="validIcon hidden"><i class="fa fa-check-circle"></i></span>
 							<div class="multistep10" id="input_wrapper_slug" data-target_table="<?=$sortable_table?>" data-this_id="<?=$this_id?>">
-								<input class="form-control needValidation" data-valid_type="slug" tabindex="2" type="text" id="slug" name="slug" value="<?=$this_slug?>" placeholder="<?=TXT_POSTTYPE_PLH_SLUG?>" required>
+								<input class="form-control needValidation" data-valid_type="slug" tabindex="2" type="text" id="slug" name="slug" value="<?=$this_slug?>" placeholder="<?=TXT_POSTTYPE_PLH_SLUG?>" required <?=($creation_left)?null:'disabled'?>>
 							</div>
 						</div>
 						
@@ -133,7 +136,7 @@
 								<input type="hidden" id="type" name="type" value="0">
 							<?php endif?>
 							<br>
-							<input class="btn btn-primary" type="submit" id="do_update" name="<?=$submit_name?>" value="<?=TXT_POSTTYPE_BTN_UPDATE?>">
+							<input class="btn btn-primary" type="submit" id="do_update" name="<?=$submit_name?>" value="<?=TXT_POSTTYPE_BTN_UPDATE?>" <?=($creation_left)?null:'disabled'?>>
 							<span class="spinner hidden"><i class="fa fa-spinner fa-pulse"></i></span>
 							<input class="btn btn-danger" type="button" id="do_delete" name="do_delete" value="<?=TXT_POSTTYPE_BTN_DELETE?>">
 						</div>
@@ -141,15 +144,15 @@
 					</form>
 				</div>
 			</div>
-			
+
 			<?php if ($post_type == 'post'):?>
 				<?php if (count($records_post)):?>
 					<!-- LIST -->
 					<div class="panel panel-default registerdList">
 						<div class="panel-heading">
-							<?=TXT_POSTTYPE_LBL_LISTPOST?> <span id="amount" class="badge"><?=$record_counter_post?></span>
+							<?=TXT_POSTTYPE_LBL_LISTPOST?> <span id="amount" class="badge"><?=$record_counter_posttype?></span>
 							<span><a href="./?view_page=cover&amp;entity_code=2&amp;type=post"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> <?=TXT_COVER_LBL_TOCOVER?></a></span>
-						</div>
+            </div>
 						<div class="panel-body">
 							<table id="posttypes" class="table table-hover">
 								<thead>

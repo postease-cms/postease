@@ -19,7 +19,7 @@
 		<div class="slow-show config">
 			
 			<!-- Config General -->
-			<div class="panel panel-info">
+			<div class="panel panel-primary">
 				<div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGGENERAL_LBL_TITLECOMMON?></h3></div>
 				<div id="panel_general_whole" class="panel-body">
 					<form class="form-horizontal" role="form" action="./?mode=3" method="post">
@@ -75,7 +75,7 @@
 				</div>
 			</div>
 
-      <div class="panel panel-info">
+      <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="configcoreHeading panel-title"><?=TXT_CONFIGGENERAL_LBL_IMPLEMENTCODE?></h3>
         </div>

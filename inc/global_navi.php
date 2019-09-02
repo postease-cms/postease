@@ -33,7 +33,7 @@ if ($_SESSION[$session_key]['user']['role'] == 2) $fa_user = 'fa-universal-acces
 			<?php if ($_SESSION[$session_key]['user']['group_name']):?>
 			<span class="loginInfo-group"><i class="fa fa-users"></i> <?=$_SESSION[$session_key]['user']['group_name']?></span>
 			<?php endif?>
-			<span class="loginInfo-user"><i class="fa <?=$fa_user?>"></i> <?=$_SESSION[$session_key]['user']['nickname']?></span>
+      <span class="loginInfo-user"><i class="fa <?=$fa_user?>"></i> <a href="?view_page=change_password"><?=$_SESSION[$session_key]['user']['nickname']?></a></span>
 		</p>
 	</div>
 </nav>

@@ -5,7 +5,7 @@
 //exit;
 ?>
 <!-- OUTER WRAP -->
-<main id="content" class="col-md-10" data-site="<?=$site_slug?>" data-posttype="<?=$posttype_slug?>" data-auto_save_flg="<?=$auto_save_flg?>" data-tinymce_init="<?=$tinymce_init?>" data-tinymce_css="<?=$tinymce_css?>" data-editable_flg="<?=$editable_flg?>" data-use_permalink="<?=($resource_url||$rewrite_url)?1:0?>">
+<main id="content" class="col-md-10" data-site="<?=$site_slug?>" data-posttype="<?=$posttype_slug?>" data-auto_save_flg="<?=($status==1)?0:$auto_save_flg?>" data-tinymce_init="<?=$tinymce_init?>" data-tinymce_css="<?=$tinymce_css?>" data-editable_flg="<?=$editable_flg?>" data-use_permalink="<?=($resource_url||$rewrite_url)?1:0?>">
 	
 	<!-- PAGE TITLE -->
 	<div id="page_title" class="panel panel-default">
@@ -17,7 +17,7 @@
 					<?php if (! empty($id)):?>
 						<span class="label label-<?=$label_status?>">ID : <?=$id?></span>
 					<?php endif?>
-					<?php if ($_SESSION[$session_key]['configs']['use_version_flg'] && $process == 12):?>
+					<?php if ($_SESSION[$session_key]['configs']['use_version_flg'] && $process == 12 && $status == 1):?>
 						<?php if ($post_base['current_flg']):?>
 							<span class="label label-primary"><?=TXT_POST_LBL_RELEASEDVERSION?></span>
 						<?php else:?>
@@ -71,22 +71,40 @@
 			<?php if(isset($process_msg)):?>
 				<div class="alert alert-<?=$process_msg_style?> process<?=$process_msg_type?>"><?=$process_msg?></div>
 			<?php endif?>
-			
+
 			<!-- FORM -->
 			<?php if (count($_SESSION[$session_key]['common']['languages'])):?>
 				<form id="post" name="post" role="form" action="./_execute.php" method="post">
 					
 					<!-- Left// -->
 					<div class="col-md-9">
-						
+
+            <!-- newer version -->
+            <?php if ($editable_flg && $use_version_flg):?>
+            <?php if ($newer_version > 0):?>
+              <p class="alert alert-warning"><a href="?id=<?=$id?>&version=<?=$newer_version?>&process=12"><i class="fa fa-pencil" aria-hidden="true"></i> <?=TXT_POST_LBL_HAS_NEW_DRAFTVERSION?></a></p>
+            <?php endif?>
+            <?php endif?>
+
 						<!-- auto save -->
 						<?php if (! $editable_flg):?>
 							<p class="alert alert-danger"><?=TXT_POST_MSG_UNEDITABLE?></p>
-						<?php elseif ($auto_save_flg):?>
-							<p id="auto_save_mode" class="label label-info"><?=TXT_POST_LBL_AUTOSAVEMODE?></p>
-							<p id="save_message" class="label label-success"><?=TXT_POST_MSG_SAVED?></p>
-						<?php endif?>
-						
+            <?php else:?>
+              <?php if ($auto_save_flg):?>
+                <?php if ($status == 1 && $current_flg == 1):?>
+                  <p id="auto_save_mode" class="label label-success"><?=TXT_POST_LBL_AUTOSAVEMODE_CANCELED_PUBLISH?></p>
+                <?php elseif ($status == 1 && $current_flg == 0):?>
+                  <p id="auto_save_mode" class="label label-success"><?=TXT_POST_LBL_AUTOSAVEMODE_CANCELED_ARCHIVE?></p>
+                <?php elseif ($status != 1):?>
+                  <p id="auto_save_mode" class="label label-success"><?=TXT_POST_LBL_AUTOSAVEMODE?> ON</p>
+                  <small><a href="javascript:turnAutoSave();"> (<?=TXT_POST_LNK_TURN_AUTOSAVE($auto_save_flg)?>)</a></small>
+                <?php endif?>
+              <?php else:?>
+                <p id="auto_save_mode" class="label label-default"><?=TXT_POST_LBL_AUTOSAVEMODE?> OFF</p>
+                <small><a href="javascript:turnAutoSave();"> (<?=TXT_POST_LNK_TURN_AUTOSAVE($auto_save_flg)?>)</a></small>
+              <?php endif?>
+            <?php endif?>
+
 						<!-- permalink -->
 						<?php if ($resource_url || $rewrite_url):?>
 							<p id="permalink_display" data-language_id="<?=$language_id?>" data-permalink_type="<?=$permalink_type?>" data-permalink_style="<?=$permalink_style?>"
@@ -373,9 +391,9 @@
 							<label class="control-label" for="status"><i class="fa fa-check-square-o"></i> <?=TXT_POST_LBL_STATUS?></label>
 							<div>
 								<?php foreach ($post_status as $key => $value):?>
-									<label class="radio-inline" for="status_<?=$key?>"><input <?=($key==1&&!$publish_flg&&$status!=1)?'disabled':''?> type="radio" id="status_<?=$key?>" name="status" value="<?=$key?>" <?=($key==$status||$process==11&&$key==2)?'checked':''?>> <?=$value?></label>
-									<small class="<?=($key==1&&!$publish_flg&&$status!=1)?'inactive':''?>">
-										<?php if ($key == 1 && ! $publish_flg && $status != 1):?>
+									<label class="radio-inline" for="status_<?=$key?>"><input <?=(($key==1&&!$publish_flg&&$status!=1)||($current_flg==0))?'disabled':''?> type="radio" id="status_<?=$key?>" name="status" value="<?=$key?>" <?=($key==$status||$process==11&&$key==2)?'checked':''?>> <?=$value?></label>
+									<small class="<?=(($key==1&&!$publish_flg&&$status!=1)||($current_flg==0))?'inactive':''?>">
+										<?php if (($key == 1&&!$publish_flg&&$status!= 1)||($current_flg==0)):?>
 											(<?=TXT_POST_LBL_CHANGESTATUS_SAVE($value)?>)
 										<?php else:?>
 											<a class="changeStatusClose notLink" data-status="<?=$key?>">(<?=TXT_POST_LBL_CHANGESTATUS_SAVE($value)?>)</a>
@@ -399,6 +417,7 @@
 							<?php endforeach?>
 						<?php endif?>
 						<input type="hidden" name="target_id" id="target_id" value="<?=$id?>">
+            <input type="hidden" name="former_status" id="former_status" value="<?=$status?>">
 						<input type="hidden" name="version" id="version" value="<?=$version?>">
 						<input type="hidden" name="versioned_at" id="versioned_at" value="<?=$versioned_at?>">
 						<input type="hidden" name="current_flg" id="current_flg" value="<?=$current_flg?>">
@@ -412,7 +431,7 @@
 						<input type="hidden" name="permalink_uri" id="permalink_uri" value="<?=$permalink_uri?>">
 						
 						<!-- delete_check (post) -->
-						<?php if ($process == 12 && $publish_flg):?>
+						<?php if ($process == 12 && ($current_flg == 1 || $status == 2)):?>
 							<div class="form-group">
 								<div><label class="control-label post-allowDeleteLable" id="post_allow_delete_label" for="post_allow_delete"><input type="checkbox" id="post_allow_delete" name="post_allow_delete"> <?=$allow_delete_msg?></label></div>
 							</div>
@@ -420,39 +439,55 @@
 						
 						<!-- buttons -->
 						<div class="form-group post_operator_container post_item_container">
-							<span class="btn btn-default" id="save_post" name="save_post"><?=TXT_POST_BTN_SAVE?></span>
-							<?php if ($publish_flg):?>
-								<input type="hidden" name="submit_type" value="<?=$submit_value?>">
-								<button class="btn btn-primary <?=($process==12&&$status==2&&$publish_flg)?'':'hidden'?>" type="button" id="publish_post"><?=$submit_label?></button>
-							<?php endif?>
-							<button class="btn btn-danger" type="submit" id="delete_post" name="submit_type" onclick="return deletePost('<?=$delete_msg?>');"><?=TXT_POST_BTN_DELETE?></button>
+              <?php if ($publish_flg):?>
+              <?php if ($status == 1 && $current_flg == 1):?>
+              <input type="hidden" name="submit_type" value="<?=$submit_value?>">
+                <?php if ($newer_version == 0):?>
+                <?php if ($use_version_flg == 1):?>
+                <span class="btn btn-warning wide" id="version_post" name="version_post" onclick="createNewVersionPost(<?=$id?>,<?=$current_version?>)"><?=TXT_POST_BTN_NEW_VERSION?></span>
+                <?php else:?>
+                <span class="btn btn-warning wide" id="version_post" data-toggle="tooltip" data-placement="top" title="<?=TXT_POST_MSG_VERSION_OFF?>" disabled><?=TXT_POST_BTN_NEW_VERSION?></span>
+                <?php endif?>
+                <?php endif?>
+              <button class="btn btn-success wide hidden" type="button" id="publish_post"><?=$submit_label?></button>
+              <button class="btn btn-danger wide hidden" type="submit" id="delete_post" name="submit_type" onclick="return deletePost('<?=$delete_msg?>');"><?=TXT_POST_BTN_DELETE?></button>
+              <?php elseif ($status == 1 && $current_flg == 0):?>
+              <input type="hidden" name="submit_type" value="<?=$submit_value?>">
+              <button class="btn btn-success wide hidden" type="button" id="publish_post"><?=$submit_label?></button>
+              <?php elseif ($status == 2 || $process == 11):?>
+              <input type="hidden" name="submit_type" value="<?=$submit_value?>">
+              <span class="btn btn-default" id="save_post" name="save_post"><?=TXT_POST_BTN_SAVE?></span>
+              <button class="btn btn-primary <?=(empty($hash_id))?'hidden':null?>" type="button" id="publish_post"><?=$submit_label?></button>
+              <button class="btn btn-danger wide hidden" type="submit" id="delete_post" name="submit_type" onclick="return deletePost('<?=$delete_msg?>');"><?=TXT_POST_BTN_DELETE?></button>
+              <?php endif?>
+              <?php endif?>
 						</div>
 						
 						<!-- version (operation) -->
-						<?php if (! empty($_SESSION[$session_key]['configs']['use_version_flg']) && ! $child_flg && $process > 11):?>
+						<?php if (! empty($use_version_flg) && ! $child_flg && $process > 11):?>
 							<div class="form-group post_operator_container post_item_container">
 								<label class="control-label" for="status"><i class="fa fa-history" aria-hidden="true"></i> <?=TXT_POST_LBL_VERSION?></label>
 								<ul class="version-list">
 									<?php foreach ($versions_all as $row):?>
 										<li>
 											<?php if ($row['version'] == $version):?>
-												<i class="fa fa-eye" aria-hidden="true"></i> <?=$row['label']?>
+                        <span class="version-edit"><i class="fa fa-chevron-right" aria-hidden="true"></i></span> <span class="version-changeLink"><?=$row['label']?></span>
 											<?php else:?>
-												<a class="version-changeLink" href="./?id=<?=$id?>&amp;version=<?=$row['version']?>&process=<?=$process?>"><?=$row['label']?></a>
+                        <a class="version-changeLink" href="./?id=<?=$id?>&amp;version=<?=$row['version']?>&process=<?=$process?>"><?=$row['label']?></a>
 											<?php endif?>
-											<?php if ($row['current_flg']):?>
-												<i class="fa fa-flag" aria-hidden="true"></i>
+                      <?php if ($row['status'] == 2):?>
+                        <span data-toggle="tooltip" data-placement="top" title="<?=TXT_POST_LBL_VERSION_DRAFT?>" class="version-status"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+											<?php elseif ($row['current_flg'] == 1):?>
+                        <span data-toggle="tooltip" data-placement="top" title="<?=TXT_POST_LBL_VERSION_CURRENT?>" class="version-status"><i class="fa fa-eye" aria-hidden="true"></i></span>
 											<?php else:?>
+                        <span data-toggle="tooltip" data-placement="top" title="<?=TXT_POST_LBL_VERSION_ARCHIVED?>" class="version-status archive"><i class="fa fa-archive" aria-hidden="true"></i></span>
 												<a data-toggle="tooltip" data-placement="top" title="<?=TXT_POST_LBL_CHANGECURRENT?>" onclick="changeCurrentPost(<?=$id?>,<?=$row['version']?>)"><i class="fa fa-history" aria-hidden="true"></i></a>
 												<span class="version-delete"><a data-toggle="tooltip" data-placement="top" title="<?=TXT_POST_LBL_DELETEVERSION?>" onclick="deleteVersionPost(<?=$id?>,<?=$row['version']?>)"><i class="fa fa-trash-o" aria-hidden="true"></i></a></span>
 											<?php endif?>
 										</li>
 									<?php endforeach?>
 								</ul>
-								<?php if ($version == $current_version):?>
-									<a class="version-new" href="javascript:void(0);" onclick="createNewVersionPost(<?=$id?>,<?=$current_version?>)"><i class="fa fa-plus-circle" aria-hidden="true"></i> <?=TXT_POST_LBL_NEWVERSION?></a>
-								<?php endif?>
-								<!-- delete_check (post) -->
+								<!-- delete_check (version) -->
 								<?php if ($process == 12 && count($versions_all) > 1):?>
 									<label class="control-label version-allowDeleteLabel" for="version_allow_delete"><input type="checkbox" id="version_allow_delete" name="version_allow_delete"> <?=TXT_POST_LBL_ALLOWDELETEVERSION?></label>
 								<?php endif?>

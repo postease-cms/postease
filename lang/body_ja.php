@@ -52,9 +52,9 @@ define('TXT_MAINMENU_LBL_USER',           'ユーザ');
 define('TXT_MAINMENU_LBL_GROUP',          'グループ');
 define('TXT_MAINMENU_LBL_CHANGE_PASS',    'アカウント更新');
 define('TXT_MAINMENU_LBL_SITE_OPTION',    'サイトオプション');
-define('TXT_MAINMENU_LBL_SITE',           'マルチサイト');
-define('TXT_MAINMENU_LBL_POSTTYPE',       'マルチポストタイプ');
-define('TXT_MAINMENU_LBL_LANGUAGE',       'マルチリンガル');
+define('TXT_MAINMENU_LBL_SITE',           'サイト');
+define('TXT_MAINMENU_LBL_POSTTYPE',       'ポストタイプ');
+define('TXT_MAINMENU_LBL_LANGUAGE',       '言語');
 define('TXT_MAINMENU_LBL_CONFIG',         '設定');
 define('TXT_MAINMENU_LBL_GENERAL',        '一般');
 define('TXT_MAINMENU_LBL_OPTION',         'オプション');
@@ -137,6 +137,62 @@ define('TXT_LOGIN_VAL_SUBMIT',         'ログイン');
 
 
 /*
+ * _index
+ * ------------------------------------------------------------------------------------------------ */
+define('TXT_LOGIN_WAR_IP',      '不正なIPアドレスからアクセスされました。');
+define('TXT_LOGIN_WAR_SESSION', '予期せぬ理由によりログイン状態が破棄されました。');
+function TXT_INDEX_LABEL_SMARTCACHE($use_advanced_cache = 0, $license_type = 0)
+{
+  return $label = ($use_advanced_cache && $license_type > 0) ? 'スマートキャッシュ・アドバンス' : 'スマートキャッシュ';
+}
+function TXT_INDEX_LINK_TURN_SMARTCACHE($use_advanced_cache = 0, $license_type = 0)
+{
+  $html = 'さらに高速な “スマートキャッシュ・アドバンス” は「アドバンス」ライセンス以上で利用できます。';
+  if ($license_type > 0)
+  {
+    $html = ($use_advanced_cache) ? '<a href="javascript:turnFunction(\'use_advanced_cache_flg\', 0);">スマートキャッシュ・アドバンスを無効にする</a>' : '<a href="javascript:turnFunction(\'use_advanced_cache_flg\', 1);">さらに高速なスマートキャッシュ・アドバンスを有効にする</a>';
+  }
+  return $html;
+}
+function TXT_INDEX_MSG_SMARTCACHE_VALID($use_advanced_cache = 0, $license_type = 0, $license_valid_to = null)
+{
+  $text = 'この機能は標準で常に有効です。';
+  if ($use_advanced_cache)
+  {
+    if ($license_type > 0 && $license_valid_to)
+    {
+      $valid_to = ($license_valid_to == '9999-99-99') ? '無期限で' : ' '. date('Y年m月d日', strtotime($license_valid_to)) . ' まで';
+      $text = "この機能は{$valid_to}利用可能です。";
+    }
+  }
+  return $text;
+}
+define('TXT_INDEX_LABEL_VERSION',      'バージョン管理');
+function TXT_INDEX_LINK_TURN_VERSION($use_version = 0, $license_type = 0)
+{
+  $html = '公開ポストのリライトや復元が自由にできる “バージョン管理” は「アドバンス」ライセンス以上で利用できます。';
+  if ($license_type > 0)
+  {
+    $html = ($use_version) ? '<a href="javascript:turnFunction(\'use_version_flg\', 0);">バージョン管理を無効にする</a>' : '<a href="javascript:turnFunction(\'use_version_flg\', 1);">バージョン管理を有効にする</a>';
+  }
+  return $html;
+}
+function TXT_INDEX_MSG_VERSION_VALID($use_version = 0, $license_type = 0, $license_valid_to = null)
+{
+  $text = 'この機能は無効です。';
+  if ($use_version)
+  {
+    if ($license_type > 0 && $license_valid_to)
+    {
+      $valid_to = ($license_valid_to == '9999-99-99') ? '無期限で' : ' '. date('Y年m月d日', strtotime($license_valid_to)) . ' まで';
+      $text = "この機能は{$valid_to}利用可能です。";
+    }
+  }
+  return $text;
+}
+
+
+/*
  * index
  * ------------------------------------------------------------------------------------------------ */
 define('TXT_INDEX_WAR_PASSWORD_01',         'パスワードが初期設定のままです。<a href="?view_page=change_password">こちら</a>から変更してください');
@@ -154,16 +210,14 @@ define('TXT_INDEX_LBL_IMPLEMENT_CODE',      '共通実装コード');
 define('TXT_INDEX_MSG_LOGINASSITEADMIN',    '[サイト管理者] 権限でログインしています。');
 define('TXT_INDEX_MSG_LOGINASSYSTEMADMIN',  '[システム管理者] 権限でログインしています。全ての操作が可能です。');
 define('TXT_INDEX_MSG_ABOUTSYSTEM',         'このシステムについて');
-define('TXT_INDEX_MSG_LICENSEBASIC',        'ベーシックライセンス');
-define('TXT_INDEX_MSG_LICENSEBUSINESS',     'ビジネスライセンス');
-define('TXT_INDEX_MSG_PUSHBUSINESS',        'ビジネスライセンスの取得');
-define('TXT_INDEX_MSG_SMARTCACHE',         'この機能は常に有効です');
+define('TXT_INDEX_MSG_SMARTCACHE',          'この機能は常に有効です');
+define('TXT_INDEX_MSG_VERSION',             'バージョン管理');
 
 function TXT_INDEX_WELCOME($nickname)                { return $text = 'ようこそ ' . $nickname . ' さん！';}
 function TXT_INDEX_WAR_DOMAIN($domain)               { return $text = 'アクセス中のドメインと設定ドメインが違います（設定ドメインは ' . $domain . ' ）。メニュー「設定」「コア」で修正してください。';}
 function TXT_INDEX_WAR_DIR($dir)                     { return $text = 'アクセス中のディレクトリ名と設定ディレクトリ名が違います（設定ディレクトリ名は ' . $dir . ' ）。メニュー「設定」「コア」で修正してください。';}
 function TXT_INDEX_WAR_SQLITEPERMISSION($perm)       { return $text = 'SQLite に書込権限がありません。適切なパーミッションに変更して下さい（現在のパーミッションは ' . $perm . ' ）。';}
-function TXT_INDEX_WAR_BUSINESSLICENSE($days, $date) { return $text = 'ビジネスライセンスの有効期限が残り ' . $days . '日 になりました（有効期限は ' . $date . ' ）。<a target="_blank" href="https://classic.postease.org/license/">サービスサイト</a>より新しいビジネスライセンスを購入してください。<br>ビジネスライセンスの購入に必要なアクティベーションキーの確認は<a href="?view_page=about_system">こちら</a>から。';}
+function TXT_INDEX_WAR_BUSINESSLICENSE($days, $date) { return $text = 'アドバンスライセンスの有効期限が残り ' . $days . '日 になりました（有効期限は ' . date('Y年m月d日', strtotime($date)) . ' ）。<a target="_blank" href="https://classic.postease.org/license/">サービスサイト</a>より新しいアドバンスライセンスを購入してください。<br>アドバンスライセンスの購入に必要なアクティベーションキーの確認は<a href="?view_page=about_system">こちら</a>から。';}
 function TXT_INDEX_MSG_LOGIN_DATETIME($datetime)     { return $text = $datetime . ' にログインしました。';}
 function TXT_INDEX_LBL_SMARTCACHE($license = 0)
 {
@@ -199,7 +253,7 @@ define('TXT_ABOUTSYSTEM_LBL_TITLE',            'POSTEASE について');
 define('TXT_ABOUTSYSTEM_THD_THISVERSION',      'バージョン');
 define('TXT_ABOUTSYSTEM_THD_LICENSE',          'ライセンス');
 define('TXT_ABOUTSYSTEM_LBL_LICENSEBASIC',     'ベーシック');
-define('TXT_ABOUTSYSTEM_LBL_LICENSEBUSINESS',  'ビジネス');
+define('TXT_ABOUTSYSTEM_LBL_LICENSEBUSINESS',  'アドバンス');
 define('TXT_ABOUTSYSTEM_ALT_FAILLICENSE',      'ライセンスの取得に失敗しました。');
 define('TXT_ABOUTSYSTEM_LBL_UNLIMITED',        '無期限');
 define('TXT_ABOUTSYSTEM_THD_ACTIVATIONKEY',     'アクティベーションキー');
@@ -289,8 +343,9 @@ function TXT_POSTS_LNK_GETSDKPHP($url) { return $text = 'POSTEASE APIからデ�
  * ------------------------------------------------------------------------------------------------ */
 define('TXT_POST_LBL_NEW',                '新規');
 define('TXT_POST_LBL_EDIT',               '編集');
-define('TXT_POST_BTN_UPDATE',             '更新');
+define('TXT_POST_BTN_UPDATE',             '更新して公開');
 define('TXT_POST_BTN_PUBLISH',            '公開');
+define('TXT_POST_BTN_VERSIONPUBLISH',     '差し換え公開');
 define('TXT_POST_LNK_BACKTOLIST',         '一覧へ戻る');
 define('TXT_POST_LNK_PREVIEWLINK',        'プレビュー');
 define('TXT_POST_MSG_PERMALINKNOTYET',    'パーマリンクは作成されていません。');
@@ -302,7 +357,7 @@ define('TXT_POST_MSG_CHILDDELETE',        'ページを削除しました。');
 define('TXT_POST_MSG_VERSIONDELETE',      'バージョンを削除しました。');
 define('TXT_POST_LBL_IMPLEMENT_CODE',     '実装コード');
 function TXT_POST_LNK_PREVIEW($preview_link) { return $text = "プレビュー ({$preview_link})";} // no use after v3.0.0
-function TXT_POST_STATUSTEXT($status, $label)
+function TXT_POST_STATUSTEXT($status, $label, $current_flg = 1)
 {
 	$status_text = array(
 		'primary' => '公開中',
@@ -314,69 +369,89 @@ function TXT_POST_STATUSTEXT($status, $label)
 		'info'    => '公開予定',
 		'default' => '公開終了',
 	);
-	return $text = ($status) ? ($status == 1) ? $publish_status_text[$label] : $status_text[$label] : '作成前';
+	if ($current_flg == 0 && $status == 1)
+  {
+    $text = 'アーカイブ';
+  }
+  else {
+    $text = ($status) ? ($status == 1) ? $publish_status_text[$label] : $status_text[$label] : '作成前';
+  }
+	return $text;
 }
 
 /*
  * post
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_POST_LBL_NEWPAGE',                  '新しいページ');
-define('TXT_POST_LBL_RELEASEDVERSION',          '公開バージョン');
-define('TXT_POST_LBL_PRIVATEVERSION',           '非公開バージョン');
-define('TXT_POST_MSG_UNEDITABLE',               '編集権限がありません。');
-define('TXT_POST_LBL_AUTOSAVEMODE',             '自動保存モード');
-define('TXT_POST_MSG_SAVED',                    '保存しています');
-define('TXT_POST_PLH_LIST',                     'リストの区切りは改行です。');
-define('TXT_POST_PLH_GALLERY_CAPTION',          'キャプション');
-define('TXT_POST_LBL_SELECTDEFAULT',            '選択');
-define('TXT_POST_BTN_IMG_SET',                  '設定');
-define('TXT_POST_BTN_IMG_DELETE',               '削除');
-define('TXT_POST_LBL_TITLE',                    'タイトル');
-define('TXT_POST_LBL_ADDITION',                 'ディスクリプション');
-define('TXT_POST_LBL_CONTENT',                  '本文');
-define('TXT_POST_BTN_SAVE',                     '保存');
-define('TXT_POST_BTN_DELETE',                   '削除');
-define('TXT_POST_MSG_DELETEPOSTNORMAL',         '一度削除したポストは元に戻せません。このポストを削除してもよろしいですか？');
-define('TXT_POST_MSG_DELETEPOSTCHILD',          '一度削除したページは元に戻せません。このページを削除してもよろしいですか？');
-define('TXT_POST_MSG_DELETEPOSTPRIVATE',        '一度削除したバージョンは元に戻せません。このバージョンを削除してもよろしいですか？');
-define('TXT_POST_MSG_DELETEPOSTPRIVATEALL',     'このバージョンを削除すると関連する全てのページも同時に削除されます。一度削除すると元に戻せません。削除してもよろしいですか？');
-define('TXT_POST_MSG_DELETEPOSTCHILDLEN',       'このポストを削除すると関連する全てのページも同時に削除されます。一度削除すると元に戻せません。削除してもよろしいですか？');
-define('TXT_POST_MSG_DELETEPOSTCURRENT',        'このポストを削除すると関連する全てのバージョンも同時に削除されます。一度削除すると元に戻せません。削除してもよろしいですか？');
-define('TXT_POST_MSG_DELETEPOSTRELATEDALL',     'このポストを削除すると関連する全てのページと全てのバージョンも同時に削除されます。一度削除すると元に戻せません。削除してもよろしいですか？');
-define('TXT_POST_LBL_VERSION',                  'バージョン管理');
-define('TXT_POST_LBL_CHANGECURRENT',            'このバージョンに差し替える');
-define('TXT_POST_LBL_DELETEVERSION',            'このバージョンを削除する');
-define('TXT_POST_LBL_NEWVERSION',               '新しいバージョン');
-define('TXT_POST_LBL_ALLOWDELETEVERSION',       'バージョンの削除を許可する');
-define('TXT_POST_LBL_SLUG',                     'スラッグ');
-define('TXT_POST_LBL_CHANGE_SLUG',              '変更する');
-define('TXT_POST_PLH_SLUG',                     'タイトルより優先的にURLの一部になります。半角英数字と「_」「-」が利用可能です。');
-define('TXT_POST_PLH_TITLEWITHSLUG',            'スラッグが設定されていない場合はURLの一部になります。');
-define('TXT_POST_LBL_PUBLISHDATETIME',          '公開日時');
-define('TXT_POST_LBL_PUBLISHENDAT',             '公開終了日時');
-define('TXT_POST_PLH_PUBLISHDATE',              '公開日');
-define('TXT_POST_PLH_PUBLISHTIME',              '公開時間');
-define('TXT_POST_LBL_ANCHOR',                   '優先表示アンカー');
-define('TXT_POST_LBL_STATUS',                   '公開ステータス');
-define('TXT_POST_LBL_PUBLISHED',                '公開');
-define('TXT_POST_LBL_PRIVATE',                  '非公開');
-define('TXT_POST_LBL_SITE',                     'サイト');
-define('TXT_POST_LBL_POSTTYPE',                 '投稿タイプ');
-define('TXT_POST_LBL_EYECATCH',                 'アイキャッチ画像');
-define('TXT_POST_LBL_CATEGORY',                 'カテゴリ');
-define('TXT_POST_LBL_NOLABEL',                  '..ラベルなし');
-define('TXT_POST_MSG_NOCATEGORY',               '登録カテゴリなし');
-define('TXT_POST_LBL_TAG',                      'タグ');
-define('TXT_POST_LBL_CREATEATBY',               '投稿');
-define('TXT_POST_LBL_UPDATEATBY',               '最終更新');
-define('TXT_POST_MSG_NOTAG',                    '登録タグなし');
-define('TXT_POST_LBL_NEWCOMMENT',               '新規作成');
-define('TXT_POST_MSG_ALLOWDELETEPOST',          'ポストの削除を許可する');
-define('TXT_POST_MSG_ALLOWDELETEPAGE',          'ページの削除を許可する');
-define('TXT_POST_MSG_ALLOWDELETEVERSION',       'バージョンの削除を許可する');
-define('TXT_POST_WAR_NOLANGUAGE',               'このサイトは言語の設定がありません。「オプション」&gt;「マルチリンガル」から設定を行ってください。');
+define('TXT_POST_LBL_NEWPAGE',                       '新しいページ');
+define('TXT_POST_LBL_RELEASEDVERSION',               '公開バージョン');
+define('TXT_POST_LBL_PRIVATEVERSION',                '非公開バージョン');
+define('TXT_POST_MSG_UNEDITABLE',                    '編集権限がありません。');
+define('TXT_POST_LBL_AUTOSAVEMODE',                  '自動保存');
+define('TXT_POST_MSG_SAVED',                         '保存しています');
+define('TXT_POST_LBL_HAS_NEW_DRAFTVERSION'         , '新しい編集中の下書きバージョンがあります。（編集中の下書きバージョンに移動）');
+define('TXT_POST_LBL_AUTOSAVEMODE_CANCELED_PUBLISH', '公開中は自動保存が無効化されます。「更新して公開」するまでデータは更新されません。');
+define('TXT_POST_LBL_AUTOSAVEMODE_CANCELED_ARCHIVE', 'アーカイブは自動保存が無効化されます。「差し換え公開」するまでデータは更新されません。');
+define('TXT_POST_PLH_LIST',                          'リストの区切りは改行です。');
+define('TXT_POST_PLH_GALLERY_CAPTION',               'キャプション');
+define('TXT_POST_LBL_SELECTDEFAULT',                 '選択');
+define('TXT_POST_BTN_IMG_SET',                       '設定');
+define('TXT_POST_BTN_IMG_DELETE',                    '削除');
+define('TXT_POST_LBL_TITLE',                         'タイトル');
+define('TXT_POST_LBL_ADDITION',                      'ディスクリプション');
+define('TXT_POST_LBL_CONTENT',                       '本文');
+define('TXT_POST_BTN_SAVE',                          '保存');
+define('TXT_POST_BTN_DELETE',                        '削除');
+define('TXT_POST_BTN_NEW_VERSION',                   '新しいバージョンを下書き作成');
+define('TXT_POST_MSG_VERSION_OFF',                   '現在、バージョン管理は無効になっています。');
+define('TXT_POST_MSG_DELETEPOSTNORMAL',              '一度削除したポストは元に戻せません。このポストを削除してもよろしいですか？');
+define('TXT_POST_MSG_DELETEPOSTCHILD',               '一度削除したページは元に戻せません。このページを削除してもよろしいですか？');
+define('TXT_POST_MSG_DELETEPOSTPRIVATE',             '一度削除したバージョンは元に戻せません。このバージョンを削除してもよろしいですか？');
+define('TXT_POST_MSG_DELETEPOSTPRIVATEALL',          'このバージョンを削除すると関連する全てのページも同時に削除されます。一度削除すると元に戻せません。削除してもよろしいですか？');
+define('TXT_POST_MSG_DELETEPOSTCHILDLEN',            'このポストを削除すると関連する全てのページも同時に削除されます。一度削除すると元に戻せません。削除してもよろしいですか？');
+define('TXT_POST_MSG_DELETEPOSTCURRENT',             'このポストを削除すると関連する全てのバージョンも同時に削除されます。一度削除すると元に戻せません。削除してもよろしいですか？');
+define('TXT_POST_MSG_DELETEPOSTRELATEDALL',          'このポストを削除すると関連する全てのページと全てのバージョンも同時に削除されます。一度削除すると元に戻せません。削除してもよろしいですか？');
+define('TXT_POST_LBL_VERSION',                       'バージョン管理');
+define('TXT_POST_LBL_VERSION_ARCHIVED',              'アーカイブバージョン');
+define('TXT_POST_LBL_VERSION_CURRENT',               '現在の公開バージョン');
+define('TXT_POST_LBL_VERSION_DRAFT',                 '編集中の下書きバージョン');
+define('TXT_POST_LBL_CHANGECURRENT',                 'このバージョンに差し替え公開');
+define('TXT_POST_LBL_DELETEVERSION',                 'このバージョンを削除する');
+define('TXT_POST_LBL_NEWVERSION',                    '新しいバージョン');
+define('TXT_POST_LBL_ALLOWDELETEVERSION',            'アーカイブバージョンの削除を許可する');
+define('TXT_POST_LBL_SLUG',                          'スラッグ');
+define('TXT_POST_LBL_CHANGE_SLUG',                   '変更する');
+define('TXT_POST_PLH_SLUG',                          'タイトルより優先的にURLの一部になります。半角英数字と「_」「-」が利用可能です。');
+define('TXT_POST_PLH_TITLEWITHSLUG',                 'スラッグが設定されていない場合はURLの一部になります。');
+define('TXT_POST_LBL_PUBLISHDATETIME',               '公開日時');
+define('TXT_POST_LBL_PUBLISHENDAT',                  '公開終了日時');
+define('TXT_POST_PLH_PUBLISHDATE',                   '公開日');
+define('TXT_POST_PLH_PUBLISHTIME',                   '公開時間');
+define('TXT_POST_LBL_ANCHOR',                        '優先表示アンカー');
+define('TXT_POST_LBL_STATUS',                        '公開ステータス');
+define('TXT_POST_LBL_PUBLISHED',                     '公開');
+define('TXT_POST_LBL_PRIVATE',                       '非公開');
+define('TXT_POST_LBL_SITE',                          'サイト');
+define('TXT_POST_LBL_POSTTYPE',                      '投稿タイプ');
+define('TXT_POST_LBL_EYECATCH',                      'アイキャッチ画像');
+define('TXT_POST_LBL_CATEGORY',                      'カテゴリ');
+define('TXT_POST_LBL_NOLABEL',                       '..ラベルなし');
+define('TXT_POST_MSG_NOCATEGORY',                    '登録カテゴリなし');
+define('TXT_POST_LBL_TAG',                           'タグ');
+define('TXT_POST_LBL_CREATEATBY',                    '投稿');
+define('TXT_POST_LBL_UPDATEATBY',                    '最終更新');
+define('TXT_POST_MSG_NOTAG',                         '登録タグなし');
+define('TXT_POST_LBL_NEWCOMMENT',                    '新規作成');
+define('TXT_POST_MSG_ALLOWDELETEPOST',               'ポストの削除を許可する');
+define('TXT_POST_MSG_ALLOWDELETEPAGE',               'ページの削除を許可する');
+define('TXT_POST_MSG_ALLOWDELETEVERSION',            'バージョンの削除を許可する');
+define('TXT_POST_WAR_NOLANGUAGE',                    'このサイトは言語の設定がありません。「オプション」&gt;「多言語」から設定を行ってください。');
 function TXT_POST_LBL_CHANGESTATUS_SAVE($status){ return $text = "{$status}にして更新";}
 function TXT_POST_PLH_TABLE($delimiter)         { return $text = "列の区切りは{$delimiter}です。行の区切りは改行です。";}
+function TXT_POST_LNK_TURN_AUTOSAVE($turn_from)
+{
+  $turn = ($turn_from) ? '無効' : '有効';
+  return $text = "自動保存を{$turn}にする";
+};
 
 
 /*
@@ -747,20 +822,22 @@ define('TXT_CONFIGOPTION_PAGETITLESUB',    'オプション');
 /*
  * config_option
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_CONFIGOPTION_MSG_UPDATED',            'オプション設定を更新しました。');
-define('TXT_CONFIGOPTION_LBL_TITLE_OTHERS',       'その他オプション');
-define('TXT_CONFIGOPTION_LBL_USECOMMENTFLG',      'コメント');
-define('TXT_CONFIGOPTION_LBL_USEVERSIONFLG',      'バージョン管理');
-define('TXT_CONFIGOPTION_LBL_TITLE_CONTACT',      'コンタクトオプション');
-define('TXT_CONFIGOPTION_LBL_TITLE_USER',         'ユーザオプション');
-define('TXT_CONFIGOPTION_LBL_USECONTACTFLG',      'コンタクト');
-define('TXT_CONFIGOPTION_LBL_USEGROUPFLG',        'グループ');
-define('TXT_CONFIGOPTION_LBL_TITLE_SITE',         'サイトオプション');
-define('TXT_CONFIGOPTION_LBL_USEMULTISITEFLG',    'マルチサイト');
-define('TXT_CONFIGOPTION_LBL_USEPOSTTYPEFLG',     'マルチポストタイプ');
-define('TXT_CONFIGOPTION_LBL_USEMULTILINGUALFLG', 'マルチリンガル');
-define('TXT_CONFIGOPTION_LBL_BUISINESS',          'ビジネスオプション');
-define('TXT_CONFIGOPTION_BTN_SUBMIT',             '更新');
+define('TXT_CONFIGOPTION_MSG_UPDATED',              'オプション設定を更新しました。');
+define('TXT_CONFIGOPTION_LBL_TITLE_OTHERS',         'その他オプション');
+define('TXT_CONFIGOPTION_LBL_USECOMMENTFLG',        'コメント');
+define('TXT_CONFIGOPTION_LBL_USEVERSIONFLG',        'バージョン管理');
+define('TXT_CONFIGOPTION_LBL_USEADVANCEDCACHEFLG',  'スマートキャッシュ・アドバンス');
+define('TXT_CONFIGOPTION_LBL_TITLE_CONTACT',        'コンタクトオプション');
+define('TXT_CONFIGOPTION_LBL_TITLE_USER',           'ユーザオプション');
+define('TXT_CONFIGOPTION_LBL_USECONTACTFLG',        'コンタクト');
+define('TXT_CONFIGOPTION_LBL_USEGROUPFLG',          'グループ');
+define('TXT_CONFIGOPTION_LBL_TITLE_SITE',           'サイトオプション');
+define('TXT_CONFIGOPTION_LBL_USEMULTISITEFLG',      'マルチサイト');
+define('TXT_CONFIGOPTION_LBL_USEPOSTTYPEFLG',       'マルチポストタイプ');
+define('TXT_CONFIGOPTION_LBL_USEMULTILINGUALFLG',   '多言語');
+define('TXT_CONFIGOPTION_LBL_ADVANCEOPTION',        'アドバンスオプション');
+define('TXT_CONFIGOPTION_LBL_BUSINESSOPTION',       'ビジネスオプション');
+define('TXT_CONFIGOPTION_BTN_SUBMIT',               '更新');
 
 
 /*
@@ -946,7 +1023,7 @@ define('TXT_CONFIGCONTACT_BTN_SUBMIT',               '更新');
 /*
  * _site
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_SITE_PAGETITLEMAIN',      'マルチサイト');
+define('TXT_SITE_PAGETITLEMAIN',      'サイト');
 define('TXT_SITE_PAGETITLESUB',       '編集');
 define('TXT_SITE_MSG_CREATED',        '新規作成が完了しました。');
 define('TXT_SITE_MSG_FOR_USER',       '新規追加したサイトには「システム管理者」「サイト管理者」権限のユーザのみがアクセスできます。「エディター」「ライター」権限のユーザにはメニュー [ユーザ] - [編集] から個別にアクセス許可設定を行なってください。');
@@ -1036,6 +1113,7 @@ define('TXT_POSTTYPE_LBL_CANCELEDIT',            '編集をキャンセル');
 define('TXT_POSTTYPE_LBL_NEW',                   '新規');
 define('TXT_POSTTYPE_LBL_POST',                  'ポストタイプ');
 define('TXT_POSTTYPE_LBL_CONTACT',               'コンタクト');
+define('TXT_POSTTYPE_MSG_CREATION_LIMIT',        'すでに作成上限です。');
 define('TXT_POSTTYPE_LBL_NAME',                  '表示名');
 define('TXT_POSTTYPE_PLH_NAME',                  '新着情報');
 define('TXT_POSTTYPE_LBL_TYPE',                  'タイプ');
@@ -1061,13 +1139,14 @@ define('TXT_POSTTYPE_THD_STATUS',                '状態');
 define('TXT_POSTTYPE_LBL_DISPLAY',               '表示');
 define('TXT_POSTTYPE_LBL_UNDISPLAY',             '非表示');
 define('TXT_POSTTYPE_LBL_EDIT',                  '編集');
-function TXT_POSTTYPE_LBL_NOWEDIT($target)        { return $text = "{$target} を編集中";}
+function TXT_POSTTYPE_LBL_NOWEDIT($target)       { return $text = "{$target} を編集中";}
+function TXT_POSTTYPE_MSG_CREATION_LEFT($left)   { return $text = "あと{$left}つ作成可能";}
 
 
 /*
  * _language
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_LANGUAGE_PAGETITLEMAIN',      'マルチリンガル');
+define('TXT_LANGUAGE_PAGETITLEMAIN',      '言語');
 define('TXT_LANGUAGE_PAGETITLESUB',       '編集');
 define('TXT_LANGUAGE_MSG_CREATED',        '新規作成が完了しました。');
 define('TXT_LANGUAGE_MSG_FOR_POSTTYPE',   '新規作成した言語を使用するには メニュー [サイトオプション] - [マルチポストタイプ] から設定を行ってください。');
@@ -1078,7 +1157,7 @@ define('TXT_LANGUAGE_MSG_DELETED',        '削除が完了しました。');
  * language
  * ------------------------------------------------------------------------------------------------ */
 function TXT_LANGUAGE_LBL_NOWEDIT($target){ return $text = "{$target} を編集中";}
-define('TXT_LANGUAGE_LBL_MULTILANGUAGE',  'マルチリンガル');
+define('TXT_LANGUAGE_LBL_MULTILANGUAGE',  '多言語');
 define('TXT_LANGUAGE_LBL_DISALLOWDELETE', 'ID:1 は削除できません');
 define('TXT_LANGUAGE_LBL_ALLOWDELETE',    '削除を許可');
 define('TXT_LANGUAGE_LBL_CANCELEDIT',     '編集をキャンセル');

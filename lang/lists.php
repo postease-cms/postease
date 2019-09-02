@@ -48,6 +48,13 @@ $system_font_list = array
 		'ja_system'      => '日本語 ヒラギノ / メイリオ',
 );
 
+$postease_license = array
+(
+  0 => 'Basic',
+  1 => 'Advance',
+  2 => 'Business'
+);
+
 
 /*
  * COMMENT

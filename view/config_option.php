@@ -19,54 +19,66 @@
 		<div class="slow-show config">
 			
 			<!-- Site Option -->
-			<div class="panel panel-info">
+			<div class="panel panel-primary">
 				<div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGOPTION_LBL_TITLE_SITE?></h3></div>
 				<div id="panel_option_site" class="panel-body">
 					<form class="form-horizontal" role="form" action="./?mode=3" method="post">
-						
+
+            <!-- use_posttype_flg -->
+            <div class="form-group">
+              <label class="control-label col-md-4" for="use_posttype_flg"><?=TXT_CONFIGOPTION_LBL_USEPOSTTYPEFLG?>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_USEPOSTTYPEFLG?>" data-content="<?=$popover['use_posttype_flg']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+                <?php foreach ($common_flg_use as $key => $value):?>
+                  <label class="radio-inline" for="use_posttype_flg_<?=$key?>"><input type="radio" id="use_posttype_flg_<?=$key?>" name="use_posttype_flg" value="<?=$key?>" <?=($key==$records['use_posttype_flg']['value'])?'checked':''?>> <?=$value?></label>
+                <?php endforeach?>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+
+            <!-- use_contact_flg -->
+            <div class="form-group">
+              <label class="control-label col-md-4" for="use_contact_flg"><?=TXT_CONFIGOPTION_LBL_USECONTACTFLG?>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_USECONTACTFLG?>" data-content="<?=$popover['use_contact_flg']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+                <?php foreach ($common_flg_use as $key => $value):?>
+                  <label class="radio-inline" for="use_contact_flg_<?=$key?>"><input type="radio" id="use_contact_flg_<?=$key?>" name="use_contact_flg" value="<?=$key?>" <?=($key==$records['use_contact_flg']['value'])?'checked':''?>> <?=$value?></label>
+                <?php endforeach?>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+
 						<!-- use_multisite_flg -->
 						<div class="form-group">
 							<label class="control-label col-md-4" for="use_multisite_flg"><?=TXT_CONFIGOPTION_LBL_USEMULTISITEFLG?>
-								<a class="notice_yellow" data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_BUISINESS?>" data-content="<?=$popover['charged_option']?>">[B]</a>
+								<a class="notice_yellow" data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_BUSINESSOPTION?>" data-content="<?=$popover['business_option']?>">[B]</a>
 								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_USEMULTISITEFLG?>" data-content="<?=$popover['use_multisite_flg']?>">[?]</a>
 							</label>
 							<div class="col-md-4">
 								<?php foreach ($common_flg_use as $key => $value):?>
-									<label class="radio-inline" for="use_multisite_flg_<?=$key?>"><input type="radio" id="use_multisite_flg_<?=$key?>" name="use_multisite_flg" value="<?=$key?>" <?=($key==$records['use_multisite_flg']['value'])?'checked':''?> <?=($_SESSION[$session_key]['license']['extra_license_code']==0&&$key==1)?'disabled':''?>> <?=$value?></label>
+									<label class="radio-inline" for="use_multisite_flg_<?=$key?>"><input type="radio" id="use_multisite_flg_<?=$key?>" name="use_multisite_flg" value="<?=$key?>" <?=($key==$records['use_multisite_flg']['value'])?'checked':''?> <?=($_SESSION[$session_key]['license']['type']<2&&$key==1)?'disabled':''?>> <?=$value?></label>
 								<?php endforeach?>
 							</div>
 							<div class="col-md-4"></div>
 						</div>
-						
-						<!-- use_posttype_flg -->
-						<div class="form-group">
-							<label class="control-label col-md-4" for="use_posttype_flg"><?=TXT_CONFIGOPTION_LBL_USEPOSTTYPEFLG?>
-								<a class="notice_yellow" data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_BUISINESS?>" data-content="<?=$popover['charged_option']?>">[B]</a>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_USEPOSTTYPEFLG?>" data-content="<?=$popover['use_posttype_flg']?>">[?]</a>
-							</label>
-							<div class="col-md-4">
-								<?php foreach ($common_flg_use as $key => $value):?>
-									<label class="radio-inline" for="use_posttype_flg_<?=$key?>"><input type="radio" id="use_posttype_flg_<?=$key?>" name="use_posttype_flg" value="<?=$key?>" <?=($key==$records['use_posttype_flg']['value'])?'checked':''?> <?=($_SESSION[$session_key]['license']['extra_license_code']==0&&$key==1)?'disabled':''?>> <?=$value?></label>
-								<?php endforeach?>
-							</div>
-							<div class="col-md-4"></div>
-						</div>
-						
+
 						<!-- use_multilingual_flg -->
 						<div class="form-group">
 							<label class="control-label col-md-4" for="use_multilingual_flg"><?=TXT_CONFIGOPTION_LBL_USEMULTILINGUALFLG?>
-								<a class="notice_yellow" data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_BUISINESS?>" data-content="<?=$popover['charged_option']?>">[B]</a>
+								<a class="notice_yellow" data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_BUSINESSOPTION?>" data-content="<?=$popover['business_option']?>">[B]</a>
 								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_USEMULTILINGUALFLG?>" data-content="<?=$popover['use_multilingual_flg']?>">[?]</a>
 							</label>
 							<div class="col-md-4">
 								<?php foreach ($common_flg_use as $key => $value):?>
-									<label class="radio-inline" for="use_multilingual_flg_<?=$key?>"><input type="radio" id="use_multilingual_flg_<?=$key?>" name="use_multilingual_flg" value="<?=$key?>" <?=($key==$records['use_multilingual_flg']['value'])?'checked':''?> <?=($_SESSION[$session_key]['license']['extra_license_code']==0&&$key==1)?'disabled':''?>> <?=$value?></label>
+									<label class="radio-inline" for="use_multilingual_flg_<?=$key?>"><input type="radio" id="use_multilingual_flg_<?=$key?>" name="use_multilingual_flg" value="<?=$key?>" <?=($key==$records['use_multilingual_flg']['value'])?'checked':''?> <?=($_SESSION[$session_key]['license']['type']<2&&$key==1)?'disabled':''?>> <?=$value?></label>
 								<?php endforeach?>
 							</div>
 							<div class="col-md-4"></div>
 						</div>
 						<hr>
-						
+
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="option_site">
@@ -76,54 +88,55 @@
 					</form>
 				</div>
 			</div>
-			
+
 			<!-- Other Option -->
-			<div class="panel panel-info">
+			<div class="panel panel-primary">
 				<div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGOPTION_LBL_TITLE_OTHERS?></h3></div>
 				<div id="panel_option_others" class="panel-body">
 					<form class="form-horizontal" role="form" action="./?mode=3" method="post">
-						
-						<!-- use_contact_flg -->
-						<div class="form-group">
-							<label class="control-label col-md-4" for="use_contact_flg"><?=TXT_CONFIGOPTION_LBL_USECONTACTFLG?>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_USECONTACTFLG?>" data-content="<?=$popover['use_contact_flg']?>">[?]</a>
-							</label>
-							<div class="col-md-4">
-								<?php foreach ($common_flg_use as $key => $value):?>
-									<label class="radio-inline" for="use_contact_flg_<?=$key?>"><input type="radio" id="use_contact_flg_<?=$key?>" name="use_contact_flg" value="<?=$key?>" <?=($key==$records['use_contact_flg']['value'])?'checked':''?>> <?=$value?></label>
-								<?php endforeach?>
-							</div>
-							<div class="col-md-4"></div>
-						</div>
-						
-						<!-- use_group_flg -->
-						<div class="form-group">
-							<label class="control-label col-md-4" for="use_group_flg"><?=TXT_CONFIGOPTION_LBL_USEGROUPFLG?>
-								<a class="notice_yellow" data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_BUISINESS?>" data-content="<?=$popover['charged_option']?>">[B]</a>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_USEGROUPFLG?>" data-content="<?=$popover['use_group_flg']?>">[?]</a>
-							</label>
-							<div class="col-md-4">
-								<?php foreach ($common_flg_use as $key => $value):?>
-									<label class="radio-inline" for="use_group_flg_<?=$key?>"><input type="radio" id="use_group_flg_<?=$key?>" name="use_group_flg" value="<?=$key?>" <?=($key==$records['use_group_flg']['value'])?'checked':''?> <?=($_SESSION[$session_key]['license']['extra_license_code']==0&&$key==1)?'disabled':''?>> <?=$value?></label>
-								<?php endforeach?>
-							</div>
-							<div class="col-md-4"></div>
-						</div>
-						
-						<!-- use_version_flg -->
-						<div class="form-group">
-							<label class="control-label col-md-4" for="use_version_flg"><?=TXT_CONFIGOPTION_LBL_USEVERSIONFLG?>
-								<a class="notice_yellow" data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_BUISINESS?>" data-content="<?=$popover['charged_option']?>">[B]</a>
-								<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_USEVERSIONFLG?>" data-content="<?=$popover['use_version_flg']?>">[?]</a>
-							</label>
-							<div class="col-md-4">
-								<?php foreach ($common_flg_use as $key => $value):?>
-									<label class="radio-inline" for="use_version_flg_<?=$key?>"><input type="radio" id="use_version_flg_<?=$key?>" name="use_version_flg" value="<?=$key?>" <?=($key==$records['use_version_flg']['value'])?'checked':''?> <?=($_SESSION[$session_key]['license']['extra_license_code']==0&&$key==1)?'disabled':''?>> <?=$value?></label>
-								<?php endforeach?>
-							</div>
-							<div class="col-md-4"></div>
-						</div>
-						
+
+            <!-- use_advanced_cache_flg -->
+            <div class="form-group">
+              <label class="control-label col-md-4" for="use_advanced_cache_flg"><?=TXT_CONFIGOPTION_LBL_USEADVANCEDCACHEFLG?>
+                <a class="notice_yellow" data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_ADVANCEOPTION?>" data-content="<?=$popover['advance_option']?>">[A]</a>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_USEADVANCEDCACHEFLG?>" data-content="<?=$popover['use_advanced_cache_flg']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+                <?php foreach ($common_flg_use as $key => $value):?>
+                  <label class="radio-inline" for="use_advanced_cache_flg_<?=$key?>"><input type="radio" id="use_advanced_cache_flg_<?=$key?>" name="use_advanced_cache_flg" value="<?=$key?>" <?=($key==$records['use_advanced_cache_flg']['value'])?'checked':''?> <?=($_SESSION[$session_key]['license']['type']<1&&$key==1)?'disabled':''?>> <?=$value?></label>
+                <?php endforeach?>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+
+            <!-- use_version_flg -->
+            <div class="form-group">
+              <label class="control-label col-md-4" for="use_version_flg"><?=TXT_CONFIGOPTION_LBL_USEVERSIONFLG?>
+                <a class="notice_yellow" data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_ADVANCEOPTION?>" data-content="<?=$popover['advance_option']?>">[A]</a>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_USEVERSIONFLG?>" data-content="<?=$popover['use_version_flg']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+                <?php foreach ($common_flg_use as $key => $value):?>
+                  <label class="radio-inline" for="use_version_flg_<?=$key?>"><input type="radio" id="use_version_flg_<?=$key?>" name="use_version_flg" value="<?=$key?>" <?=($key==$records['use_version_flg']['value'])?'checked':''?> <?=($_SESSION[$session_key]['license']['type']<1&&$key==1)?'disabled':''?>> <?=$value?></label>
+                <?php endforeach?>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+
+            <!-- use_group_flg -->
+            <div class="form-group">
+              <label class="control-label col-md-4" for="use_group_flg"><?=TXT_CONFIGOPTION_LBL_USEGROUPFLG?>
+                <a class="notice_yellow" data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_BUSINESSOPTION?>" data-content="<?=$popover['business_option']?>">[B]</a>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGOPTION_LBL_USEGROUPFLG?>" data-content="<?=$popover['use_group_flg']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+                <?php foreach ($common_flg_use as $key => $value):?>
+                  <label class="radio-inline" for="use_group_flg_<?=$key?>"><input type="radio" id="use_group_flg_<?=$key?>" name="use_group_flg" value="<?=$key?>" <?=($key==$records['use_group_flg']['value'])?'checked':''?> <?=($_SESSION[$session_key]['license']['type']<2&&$key==1)?'disabled':''?>> <?=$value?></label>
+                <?php endforeach?>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+
 						<hr>
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">

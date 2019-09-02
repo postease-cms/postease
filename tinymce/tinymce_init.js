@@ -30,6 +30,7 @@ tinymce.init({
 			}
 			$('#draft_post').removeClass('hidden');
 			$('#publish_post').removeClass('hidden');
+      $('#version_post').addClass('hidden');
       document.getElementById('strlen_tinymce').innerHTML = ed.getContent({ format: 'text' }).replace(/\s/g, '').length;
 		});
     ed.on('keyup', function(e) {

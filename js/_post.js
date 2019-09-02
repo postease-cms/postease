@@ -112,6 +112,7 @@ $(function ()
 			delay(function() {
 				saveArticle();
 				$('#publish_post').removeClass('hidden');
+        $('#version_post').addClass('hidden');
 			}, 800 );
 		});
 		$('input, textarea, select').not('#publish_datetime, #post_allow_delete, #version_allow_delete').on('change', function()
@@ -119,6 +120,7 @@ $(function ()
 			$update_flg = 1;
 			saveArticle();
 			$('#publish_post').removeClass('hidden');
+      $('#version_post').addClass('hidden');
 		});
 	}
 	
@@ -137,12 +139,14 @@ $(function ()
 			})();
 			delay(function() {
 				$('#publish_post').removeClass('hidden');
+        $('#version_post').addClass('hidden');
 			}, 800 );
 		});
-		$('input, textarea, select').on('change', function()
+		$('input, textarea, select').not('#post_allow_delete, #version_allow_delete').on('change', function()
 		{
 			$update_flg = 1;
 			$('#publish_post').removeClass('hidden');
+      $('#version_post').addClass('hidden');
 		});
 	}
 
@@ -204,10 +208,11 @@ $(function ()
 	});
 
 	// When Click Button
-	$('button').not('.justButton').on('click', function()
+	$('button').not('.justButton, #delete_post').on('click', function()
 	{
 		$update_flg = 1;
 		$('#publish_post').removeClass('hidden');
+    $('#version_post').addClass('hidden');
 	});
 
 	// Text Tab Default On
@@ -271,6 +276,7 @@ $(function ()
 			$update_flg = 1;
 			if ($auto_save_flg == 1) saveArticle();
 			$('#publish_post').removeClass('hidden');
+			$('#version_post').addClass('hidden');
 		}
 	});
 
@@ -326,14 +332,18 @@ $(function ()
 	$('#post_allow_delete').click(function()
 	{
 		if ($('#post_allow_delete:checked').val()){
-			$('#delete_post').css({display: 'inline'});
-			$('#publish_post').css({display: 'none'});
+			$('#delete_post').removeClass('hidden');
+      $('#save_post').addClass('hidden');
+			$('#publish_post').addClass('hidden');
+      $('#version_post').addClass('hidden');
 			$('#process').val('19');
 			alert(TXT_POST_ALT_DELETEBUTTON);
 		}
 		else {
-			$('#delete_post').css({display: 'none'});
-			$('#publish_post').css({display: 'inline'});
+			$('#delete_post').addClass('hidden');
+      $('#save_post').removeClass('hidden');
+      $('#publish_post').removeClass('hidden');
+      $('#version_post').removeClass('hidden');
 			$('#process').val('12');
 		}
 	});
@@ -342,6 +352,12 @@ $(function ()
 	$('#version_allow_delete').on('click', function()
 	{
 		$('.version-delete').toggleClass('active');
+	});
+
+	// Change former status
+  $('input[name=status]').change(function()
+	{
+  	$('#former_status').val($(this).val());
 	});
 
 
@@ -378,6 +394,7 @@ $(function ()
 			loadEyecatch();
 			if ($auto_save_flg) saveArticle();
 			$('#publish_post').removeClass('hidden');
+      $('#version_post').addClass('hidden');
 		}
 		// custom image
 		if ($check_custom_image == 0)
@@ -386,6 +403,7 @@ $(function ()
 			loadCustomImage();
 			if ($auto_save_flg) saveArticle();
 			$('#publish_post').removeClass('hidden');
+      $('#version_post').addClass('hidden');
 		}
 		// custom gallery
 		if ($check_custom_gallery == 0)
@@ -394,6 +412,7 @@ $(function ()
 			loadCustomGallery('add');
 			if ($auto_save_flg) saveArticle();
 			$('#publish_post').removeClass('hidden');
+      $('#version_post').addClass('hidden');
 			$('.custom_gallery_addition').val('');
 		}
 	});
@@ -598,6 +617,7 @@ function deletePost($delete_message)
 	if (! window.confirm($delete_message))
 	{
 		$('#delete_post').css({display: 'none'});
+    $('#save_post').css({display: 'inline'});
 		$('#publish_post').css({display: 'inline'});
 		$('#process').val('12');
 		$('#post_allow_delete').prop('checked',false);
@@ -721,6 +741,7 @@ function saveArticle($designated_status)
 		var $posttype_id      = $('#posttype_id').val();
 		var $parent_id        = $('#parent_id').val();
 		var $status           = ($designated_status == false) ? $('input[name=status]:checked').val() : $designated_status;
+		var $former_status    = $('#former_status').val();
 		var $slug             = $('#slug').val();
 		var $eyecatch         = $('#eyecatch').val();
 
@@ -773,6 +794,7 @@ function saveArticle($designated_status)
 				categories       : $categories,
 				tags             : $tags,
 				status           : $status,
+				former_status    : $former_status,
 				title            : $title,
 				addition         : $addition,
 				content          : $content,
@@ -789,6 +811,7 @@ function saveArticle($designated_status)
 						$('#target_id').val(data.target_id);
 						$('#process').val(12);
 						$('#publish_post').removeClass('hidden');
+            $('#version_post').addClass('hidden');
 						$('h3.panel-title').append('<span class="label label-warning">ID ' + data.target_id + '</span>');
 						$('#permalink_display').data('id', data.target_id);
 						$('#permalink_display').data('hash_id', data.hash_id);
@@ -1037,5 +1060,32 @@ function deleteVersionPost($target_id, $version)
 	}
 }
 
+
+/**
+ * Turn Autosave
+ */
+function turnAutoSave()
+{
+	saveArticle();
+
+	var $turn_from   = $('main').data('auto_save_flg');
+	var $posttype_id = $('#this_posttype').val();
+	$.ajax({
+    type : 'GET',
+    url  : './ajax/turn_autosave.php',
+    data : {
+      turn_from   : $turn_from,
+      posttype_id : $posttype_id,
+    },
+    dataType : 'json',
+    success  : function($data)
+    {
+      if ($data.result == '1')
+      {
+        location.reload();
+      }
+    }
+  });
+}
 
 

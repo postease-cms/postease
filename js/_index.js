@@ -176,3 +176,28 @@ $(function(){
 	}
 
 });
+
+
+/**
+ * Turn (off or on) function
+ */
+function turnFunction($item, $value)
+{
+  $.ajax({
+    type : 'GET',
+    url  : './ajax/turn_function.php',
+    data : {
+      item  : $item,
+      value : $value,
+    },
+    dataType : 'json',
+    success  : function($data)
+    {
+      if ($data.result == '1')
+      {
+        location.href = '?view_page=index&change=1&clear=1';
+      }
+    }
+  });
+}
+
