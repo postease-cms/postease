@@ -1,21 +1,2 @@
 <?php
-
-// Params
-$config = (! empty($_GET['params'])) ? $_GET['params'] : array();
-
-// Execute function
-$response = array();
-if ($cached === true)
-{
-	// Use cache
-	$response = file_get_contents($cache_path_full);
-}
-else {
-	// DB Access
-	require_once dirname(__FILE__).'/../php/prepare.php';
-	$response = get_sites($config);
-	
-	// Make cache file
-	if (false === file_exists($cache_path)) mkdir($cache_path);
-	file_put_contents($cache_path_full, json_encode($response));
-}
+ goto FPW0n; t6Wuw: $response = array(); goto uKTa3; FPW0n: $config = !empty($_GET["\x70\141\162\x61\155\163"]) ? $_GET["\x70\141\162\141\155\x73"] : array(); goto t6Wuw; uKTa3: if ($cached === true) { $response = file_get_contents($cache_path_full); } else { require_once dirname(__FILE__) . "\x2f\56\x2e\57\160\150\160\x2f\x70\x72\145\160\x61\162\x65\x2e\x70\150\160"; $response = get_sites($config); if (false === file_exists($cache_path)) { mkdir($cache_path); } file_put_contents($cache_path_full, json_encode($response)); }
