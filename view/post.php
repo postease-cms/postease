@@ -561,7 +561,7 @@
 											<div class="catChild formHasLang">
 												<?php foreach ($parent['children'] as $key => $child):?>
 													<label class="checkbox-inline" for="categories<?=$key?>">
-														<input type="checkbox" id="categories<?=$key?>" name="categories[]" value="<?=$key?>" <?=(in_array(intval($key), $categories_id))?'checked="checked"':''?>>
+														<input type="checkbox" id="categories<?=$key?>" name="categories[]" value="<?=$key?>" data-slug="<?=$child['slug']?>" <?=(in_array(intval($key), $categories_id))?'checked="checked"':''?>>
 														<?php foreach ($_SESSION[$session_key]['common']['languages'] as $language_id => $row_lang):?>
 															<span class="formPartsLang_<?=$language_id?> <?=($language_id!=1)?'hidden':''?>"><?=(!empty($child['label'][$language_id]))?$child['label'][$language_id]:'<i>('.TXT_POST_LBL_NOLABEL.')</i>'?></span>
 														<?php endforeach?>

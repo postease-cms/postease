@@ -139,8 +139,6 @@ define('TXT_LOGIN_VAL_SUBMIT',         'ログイン');
 /*
  * _index
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_LOGIN_WAR_IP',      '不正なIPアドレスからアクセスされました。');
-define('TXT_LOGIN_WAR_SESSION', '予期せぬ理由によりログイン状態が破棄されました。');
 function TXT_INDEX_LABEL_SMARTCACHE($use_advanced_cache = 0, $license_type = 0)
 {
   return $label = ($use_advanced_cache && $license_type > 0) ? 'スマートキャッシュ・アドバンス' : 'スマートキャッシュ';
