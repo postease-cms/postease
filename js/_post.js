@@ -303,6 +303,8 @@ $(function ()
 		stop: function(event, ui){
 			loadCustomGallery();
 			if ($auto_save_flg) saveArticle();
+      $('#publish_post').removeClass('hidden');
+      $('#version_post').addClass('hidden');
 		}
 	});
 
