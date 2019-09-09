@@ -85,7 +85,7 @@
 						<div class="form-group col-md-3">
 							<label class="control-label" for="name"><?=TXT_POSTTYPE_LBL_NAME?></label>
 							<div class="multistep10">
-								<input class="form-control" tabindex="1" type="text" id="name" name="name" value="<?=$this_name?>" placeholder="<?=TXT_POSTTYPE_PLH_NAME?>" required <?=($creation_left)?null:'disabled'?>>
+								<input class="form-control" tabindex="1" type="text" id="name" name="name" value="<?=$this_name?>" placeholder="<?=TXT_POSTTYPE_PLH_NAME?>" required <?=($allow_edit_flg)?null:'disabled'?>>
 							</div>
 						</div>
 						
@@ -94,7 +94,7 @@
 							<span class="invalidIcon hidden"><i class="fa fa-times"></i></span>
 							<span class="validIcon hidden"><i class="fa fa-check-circle"></i></span>
 							<div class="multistep10" id="input_wrapper_slug" data-target_table="<?=$sortable_table?>" data-this_id="<?=$this_id?>">
-								<input class="form-control needValidation" data-valid_type="slug" tabindex="2" type="text" id="slug" name="slug" value="<?=$this_slug?>" placeholder="<?=TXT_POSTTYPE_PLH_SLUG?>" required <?=($creation_left)?null:'disabled'?>>
+								<input class="form-control needValidation" data-valid_type="slug" tabindex="2" type="text" id="slug" name="slug" value="<?=$this_slug?>" placeholder="<?=TXT_POSTTYPE_PLH_SLUG?>" required <?=($allow_edit_flg)?null:'disabled'?>>
 							</div>
 						</div>
 						
@@ -136,7 +136,7 @@
 								<input type="hidden" id="type" name="type" value="0">
 							<?php endif?>
 							<br>
-							<input class="btn btn-primary" type="submit" id="do_update" name="<?=$submit_name?>" value="<?=TXT_POSTTYPE_BTN_UPDATE?>" <?=($creation_left)?null:'disabled'?>>
+							<input class="btn btn-primary" type="submit" id="do_update" name="<?=$submit_name?>" value="<?=TXT_POSTTYPE_BTN_UPDATE?>" <?=($allow_edit_flg)?null:'disabled'?>>
 							<span class="spinner hidden"><i class="fa fa-spinner fa-pulse"></i></span>
 							<input class="btn btn-danger" type="button" id="do_delete" name="do_delete" value="<?=TXT_POSTTYPE_BTN_DELETE?>">
 						</div>
