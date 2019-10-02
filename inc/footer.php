@@ -7,7 +7,7 @@
 <script src="<?=$js_exclusive?>?v=<?=$_SESSION[$session_key]['configs']['postease_version']?>"></script>
 <?php endif?>
 <?php if (file_exists('./custom/custom.js')):?>
-<script src="./custom/custom.js"></script>
+<script src="./custom/custom.js?v=<?=filemtime('./custom/custom.js')?>"></script>
 <?php endif?>
 <script src="plugin/prism-dark/prism.js"></script>
 </body>

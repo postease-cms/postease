@@ -690,7 +690,7 @@ function saveArticle($designated_status)
 		if($designated_status == undefined)
 		{
 			$designated_status = false;
-	    }
+		}
 		else {
 			$('input[name=status]').val([$designated_status]);
 		}
@@ -810,6 +810,9 @@ function saveArticle($designated_status)
 				{
 					setTimeout(function ()
 					{
+						var $new_qs = '?view_page=post&id=' + data.target_id + '&version=1&process=12';
+						history.pushState('', '', location.pathname + $new_qs);
+
 						$('#target_id').val(data.target_id);
 						$('#process').val(12);
 						$('#publish_post').removeClass('hidden');
