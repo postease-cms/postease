@@ -537,8 +537,121 @@
 				</div>
 			</div>
 
+      <!-- Data import-->
+      <div class="panel panel-warning">
+        <div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGPOSTTYPE_LBL_TITLEDATAIMPORT?></h3></div>
+        <div id="panel_posttype_detail" class="panel-body">
+          <form class="form-horizontal" role="form" action="./?mode=4" method="post" enctype="multipart/form-data">
+
+            <!-- data_type -->
+            <div class="form-group">
+              <label class="control-label col-md-4" for="data_type"><?=TXT_CONFIGPOSTTYPE_LBL_DATATYPE?>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_DATATYPE?>" data-content="<?=$popover['data_type']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+                <?php foreach ($import_data_type_list as $key => $value):?>
+                  <label class="radio-inline" for="data_type_<?=$key?>"><input type="radio" id="data_type_<?=$key?>" name="data_type" value="<?=$key?>"> <?=$value?></label>
+                <?php endforeach?>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+
+            <!-- file_type -->
+            <div class="form-group">
+              <label class="control-label col-md-4" for="file_type"><?=TXT_CONFIGPOSTTYPE_LBL_FILETYPE?>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_FILETYPE?>" data-content="<?=$popover['file_type']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+                <?php foreach ($upload_file_type_list as $key => $value):?>
+                <label class="radio-inline" for="file_type_<?=$key?>"><input type="radio" id="file_type_<?=$key?>" name="file_type" value="<?=$key?>" <?=($key=='csv')?'checked':null?>> <?=$value?></label>
+                <?php endforeach?>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+
+            <!-- data_file -->
+            <div class="form-group">
+              <label class="control-label col-md-4" for="data_file"><?=TXT_CONFIGPOSTTYPE_LBL_DATAFILE?>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_DATAFILE?>" data-content="<?=$popover['data_file']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+                <input class="form-control" type="file" id="data_file" name="data_file" value="">
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+
+            <!-- delimiter -->
+            <!--
+            <div class="form-group">
+              <label class="control-label col-md-4" for="delimiter"><?=TXT_CONFIGPOSTTYPE_LBL_DELIMITER?>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_DELIMITER?>" data-content="<?=$popover['delimiter']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+                <input class="form-control" type="text" id="delimiter" name="delimiter" value="">
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+            -->
+
+            <!-- custom_lists -->
+            <div class="form-group" id="custom_lists_wrapper">
+              <label class="control-label col-md-4" for="custom_lists"><?=TXT_CONFIGPOSTTYPE_LBL_CUSTOMLISTS?>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_CUSTOMLISTS?>" data-content="<?=$popover['custom_lists']?>">[?]</a>
+              </label>
+              <div class="col-md-7">
+                <select class="form-control" id="custom_list_id" name="custom_list_id" >
+                  <?php foreach($custom_lists as $key => $value):?>
+                    <option value="<?=$key?>"><?=$value?></option>
+                  <?php endforeach?>
+                </select>
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+
+            <!-- key_column -->
+            <div class="form-group" id="key_column_wrapper">
+              <label class="control-label col-md-4" for="key_column"><?=TXT_CONFIGPOSTTYPE_LBL_KEYCOLUMN?>
+                <a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGPOSTTYPE_LBL_KEYCOLUMN?>" data-content="<?=$popover['key_column']?>">[?]</a>
+              </label>
+              <div class="col-md-4">
+                <?php foreach ($key_column_list as $key => $value):?>
+                  <label class="radio-inline" for="key_column_<?=$key?>"><input type="radio" id="key_column_<?=$key?>" name="key_column" value="<?=$value?>"> <?=$value?></label>
+                <?php endforeach?>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+
+            <hr>
+            <div class="form-group">
+              <div class="col-md-8 col-md-offset-4">
+                <input type="hidden" name="target" value="posttype_import">
+                <input class="btn btn-warning width120" type="submit" id="submit_record_01" name="submit_record" value="<?=TXT_CONFIGPOSTTYPE_BTN_UPLOAD?>">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
 		</div>
 		
 	</div>
 </main>
 <script src="js/config.js"></script>
+<script>
+  $(function(){
+    $('#custom_lists_wrapper').hide();
+    $('#key_column_wrapper').hide();
+    $('input[name=data_type]').on('click', function () {
+      $('#custom_lists_wrapper').hide();
+      $('#key_column_wrapper').hide();
+      if ($('input[name=data_type]:checked').val() === 'post')
+      {
+        $('#key_column_wrapper').show();
+      }
+      if ($('input[name=data_type]:checked').val() === 'custom_values')
+      {
+        $('#custom_lists_wrapper').show();
+      }
+    })
+  })
+</script>

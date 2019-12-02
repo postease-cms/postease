@@ -966,7 +966,15 @@ define('TXT_CONFIGPOSTTYPE_LBL_DISPLAYNUMTAG',        'タグ表示件数');
 define('TXT_CONFIGPOSTTYPE_LBL_CONTACTSCOLUMN04',     'カラム４初期表示');;
 define('TXT_CONFIGPOSTTYPE_LBL_REVIEWMAXSCORE',       'レビュー最大スコア');
 define('TXT_CONFIGPOSTTYPE_LBL_UNLIMITED',            '制限なし');
+define('TXT_CONFIGPOSTTYPE_LBL_TITLEDATAIMPORT',      'データインポート');
+define('TXT_CONFIGPOSTTYPE_LBL_DATATYPE',             'インポートするデータの種類');
+define('TXT_CONFIGPOSTTYPE_LBL_FILETYPE',             'ファイルの種類');
+define('TXT_CONFIGPOSTTYPE_LBL_DATAFILE',             'データファイル');
+define('TXT_CONFIGPOSTTYPE_LBL_DELIMITER',            '区切り文字（CSVの場合）');
+define('TXT_CONFIGPOSTTYPE_LBL_CUSTOMLISTS',          'カスタムリスト');
+define('TXT_CONFIGPOSTTYPE_LBL_KEYCOLUMN',            'キーとして利用するフィールド');
 define('TXT_CONFIGPOSTTYPE_BTN_SUBMIT',               '更新');
+define('TXT_CONFIGPOSTTYPE_BTN_UPLOAD',               'アップロード');
 
 
 /*

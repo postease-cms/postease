@@ -420,6 +420,66 @@ $contact_mata_common = array
 		'contacts_category_num'     => '2',
 );
 
+$import_data_type_list = array
+(
+  'post'          => 'ポスト',
+  'category'      => 'カテゴリー',
+  'tag'           => 'タグ',
+  'custom_values' => 'カスタムバリュー',
+);
+
+$upload_file_type_list = array
+(
+  'csv'   => 'CSV',
+  //'xml'   => 'XML',
+  //'json'  => 'JSON',
+);
+
+$key_column_list = array
+(
+  1  => 'id',
+  2  => 'hash_id',
+  3  => 'slug',
+);
+
+$base_columns = array
+(
+  'id'               => null,
+  'version'          => 1,
+  'versioned_at'     => date('Y-m-d H:i:s'),
+  'current_flg'      => 1,
+  'hash_id'          => null,
+  'permalink_key'    => null,
+  'permalink_uri'    => null,
+  'publish_datetime' => date('Y-m-d H:i:s'),
+  'publish_end_at'   => null,
+  'site_id'          => null,
+  'posttype_id'      => null,
+  'parent_id'        => 0,
+  'category_id'      => '0000',
+  'tag_id'           => '0000',
+  'slug'             => '',
+  'eyecatch'         => null,
+  'anchor'           => 0,
+  'assigned_to'      => 0,
+  'created_at'       => date('Y-m-d H:i:s'),
+  'created_by'       => null,
+  'updated_at'       => null,
+  'updated_by'       => 0,
+  'grouped_by'       => 0,
+  'status'           => 1,
+  'delete_flg'       => 0,
+);
+$text_columns = array
+(
+  'base_id'      => '',
+  'base_version' => '',
+  'language_id'  => 1,
+  'title'        => '',
+  'addition'     => '',
+  'content'      => '',
+);
+
 
 /*
  * POST

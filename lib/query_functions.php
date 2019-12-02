@@ -70,7 +70,7 @@ function getNewId($table, $site_id = 0, $posttype_id = 0)
 {
 	global $pdo;
 
-	$new_id = 0;
+	$new_id = 1;
 	if ($pdo)
 	{
 
@@ -104,7 +104,7 @@ function getNewLineOrder($table, $posttype_id = 0, $classification = 0, $list_id
 {
 	global $pdo;
 
-	$new_line_order = 0;
+	$new_line_order = 1;
 	if ($pdo)
 	{
 		$sql = "SELECT MAX(line_order) AS line_order FROM {$table} WHERE delete_flg = 0";
@@ -137,7 +137,7 @@ function getNextId($table, $exclusion_id_under = 0, $exclusion_id_above = 0)
 {
 	global $pdo;
 
-	$next_id = 0;
+	$next_id = 1;
 	if ($pdo)
 	{
 		$qsc_exclusion_id_under = ($exclusion_id_under > 0) ? "AND id > {$exclusion_id_under}" : null;
