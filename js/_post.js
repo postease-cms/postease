@@ -480,12 +480,14 @@ $(function ()
 		$('#slug, #publish_datetime, #title_1, input[name="categories[]"]').change(function ()
 		{
 			$.when(
-				generatePermalink()
+        delay(function() {
+          saveArticle();
+        }, 1500 )
 			).done(function ()
 			{
-				delay(function() {
-					saveArticle();
-				}, 1500 );
+				setTimeout(function () {
+          generatePermalink();
+        }, 1000)
 			})
 		})
 	}
