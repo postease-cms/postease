@@ -124,7 +124,7 @@
 						<!-- tab content -->
 						<div class="tab-content">
 							<?php foreach ($_SESSION[$session_key]['common']['languages'] as $language_id => $row_lang):?>
-								<div class="tab-pane <?=($language_id==1)?'active':''?>" id="text<?=$language_id?>">
+								<div class="tab-panel <?=($language_id==1)?'active':''?>" id="text<?=$language_id?>">
 									
 									<?php if ($customitem_position > 1):?>
 										
