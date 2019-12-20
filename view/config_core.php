@@ -19,7 +19,7 @@
 		<div class="slow-show config">
 			
 			<!-- System -->
-			<div class="panel panel-success">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_SYSTEM?></h3>
 				</div>
@@ -109,7 +109,7 @@
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="core_system">
-								<input class="btn btn-success width120" type="submit" id="update_core_system" name="update_core_system" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
+								<input class="btn btn-primary width120" type="submit" id="update_core_system" name="update_core_system" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
 							</div>
 						</div>
 					
@@ -118,7 +118,7 @@
 			</div>
 
 			<!-- Edit Role -->
-			<div class="panel panel-success">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_AUTHORITY?></h3>
 				</div>
@@ -201,7 +201,7 @@
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="core_authority">
-								<input class="btn btn-success width120" type="submit" id="update_core_authority" name="update_core_authority" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
+								<input class="btn btn-primary width120" type="submit" id="update_core_authority" name="update_core_authority" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
 							</div>
 						</div>
 					</form>
@@ -209,7 +209,7 @@
 			</div>
 
 			<!-- Media -->
-			<div class="panel panel-success">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_MEDIA?></h3>
 				</div>
@@ -255,7 +255,7 @@
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="core_media">
-								<input class="btn btn-success width120" type="submit" id="update_core_media" name="update_core_media" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
+								<input class="btn btn-primary width120" type="submit" id="update_core_media" name="update_core_media" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
 							</div>
 						</div>
 					</form>
@@ -263,7 +263,7 @@
 			</div>
 
 			<!-- Update -->
-			<div class="panel panel-success">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_UPDATE?></h3>
 				</div>
@@ -329,7 +329,7 @@
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="core_update">
-								<input class="btn btn-success width120" type="submit" id="update_core_update" name="update_core_update" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
+								<input class="btn btn-primary width120" type="submit" id="update_core_update" name="update_core_update" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
 							</div>
 						</div>
 					</form>
@@ -337,7 +337,7 @@
 			</div>
 
 			<!-- API Access -->
-			<div class="panel panel-success">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="configcoreHeading panel-title"><?=TXT_CONFIGCORE_LBL_APIACCESS?></h3>
 				</div>
@@ -381,7 +381,7 @@
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="core_api">
-								<input class="btn btn-success width120" type="submit" id="update_core_api" name="update_core_api" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
+								<input class="btn btn-primary width120" type="submit" id="update_core_api" name="update_core_api" value="<?=TXT_CONFIGCORE_BTN_SUBMIT?>">
 							</div>
 						</div>
 

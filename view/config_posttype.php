@@ -19,7 +19,7 @@
 		<div class="slow-show config">
 			
 			<!-- Config Posttype -->
-			<div class="panel panel-info">
+			<div class="panel panel-primary">
 				<div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGPOSTTYPE_LBL_TITLEBASE?></h3></div>
 				<div id="panel_posttype_base" class="panel-body">
 					<form class="form-horizontal" role="form" action="./?mode=3" method="post">
@@ -174,7 +174,7 @@
 				</div>
 			</div>
 			
-			<div class="panel panel-info">
+			<div class="panel panel-primary">
 				<div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGPOSTTYPE_LBL_TITLEOPTION?></h3></div>
 				<div id="panel_posttype_option" class="panel-body">
 					<form class="form-horizontal" role="form" action="./?mode=3" method="post">
@@ -228,7 +228,7 @@
 				</div>
 			</div>
 			
-			<div class="panel panel-info">
+			<div class="panel panel-primary">
 				<div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGPOSTTYPE_LBL_TITLEPOSTDETAIL?></h3></div>
 				<div id="panel_posttype_detail" class="panel-body">
 					<form class="form-horizontal" role="form" action="./?mode=3" method="post">
@@ -289,7 +289,7 @@
 				</div>
 			</div>
 			
-			<div class="panel panel-info">
+			<div class="panel panel-primary">
 				<div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGPOSTTYPE_LBL_TITLEPOSTLIST?></h3></div>
 				<div id="panel_posttype_list" class="panel-body">
 					<form class="form-horizontal" role="form" action="./?mode=3" method="post">
@@ -391,7 +391,7 @@
 			</div>
 			
 			<?php if ($records['comment_type']['value']):?>
-				<div class="panel panel-info">
+				<div class="panel panel-primary">
 					<div class="panel-heading"><h3 class="panel-title"><?=TXT_CONFIGPOSTTYPE_LBL_TITLECOMMENTLIST?></h3></div>
 					<div id="panel_posttype_comment" class="panel-body">
 						<form class="form-horizontal" role="form" action="./?mode=3" method="post">
@@ -530,7 +530,7 @@
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<input type="hidden" name="target" value="posttype_permalink">
-								<input class="btn btn-primary width120" type="submit" id="submit_record_01" name="submit_record" value="<?=TXT_CONFIGPOSTTYPE_BTN_SUBMIT?>">
+								<input class="btn btn-success width120" type="submit" id="submit_record_01" name="submit_record" value="<?=TXT_CONFIGPOSTTYPE_BTN_SUBMIT?>">
 							</div>
 						</div>
 					</form>
