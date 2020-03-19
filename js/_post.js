@@ -509,8 +509,14 @@ function loadCustomImage()
 		var $src = $('.custom_image', this).val();
 		if ($src != ''){
 			$('.custom_image_wrap figure', this).remove();
-			if ($src.indexOf('.pdf') != -1)
+			if ($src.indexOf('.pdf') != -1 || $src.indexOf('.zip') != -1 || $src.indexOf('.doc') != -1 || $src.indexOf('.docx') != -1 || $src.indexOf('.xls') != -1 || $src.indexOf('.xlsx') != -1 || $src.indexOf('.ppt') != -1 || $src.indexOf('.pptx') != -1)
 			{
+			  var $icon = '';
+			  if ($src.indexOf('.doc') != -1 || $src.indexOf('.docx') != -1) $icon = 'icon_word.png';
+        if ($src.indexOf('.xls') != -1 || $src.indexOf('.xlsx') != -1) $icon = 'icon_excel.png';
+        if ($src.indexOf('.ppt') != -1 || $src.indexOf('.pptx') != -1) $icon = 'icon_ppt.png';
+        if ($src.indexOf('.pdf') != -1) $icon = 'icon_pdf.png';
+        if ($src.indexOf('.zip') != -1) $icon = 'icon_zip.png';
 				var $this_object = $('.custom_image_wrap', this);
 				var $src_arr   = $src.split('/');
 				var $uri       = $src_arr[$src_arr.length - 1];
@@ -531,7 +537,7 @@ function loadCustomImage()
 					if ($response['result'] == '1')
 					{
 						$file_size = $response['filesize'];
-						$this_object.prepend('<figure><img class="thumbnail" src="img/pdf_small.png"><figcaption>' + $file_name + ' (' + $file_size + 'KB)' + '</figcaption></figure>');
+						$this_object.prepend('<figure><img style="max-width: 120px;" class="thumbnail" src="img/' + $icon + '"><figcaption>' + $file_name + ' (' + $file_size + 'KB)' + '</figcaption></figure>');
 					}
 				});
 			}

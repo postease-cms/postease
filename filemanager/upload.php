@@ -74,7 +74,14 @@ if ( ! empty($_FILES))
 		$targetPath = $storeFolder;
 		$targetPathThumb = $storeFolderThumb;
 		//$_FILES['file']['name'] = fix_filename($_FILES['file']['name'],$transliteration,$convert_spaces, $replace_with);
-		$_FILES['file']['name'] = ($info['extension'] == 'pdf' || $_FILES['file']['type'] == 'application/pdf') ? $_FILES['file']['name'] : $system_file_name . "." . $info['extension'];
+		$no_rename_extensions = array('pdf', 'zip', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx');
+		$no_rename_mimetypes = array(
+			'application/pdf', 'application/zip',
+			'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+			'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+			'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+		);
+		$_FILES['file']['name'] = (false !== in_array($info['extension'], $no_rename_extensions) || false !== in_array($_FILES['file']['type'], $no_rename_mimetypes)) ? $_FILES['file']['name'] : $system_file_name . "." . $info['extension'];
 
 	 	// Gen. new file name if exists
 		if (file_exists($targetPath.$_FILES['file']['name']))
