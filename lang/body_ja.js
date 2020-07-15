@@ -30,9 +30,9 @@ var TXT_INDEX_LNK_REFUSEUPDATE  = 'メジャーアップデートを通知しな
 var TXT_INDEX_CNF_CONFIRMUPDATE = 'アップデートしてもよろしいですか？';
 var TXT_INDEX_LBL_VERSION       = 'バージョン';
 function TXT_UPDATE_INDEX_NOTICEUPDATE($update_level)        {
-	var $text = '新しい' + TXT_UPDATE_CLASSIFICATION[$update_level] + 'があります。';
-	if ($update_level == 3) $text = $text + 'このアップデートには数分〜数十分かかる可能性があります。';
-	return $text;
+  var $text = '新しい' + TXT_UPDATE_CLASSIFICATION[$update_level] + 'があります。';
+  if ($update_level == 3) $text = $text + 'このアップデートには数分〜数十分かかる可能性があります。';
+  return $text;
 }
 function TXT_UPDATE_MSG_03($update_level, $target_version)   { var $text = TXT_UPDATE_CLASSIFICATION[$update_level] + 'が完了しました。新しいバージョン' + $target_version + 'が適用されました。'; return $text;}
 

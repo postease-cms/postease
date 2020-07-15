@@ -37,7 +37,7 @@ $database_list = array
 
 $language_list = array
 (
-		//'en' => 'English',
+		'en' => 'English',
 		'ja' => '日本語',
 );
 

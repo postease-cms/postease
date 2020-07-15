@@ -28,6 +28,7 @@
 				<h5>PostEase</h5>
 			</div>
 		<?php else:?>
+		
 			<form class="form-horizontal" autocomplete="off" role="form" action="" method="post">
 				<div class="form-group">
 					<label class="control-label col-md-offset-2 col-md-2" for="account"><?=TXT_LOGIN_LBL_ACCOUNT?></label>
