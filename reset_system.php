@@ -35,7 +35,7 @@
 						<?php if (! empty($language_list) && count($language_list) > 1):?>
 						<span id="select_language">
 							<?php foreach ($language_list as $key => $value):?>
-							<a href="?language=<?=$key?>"><?=$value?></a>
+							<a href="?lang=<?=$key?>"><?=$value?></a>
 							<?php endforeach?>
 						</span>
 						<?php endif?>

@@ -95,7 +95,7 @@ define('TXT_RESETSYSTEM_LBL_NICKNAME',            'Nickname');
 define('TXT_RESETSYSTEM_PLH_NICKNAME',            'Nickname (you can change it later)');
 define('TXT_RESETSYSTEM_LBL_PASSWORD',            'Password');
 define('TXT_RESETSYSTEM_PLH_PASSWORD',            'Password (you can change it later)');
-define('TXT_RESETSYSTEM_BTN_AUTOGENERATEPASSWORD','Automatic generation');
+define('TXT_RESETSYSTEM_BTN_AUTOGENERATEPASSWORD','Auto generate');
 define('TXT_RESETSYSTEM_ALT_PASSWORD',            'You can use half-width alphanumeric characters and symbols (/*-+.,!? #$% ()-|_). Please enter between 7 and 32 characters.');
 define('TXT_RESETSYSTEM_LBL_TIMEZONE',            'Timezone');
 define('TXT_RESETSYSTEM_PLH_DATABASE',            'Database');
@@ -103,7 +103,7 @@ define('TXT_RESETSYSTEM_LBL_CHANGEDB',            'Migrate databases');
 define('TXT_RESETSYSTEM_LBL_TABLEPREFIX',         'Table prefix');
 define('TXT_RESETSYSTEM_PLH_TABLEPREFIX',         'Ex) postease_');
 define('TXT_RESETSYSTEM_ALT_TABLEPREFIX',         'Please enter between 2 and 8 characters in half-width lowercase letters and 8 characters.');
-define('TXT_RESETSYSTEM_BTN_AUTOGENERATEPREFIX',  'Automatic generation');
+define('TXT_RESETSYSTEM_BTN_AUTOGENERATEPREFIX',  'Auto generate');
 define('TXT_RESETSYSTEM_LBL_DBHOST',              'DB host');
 define('TXT_RESETSYSTEM_PLH_DBHOST',              'For MySQL only');
 define('TXT_RESETSYSTEM_LBL_DBNAME',              'DB name');
@@ -205,8 +205,8 @@ define('TXT_INDEX_WAR_CORRECT_DIRNAME',     'Applying path changes. Do not take 
 define('TXT_INDEX_LBL_CONTACT_TOTAL',       'Total contacts');
 define('TXT_INDEX_WAR_NO_CONTACT',          'There is no contact type set for this site.');
 define('TXT_INDEX_LBL_IMPLEMENT_CODE',      'Common implementation code');
-define('TXT_INDEX_MSG_LOGINASSITEADMIN',    'You are logged in with the Site Administrators right.');
-define('TXT_INDEX_MSG_LOGINASSYSTEMADMIN',  'You are logged in with the System Administrators right. All operations are possible.');
+define('TXT_INDEX_MSG_LOGINASSITEADMIN',    'You are logged in as Site Administrator.');
+define('TXT_INDEX_MSG_LOGINASSYSTEMADMIN',  'You are logged in as System Administrator. All operations are possible.');
 define('TXT_INDEX_MSG_ABOUTSYSTEM',         'About this system');
 define('TXT_INDEX_MSG_SMARTCACHE',          'This feature is always enabled');
 define('TXT_INDEX_MSG_VERSION',             'Versioning');
@@ -215,7 +215,7 @@ function TXT_INDEX_WELCOME($nickname)                { return $text = 'Hello, ' 
 function TXT_INDEX_WAR_DOMAIN($domain)               { return $text = 'The domain you are accessing is different from the configuration domain. Configuration domain is ' . $domain . '. Please correct it in the menu "Settings" "Core".';}
 function TXT_INDEX_WAR_DIR($dir)                     { return $text = 'The directory name you are accessing is different from the configuration directory name. Configuration directory name is ' . $dir . '. Please correct it in the menu "Settings" "Core".';}
 function TXT_INDEX_WAR_SQLITEPERMISSION($perm)       { return $text = 'SQLite does not have write permission. Change to the appropriate permissions. The current permission is ' . $perm . '.';}
-function TXT_INDEX_WAR_BUSINESSLICENSE($days, $date) { return $text = 'Advanced License expires in ' . $days . ' days(Expiration date is ' . date('Y年m月d日', strtotime($date)) . ' ). Please purchase a new Advanced License from <a target="_blank" href="https://classic.postease.org/license/">the service site</a>.<br><a href="?view_page=about_system">Here</a> you can check the activation key required to purchase an advanced license.';}
+function TXT_INDEX_WAR_BUSINESSLICENSE($days, $date) { return $text = 'Advanced License expires in ' . $days . ' days(Expiration date is ' . date('Y-m-d', strtotime($date)) . ' ). Please purchase a new Advanced License from <a target="_blank" href="https://classic.postease.org/license/">the service site</a>.<br><a href="?view_page=about_system">Here</a> you can check the activation key required to purchase an advanced license.';}
 function TXT_INDEX_MSG_LOGIN_DATETIME($datetime)     { return $text = 'Logged in at ' . $datetime;}
 function TXT_INDEX_LBL_SMARTCACHE($license = 0)
 {
@@ -375,7 +375,7 @@ function TXT_POST_STATUSTEXT($status, $label, $current_flg = 1)
 		$text = 'archived';
 	}
 	else {
-		$text = ($status) ? ($status == 1) ? $publish_status_text[$label] : $status_text[$label] : '作成前';
+		$text = ($status) ? ($status == 1) ? $publish_status_text[$label] : $status_text[$label] : 'Uncreated';
 	}
 	return $text;
 }

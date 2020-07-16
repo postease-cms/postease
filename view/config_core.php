@@ -401,7 +401,7 @@
 							<a data-toggle="popover" data-placement="top" title="<?=TXT_CONFIGCORE_LBL_CHANGEDATABASE?>" data-content="<?=$popover['change_database']?>">[?]</a>
 						</label>
 						<div class="col-md-4">
-							<span id="change_database"><a href="./reset_system.php?mode=2"><i class="fa fa-exclamation-circle"></i> <?=TXT_CONFIGCORE_LNK_CHANGEDATABASE?></a></span>
+							<span id="change_database"><a href="./reset_system.php?mode=2&lang=<?=$lang?>"><i class="fa fa-exclamation-circle"></i> <?=TXT_CONFIGCORE_LNK_CHANGEDATABASE?></a></span>
 						</div>
 						<div class="col-md-4"></div>
 					</div>
