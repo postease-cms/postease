@@ -18,8 +18,10 @@
 						<th><?=TXT_ABOUTSYSTEM_THD_LICENSE?></th>
 						<td>
 							<?php if (isset($_SESSION[$session_key]['license']['extra_license_code'])):?>
-								<?php if ($_SESSION[$session_key]['license']['type'] == 1):?>
+								<?php if ($_SESSION[$session_key]['license']['type'] == 2):?>
 									<?=TXT_ABOUTSYSTEM_LBL_LICENSEBUSINESS?>
+								<?php elseif ($_SESSION[$session_key]['license']['type'] == 1):?>
+									<?=TXT_ABOUTSYSTEM_LBL_LICENSEADVANCED?>
 								<?php else:?>
 									<?=TXT_ABOUTSYSTEM_LBL_LICENSEBASIC?>
 								<?php endif?>
@@ -117,7 +119,7 @@
 										<?php foreach($purchases as $row):?>
 											<tr>
 												<td><?=$row['purchased_at']?></td>
-												<td><?=$row['label']?></td>
+												<td><?=($lang=='ja')?$row['label']:str_replace('-',' ',$row['name'])?></td>
 												<td>
 													<?php if ($row['currency'] == 'yen'):?>
 														<?=number_format($row['purchase_price'])?> <?=$currency_list[$row['currency']]?>

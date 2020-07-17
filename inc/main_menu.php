@@ -14,7 +14,7 @@
 				<?php else:?>
 				<a class="list-group-item" href="./?view_page=posts&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>"><?=TXT_MAINMENU_LBL_LIST?></a>
 				<?php endif?>
-				<a class="list-group-item" href="./?view_page=post&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>&amp;process=11"><?=TXT_MAINMENU_LBL_NEW?></a>
+				<a class="list-group-item" href="./?view_page=post&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>&amp;process=11"><i class="fa fa-plus" aria-hidden="true"></i> <?=TXT_MAINMENU_LBL_NEW?></a>
 				<?php if ($_SESSION[$session_key]['user']['role'] <= $_SESSION[$session_key]['configs']['editable_role_category_post']):?>
 				<?php if ($_SESSION[$session_key]['common']['posttypes'][$key]['use_category_flg']):?>
 				<a class="list-group-item" href="./?view_page=category&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>"><?=TXT_MAINMENU_LBL_CATEGORY?></a>
@@ -59,7 +59,7 @@
 				<?php else:?>
 				<a class="list-group-item" href="./?view_page=contacts&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>"><?=TXT_MAINMENU_LBL_LIST?></a>
 				<?php endif?>
-				<a class="list-group-item" href="./?view_page=contact&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>&amp;process=31"><?=TXT_MAINMENU_LBL_NEW?></a>
+				<a class="list-group-item" href="./?view_page=contact&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>&amp;process=31"><i class="fa fa-plus" aria-hidden="true"></i> <?=TXT_MAINMENU_LBL_NEW?></a>
 				<?php if ($_SESSION[$session_key]['user']['role'] != 8):?>
 				<a class="list-group-item" href="./?view_page=category&amp;this_posttype=<?=$key?>&amp;this_posttype_order=<?=$values['line_order']?>"><?=TXT_MAINMENU_LBL_CATEGORY?></a>
 				<?php endif?>

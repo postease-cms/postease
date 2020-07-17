@@ -49,6 +49,7 @@
 		</div>
 		
 		<!-- functions -->
+		<?php if ($_SESSION[$session_key]['user']['role'] <= 2):?>
     <div class="row col-md-12">
       <div class="col-md-4 col-sm-6">
         <div class="alert alert-<?=$advanced_cache_color?>">
@@ -65,6 +66,7 @@
         </div>
       </div>
     </div>
+		<?php endif?>
 
     <!-- summary -->
     <div class="row col-md-12">

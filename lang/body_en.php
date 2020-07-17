@@ -254,7 +254,8 @@ define('TXT_ABOUTSYSTEM_LBL_TITLE',            'About POSTEASE');
 define('TXT_ABOUTSYSTEM_THD_THISVERSION',      'Version');
 define('TXT_ABOUTSYSTEM_THD_LICENSE',          'License');
 define('TXT_ABOUTSYSTEM_LBL_LICENSEBASIC',     'Basic');
-define('TXT_ABOUTSYSTEM_LBL_LICENSEBUSINESS',  'Advanced');
+define('TXT_ABOUTSYSTEM_LBL_LICENSEADVANCED',  'Advanced');
+define('TXT_ABOUTSYSTEM_LBL_LICENSEBUSINESS',  'Business');
 define('TXT_ABOUTSYSTEM_ALT_FAILLICENSE',      'Failed to obtain a license.');
 define('TXT_ABOUTSYSTEM_LBL_UNLIMITED',        'Indefinitely');
 define('TXT_ABOUTSYSTEM_THD_ACTIVATIONKEY',    'Activation Key');
@@ -266,10 +267,10 @@ define('TXT_ABOUTSYSTEM_THD_APPLIEDLEVEL',     'Update type');
 define('TXT_ABOUTSYSTEM_LBL_DELTEXT_UPDATE',   'Update');
 define('TXT_ABOUTSYSTEM_THD_APPLIEDAT',        'Application date');
 define('TXT_ABOUTSYSTEM_THD_APPLIEDDETAIL',    'Detail');
-define('TXT_ABOUTSYSTEM_LBL_PURCHASEHISTORIY', 'Purchase history');
-define('TXT_ABOUTSYSTEM_THD_PURCHASEDAT',      'Purchase date');
-define('TXT_ABOUTSYSTEM_THD_EXTRALICENSECODE', 'Purchase license');
-define('TXT_ABOUTSYSTEM_THD_PURCHASEPRICE',    'Purchase price');
+define('TXT_ABOUTSYSTEM_LBL_PURCHASEHISTORIY', 'Purchased history');
+define('TXT_ABOUTSYSTEM_THD_PURCHASEDAT',      'Purchased date');
+define('TXT_ABOUTSYSTEM_THD_EXTRALICENSECODE', 'Purchased license');
+define('TXT_ABOUTSYSTEM_THD_PURCHASEPRICE',    'Price');
 define('TXT_ABOUTSYSTEM_THD_VALID',            'Expiration date');
 function TXT_ABOUTSYSTEM_MSG_VALIDTO($valid_to) { return $text = 'Valid until ' . $valid_to;}
 
@@ -293,8 +294,8 @@ define('TXT_POSTS_SEL_DEFAULT_TAG',           'All Tags');
 define('TXT_POSTS_PLH_SEARCH_TEXT',           'Search text');
 define('TXT_POSTS_PLH_SEARCH_STARTDATE',      'Publish date (from)');
 define('TXT_POSTS_PLH_SEARCH_ENDDATE',        'Publish date (to)');
-define('TXT_POSTS_PLH_SEARCH_CREATEDBY',      'All contributors');
-define('TXT_POSTS_SEL_DEFAULT_ANCHOR',        'All');
+define('TXT_POSTS_PLH_SEARCH_CREATEDBY',      'All Contributors');
+define('TXT_POSTS_SEL_DEFAULT_ANCHOR',        'All Anchors (or none)');
 define('TXT_POSTS_SEL_HAS_ANCHOR',            'With Anchor');
 define('TXT_POSTS_LBL_ANCHOR',                'Anchor');
 define('TXT_POSTS_SEL_NO_ANCHOR',             'Without Anchor');
@@ -344,9 +345,9 @@ function TXT_POSTS_LNK_GETSDKPHP($url) { return $text = '<a target="_blank" href
  * ------------------------------------------------------------------------------------------------ */
 define('TXT_POST_LBL_NEW',                'New');
 define('TXT_POST_LBL_EDIT',               'Edit');
-define('TXT_POST_BTN_UPDATE',             'update and republish');
-define('TXT_POST_BTN_PUBLISH',            'publish');
-define('TXT_POST_BTN_VERSIONPUBLISH',     'replace and publish');
+define('TXT_POST_BTN_UPDATE',             'Update and Republish');
+define('TXT_POST_BTN_PUBLISH',            'Publish');
+define('TXT_POST_BTN_VERSIONPUBLISH',     'Replace(publish)');
 define('TXT_POST_LNK_BACKTOLIST',         'back to list');
 define('TXT_POST_LNK_PREVIEWLINK',        'preview');
 define('TXT_POST_MSG_PERMALINKNOTYET',    'No permlink has been created.');
@@ -390,12 +391,12 @@ define('TXT_POST_MSG_UNEDITABLE',                    'You do not have edit permi
 define('TXT_POST_LBL_AUTOSAVEMODE',                  'Autosave');
 define('TXT_POST_MSG_SAVED',                         'saving..');
 define('TXT_POST_LBL_HAS_NEW_DRAFTVERSION'         , 'There is a new draft version that you are editing.');
-define('TXT_POST_LBL_AUTOSAVEMODE_CANCELED_PUBLISH', 'Autosave is disabled when published. The data is not updated until "updated and publish"');
-define('TXT_POST_LBL_AUTOSAVEMODE_CANCELED_ARCHIVE', 'Autosave is disabled when archived. The data is not updated until "replace and publish".');
+define('TXT_POST_LBL_AUTOSAVEMODE_CANCELED_PUBLISH', 'Autosave is disabled when published. The data is not updated until "Update and Republish"');
+define('TXT_POST_LBL_AUTOSAVEMODE_CANCELED_ARCHIVE', 'Autosave is disabled when archived. The data is not updated until "Replace(publish)".');
 define('TXT_POST_PLH_LIST',                          'The list separator is a newline.');
 define('TXT_POST_PLH_GALLERY_CAPTION',               'Caption');
 define('TXT_POST_LBL_SELECTDEFAULT',                 'Select');
-define('TXT_POST_BTN_IMG_SET',                       'Configure');
+define('TXT_POST_BTN_IMG_SET',                       'Set / Reset');
 define('TXT_POST_BTN_IMG_DELETE',                    'Delete');
 define('TXT_POST_LBL_TITLE',                         'Title');
 define('TXT_POST_LBL_ADDITION',                      'Description');
@@ -415,7 +416,7 @@ define('TXT_POST_LBL_VERSION',                       'Versioning');
 define('TXT_POST_LBL_VERSION_ARCHIVED',              'Archived version');
 define('TXT_POST_LBL_VERSION_CURRENT',               'Current published version');
 define('TXT_POST_LBL_VERSION_DRAFT',                 'Draft version in Edit');
-define('TXT_POST_LBL_CHANGECURRENT',                 'Replace and publish this version');
+define('TXT_POST_LBL_CHANGECURRENT',                 'Replace(publish)');
 define('TXT_POST_LBL_DELETEVERSION',                 'Delete this version');
 define('TXT_POST_LBL_NEWVERSION',                    'New version');
 define('TXT_POST_LBL_ALLOWDELETEVERSION',            'Allow deletion of archived versions');
@@ -427,7 +428,7 @@ define('TXT_POST_LBL_PUBLISHDATETIME',               'Publish date and time');
 define('TXT_POST_LBL_PUBLISHENDAT',                  'Publish end date and time');
 define('TXT_POST_PLH_PUBLISHDATE',                   'Publish date');
 define('TXT_POST_PLH_PUBLISHTIME',                   'Publish time');
-define('TXT_POST_LBL_ANCHOR',                        'Preferred display anchor');
+define('TXT_POST_LBL_ANCHOR',                        'Anchor');
 define('TXT_POST_LBL_STATUS',                        'Publishing status');
 define('TXT_POST_LBL_PUBLISHED',                     'published');
 define('TXT_POST_LBL_PRIVATE',                       'unpublish');
@@ -450,7 +451,7 @@ function TXT_POST_LBL_CHANGESTATUS_SAVE($status){ return $text = "Update to \"{$
 function TXT_POST_PLH_TABLE($delimiter)         { return $text = "The column is delimited by {$delimiter}. Line breaks are line breaks.";}
 function TXT_POST_LNK_TURN_AUTOSAVE($turn_from)
 {
-	$turn = ($turn_from) ? 'Disabledd' : 'Enabledd';
+	$turn = ($turn_from) ? 'Disabled' : 'Enabled';
 	return $text = "Make autosave \"{$turn}\"";
 };
 
@@ -671,8 +672,8 @@ define('TXT_IMAGEFRAME_THD_WIDTH',          'Width');
 define('TXT_IMAGEFRAME_THD_HEIGHT',         'Height');
 define('TXT_IMAGEFRAME_THD_COMMENT',        'Comment');
 define('TXT_IMAGEFRAME_THD_STATUS',         'Status');
-define('TXT_IMAGEFRAME_LBL_USE',            'Using');
-define('TXT_IMAGEFRAME_LBL_UNUSE',          'Not using');
+define('TXT_IMAGEFRAME_LBL_USE',            'Enabled');
+define('TXT_IMAGEFRAME_LBL_UNUSE',          'Disabled');
 define('TXT_IMAGEFRAME_LBL_EDIT',           'Edit');
 define('TXT_IMAGEFRAME_LBL_SIZEMAX',        'Max');
 
@@ -708,7 +709,7 @@ define('TXT_USER_BTN_UPDATE',          'Submit');
 define('TXT_USER_BTN_DELETE',          'Delete');
 define('TXT_USER_LBL_LIST',            'List');
 define('TXT_USER_THD_ID',              'ID');
-define('TXT_USER_THD_ACCOUNT',         'Account(email address recommended)');
+define('TXT_USER_THD_ACCOUNT',         'Account');
 define('TXT_USER_THD_NICKNAME',        'Nickname');
 define('TXT_USER_THD_GROUPNAME',       'Group');
 define('TXT_USER_THD_ROLE',            'Role');
@@ -1204,12 +1205,12 @@ define('TXT_CUSTOMITEM_PAGETITLESUB',       'Edit');
 define('TXT_CUSTOMITEM_MSG_CREATED',        'New creation completed');
 define('TXT_CUSTOMITEM_MSG_UPDATED',        'Update completed');
 define('TXT_CUSTOMITEM_MSG_DELETED',        'Delete completed');
-function TXT_CUSTOMITEM_PAGETITLEMAIN($target){ return $text = "{$target} custom items";}
+function TXT_CUSTOMITEM_PAGETITLEMAIN($target){ return $text = "{$target} Custom items";}
 
 /*
  * custom_item
  * ------------------------------------------------------------------------------------------------ */
-define('TXT_CUSTOMITEM_LBL_EDITCUSTOMLIST',  'Edit custom lists');
+define('TXT_CUSTOMITEM_LBL_EDITCUSTOMLIST',  'Edit Custom lists');
 define('TXT_CUSTOMITEM_LBL_CUSTOMITEM',      'Custom items');
 define('TXT_CUSTOMITEM_LBL_ALLOWDELETE',     'Allow delete');
 define('TXT_CUSTOMITEM_LBL_CANCELEDIT',      'Cancel edit');
@@ -1219,8 +1220,8 @@ define('TXT_CUSTOMITEM_PLH_NAME',            'Enter label');
 define('TXT_CUSTOMITEM_LBL_SLUG',            'Slug');
 define('TXT_CUSTOMITEM_PLH_SLUG',            'Enter slug');
 define('TXT_CUSTOMITEM_LBL_TYPE',            'Type');
-define('TXT_CUSTOMITEM_LBL_TARGETLIST',      'Select custom lists');
-define('TXT_CUSTOMITEM_MSG_NOTARGETLIST',    'no custom listss to select');
+define('TXT_CUSTOMITEM_LBL_TARGETLIST',      'Select Custom lists');
+define('TXT_CUSTOMITEM_MSG_NOTARGETLIST',    'no Custom lists to select');
 define('TXT_CUSTOMITEM_LBL_TARGETDELIMITER', 'Select delimiter');
 define('TXT_CUSTOMITEM_LBL_TARGETIMAGE',     'Select image');
 define('TXT_CUSTOMITEM_LBL_TARGETPOSTTYPE',  'Select post-type');
@@ -1273,7 +1274,7 @@ define('TXT_CUSTOMLIST_THD_NAME',           'Label');
 define('TXT_CUSTOMLIST_THD_SLUG',           'Slug');
 define('TXT_CUSTOMLIST_THD_BELONGTO',       'Belong');
 define('TXT_CUSTOMLIST_THD_STATUS',         'Status');
-define('TXT_CUSTOMLIST_LNK_CUSTOMVALUE',    'Edit list value');
+define('TXT_CUSTOMLIST_LNK_CUSTOMVALUE',    'Edit Custom values');
 define('TXT_CUSTOMLIST_LBL_DISPLAY',        'Show');
 define('TXT_CUSTOMLIST_LBL_UNDISPLAY',      'Hide');
 define('TXT_CUSTOMLIST_LBL_EDIT',           'Edit');
