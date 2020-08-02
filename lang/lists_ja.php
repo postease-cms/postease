@@ -353,6 +353,13 @@ $contacts_column03_list = array
 		2 => 'Eメールアドレス',
 		3 => '電話番号',
 );
+$import_data_type_list = array
+(
+	'post'          => 'ポスト',
+	'category'      => 'カテゴリー',
+	'tag'           => 'タグ',
+	'custom_values' => 'カスタムバリュー',
+);
 
 
 /*

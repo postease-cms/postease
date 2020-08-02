@@ -420,14 +420,6 @@ $contact_mata_common = array
 		'contacts_category_num'     => '2',
 );
 
-$import_data_type_list = array
-(
-  'post'          => 'ポスト',
-  'category'      => 'カテゴリー',
-  'tag'           => 'タグ',
-  'custom_values' => 'カスタムバリュー',
-);
-
 $upload_file_type_list = array
 (
   'csv'   => 'CSV',

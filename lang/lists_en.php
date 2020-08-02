@@ -353,6 +353,13 @@ $contacts_column03_list = array
 	2 => 'Email',
 	3 => 'Phone number',
 );
+$import_data_type_list = array
+(
+	'post'          => 'Post',
+	'category'      => 'Category',
+	'tag'           => 'Tag',
+	'custom_values' => 'Custom value',
+);
 
 
 /*

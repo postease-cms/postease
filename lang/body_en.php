@@ -422,7 +422,7 @@ define('TXT_POST_LBL_NEWVERSION',                    'New version');
 define('TXT_POST_LBL_ALLOWDELETEVERSION',            'Allow deletion of archived versions');
 define('TXT_POST_LBL_SLUG',                          'Slug');
 define('TXT_POST_LBL_CHANGE_SLUG',                   'Update');
-define('TXT_POST_PLH_SLUG',                          'It becomes a part of the URL. Alphanumeric characters and "_" and "-" are available.');
+define('TXT_POST_PLH_SLUG',                          'It becomes a part of the URL. Alphanumeric and symbol ( _- ) are available.');
 define('TXT_POST_PLH_TITLEWITHSLUG',                 'If slug is not set, it will be part of the URL.');
 define('TXT_POST_LBL_PUBLISHDATETIME',               'Publish date and time');
 define('TXT_POST_LBL_PUBLISHENDAT',                  'Publish end date and time');
