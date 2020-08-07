@@ -68,7 +68,7 @@ $post_status_icon = array
 $contact_status_icon = array
 (
 	1 => '<i class="fa fa-archive" aria-hidden="true"></i>',
-	7 => '<i class="fa fa-info-circle" aria-hidden="true"></i>',
+	7 => '<i class="fa fa-hourglass-half" aria-hidden="true"></i>',
 	8 => '<i class="fa fa-exclamation-circle" aria-hidden="true"></i>',
 );
 
