@@ -57,6 +57,23 @@ $postease_license = array
 
 
 /*
+ * DASH BOARD
+ * ------------------------------------------------------------------------------------------------ */
+$post_status_icon = array
+(
+	1 => '<i class="fa fa-eye" aria-hidden="true"></i>',
+	2 => '<i class="fa fa-pencil" aria-hidden="true"></i>',
+	8 => '<i class="fa fa-eye-slash" aria-hidden="true"></i>',
+);
+$contact_status_icon = array
+(
+	1 => '<i class="fa fa-archive" aria-hidden="true"></i>',
+	7 => '<i class="fa fa-info-circle" aria-hidden="true"></i>',
+	8 => '<i class="fa fa-exclamation-circle" aria-hidden="true"></i>',
+);
+
+
+/*
  * COMMENT
  * ------------------------------------------------------------------------------------------------ */
 $comment_items = array

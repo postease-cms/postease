@@ -351,10 +351,10 @@ input:-webkit-autofill {
  index.php
 ----------- */
 .summaryMenu th {
-	width: 30%;
+	width: 28%;
 }
 .summaryMenu td {
-	width: 20%;
+	width: 24%;
 }
 .summaryPost small > a {
 	color: #fff;

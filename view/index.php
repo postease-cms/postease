@@ -100,11 +100,11 @@
 												<?php if (is_numeric($status)):?>
 													<td>
                             <?php if (intval($status) == 1 && $row['parent'] > 0):?>
-                            <?=$post_status_icon[$status]?> <?=$post_status[$status]?> <span class="badge" id="badge_<?=$status?>"><?=$row['parent']?></span>
+                            <?=$post_status[$status]?> <span class="badge" id="badge_<?=$status?>"><?=$row['parent']?></span>
                             <?php elseif (intval($status) == 2 && $row['parent'] > 0):?>
                               <a href="./?view_page=posts&amp;this_posttype=<?=$posttype?>&this_posttype_order=<?=$rows['post']['line_order']?>&page=1&sc_status=2"><?=$post_status_icon[$status]?> <?=$post_status[$status]?></a> <span class="badge" id="badge_<?=$status?>"><?=$row['parent']?></span>
                             <?php else:?>
-														<?=$post_status_icon[$status]?> <?=$post_status[$status]?> : <?=$row['parent']?>
+														<?=$post_status[$status]?> : <?=$row['parent']?>
                             <?php endif?>
 													</td>
 												<?php endif?>
@@ -190,7 +190,7 @@
                     <?php elseif ($key == 7 && $value > 0):?>
                     <a href="./?view_page=contacts&amp;this_posttype=<?=$posttype?>&this_posttype_order=<?=$row['line_order']?>&page=1&sc_status=7"><?=$contact_status_icon[$key]?> <?=$contact_status[$key]?></a> <span class="badge" id="badge_<?=$key?>"><?=$value?></span>
                     <?php else:?>
-                      <?=$contact_status_icon[$key]?> <?=$contact_status[$key]?> : <?=$value?>
+                      <?=$contact_status[$key]?> : <?=$value?>
                     <?php endif?>
                     </td>
                     <?php endif?>
