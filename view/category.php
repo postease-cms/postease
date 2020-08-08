@@ -118,7 +118,6 @@
 								<th><?=TXT_CATEGORY_THD_HIERARCHY?></th>
 								<th><?=TXT_CATEGORY_THD_LABEL?></th>
 								<th><?=TXT_CATEGORY_THD_SLUG?></th>
-								<th><?=TXT_CATEGORY_THD_PARENT?></th>
 								<th><?=TXT_CATEGORY_THD_STATUS?></th>
 								<th></th>
 							</tr>
@@ -133,8 +132,9 @@
 											<span class="tdPartsLang_<?=$language_id?> <?=($language_id!=1)?'hidden':''?>"><?=(isset($row1['label'][$language_id]))?$row1['label'][$language_id]:null?></span>
 										<?php endforeach?>
 									</td>
-									<td><?=$row1['slug']?></td>
-									<td data-parent_id="0">-</td>
+									<td>
+										<?=$row1['slug']?>
+									</td>
 									<td data-status="<?=$row1['status']?>">
 										<?php if ($row1['status'] == 1):?>
 											<label class="label label-primary"><?=TXT_CATEGORY_LBL_DISPLAY?></label>
@@ -157,15 +157,10 @@
 											<td><label class="label label-info">2</label></td>
 											<td class="tableHasLang">
 												<?php foreach ($_SESSION[$session_key]['common']['languages'] as $language_id => $row_lang):?>
-													<span class="tdPartsLang_<?=$language_id?> <?=($language_id!=1)?'hidden':''?>"><?=(isset($row2['label'][$language_id]))?$row2['label'][$language_id]:null?></span>
+													<span class="tdPartsLang_<?=$language_id?> <?=($language_id!=1)?'hidden':''?>">&nbsp;&nbsp;<span style="color: #bbb">|--</span>&nbsp;&nbsp;<?=(isset($row2['label'][$language_id]))?$row2['label'][$language_id]:null?></span>
 												<?php endforeach?>
 											</td>
-											<td><?=$row2['slug']?></td>
-											<td class="tableHasLang" data-parent_id="<?=$row2['parent_id']?>">
-												<?php foreach ($_SESSION[$session_key]['common']['languages'] as $language_id => $row_lang):?>
-													<span class="tdPartsLang_<?=$language_id?> <?=($language_id!=1)?'hidden':''?>"><?=(isset($categories[$row2['parent_id']]['label'][$language_id]))?$categories[$row2['parent_id']]['label'][$language_id]:null?></span>
-												<?php endforeach?>
-											</td>
+											<td>&nbsp;&nbsp;<span style="color: #bbb">|--</span>&nbsp;&nbsp;<?=$row2['slug']?></td>
 											<td data-status="<?=$row2['status']?>">
 												<?php if ($row2['status'] == 1):?>
 													<label class="label label-primary"><?=TXT_CATEGORY_LBL_DISPLAY?></label>

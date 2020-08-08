@@ -1269,18 +1269,15 @@ textarea.content {
 	width: 8%;
 }
 #categories td:nth-child(3){
-	width: 24%;
+	width: 36%;
 }
 #categories td:nth-child(4){
-	width: 24%;
+	width: 36%;
 }
 #categories td:nth-child(5){
-	width: 24%;
-}
-#categories td:nth-child(6){
 	width: 8%;
 }
-#categories td:nth-child(7){
+#categories td:nth-child(6){
 	width: 5%;
 }
 

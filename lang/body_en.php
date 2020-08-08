@@ -910,8 +910,8 @@ define('TXT_TAG_THD_ID',          'ID');
 define('TXT_TAG_THD_LABEL',       'Label');
 define('TXT_TAG_THD_SLUG',        'Slug');
 define('TXT_TAG_THD_STATUS',      'Status');
-define('TXT_TAG_LBL_DISPLAY',     'Show');
-define('TXT_TAG_LBL_UNDISPLAY',   'Hide');
+define('TXT_TAG_LBL_DISPLAY',     'Enabled');
+define('TXT_TAG_LBL_UNDISPLAY',   'Disabled');
 define('TXT_TAG_LBL_EDIT',        'Edit');
 function TXT_TAG_LBL_NOWEDIT($target){ return $text = "Editing ID: {$target}";}
 
@@ -1062,8 +1062,8 @@ define('TXT_SITE_THD_ID',             'ID');
 define('TXT_SITE_THD_NAME',           'Label');
 define('TXT_SITE_THD_SLUG',           'Slug');
 define('TXT_SITE_THD_STATUS',         'Status');
-define('TXT_SITE_LBL_DISPLAY',        'Show');
-define('TXT_SITE_LBL_UNDISPLAY',      'Hide');
+define('TXT_SITE_LBL_DISPLAY',        'Enabled');
+define('TXT_SITE_LBL_UNDISPLAY',      'Disabled');
 define('TXT_SITE_LBL_EDIT',           'Edit');
 
 
@@ -1184,8 +1184,8 @@ define('TXT_LANGUAGE_THD_ID',             'ID');
 define('TXT_LANGUAGE_THD_NAME',           'Label');
 define('TXT_LANGUAGE_THD_SLUG',           'Slug');
 define('TXT_LANGUAGE_THD_STATUS',         'Status');
-define('TXT_LANGUAGE_LBL_DISPLAY',        'Show');
-define('TXT_LANGUAGE_LBL_UNDISPLAY',      'Hide');
+define('TXT_LANGUAGE_LBL_DISPLAY',        'Enabled');
+define('TXT_LANGUAGE_LBL_UNDISPLAY',      'Disabled');
 define('TXT_LANGUAGE_LBL_EDIT',           'Edit');
 
 
@@ -1236,8 +1236,8 @@ define('TXT_CUSTOMITEM_THD_SLUG',            'Slug');
 define('TXT_CUSTOMITEM_THD_TYPE',            'Type');
 define('TXT_CUSTOMITEM_THD_TARGET',          'Options');
 define('TXT_CUSTOMITEM_THD_STATUS',          'Status');
-define('TXT_CUSTOMITEM_LBL_DISPLAY',         'Show');
-define('TXT_CUSTOMITEM_LBL_UNDISPLAY',       'Hide');
+define('TXT_CUSTOMITEM_LBL_DISPLAY',         'Enabled');
+define('TXT_CUSTOMITEM_LBL_UNDISPLAY',       'Disabled');
 define('TXT_CUSTOMITEM_LBL_EDIT',            'Edit');
 function TXT_CUSTOMITEM_LBL_NOWEDIT($target){ return $text = "Editing ID {$target}";}
 
