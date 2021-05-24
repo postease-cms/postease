@@ -1,0 +1,2 @@
+<?php
+ goto ZjJC0; ZjJC0: $comment_data = isset($_POST["\x63\x6f\155\x6d\145\156\x74\x5f\x64\x61\x74\x61"]) ? $_POST["\143\157\155\155\145\x6e\164\x5f\144\x61\164\141"] : array(); goto uZZCp; uZZCp: require_once dirname(__FILE__) . "\57\56\56\x2f\160\150\160\x2f\x70\x72\x65\160\x61\x72\x65\x2e\160\x68\160"; goto EZ0T7; EZ0T7: $response = post_comment($comment_data);

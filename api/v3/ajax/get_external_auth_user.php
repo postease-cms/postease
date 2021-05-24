@@ -1,0 +1,2 @@
+<?php
+ goto Jnw4S; NiV7I: $response = array(); goto zHEfv; Jnw4S: $config = !empty($_GET["\x70\x61\162\141\155\x73"]) ? $_GET["\x70\x61\162\141\155\x73"] : array(); goto NiV7I; zHEfv: if ($cached === true) { $response = file_get_contents($cache_path_full); } else { require_once dirname(__FILE__) . "\x2f\x2e\x2e\57\x70\150\x70\x2f\160\162\x65\x70\141\162\145\56\x70\150\160"; $response = get_external_auth_user($config); if (false === file_exists($cache_path)) { mkdir($cache_path); } file_put_contents($cache_path_full, json_encode($response)); }
