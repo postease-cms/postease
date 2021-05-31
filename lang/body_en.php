@@ -245,6 +245,15 @@ function TXT_INDEX_LBL_NOTICE_DRAFT($count_parent = 0, $count_child = 0)
 	}
 	return false;
 }
+function TXT_INDEX_LBL_NOTICE_PEND($count = 0, $comment_type = 0)
+{
+    $txt_comment = ($count == 1) ? "There is one pending {$comment_type}." : "There are {$count} pending {$comment_type}s.";
+    if ($count > 0)
+    {
+        return $text = $txt_comment;
+    }
+    return false;
+}
 
 
 /*
