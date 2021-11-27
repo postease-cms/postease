@@ -461,6 +461,7 @@ $custom_item_type_post = array
 		'checkbox'   => 'チェックボックス',
 		'image'      => '画像',
 		'gallery'    => 'ギャラリー',
+		'file'       => 'メディア・ファイル',
 		'relation'   => 'リレーション',
 		'syntax'     => 'シンタックス',
 );

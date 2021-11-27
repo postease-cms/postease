@@ -461,6 +461,7 @@ $custom_item_type_post = array
 	'checkbox'   => 'Checkbox',
 	'image'      => 'Image',
 	'gallery'    => 'Gallery',
+	'file'       => 'Media/File',
 	'relation'   => 'Relation',
 	'syntax'     => 'Syntax',
 );

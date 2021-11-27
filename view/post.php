@@ -279,6 +279,16 @@
 															<?php endforeach?>
 														</div>
 													</div>
+												<?php elseif ($row_cust['type'] == 'file'):?>
+													<div class="form-group post_item_container custome_image_container" id="custome_image_container_<?=$custom_item_id?>_<?=$language_id?>" data-custom_item_name="custom_<?=$row_cust['slug']?>">
+														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-picture-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
+														<div id="<?=$custom_item_id?>_<?=$language_id?>_wrap" class="custom_image_wrap">
+															<input type="hidden" class="custom_image_target" id="items_<?=$custom_item_id?>_<?=$language_id?>_target" name="items_<?=$custom_item_id?>_<?=$language_id?>_target" value="<?=$row_cust['choices']?>">
+															<input type="hidden" class="custom_image" data-group="custom" data-language_id="<?=$language_id?>" data-custom_item_id="<?=$custom_item_id?>" id="items_<?=$custom_item_id?>_<?=$language_id?>" name="items[<?=$custom_item_id?>][<?=$language_id?>]" value="<?=$items[$custom_item_id][$language_id]?>">
+														</div>
+														<a href="filemanager/dialog.php?type=2&field_id=items_<?=$custom_item_id?>_<?=$language_id?>" type="button" id="set_<?=$custom_item_id?>_<?=$language_id?>" class="btn btn-default notLink openFilemanager set_custom_image"><?=TXT_POST_BTN_IMG_SET?></a>
+														<button type="button" id="remove_<?=$custom_item_id?>_<?=$language_id?>" class="btn btn-warning hidden remove_custom_image"><?=TXT_POST_BTN_IMG_DELETE?></button>
+													</div>
 												<?php elseif ($row_cust['type'] == 'image'):?>
 													<div class="form-group post_item_container custome_image_container" id="custome_image_container_<?=$custom_item_id?>_<?=$language_id?>" data-custom_item_name="custom_<?=$row_cust['slug']?>">
 														<label class="control-label" for="items_<?=$custom_item_id?>_<?=$language_id?>"><i class="fa fa-picture-o"></i> <?=$row_cust['name']?>&nbsp;&nbsp;<?=($_SESSION[$session_key]['configs']['use_multilingual_flg']==1)?'<span class="label label-primary">'.$row_lang['name'].'</span>':''?></label>
