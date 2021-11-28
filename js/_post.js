@@ -521,6 +521,8 @@ function loadCustomImage()
 		var $custome_image_target = '/upload/' + $('.custom_image_target', this).val() + '/';
 		var $src = $('.custom_image', this).val();
 		if ($src != ''){
+			var $page_url = location.href.replace(/\?.*$/, '');
+			var $path = '../' + $src.replace($page_url, '');
 			$('.custom_image_wrap figure', this).remove();
 			if ($src.indexOf('.flv') != -1 || $src.indexOf('.avi') != -1 || $src.indexOf('.mov') != -1 || $src.indexOf('.webm') != -1 || $src.indexOf('.mp4') != -1 || $src.indexOf('.m4v') != -1 || $src.indexOf('.pdf') != -1 || $src.indexOf('.zip') != -1 || $src.indexOf('.doc') != -1 || $src.indexOf('.docx') != -1 || $src.indexOf('.xls') != -1 || $src.indexOf('.xlsx') != -1 || $src.indexOf('.ppt') != -1 || $src.indexOf('.pptx') != -1)
 			{
@@ -541,6 +543,7 @@ function loadCustomImage()
 					url: 'ajax/get_filesize.php',
 					type: 'post',
 					data: {
+						path: $path,
 						uri: $src,
 						unit: 'k'
 					},
@@ -552,6 +555,9 @@ function loadCustomImage()
 					{
 						$file_size = $response['filesize'];
 						$this_object.prepend('<figure><img style="max-width: 120px;" class="thumbnail" src="img/' + $icon + '"><figcaption>' + $file_name + ' (' + $file_size + 'KB)' + '</figcaption></figure>');
+					}
+					else {
+						$this_object.prepend('<figure><img style="max-width: 120px;" class="thumbnail" src="img/' + $icon + '"><figcaption>' + $file_name + '</figcaption></figure>');
 					}
 				});
 			}

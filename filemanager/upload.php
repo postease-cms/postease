@@ -74,7 +74,7 @@ if ( ! empty($_FILES))
 		$targetPath = $storeFolder;
 		$targetPathThumb = $storeFolderThumb;
 		//$_FILES['file']['name'] = fix_filename($_FILES['file']['name'],$transliteration,$convert_spaces, $replace_with);
-		$no_rename_extensions = array('pdf', 'zip', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx');
+		$no_rename_extensions = array('pdf', 'zip', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'mp4', 'm4v', 'webm', 'mov', 'flv', 'avi');
 		$no_rename_mimetypes = array(
 			'application/pdf', 'application/zip',
 			'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
