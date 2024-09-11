@@ -251,13 +251,23 @@ function create_img($imgfile, $imgthumb, $newwidth, $newheight = null, $option =
 	$timeLimit = ini_get('max_execution_time');
 	set_time_limit(30);
 	$result = false;
-	if (image_check_memory_usage($imgfile, $newwidth, $newheight))
-	{
-		require_once('php_image_magician.php');
-		$magicianObj = new imageLib($imgfile);
-		$magicianObj->resizeImage($newwidth, $newheight, $option);
-		$magicianObj->saveImage($imgthumb, 80);
-		$result = true;
+	
+	// SVGファイルかどうかを確認
+	$file_extension = strtolower(pathinfo($imgfile, PATHINFO_EXTENSION));
+	
+	if ($file_extension === 'svg') {
+		// SVGファイルの場合は単純にコピー
+		$result = copy($imgfile, $imgthumb);
+	} else {
+	
+		if (image_check_memory_usage($imgfile, $newwidth, $newheight))
+		{
+			require_once('php_image_magician.php');
+			$magicianObj = new imageLib($imgfile);
+			$magicianObj->resizeImage($newwidth, $newheight, $option);
+			$magicianObj->saveImage($imgthumb, 80);
+			$result = true;
+		}
 	}
 	set_time_limit($timeLimit);
 

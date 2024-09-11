@@ -3,7 +3,7 @@ v3.8
 
 [Copyright]
 Copyright© khiten Inc.
-2015-2019 khiten Inc. All rights reserved.
+2015-2020 khiten Inc. All rights reserved.
 contact@khiten.co.jp
 
 [License]
@@ -12,4 +12,4 @@ and use license is given to every users.
 contact@postease.org
 
 [Reproduction / Resale]
-Every kind of reproduction and resale of this software are prohibited.
+Every kind of reproduction and resale of this software are prohibited.s
