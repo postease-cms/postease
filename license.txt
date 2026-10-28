@@ -3,7 +3,7 @@ v3.8
 
 [Copyright]
 Copyright© khiten Inc.
-2015-2020 khiten Inc. All rights reserved.
+2015-2026 khiten Inc. All rights reserved.
 contact@khiten.co.jp
 
 [License]
