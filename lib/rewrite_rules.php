@@ -81,7 +81,7 @@ function generateRewriteRule($permalink_style, $resource_uri, $rewrite_url_flg =
 		'7'  => array
 		(
 			'0' =>  "RewriteCond %{REQUEST_URI} ^\/\d{4}\/\d{2}\/\d{2}\/[^\/]+$" . "\n" .
-							"RewriteCond %{REQUEST_FILENAME} !^(.*)\.(css|js|gif|png|jpe?g|ico|svg)$ [NC]" . "\n",
+							"RewriteCond %{REQUEST_FILENAME} !^(.*)\.(css|js|gif|png|jpe?g|ico|svg)$ [NC]" . "\n" .
 							"RewriteRule (\d{4})\/(\d{2})\/(\d{2})\/([^\/]+)$ /{$resource_uri}?post_key=$1-$2-$3-$4 [QSA,L]" . "\n",
 			'1' =>  "RewriteCond %{REQUEST_URI} {$rewrite_uri_base}\/\d{4}\/\d{2}\/\d{2}\/[^\/]+$" . "\n" .
 							"RewriteCond %{REQUEST_FILENAME} !^(.*)\.(css|js|gif|png|jpe?g|ico|svg)$ [NC]" . "\n" .
