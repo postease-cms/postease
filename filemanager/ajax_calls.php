@@ -71,6 +71,7 @@ if(isset($_GET['action']))
 			}
 			break;
 		case 'save_img':
+            if (!$upload_files) { http_response_code(403); exit('Upload disabled'); }
 			$info = pathinfo($_POST['name']);
 
 			if (
@@ -119,6 +120,7 @@ if(isset($_GET['action']))
 			);
 		    break;
 		case 'extract':
+            if (!$upload_files || !$create_folders) { http_response_code(403); exit('Extraction disabled'); }
 			if (strpos($_POST['path'], '/') === 0 || strpos($_POST['path'], '../') !== false || strpos($_POST['path'], './') === 0)
 			{
 				response('wrong path', 400)->send();

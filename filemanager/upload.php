@@ -51,6 +51,8 @@ while ($cycle && $i < $max_cycles)
 }
 
 
+if (!$upload_files) { http_response_code(403); exit('Upload disabled'); }
+
 if ( ! empty($_FILES))
 {
 	$info = pathinfo($_FILES['file']['name']);
@@ -115,6 +117,15 @@ if ( ! empty($_FILES))
 		// check if image (and supported)
 		if (in_array(fix_strtolower($info['extension']),$ext_img)) $is_img=TRUE;
 		else $is_img=FALSE;
+
+        // Browsing is read-only; prepare missing preview directories on the validated POST.
+        if ($is_img && !is_dir($targetPathThumb)) {
+            if (!is_uploaded_file($tempFile)) { http_response_code(400); exit('Invalid upload'); }
+            if (!@mkdir($targetPathThumb, $permission, true) && !is_dir($targetPathThumb)) {
+                http_response_code(500);
+                exit('Cannot prepare image directory');
+            }
+        }
 
 		// upload
 		move_uploaded_file($tempFile,$targetFile);

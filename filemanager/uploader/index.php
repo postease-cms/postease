@@ -4,13 +4,23 @@ $config = include '../config/config.php';
 //TODO switch to array
 extract($config, EXTR_OVERWRITE);
 
-if ( ! $java_upload)
+if ( ! $java_upload || ! $upload_files)
 {
+    http_response_code(403);
 	die('forbidden');
 }
 if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 {
 	die('forbidden');
+}
+
+// Merely displaying the legacy iframe must not initialize upload state or directories.
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    echo '<form method="post"><input type="hidden" name="csrf_token" value="'
+        . htmlspecialchars($_SESSION['RF_csrf_token'], ENT_QUOTES, 'UTF-8')
+        . '"><input type="hidden" name="initialize_uploader" value="1">'
+        . '<button type="submit">Open Java uploader</button></form>';
+    exit;
 }
 
 //Let's load the 'interesting' stuff ...  ;-)
@@ -36,6 +46,8 @@ while ($cycle && $i < $max_cycles)
 	}
 	$path = fix_dirname($path) . "/";
 }
+
+if (!$java_upload || !$upload_files) { http_response_code(403); exit('Uploader disabled'); }
 
 $path = "../" . $current_path . $_GET['path'];
 
@@ -115,9 +127,14 @@ if ((isset($_SERVER['PHP_AUTH_USER']) && $_SERVER['PHP_AUTH_USER'] != '') && $_S
 	$appletParameters['specificHeaders'] = 'Authorization: Basic ' . base64_encode($_SERVER['PHP_AUTH_USER'] . ":" . $_SERVER['PHP_AUTH_PW']);
 }
 
+$appletParameters['specificHeaders'] = (isset($appletParameters['specificHeaders'])
+    ? $appletParameters['specificHeaders'] . "\\n" : '')
+    . 'X-CSRF-Token: ' . $_SESSION['RF_csrf_token'];
+
 //
 //Then: the jupload PHP class parameters
 $classParameters = array(
+    'initialize_uploader' => isset($_POST['initialize_uploader']) && empty($_FILES),
 	//Files won't be stored on the server. Useful for first tests of the applet behavior ... and sourceforge demo site !
 	'demo_mode'     => false,
 	//

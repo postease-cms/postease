@@ -1,19 +1,144 @@
 <?php
-$session_key = $_COOKIE['session_key'];
-session_start();
-mb_internal_encoding('UTF-8');
-date_default_timezone_set($_SESSION[$session_key]['configs']['timezone']);
-
-// Access Controll (check referer)
-$valid_url_regex = '/^(http|https):\/\/' . str_replace('.', '\.', $_SERVER['HTTP_HOST']) . '/';
-if (! preg_match($valid_url_regex, $_SERVER['HTTP_REFERER']))
-{
-	header('Location: /');
-	exit;
+if (session_status() !== PHP_SESSION_ACTIVE && !session_start()) {
+    http_response_code(403);
+    exit('Authentication required');
 }
 
-// Apply Auth
-require_once dirname(__FILE__) . '/../../_auth.php';
+// Resolve the installation from its local configuration, never from the cookie.
+$rf_root = dirname(__DIR__, 2);
+try {
+    if (!is_file($rf_root . '/core/db/config.php')) throw new RuntimeException('Database unavailable');
+    require_once $rf_root . '/core/db/config.php';
+    if (!defined('TABLE_PREFIX') || !preg_match('/^[A-Za-z0-9_]+$/D', TABLE_PREFIX)) {
+        throw new RuntimeException('Invalid database configuration');
+    }
+    if (defined('CURRENT_DATABASE') && CURRENT_DATABASE == 1) {
+        if (!is_file($rf_root . '/core/db/pdo_sqlite.php')) throw new RuntimeException('Database unavailable');
+        require_once $rf_root . '/core/db/pdo_sqlite.php';
+        // Do not create a database or repair configuration during a file request.
+        if (!defined('SQLITE_PATH') || !is_file(SQLITE_PATH)) {
+            throw new RuntimeException('Database unavailable');
+        }
+        $rf_pdo = new PDO('sqlite:' . SQLITE_PATH);
+    } elseif (defined('CURRENT_DATABASE') && CURRENT_DATABASE == 2) {
+        if (!is_file($rf_root . '/core/db/pdo_mysql.php')) throw new RuntimeException('Database unavailable');
+        require_once $rf_root . '/core/db/pdo_mysql.php';
+        $rf_pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8',
+            DB_USER, DB_PASS, array(PDO::ATTR_TIMEOUT => 3));
+    } else {
+        throw new RuntimeException('Invalid database configuration');
+    }
+    $rf_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $rf_pdo->setAttribute(PDO::ATTR_TIMEOUT, 3);
+    $rf_query = $rf_pdo->prepare('SELECT value FROM ' . TABLE_PREFIX . 'configs WHERE item = :item');
+    $rf_query->execute(array(':item' => 'session_key'));
+    $session_key = $rf_query->fetchColumn();
+    if (!is_string($session_key) || $session_key === ''
+        || !isset($_COOKIE['session_key']) || !is_string($_COOKIE['session_key'])
+        || !hash_equals($session_key, $_COOKIE['session_key'])) {
+        http_response_code(403);
+        exit('Invalid installation session');
+    }
+    $postease_auth_api = true;
+    require $rf_root . '/_auth.php';
+    $rf_user = $_SESSION[$session_key]['user'];
+    $rf_query = $rf_pdo->prepare('SELECT u.account, u.role, u.group_id, g.slug AS group_slug FROM '
+        . TABLE_PREFIX . 'users u LEFT JOIN ' . TABLE_PREFIX
+        . 'groups g ON u.group_id = g.id AND g.delete_flg = 0 WHERE u.id = :id AND u.delete_flg = 0');
+    $rf_query->execute(array(':id' => $rf_user['id']));
+    $rf_current_user = $rf_query->fetch(PDO::FETCH_ASSOC);
+    $rf_changed = !$rf_current_user;
+    foreach (array('account', 'role', 'group_id', 'group_slug') as $rf_field) {
+        $rf_value = isset($rf_user[$rf_field]) && is_scalar($rf_user[$rf_field]) ? (string)$rf_user[$rf_field] : '';
+        if (!$rf_current_user || $rf_value !== (string)$rf_current_user[$rf_field]) {
+            $rf_changed = true;
+        }
+    }
+    if ($rf_changed || (!empty($rf_current_user['group_id']) && empty($rf_current_user['group_slug']))) {
+        unset($_SESSION['RF'], $_SESSION['RF_context'], $_SESSION['RF_csrf_token']);
+        unset($_SESSION[$session_key]['image_frames'], $_SESSION[$session_key]['filemanager']);
+        http_response_code(403);
+        exit('Login or membership changed; reload the application');
+    }
+    $rf_identity = array((string)$rf_user['id'], (string)$rf_user['role'],
+        (string)$rf_current_user['group_id'], (string)$rf_current_user['group_slug'], (string)$rf_user['login_time']);
+    if (!isset($_SESSION[$session_key]['filemanager_identity'])
+        || $_SESSION[$session_key]['filemanager_identity'] !== $rf_identity
+        || !isset($_SESSION[$session_key]['filemanager'])) {
+        unset($_SESSION['RF'], $_SESSION['RF_context'], $_SESSION['RF_csrf_token']);
+        http_response_code(403);
+        exit('Reload the application to initialize file access');
+    }
+    unset($rf_query, $rf_pdo);
+} catch (Exception $rf_error) {
+    http_response_code(503);
+    exit('Authentication service unavailable');
+}
+
+$rf_context = array($rf_root, $session_key, (string)$rf_user['id'], (string)$rf_user['role'],
+    (string)$rf_current_user['group_id'], (string)$rf_current_user['group_slug'], (string)$rf_user['login_time']);
+$rf_context_changed = !isset($_SESSION['RF_context']) || $_SESSION['RF_context'] !== $rf_context;
+if ($rf_context_changed) {
+    unset($_SESSION['RF'], $_SESSION['RF_csrf_token']);
+    $_SESSION['RF_context'] = $rf_context;
+}
+if (!isset($_SESSION['RF_csrf_token']) || !is_string($_SESSION['RF_csrf_token'])
+    || strlen($_SESSION['RF_csrf_token']) !== 64) {
+    try {
+        $_SESSION['RF_csrf_token'] = bin2hex(random_bytes(32));
+    } catch (Exception $rf_error) {
+        http_response_code(503);
+        exit('Secure token generation unavailable');
+    }
+}
+$csrf_token = $_SESSION['RF_csrf_token'];
+$_SESSION['RF']['verify'] = 'RESPONSIVEfilemanager';
+
+$rf_script = isset($_SERVER['SCRIPT_FILENAME']) ? realpath($_SERVER['SCRIPT_FILENAME']) : false;
+$rf_endpoint = $rf_script ? substr($rf_script, strlen(dirname(__DIR__)) + 1) : '';
+$rf_action = isset($_GET['action']) && is_string($_GET['action']) ? $_GET['action'] : '';
+$rf_method = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : '';
+$rf_read_actions = array('media_preview', 'get_lang', 'image_size', 'chmod', 'get_file');
+$rf_write_actions = array('view', 'filter', 'sort', 'save_img', 'extract', 'copy_cut', 'clear_clipboard', 'change_lang');
+if (!$rf_script || strpos($rf_script, dirname(__DIR__) . '/') !== 0
+    || !in_array($rf_endpoint, array('dialog.php', 'upload.php', 'execute.php', 'ajax_calls.php', 'force_download.php', 'uploader/index.php', 'uploader/success.php'), true)) {
+    http_response_code(403);
+    exit('Invalid entry point');
+}
+if ($rf_endpoint === 'ajax_calls.php' && !in_array($rf_action, array_merge($rf_read_actions, $rf_write_actions), true)) {
+    http_response_code(400);
+    exit('Unknown action');
+}
+$rf_mutating = in_array($rf_endpoint, array('upload.php', 'execute.php', 'force_download.php'), true)
+    || (in_array($rf_endpoint, array('dialog.php', 'uploader/index.php'), true) && $rf_method === 'POST')
+    || ($rf_endpoint === 'ajax_calls.php' && in_array($rf_action, $rf_write_actions, true));
+if ($rf_mutating) {
+    if ($rf_method !== 'POST') {
+        header('Allow: POST', true, 405);
+        exit('POST required');
+    }
+    $rf_body_token = isset($_POST['csrf_token']) ? $_POST['csrf_token'] : null;
+    $rf_header_token = isset($_SERVER['HTTP_X_CSRF_TOKEN']) ? $_SERVER['HTTP_X_CSRF_TOKEN'] : null;
+    $rf_token = $rf_body_token !== null ? $rf_body_token : $rf_header_token;
+    if (!is_string($rf_token) || strlen($rf_token) !== 64 || !hash_equals($csrf_token, $rf_token)
+        || ($rf_body_token !== null && $rf_header_token !== null
+            && (!is_string($rf_header_token) || !hash_equals($rf_body_token, $rf_header_token)))) {
+        http_response_code(403);
+        exit('Invalid CSRF token');
+    }
+} elseif (!in_array($rf_method, array('GET', 'HEAD', 'POST'), true)) {
+    header('Allow: GET, HEAD, POST', true, 405);
+    exit('Method not allowed');
+}
+header('Cache-Control: no-store');
+$rf_can_maintain = $rf_endpoint === 'dialog.php' && $rf_method === 'POST' && isset($_POST['refresh_previews']);
+if (!isset($_SESSION[$session_key]['configs']['timezone'])
+    || !is_string($_SESSION[$session_key]['configs']['timezone'])
+    || !@date_default_timezone_set($_SESSION[$session_key]['configs']['timezone'])) {
+    http_response_code(403);
+    exit('Invalid installation session');
+}
+mb_internal_encoding('UTF-8');
 
 // Uoload Directory
 $group_dir        = (! empty($_SESSION[$session_key]['user']['group_slug']))  ? 'gd_' . $_SESSION[$session_key]['user']['group_slug'] : null; // prefix 'gd_' (group_dir) is required
