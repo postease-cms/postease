@@ -1,6 +1,9 @@
 <?php
 // Set Configured permission by decimal number
-$session_key = $_COOKIE['session_key'];
+if (!isset($session_key, $rf_context) || !is_string($session_key)) {
+    http_response_code(403);
+    exit('Authentication required');
+}
 $permission  = (! empty($_SESSION[$session_key]['configs']['upload_dir_permission'])) ? $_SESSION[$session_key]['configs']['upload_dir_permission'] : '777';
 $permission  = octdec(sprintf('%04d', $permission));
 
@@ -40,7 +43,7 @@ if ( ! function_exists('trans'))
 	{
 		$lang = $default_language;
 
-		if (isset($_GET['lang']) && $_GET['lang'] != 'undefined' && $_GET['lang'] != '')
+		if ($rf_can_maintain && isset($_GET['lang']) && $_GET['lang'] != 'undefined' && $_GET['lang'] != '')
 		{
 			$lang = fix_get_params($_GET['lang']);
 			$lang = trim($lang);

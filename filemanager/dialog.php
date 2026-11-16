@@ -27,8 +27,6 @@ if (USE_ACCESS_KEYS == TRUE){
 	}
 }
 
-$_SESSION['RF']["verify"] = "RESPONSIVEfilemanager";
-
 if(isset($_POST['submit'])){
 
 	include 'upload.php';
@@ -43,18 +41,17 @@ if (isset($_GET['fldr'])
     && strpos($_GET['fldr'],'./') === FALSE)
 {
     $subdir = urldecode(trim(strip_tags($_GET['fldr']),"/") ."/");
-    $_SESSION['RF']["filter"]='';
 }
 else { $subdir = ''; }
 
 if($subdir == "")
 {
-   if(!empty($_COOKIE['last_position'])
+   if(!$rf_context_changed && !empty($_COOKIE['last_position'])
 	&& strpos($_COOKIE['last_position'],'.') === FALSE)
 	$subdir= trim($_COOKIE['last_position']);
 }
 //remember last position
-setcookie('last_position',$subdir,time() + (86400 * 7));
+if ($rf_can_maintain) setcookie('last_position',$subdir,time() + (86400 * 7));
 
 if ($subdir == "/") { $subdir = ""; }
 
@@ -75,10 +72,6 @@ if(count($hidden_folders)){
  *SUB-DIR CODE
  ***/
 
-if (!isset($_SESSION['RF']["subfolder"]))
-{
-	$_SESSION['RF']["subfolder"] = '';
-}
 $rfm_subfolder = '';
 
 if (!empty($_SESSION['RF']["subfolder"]) && strpos($_SESSION['RF']["subfolder"],'../') === FALSE
@@ -131,7 +124,7 @@ while($cycle && $i < $max_cycles){
     else $parent = fix_dirname($parent)."/";
 }
 
-if (!is_dir($thumbs_path.$subdir))
+if ($rf_can_maintain && $create_folders && !is_dir($thumbs_path.$subdir))
 {
     create_folder(FALSE, $thumbs_path.$subdir);
 }
@@ -154,19 +147,12 @@ else $crossdomain=0;
 $crossdomain=!!$crossdomain;
 
 //view type
-if(!isset($_SESSION['RF']["view_type"]))
-{
-	$view = $default_view;
-	$_SESSION['RF']["view_type"] = $view;
-}
+$view = isset($_SESSION['RF']["view_type"]) ? $_SESSION['RF']["view_type"] : $default_view;
 
 if (isset($_GET['view']))
 {
 	$view = fix_get_params($_GET['view']);
-	$_SESSION['RF']["view_type"] = $view;
 }
-
-$view = $_SESSION['RF']["view_type"];
 
 //filter
 $filter = "";
@@ -180,29 +166,19 @@ if(isset($_GET["filter"]))
 	$filter = fix_get_params($_GET["filter"]);
 }
 
-if (!isset($_SESSION['RF']['sort_by']))
-{
-	$_SESSION['RF']['sort_by'] = 'name';
-}
+$sort_by = isset($_SESSION['RF']['sort_by']) ? $_SESSION['RF']['sort_by'] : 'name';
 
 if (isset($_GET["sort_by"]))
 {
-	$sort_by = $_SESSION['RF']['sort_by'] = fix_get_params($_GET["sort_by"]);
+	$sort_by = fix_get_params($_GET["sort_by"]);
 }
-else $sort_by = $_SESSION['RF']['sort_by'];
 
 
-if (!isset($_SESSION['RF']['descending']))
-{
-	$_SESSION['RF']['descending'] = TRUE;
-}
+$descending = isset($_SESSION['RF']['descending']) ? $_SESSION['RF']['descending'] : TRUE;
 
 if (isset($_GET["descending"]))
 {
-	$descending = $_SESSION['RF']['descending'] = fix_get_params($_GET["descending"])==1;
-}
-else{
-	$descending = $_SESSION['RF']['descending'];
+	$descending = fix_get_params($_GET["descending"])==1;
 }
 
 $boolarray = Array(false => 'false', true => 'true');
@@ -260,6 +236,7 @@ $get_params = http_build_query($get_params);
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta name="robots" content="noindex,nofollow">
+		<meta name="csrf-token" content="<?php echo htmlspecialchars($csrf_token, ENT_QUOTES, 'UTF-8'); ?>">
 		<title>Responsive FileManager</title>
 		<link rel="shortcut icon" href="img/ico/favicon.ico">
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -298,6 +275,7 @@ $get_params = http_build_query($get_params);
 		    paramName: "file", // The name that will be used to transfer the file
 		    maxFilesize: <?php echo $MaxSizeUpload; ?>, // MB
 		    url: "upload.php",
+		    params: { csrf_token: "<?php echo htmlspecialchars($csrf_token, ENT_QUOTES, 'UTF-8'); ?>" },
 		    <?php if($apply!="apply_none"){ ?>
 		    init: function() {
 			    this.on("success", function(file,res) {
@@ -433,6 +411,7 @@ $get_params = http_build_query($get_params);
 			<div class="tab-pane active" id="tab1">
 		    	<?php } ?>
 				<form action="dialog.php" method="post" enctype="multipart/form-data" id="rfmDropzone" class="dropzone">
+				    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrf_token, ENT_QUOTES, 'UTF-8'); ?>"/>
 				    <input type="hidden" name="path" value="<?php echo $cur_path?>"/>
 				    <input type="hidden" name="path_thumb" value="<?php echo $thumbs_path.$subdir?>"/>
 				    <div class="fallback">
@@ -471,7 +450,7 @@ $get_params = http_build_query($get_params);
 $class_ext = '';
 $src = '';
 
-$files = scandir($current_path.$rfm_subfolder.$subdir);
+$files = is_dir($current_path.$rfm_subfolder.$subdir) ? scandir($current_path.$rfm_subfolder.$subdir) : array();
 $n_files=count($files);
 
 //php sorting
@@ -674,13 +653,13 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 			if($file == '.' || (isset($file_array['extension']) && $file_array['extension']!=trans('Type_dir')) || ($file == '..' && $subdir == '') || in_array($file, $hidden_folders) || ($filter!='' && $n_files>$file_number_limit_js && $file!=".." && stripos($file,$filter)===false))
 			  continue;
 			$new_name=fix_filename($file,$transliteration);
-			if($file!='..' && $file!=$new_name){
+			if($rf_can_maintain && $rename_folders && $file!='..' && $file!=$new_name){
 			    //rename
 			    rename_folder($current_path.$subdir.$file,$new_name,$transliteration);
 			    $file=$new_name;
 			}
 			//add in thumbs folder if not exist
-			if (!file_exists($thumbs_path.$subdir.$file)) create_folder(false,$thumbs_path.$subdir.$file);
+			if ($rf_can_maintain && $create_folders && !file_exists($thumbs_path.$subdir.$file)) create_folder(false,$thumbs_path.$subdir.$file);
 			$class_ext = 3;
 			if($file=='..' && trim($subdir) != '' ){
 		    $src = explode("/",$subdir);
@@ -760,7 +739,7 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 
 			    $filename=substr($file, 0, '-' . (strlen($file_array['extension']) + 1));
 
-			    if($file!=fix_filename($file,$transliteration)){
+			    if($rf_can_maintain && $rename_files && $file!=fix_filename($file,$transliteration)){
 				$file1=fix_filename($file,$transliteration);
 				$file_path1=($current_path.$rfm_subfolder.$subdir.$file1);
 				if(file_exists($file_path1)){
@@ -805,7 +784,7 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 				$src = $base_url . $cur_dir . rawurlencode($file);
 				$mini_src = $src_thumb = $thumbs_path.$subdir. $file;
 				//add in thumbs folder if not exist
-				if(!file_exists($src_thumb)){
+				if($rf_can_maintain && $upload_files && !file_exists($src_thumb)){
 			    try {
 			    	if(!create_img($file_path, $src_thumb, 122, 91)){
 							$src_thumb=$mini_src="";
@@ -816,6 +795,7 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 						$src_thumb=$mini_src="";
 			    }
 				}
+				if (!file_exists($src_thumb)) $src_thumb=$mini_src="";
 				$is_img=true;
 				//check if is smaller than thumb
 				list($img_width, $img_height, $img_type, $attr)=@getimagesize($file_path);
@@ -907,6 +887,7 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 				<div class='file-extension'><?php echo $extension_lower; ?></div>
 				<figcaption>
 				    <form action="force_download.php" method="post" class="download-form" id="form<?php echo $nu; ?>">
+					<input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrf_token, ENT_QUOTES, 'UTF-8'); ?>"/>
 					<input type="hidden" name="path" value="<?php echo $rfm_subfolder.$subdir?>"/>
 					<input type="hidden" class="name_download" name="name" value="<?php echo $file?>"/>
 

@@ -723,7 +723,7 @@ private function page_start() {
 	if ($_SERVER['REQUEST_METHOD'] == 'HEAD') {
 		// Nothing to do
 
-	} else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+	} else if ($_SERVER['REQUEST_METHOD'] == 'GET' || !empty($this->classparams['initialize_uploader'])) {
 		// A GET request means: return upload page
 		$this->logDebug('page_start', 'Entering GET management');
 

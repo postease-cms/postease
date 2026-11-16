@@ -395,6 +395,23 @@ if (isset($_GET['action']))
 				exit;
             }
 
+            // Recheck the current feature policy, not the policy at clipboard creation.
+            $clipboard_is_dir = is_dir($data['path']);
+            if (($clipboard_is_dir && !$copy_cut_dirs) || (!$clipboard_is_dir && !$copy_cut_files)) {
+                response('Copy/cut disabled', 403)->send();
+                exit;
+            }
+            if ($clipboard_is_dir && is_int($copy_cut_max_size)
+                && foldersize($data['path']) > $copy_cut_max_size * 1024 * 1024) {
+                response('Copy/cut size limit', 400)->send();
+                exit;
+            }
+            if ($clipboard_is_dir && is_int($copy_cut_max_count)
+                && filescount($data['path']) > $copy_cut_max_count) {
+                response('Copy/cut count limit', 400)->send();
+                exit;
+            }
+
             // check for writability
             if (is_really_writable($path) === FALSE || is_really_writable($path_thumb) === FALSE){
                 response(trans('Dir_No_Write').'<br/>'.str_replace('../','',$path).'<br/>'.str_replace('../','',$path_thumb), 403)->send();
@@ -437,7 +454,9 @@ if (isset($_GET['action']))
             $chmod_perm = (is_dir($path) ? $chmod_dirs : $chmod_files);
 
             // check perm
-            if ($chmod_perm === FALSE) {
+            if ($chmod_perm === FALSE
+                || (is_dir($path) && !$chmod_files && in_array($rec_option, array('files', 'both'), true))
+                || (is_dir($path) && !$chmod_dirs && in_array($rec_option, array('folders', 'both'), true))) {
                 response(sprintf(trans('File_Permission_Not_Allowed'), (is_dir($path) ? lcfirst(trans('Folders')) : lcfirst(trans('Files')) )), 403)->send();
 				exit;
             }

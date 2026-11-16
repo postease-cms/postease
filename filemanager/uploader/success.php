@@ -1,3 +1,7 @@
+<?php
+$config = include '../config/config.php';
+if (empty($config['java_upload']) || empty($config['upload_files'])) { http_response_code(403); exit('Uploader disabled'); }
+?>
 <html>
 <head>
 	<!--JUPLOAD_JSCRIPT-->
