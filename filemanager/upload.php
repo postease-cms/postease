@@ -62,7 +62,10 @@ if ( ! empty($_FILES))
 		// Content is verified against the extension before anything reaches the public folder.
 		if (!rf_upload_content_valid($tempFile, $extension, $ext_img))
 		{
+			// The reason is sent as the body so the upload dialog can show it instead of a generic server error.
 			header('HTTP/1.1 406 file content not permitted', TRUE, 406);
+			header('Content-Type: text/plain; charset=UTF-8');
+			echo rf_upload_reject_text();
 			exit();
 		}
 
@@ -265,6 +268,8 @@ if ( ! empty($_FILES))
 	else // file ext. is not in the allowed list
 	{
 		header('HTTP/1.1 406 file not permitted',TRUE,406);
+		header('Content-Type: text/plain; charset=UTF-8');
+		echo trans('Error_extension');
 		exit();
 	}
 }

@@ -375,24 +375,139 @@ function rf_claim_upload_name($dir, $stem, $extension)
  * Verify that the uploaded content matches the claimed extension. The browser-declared MIME type
  * is never consulted. Extensions without a binary signature are scanned for embedded PHP tags.
  */
+/** Parse a php.ini byte quantity such as "128M"; -1 or empty means unlimited (returns 0). */
+function rf_ini_bytes($value)
+{
+	$value = trim((string) $value);
+	if ($value === '' || $value === '-1') return 0;
+	$unit = strtoupper(substr($value, -1));
+	$number = (float) $value;
+	if ($unit === 'G') $number *= 1024 * 1024 * 1024;
+	elseif ($unit === 'M') $number *= 1024 * 1024;
+	elseif ($unit === 'K') $number *= 1024;
+	return $number > 0 ? (int) $number : 0;
+}
+
+/** Pixel ceiling for raster images: the configured image_max_pixels, or 50 megapixels (covers 48 MP phone cameras). 0 disables the ceiling. */
+function rf_image_max_pixels()
+{
+	return isset($GLOBALS['image_max_pixels']) && is_numeric($GLOBALS['image_max_pixels']) ? (int) $GLOBALS['image_max_pixels'] : 50000000;
+}
+
+/**
+ * Working canvas that php_image_magician allocates for a resize: the scaled image before any crop.
+ * Mirrors imageLib::getDimensions with the library default forceStretch = true (create_img never
+ * disables it, so small images are scaled up to the target). A missing side (0) is resolved the way
+ * the library does for portrait / landscape; for the other options the known side drives the scale.
+ */
+function rf_resize_working_size($width, $height, $new_width, $new_height, $option = 'crop')
+{
+	$width = max(1, (int) $width); $height = max(1, (int) $height);
+	$new_width = max(0, (int) $new_width); $new_height = max(0, (int) $new_height);
+	$by_height = function ($target_height) use ($width, $height) { $target_height = max(1, $target_height); return array((int) round($target_height * $width / $height), $target_height); };
+	$by_width = function ($target_width) use ($width, $height) { $target_width = max(1, $target_width); return array($target_width, (int) round($target_width * $height / $width)); };
+	switch (strval($option)) {
+		case '0': case 'exact': return array(max(1, $new_width), max(1, $new_height));
+		case '1': case 'portrait': return $by_height($new_height);
+		case '2': case 'landscape': return $by_width($new_width);
+		case '3': case 'auto':
+			if ($new_width <= 0) return $by_height($new_height);
+			if ($new_height <= 0) return $by_width($new_width);
+			if ($height < $width) return $by_width($new_width);
+			if ($height > $width) return $by_height($new_height);
+			// Square source: the library follows the longer target side.
+			if ($new_height < $new_width) return $by_width($new_width);
+			if ($new_height > $new_width) return $by_height($new_height);
+			return array($new_width, $new_height);
+		default: // '4' / 'crop': scale until both sides cover the target, then crop
+			if ($new_width <= 0) return $by_height($new_height);
+			if ($new_height <= 0) return $by_width($new_width);
+			$ratio = min($height / $new_height, $width / $new_width);
+			return array((int) round($width / $ratio), (int) round($height / $ratio));
+	}
+}
+
+/**
+ * Decide from header information alone whether a raster image may be decoded and resized here.
+ * $size is a getimagesize() result. The image is refused when the source or the resize working canvas
+ * exceeds the configured pixel ceiling, or when the estimated peak memory (input bytes, decoded source,
+ * working canvas and final derivative at 5 bytes per pixel) does not fit in the server's memory_limit.
+ * Either target side may be 0 (derived sizes allow one side to be omitted); the canvas is still counted.
+ * The limit is never raised by the application.
+ */
+function rf_image_within_limits($size, $thumb_width = 0, $thumb_height = 0, $max_pixels = null, $memory_limit = null, $option = 'crop', $file_bytes = 0)
+{
+	if (!is_array($size) || !isset($size[0], $size[1]) || $size[0] <= 0 || $size[1] <= 0) return false;
+	$width = (int) $size[0]; $height = (int) $size[1];
+	$working = array(0, 0); $final = array(0, 0);
+	if ($thumb_width > 0 || $thumb_height > 0) {
+		$working = rf_resize_working_size($width, $height, $thumb_width, $thumb_height, $option);
+		// crop and exact end at the requested size; the other options keep the working canvas as the result.
+		$final = ($thumb_width > 0 && $thumb_height > 0 && in_array(strval($option), array('0', 'exact', '4', 'crop'), true)) ? array((int) $thumb_width, (int) $thumb_height) : $working;
+	}
+	if ($max_pixels === null) $max_pixels = rf_image_max_pixels();
+	if ($max_pixels > 0 && ($width * $height > $max_pixels || $working[0] * $working[1] > $max_pixels)) return false;
+	if ($memory_limit === null) $memory_limit = rf_ini_bytes(ini_get('memory_limit'));
+	if ($memory_limit <= 0) return true;
+	$bytes_per_pixel = 5; // GD truecolor pixel data plus row bookkeeping, independent of the file format
+	$needed = memory_get_usage() + max(0, (int) $file_bytes)
+		+ 65536 + $width * $height * $bytes_per_pixel
+		+ 65536 + $working[0] * $working[1] * $bytes_per_pixel
+		+ 65536 + $final[0] * $final[1] * $bytes_per_pixel;
+	return $needed <= $memory_limit;
+}
+
+/**
+ * Why the last rf_upload_content_valid() call refused the file: 'too_large' (pixel or memory ceiling),
+ * 'denied' (active or executable content) or 'mismatch' (content does not match the extension / damaged).
+ */
+function rf_upload_reject_reason()
+{
+	return isset($GLOBALS['rf_upload_reject_reason']) ? $GLOBALS['rf_upload_reject_reason'] : 'mismatch';
+}
+
+/** Short user-facing text for a rejection reason, translated when the language file has the key. */
+function rf_upload_reject_text($reason = null)
+{
+	if ($reason === null) $reason = rf_upload_reject_reason();
+	$keys = array('too_large' => 'Error_Image_Too_Large', 'denied' => 'Error_Content_Denied', 'mismatch' => 'Error_Content_Mismatch');
+	$defaults = array(
+		'Error_Image_Too_Large' => 'The image is too large to process on this server. Please reduce its dimensions and upload it again.',
+		'Error_Content_Denied' => 'This file contains content that is not allowed.',
+		'Error_Content_Mismatch' => 'The file content does not match its extension, or the image is damaged.',
+	);
+	$key = isset($keys[$reason]) ? $keys[$reason] : 'Error_Content_Mismatch';
+	$text = function_exists('trans') ? trans($key) : $key;
+	return $text === $key ? $defaults[$key] : $text;
+}
+
 function rf_upload_content_valid($path, $extension, $ext_img)
 {
 	$extension = strtolower((string) $extension);
+	$GLOBALS['rf_upload_reject_reason'] = 'mismatch';
 	if (!is_file($path)) return false;
 	$head = rf_file_head($path, 512);
 	if ($head === false) return false;
 	$raster = array('jpg' => array(IMAGETYPE_JPEG), 'jpeg' => array(IMAGETYPE_JPEG), 'png' => array(IMAGETYPE_PNG),
 		'gif' => array(IMAGETYPE_GIF), 'bmp' => array(IMAGETYPE_BMP), 'tiff' => array(IMAGETYPE_TIFF_II, IMAGETYPE_TIFF_MM),
 		'tif' => array(IMAGETYPE_TIFF_II, IMAGETYPE_TIFF_MM), 'webp' => array(IMAGETYPE_WEBP));
-	if ($extension === 'svg') return rf_svg_is_safe($path);
-	if ($extension === 'xml') return rf_xml_is_safe($path);
+	if ($extension === 'svg' || $extension === 'xml') {
+		$GLOBALS['rf_upload_reject_reason'] = 'denied';
+		return $extension === 'svg' ? rf_svg_is_safe($path) : rf_xml_is_safe($path);
+	}
 	if (isset($raster[$extension])) {
 		$size = @getimagesize($path);
 		if (!is_array($size) || !isset($size[2]) || !in_array($size[2], $raster[$extension], true) || $size[0] <= 0 || $size[1] <= 0) return false;
-		// Damaged raster data with a valid header is refused before it is moved; TIFF has no GD decoder.
-		if (function_exists('imagecreatefromstring') && !in_array($extension, array('tiff', 'tif'), true)) {
+		// Oversized images are refused from the header alone, before any decoding allocates memory. The
+		// preview is a 122x91 crop, so its working canvas and the input bytes are part of the estimate.
+		if (!rf_image_within_limits($size, 122, 91, null, null, 'crop', (int) @filesize($path))) { $GLOBALS['rf_upload_reject_reason'] = 'too_large'; return false; }
+		// Damaged raster data with a valid header is refused before it is moved. The decoder reads the file
+		// directly for the detected type; TIFF has no GD decoder.
+		$decoders = array(IMAGETYPE_JPEG => 'imagecreatefromjpeg', IMAGETYPE_PNG => 'imagecreatefrompng', IMAGETYPE_GIF => 'imagecreatefromgif',
+			IMAGETYPE_BMP => 'imagecreatefrombmp', IMAGETYPE_WEBP => 'imagecreatefromwebp');
+		if (isset($decoders[$size[2]]) && function_exists($decoders[$size[2]])) {
 			try {
-				$decoded = @imagecreatefromstring(file_get_contents($path));
+				$decoded = @call_user_func($decoders[$size[2]], $path);
 			} catch (Throwable $decode_failure) {
 				$decoded = false;
 			}
@@ -432,6 +547,7 @@ function rf_upload_content_valid($path, $extension, $ext_img)
 		return strlen($block) === 512 && substr($block, 257, 5) === 'ustar';
 	}
 	// Text-like and unrecognized binary formats: refuse embedded PHP or script markup.
+	$GLOBALS['rf_upload_reject_reason'] = 'denied';
 	return !rf_file_contains_php($path);
 }
 
@@ -475,41 +591,6 @@ function rf_tree_can_copy($source, $destination)
 	return !file_exists($target) && !is_link($target);
 }
 
-function rf_validate_zip_entries($zip, $destination_root)
-{
-	$entries = array();
-	$seen = array();
-	for ($i = 0; $i < $zip->numFiles; $i++) {
-		$stat = $zip->statIndex($i);
-		$name = isset($stat['name']) ? $stat['name'] : '';
-		$is_dir = substr($name, -1) === '/';
-		$relative = $is_dir ? rtrim($name, '/') : $name;
-		$opsys = 0; $attributes = 0;
-		if ($name === '' || strpos($name, '\\') !== false || strpos($name, "\0") !== false
-			|| rf_resolve_path($destination_root, $relative, true, false) === false
-			|| isset($seen[$relative])
-			|| !$zip->getExternalAttributesIndex($i, $opsys, $attributes)) return false;
-		$mode = ($attributes >> 16) & 0170000;
-		if ($mode !== 0 && $mode !== 0100000 && $mode !== 0040000) return false;
-		if (!$is_dir && $mode === 0040000) return false;
-		$parts = explode('/', $relative);
-		$prefix = '';
-		foreach ($parts as $part) {
-			$prefix = ($prefix === '' ? $part : $prefix . '/' . $part);
-			if ($prefix !== $relative && isset($seen[$prefix]) && $seen[$prefix] === 'file') return false;
-		}
-		if (!$is_dir) {
-			foreach ($seen as $seen_path => $type) {
-				if (strpos($seen_path, $relative . '/') === 0) return false;
-			}
-		}
-		$target = rf_resolve_path($destination_root, $relative, true, false);
-		if ($target === false || file_exists($target) || is_link($target)) return false;
-		$seen[$relative] = $is_dir ? 'dir' : 'file';
-		$entries[] = array('name' => $name, 'relative' => $relative, 'dir' => $is_dir);
-	}
-	return $entries;
-}
 
 if ( ! function_exists('response'))
 {
@@ -743,7 +824,7 @@ function create_img($imgfile, $imgthumb, $newwidth, $newheight = null, $option =
 		$result = copy($imgfile, $imgthumb);
 	} else {
 	
-		if (image_check_memory_usage($imgfile, $newwidth, $newheight))
+		if (image_check_memory_usage($imgfile, $newwidth, $newheight, $option))
 		{
 			require_once('php_image_magician.php');
 			$magicianObj = new imageLib($imgfile);
@@ -1113,42 +1194,11 @@ function config_loading($current_path, $fld)
  *
  * @return bool
  */
-function image_check_memory_usage($img, $max_breedte, $max_hoogte)
+function image_check_memory_usage($img, $max_breedte, $max_hoogte, $option = 'crop')
 {
-	if (file_exists($img))
-	{
-		$K64 = 65536; // number of bytes in 64K
-		$memory_usage = memory_get_usage();
-		$memory_limit = abs(intval(str_replace('M', '', ini_get('memory_limit')) * 1024 * 1024));
-		$image_properties = getimagesize($img);
-		$image_width = $image_properties[0];
-		$image_height = $image_properties[1];
-		$image_bits = $image_properties['bits'];
-		$image_memory_usage = $K64 + ($image_width * $image_height * ($image_bits) * 2);
-		$thumb_memory_usage = $K64 + ($max_breedte * $max_hoogte * ($image_bits) * 2);
-		$memory_needed = intval($memory_usage + $image_memory_usage + $thumb_memory_usage);
-
-		if ($memory_needed > $memory_limit)
-		{
-			ini_set('memory_limit', (intval($memory_needed / 1024 / 1024) + 5) . 'M');
-			if (ini_get('memory_limit') == (intval($memory_needed / 1024 / 1024) + 5) . 'M')
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
-			return true;
-		}
-	}
-	else
-	{
-		return false;
-	}
+	// The server's memory_limit is the ceiling; it is never raised here. Images that would not fit are skipped.
+	if (!file_exists($img)) return false;
+	return rf_image_within_limits(@getimagesize($img), $max_breedte, $max_hoogte, null, null, $option, (int) @filesize($img));
 }
 
 /**

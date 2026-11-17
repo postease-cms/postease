@@ -2735,7 +2735,8 @@ class imageLib {
 				$img = @imagecreatefrompng($file);
 				break;
 			case '.bmp':
-				$img = @$this->imagecreatefrombmp($file);
+				// The native decoder (PHP 7.2+) is the one the upload validation used; the bundled parser trusts header fields.
+				$img = function_exists('imagecreatefrombmp') ? @imagecreatefrombmp($file) : @$this->imagecreatefrombmp($file);
 				break;
 			case '.psd':
 				$img = @$this->imagecreatefrompsd($file);

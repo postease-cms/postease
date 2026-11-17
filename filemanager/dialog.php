@@ -231,13 +231,6 @@ $get_params = http_build_query($get_params);
 	<script src="js/plugins.js"></script>
 	<script src="js/jPlayer/jquery.jplayer/jquery.jplayer.js"></script>
 	<script src="js/modernizr.custom.js"></script>
-	<?php
-	if ($aviary_active){
-	if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) { ?>
-	    <script src="https://dme0ih8comzn4.cloudfront.net/js/feather.js"></script>
-	<?php }else{ ?>
-	    <script src="http://feather.aviary.com/js/feather.js "></script>
-	<?php }} ?>
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -247,7 +240,7 @@ $get_params = http_build_query($get_params);
 	<script>
 	    var ext_img=new Array('<?php echo implode("','", $ext_img)?>');
 	    var allowed_ext=new Array('<?php echo implode("','", $ext)?>');
-	    var image_editor=<?php echo $aviary_active?"true":"false"; ?>;
+	    var image_editor=false; // the external image editor was removed
 	    //dropzone config
 	    Dropzone.options.rfmDropzone = {
 		    dictInvalidFileType: "<?php echo trans('Error_extension');?>",
@@ -277,46 +270,6 @@ $get_params = http_build_query($get_params);
 				}
 		    }
 	    };
-	    if (image_editor) {
-	    var featherEditor = new Aviary.Feather({
-		<?php
-	        foreach ($aviary_defaults_config as $aopt_key => $aopt_val) {
-	        	if ($php_version < 5.2)
-				{
-					echo $aopt_key.": ".$json -> encode($aopt_val).","; // fix code for php 5.1
-				}
-				else {
-					echo $aopt_key.": ".json_encode($aopt_val).",";
-				}
-			} ?>
-	      onSave: function(imageID, newURL) {
-			    show_animation();
-			    var img = document.getElementById(imageID);
-			    img.src = newURL;
-			    $.ajax({
-						type: "POST",
-						url: "ajax_calls.php?action=save_img",
-						data: { url: newURL, path:$('#sub_folder').val()+$('#fldr_value').val(), name:$('#aviary_img').data('name') }
-			    }).done(function( msg ) {
-						featherEditor.close();
-						d = new Date();
-						$("figure[data-name='"+$('#aviary_img').data('name')+"']").find('img').each(function(){
-						  $(this).attr('src',$(this).attr('src')+"?"+d.getTime());
-						});
-						$("figure[data-name='"+$('#aviary_img').data('name')+"']").find('figcaption a.preview').each(function(){
-						  $(this).attr('data-url',$(this).data('url')+"?"+d.getTime());
-				    });
-						hide_animation();
-			    });
-			    return false;
-	      },
-	      onError: function(errorObj) {
-		   		bootbox.alert(errorObj.message);
-		   		hide_animation();
-	      }
-
-	   });
-	    }
 	</script>
 	<script src="js/include.js"></script>
 </head>
@@ -952,7 +905,6 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 
     </div>
     <!-- player div end -->
-    <img id='aviary_img' src='' class="hide"/>
 
     <?php if ($lazy_loading_enabled) { ?>
         <script>
