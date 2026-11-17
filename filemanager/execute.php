@@ -15,58 +15,74 @@ if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 	exit;
 }
 
-$thumb_pos  = strpos($_POST['path_thumb'], $thumbs_base_path);
-
-if ($thumb_pos !=0
-    || strpos($_POST['path_thumb'],'../',strlen($thumbs_base_path)+$thumb_pos)!==FALSE
-    || strpos($_POST['path'],'/')===0
-    || strpos($_POST['path'],'../')!==FALSE
-    || strpos($_POST['path'],'./')===0)
-{
-    response('wrong path')->send();
+$lang_files = rf_language_files();
+if (isset($_SESSION['RF']['language']) && isset($lang_files[$_SESSION['RF']['language']])) {
+	require_once $lang_files[$_SESSION['RF']['language']];
+} else {
+	response('Language file is missing!', 500)->send();
 	exit;
 }
 
-if (isset($_SESSION['RF']['language_file']) && file_exists($_SESSION['RF']['language_file']))
-{
-	//TODO Very bad practice
-    require_once $_SESSION['RF']['language_file'];
-}
-else
-{
-    response('Language file is missing!', 500)->send();
+$relative_path = isset($_POST['path']) ? $_POST['path'] : null;
+$execute_action = isset($_GET['action']) && is_string($_GET['action']) ? $_GET['action'] : '';
+$allow_missing_path = in_array($execute_action, array('create_folder', 'create_file'), true);
+$allow_root = $execute_action === 'paste_clipboard';
+$path = rf_resolve_path($current_path, $relative_path, $allow_missing_path, $allow_root);
+$path_thumb = rf_resolve_path($thumbs_base_path, $relative_path, true, $allow_root);
+if ($path === false || $path_thumb === false) {
+	response('wrong path', 400)->send();
 	exit;
 }
-
-$base = $current_path;
-$path = $current_path.$_POST['path'];
-$cycle = TRUE;
-$max_cycles = 50;
-$i = 0;
-while($cycle && $i<$max_cycles)
-{
-    $i++;
-    if ($path == $base)  $cycle=FALSE;
-
-    if (file_exists($path."config.php"))
-    {
-        require_once $path."config.php";
-        $cycle = FALSE;
-    }
-    $path = fix_dirname($path)."/";
-    $cycle = FALSE;
-}
-
-$path = $current_path.$_POST['path'];
-$path_thumb = $_POST['path_thumb'];
+// Preserve the configured relative roots used by derived-image mappings.
+$path = $current_path . $relative_path;
+$path_thumb = $thumbs_base_path . $relative_path;
 if (isset($_POST['name']))
 {
+    if (!is_string($_POST['name'])) { response('wrong name', 400)->send(); exit; }
     $name = fix_filename($_POST['name'],$transliteration,$convert_spaces, $replace_with);
     if (strpos($name,'../') !== FALSE)
 	{
 		response('wrong name', 400)->send();
 		exit;
 	}
+}
+
+// Validate every linked source and destination before the first filesystem change.
+$operation = isset($_GET['action']) ? $_GET['action'] : '';
+$linked_paths = array($path, $path_thumb);
+if ($fixed_image_creation && in_array($operation, array('delete_file', 'delete_folder', 'rename_file', 'rename_folder', 'duplicate_file'), true)) {
+    $relative_info = pathinfo(rtrim($relative_path, '/'));
+    foreach ($fixed_path_from_filemanager as $k => $derived_root) {
+        $derived_relative = $relative_path;
+        if (in_array($operation, array('delete_file', 'rename_file', 'duplicate_file'), true)) {
+            $parent = $relative_info['dirname'] === '.' ? '' : $relative_info['dirname'] . '/';
+            $derived_relative = $parent . $fixed_image_creation_name_to_prepend[$k] . $relative_info['filename']
+                . $fixed_image_creation_to_append[$k] . '.' . $relative_info['extension'];
+        }
+        $linked_paths[] = rtrim($derived_root, '/') . '/' . $derived_relative;
+    }
+}
+if ($relative_image_creation && $operation === 'delete_file') {
+    $relative_info = pathinfo($path);
+    foreach ($relative_path_from_current_pos as $k => $relative_dir) {
+        $linked_paths[] = $relative_info['dirname'] . '/' . ($relative_dir === '' ? '' : rtrim($relative_dir, '/') . '/')
+            . $relative_image_creation_name_to_prepend[$k] . $relative_info['filename']
+            . $relative_image_creation_name_to_append[$k] . '.' . $relative_info['extension'];
+    }
+}
+foreach ($linked_paths as $linked_path) {
+    if (rf_safe_upload_target($linked_path) === false
+        || (in_array($operation, array('delete_folder', 'rename_folder', 'chmod'), true) && !rf_tree_has_no_links($linked_path))) {
+        response('Unsafe file path', 400)->send(); exit;
+    }
+    if (isset($name) && in_array($operation, array('rename_file', 'rename_folder', 'duplicate_file'), true)) {
+        $linked_info = pathinfo(rtrim($linked_path, '/'));
+        $new_name = $operation === 'rename_folder' ? str_replace('.', '', $name) : $name . '.' . $linked_info['extension'];
+        $new_path = $linked_info['dirname'] . '/' . $new_name;
+        if (rf_safe_upload_target($new_path) === false || file_exists($new_path) || is_link($new_path)) {
+            response('Unsafe or existing destination', 400)->send(); exit;
+        }
+    }
 }
 
 $info = pathinfo($path);
@@ -229,8 +245,11 @@ if (isset($_GET['action']))
             }
 
             // correct paths
-            $path = str_replace($old_name, $name, $path);
-            $path_thumb = str_replace($old_name, $name, $path_thumb);
+            $path = dirname($path) . '/' . $name;
+            $path_thumb = dirname($path_thumb) . '/' . $name;
+            if (rf_safe_upload_target($path) === false || rf_safe_upload_target($path_thumb) === false) {
+                response('wrong path', 400)->send(); exit;
+            }
 
             // file already exists
             if (file_exists($path)) {
@@ -351,10 +370,9 @@ if (isset($_GET['action']))
             }
             break;
         case 'paste_clipboard':
-            if ( ! isset($_SESSION['RF']['clipboard_action'], $_SESSION['RF']['clipboard']['path'], $_SESSION['RF']['clipboard']['path_thumb'])
+            if ( ! isset($_SESSION['RF']['clipboard_action'], $_SESSION['RF']['clipboard']['path'])
                 || $_SESSION['RF']['clipboard_action'] == ''
-                || $_SESSION['RF']['clipboard']['path'] == ''
-                || $_SESSION['RF']['clipboard']['path_thumb'] == '')
+                || $_SESSION['RF']['clipboard']['path'] == '')
             {
                 response()->send();
 				exit;
@@ -362,7 +380,16 @@ if (isset($_GET['action']))
 
             $action = $_SESSION['RF']['clipboard_action'];
             $data = $_SESSION['RF']['clipboard'];
-            $data['path'] = $current_path.$data['path'];
+            $clipboard_relative = isset($data['path']) ? $data['path'] : null;
+            $data['path'] = rf_resolve_path($current_path, $clipboard_relative, false, false);
+            $data['path_thumb'] = rf_resolve_path($thumbs_base_path, $clipboard_relative, true, false);
+            if ($data['path'] === false || $data['path_thumb'] === false) {
+                response('wrong clipboard path', 400)->send();
+                exit;
+            }
+            if (!is_dir($path)) { response('Invalid destination folder', 400)->send(); exit; }
+            $data['path'] = $current_path . $clipboard_relative;
+            $data['path_thumb'] = $thumbs_base_path . $clipboard_relative;
             $pinfo = pathinfo($data['path']);
 
             // fix code for php 5.1
@@ -396,7 +423,13 @@ if (isset($_GET['action']))
             }
 
             // Recheck the current feature policy, not the policy at clipboard creation.
+            if (!rf_tree_has_no_links($data['path']) || !rf_tree_has_no_links($data['path_thumb'])) {
+                response('Unsafe clipboard source', 400)->send(); exit;
+            }
             $clipboard_is_dir = is_dir($data['path']);
+            if (!rf_tree_has_no_links($data['path']) || !rf_tree_has_no_links($data['path_thumb'])) {
+                response('Symbolic links are not supported', 400)->send(); exit;
+            }
             if (($clipboard_is_dir && !$copy_cut_dirs) || (!$clipboard_is_dir && !$copy_cut_files)) {
                 response('Copy/cut disabled', 403)->send();
                 exit;
@@ -412,6 +445,8 @@ if (isset($_GET['action']))
                 exit;
             }
 
+            if (!is_dir($path_thumb)) create_folder(false, $path_thumb);
+
             // check for writability
             if (is_really_writable($path) === FALSE || is_really_writable($path_thumb) === FALSE){
                 response(trans('Dir_No_Write').'<br/>'.str_replace('../','',$path).'<br/>'.str_replace('../','',$path_thumb), 403)->send();
@@ -426,18 +461,24 @@ if (isset($_GET['action']))
 
             if ($action == 'copy')
             {
+                if (!rf_tree_can_copy($data['path'], $path) || !rf_tree_can_copy($data['path_thumb'], $path_thumb)) {
+                    response('Unsafe source or existing destination', 400)->send(); exit;
+                }
                 rcopy($data['path'], $path);
                 rcopy($data['path_thumb'], $path_thumb);
             }
             elseif ($action == 'cut')
             {
+                if (!rf_tree_can_copy($data['path'], $path) || !rf_tree_can_copy($data['path_thumb'], $path_thumb)) {
+                    response('Unsafe source or existing destination', 400)->send(); exit;
+                }
                 rrename($data['path'], $path);
                 rrename($data['path_thumb'], $path_thumb);
 
                 // cleanup
                 if (is_dir($data['path']) === TRUE){
                     rrename_after_cleaner($data['path']);
-                    rrename_after_cleaner($data['path_thumb']);
+                    if (is_dir($data['path_thumb'])) rrename_after_cleaner($data['path_thumb']);
                 }
             }
 
@@ -448,8 +489,9 @@ if (isset($_GET['action']))
 
             break;
         case 'chmod':
-            $mode = $_POST['new_mode'];
-            $rec_option = $_POST['is_recursive'];
+            $mode = isset($_POST['new_mode']) ? $_POST['new_mode'] : null;
+            $rec_option = isset($_POST['is_recursive']) ? $_POST['is_recursive'] : null;
+            if (!is_string($mode) || !is_string($rec_option)) { response('wrong option', 400)->send(); exit; }
             $valid_options = array('none', 'files', 'folders', 'both');
             $chmod_perm = (is_dir($path) ? $chmod_dirs : $chmod_files);
 

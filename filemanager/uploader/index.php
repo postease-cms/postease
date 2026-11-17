@@ -27,36 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 include 'jupload.php';
 include '../include/utils.php';
 
-$path = $current_path . $_GET['path'];
-$cycle = true;
-$max_cycles = 50;
-$i = 0;
-while ($cycle && $i < $max_cycles)
-{
-	$i++;
-	if ($path == $current_path)
-	{
-		$cycle = false;
-	}
-
-	if (file_exists($path . "config.php"))
-	{
-		require_once $path . "config.php";
-		$cycle = false;
-	}
-	$path = fix_dirname($path) . "/";
-}
+$java_relative = isset($_GET['path']) && is_string($_GET['path']) ? $_GET['path'] : null;
+$java_path = rf_resolve_path('../' . $current_path, $java_relative, false, true);
+if ($java_path === false || !is_dir($java_path)) { http_response_code(400); die('path error'); }
 
 if (!$java_upload || !$upload_files) { http_response_code(403); exit('Uploader disabled'); }
 
-$path = "../" . $current_path . $_GET['path'];
-
-if (strpos($_GET['path'], '../') !== false || strpos($_GET['path'], './') !== false || strpos($_GET['path'], '/') === 0)
-{
-	die ('path error');
-}
-
-$path = str_replace(' ', '~', $path);
+$path = $java_path;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////   The user callback function, that can be called after upload   ////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////

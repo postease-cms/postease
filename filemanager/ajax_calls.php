@@ -12,12 +12,10 @@ if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 	exit;
 }
 
-if (isset($_SESSION['RF']['language_file']) && file_exists($_SESSION['RF']['language_file']))
-{
-	include $_SESSION['RF']['language_file'];
-}
-else
-{
+ $language_files = rf_language_files();
+if (isset($_SESSION['RF']['language']) && isset($language_files[$_SESSION['RF']['language']])) {
+	include $language_files[$_SESSION['RF']['language']];
+} else {
 	response('Language file is missing!', 500)->send();
 	exit;
 }
@@ -62,23 +60,27 @@ if(isset($_GET['action']))
 			}
 			break;
 		case 'image_size': // not used
-			$pos = strpos($_POST['path'], $upload_dir);
-			if ($pos !== false)
+			$image_input = isset($_POST['path']) && is_string($_POST['path']) ? $_POST['path'] : '';
+			if (strpos($image_input, $upload_dir) === 0)
 			{
-				$info = getimagesize(substr_replace($_POST['path'], $current_path, $pos, strlen($upload_dir)));
+				$image_relative = substr($image_input, strlen($upload_dir));
+				$image_path = rf_resolve_path($current_path, $image_relative, false, false);
+				if ($image_path === false || !is_file($image_path)) { response('wrong path', 400)->send(); exit; }
+				$info = getimagesize($image_path);
 				response($info)->send();
 				exit;
 			}
 			break;
 		case 'save_img':
             if (!$upload_files) { http_response_code(403); exit('Upload disabled'); }
+			if (!isset($_POST['name'], $_POST['url']) || !is_string($_POST['name']) || !is_string($_POST['url'])) { response('wrong data', 400)->send(); exit; }
+			$save_dir = rf_resolve_path($current_path, isset($_POST['path']) ? $_POST['path'] : null, false, true);
+			$save_thumb_dir = rf_resolve_path($thumbs_base_path, isset($_POST['path']) ? $_POST['path'] : null, true, true);
+			if ($save_dir === false || $save_thumb_dir === false) { response('wrong path', 400)->send(); exit; }
 			$info = pathinfo($_POST['name']);
 
 			if (
-				strpos($_POST['path'], '/') === 0
-				|| strpos($_POST['path'], '../') !== false
-				|| strpos($_POST['path'], './') === 0
-				|| strpos($_POST['url'], 'http://s3.amazonaws.com/feather') !== 0
+				strpos($_POST['url'], 'http://s3.amazonaws.com/feather') !== 0
 				|| $_POST['name'] != fix_filename($_POST['name'], $transliteration, $convert_spaces, $replace_with)
 				|| ! in_array(strtolower($info['extension']), array( 'jpg', 'jpeg', 'png' ))
 			)
@@ -86,21 +88,24 @@ if(isset($_GET['action']))
 				response('wrong data', 400)->send();
 				exit;
 			}
+			$save_file = rf_resolve_path($current_path, ($_POST['path'] === '' ? '' : rtrim($_POST['path'], '/') . '/') . $_POST['name'], true, false);
+			$save_thumb = rf_resolve_path($thumbs_base_path, ($_POST['path'] === '' ? '' : rtrim($_POST['path'], '/') . '/') . $_POST['name'], true, false);
+			if ($save_file === false || $save_thumb === false) { response('wrong path', 400)->send(); exit; }
 			$image_data = file_get_contents($_POST['url']);
 			if ($image_data === false)
 			{
 				response(trans('Aviary_No_Save'), 400)->send();
 				exit;
 			}
-			$fp = fopen($current_path . $_POST['path'] . $_POST['name'], "w");
+			$fp = fopen($save_file, "w");
 			fwrite($fp, $image_data);
 			fclose($fp);
 
-		    create_img($current_path.$_POST['path'].$_POST['name'], $thumbs_base_path.$_POST['path'].$_POST['name'], 122, 91);
+		    create_img($save_file, $save_thumb, 122, 91);
 		    // TODO something with this function cause its blowing my mind
 		    new_thumbnails_creation(
-				$current_path.$_POST['path'],
-				$current_path.$_POST['path'].$_POST['name'],
+				rtrim($current_path . $_POST['path'], '/') . '/',
+				$save_file,
 				$_POST['name'],
 				$current_path,
 				$relative_image_creation,
@@ -121,15 +126,14 @@ if(isset($_GET['action']))
 		    break;
 		case 'extract':
             if (!$upload_files || !$create_folders) { http_response_code(403); exit('Extraction disabled'); }
-			if (strpos($_POST['path'], '/') === 0 || strpos($_POST['path'], '../') !== false || strpos($_POST['path'], './') === 0)
-			{
-				response('wrong path', 400)->send();
-				exit;
-			}
-
-			$path = $current_path . $_POST['path'];
+			$path = rf_resolve_path($current_path, isset($_POST['path']) ? $_POST['path'] : null, false, false);
+			if ($path === false || !is_file($path)) { response('wrong path', 400)->send(); exit; }
 			$info = pathinfo($path);
-			$base_folder = $current_path . fix_dirname($_POST['path']) . "/";
+			$archive_relative = $_POST['path'];
+			$base_relative = dirname($archive_relative);
+			if ($base_relative === '.') $base_relative = '';
+			$base_folder = rf_resolve_path($current_path, $base_relative, false, true);
+			if ($base_folder === false) { response('wrong path', 400)->send(); exit; }
 
 			switch ($info['extension'])
 			{
@@ -137,32 +141,31 @@ if(isset($_GET['action']))
 					$zip = new ZipArchive;
 					if ($zip->open($path) === true)
 					{
-						//make all the folders
-						for ($i = 0; $i < $zip->numFiles; $i++)
-						{
-							$OnlyFileName = $zip->getNameIndex($i);
-							$FullFileName = $zip->statIndex($i);
-							if (substr($FullFileName['name'], -1, 1) == "/")
-							{
-								create_folder($base_folder . $FullFileName['name']);
-							}
+						$entries = rf_validate_zip_entries($zip, $base_folder);
+						$blocked = ($entries === false);
+						if ($blocked) { $zip->close(); response('Unsafe archive entry or extraction target', 400)->send(); exit; }
+						foreach ($entries as &$entry) {
+							$entry['allowed'] = $entry['dir'] || in_array(strtolower(pathinfo($entry['relative'], PATHINFO_EXTENSION)), $ext, true);
 						}
-						//unzip into the folders
-						for ($i = 0; $i < $zip->numFiles; $i++)
+						unset($entry);
+						if ($blocked) { $zip->close(); response('Unsafe archive entry or extraction target', 400)->send(); exit; }
+						foreach ($entries as $entry)
 						{
-							$OnlyFileName = $zip->getNameIndex($i);
-							$FullFileName = $zip->statIndex($i);
-
-							if ( ! (substr($FullFileName['name'], -1, 1) == "/"))
-							{
-								$fileinfo = pathinfo($OnlyFileName);
-								if (in_array(strtolower($fileinfo['extension']), $ext))
-								{
-									copy('zip://' . $path . '#' . $OnlyFileName, $base_folder . $FullFileName['name']);
-								}
+							if (!$entry['allowed']) continue;
+							$target = rf_resolve_path($base_folder, $entry['relative'], true, false);
+							if ($entry['dir']) { if (!is_dir($target) && !mkdir($target, $permission, true)) { $blocked = true; break; } }
+							else {
+								$parent = dirname($target);
+								if (!is_dir($parent) && !mkdir($parent, $permission, true)) { $blocked = true; break; }
+								$stream = $zip->getStream($entry['name']);
+								$out = fopen($target, 'xb');
+								if (!$stream || !$out) { if (is_resource($stream)) fclose($stream); $blocked = true; break; }
+								while (!feof($stream)) { $chunk = fread($stream, 8192); if ($chunk === false || fwrite($out, $chunk) !== strlen($chunk)) { $blocked = true; break; } }
+								fclose($stream); fclose($out); if ($blocked) break;
 							}
 						}
 						$zip->close();
+						if ($blocked) { response('Unsafe archive entry or extraction target', 400)->send(); exit; }
 					}
 					else
 					{
@@ -173,20 +176,9 @@ if(isset($_GET['action']))
 					break;
 
 				case "gz":
-					$p = new PharData($path);
-					$p->decompress(); // creates files.tar
-
-					break;
-
 				case "tar":
-					// unarchive from the tar
-					$phar = new PharData($path);
-					$phar->decompressFiles();
-					$files = array();
-					check_files_extensions_on_phar($phar, $files, '', $ext);
-					$phar->extractTo($current_path . fix_dirname($_POST['path']) . "/", $files, true);
-
-					break;
+					response('TAR and GZ extraction is disabled because entry paths cannot be validated safely.', 415)->send();
+					exit;
 
 				default:
 					response(trans('Zip_Invalid'), 400)->send();
@@ -194,7 +186,12 @@ if(isset($_GET['action']))
 			}
 			break;
 		case 'media_preview':
-			$preview_file = $_GET["file"];
+			$raw_file = isset($_GET['file']) ? $_GET['file'] : '';
+			if (!is_string($raw_file) || strpos($raw_file, $current_path) !== 0) { response('wrong path', 400)->send(); exit; }
+			$preview_relative = substr($raw_file, strlen($current_path));
+			$preview_real = rf_resolve_path($current_path, $preview_relative, false, false);
+			if ($preview_real === false || !is_file($preview_real)) { response('File not found', 404)->send(); exit; }
+			$preview_file = $current_path . $preview_relative;
 			$info = pathinfo($preview_file);
 			ob_start();
 			?>
@@ -307,13 +304,16 @@ if(isset($_GET['action']))
 				exit;
 			}
 
-			if (trim($_POST['path']) == '' || trim($_POST['path_thumb']) == '')
+			if (!isset($_POST['path']) || !is_string($_POST['path']) || trim($_POST['path']) == '')
 			{
 				response('no path', 400)->send();
 				exit;
 			}
 
-			$path = $current_path . $_POST['path'];
+			$path = rf_resolve_path($current_path, isset($_POST['path']) ? $_POST['path'] : null, false, false);
+			$thumb_path = rf_resolve_path($thumbs_base_path, isset($_POST['path']) ? $_POST['path'] : null, true, false);
+			if ($path === false || $thumb_path === false) { response('wrong path', 400)->send(); exit; }
+			if (!rf_tree_has_no_links($path)) { response('Symbolic links are not supported', 400)->send(); exit; }
 
 			if (is_dir($path))
 			{
@@ -355,7 +355,7 @@ if(isset($_GET['action']))
 			}
 
 			$_SESSION['RF']['clipboard']['path'] = $_POST['path'];
-			$_SESSION['RF']['clipboard']['path_thumb'] = $_POST['path_thumb'];
+			$_SESSION['RF']['clipboard']['path_thumb'] = null;
 			$_SESSION['RF']['clipboard_action'] = $_POST['sub_action'];
 			break;
 		case 'clear_clipboard':
@@ -363,7 +363,8 @@ if(isset($_GET['action']))
 			$_SESSION['RF']['clipboard_action'] = null;
 			break;
 		case 'chmod':
-			$path = $current_path . $_POST['path'];
+			$path = rf_resolve_path($current_path, isset($_POST['path']) ? $_POST['path'] : null, false, false);
+			if ($path === false) { response('wrong path', 400)->send(); exit; }
 			if (
 				(is_dir($path) && $chmod_dirs === false)
 				|| (is_file($path) && $chmod_files === false)
@@ -435,7 +436,7 @@ if(isset($_GET['action']))
 			}
 			break;
 		case 'get_lang':
-			if ( ! file_exists('lang/languages.php'))
+				if ( ! file_exists('lang/languages.php'))
 			{
 				response(trans('Lang_Not_Found'), 404)->send();
 				exit;
@@ -462,21 +463,22 @@ if(isset($_GET['action']))
 
 			break;
 		case 'change_lang':
-			$choosen_lang = $_POST['choosen_lang'];
+			$language_files = rf_language_files();
+			$choosen_lang = isset($_POST['choosen_lang']) ? $_POST['choosen_lang'] : null;
 
-			if ( ! file_exists('lang/' . $choosen_lang . '.php'))
+			if (!is_string($choosen_lang) || !isset($language_files[$choosen_lang]) || !is_readable($language_files[$choosen_lang]))
 			{
 				response(trans('Lang_Not_Found'), 404)->send();
 				exit;
 			}
 
 			$_SESSION['RF']['language'] = $choosen_lang;
-			$_SESSION['RF']['language_file'] = 'lang/' . $choosen_lang . '.php';
+			$_SESSION['RF']['language_file'] = $language_files[$choosen_lang];
 
 			break;
 		case 'get_file': // preview or edit
-			$sub_action = $_GET['sub_action'];
-			$preview_mode = $_GET["preview_mode"];
+			$sub_action = isset($_GET['sub_action']) && is_string($_GET['sub_action']) ? $_GET['sub_action'] : '';
+			$preview_mode = isset($_GET['preview_mode']) && is_string($_GET['preview_mode']) ? $_GET['preview_mode'] : '';
 
 			if ($sub_action != 'preview' && $sub_action != 'edit')
 			{
@@ -484,7 +486,14 @@ if(isset($_GET['action']))
 				exit;
 			}
 
-			$selected_file = ($sub_action == 'preview' ? $_GET['file'] : $current_path . $_POST['path']);
+			if ($sub_action == 'preview') {
+				$raw_file = isset($_GET['file']) ? $_GET['file'] : '';
+				if (!is_string($raw_file) || strpos($raw_file, $current_path) !== 0) { response('wrong path', 400)->send(); exit; }
+				$selected_file = rf_resolve_path($current_path, substr($raw_file, strlen($current_path)), false, false);
+			} else {
+				$selected_file = rf_resolve_path($current_path, isset($_POST['path']) ? $_POST['path'] : null, false, false);
+			}
+			if ($selected_file === false || !is_file($selected_file)) { response(trans('File_Not_Found'), 404)->send(); exit; }
 			$info = pathinfo($selected_file);
 
 			if ( ! file_exists($selected_file))
@@ -535,7 +544,7 @@ if(isset($_GET['action']))
 
 					if ( ! in_array($info['extension'],$previewable_text_file_exts_no_prettify))
 					{
-						$ret .= '<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang='.$info['extension'].'&skin=sunburst"></script>';
+					$ret .= '<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang='.$info['extension'].'&skin=sunburst"></script>';
 						$ret .= '<div class="text-center"><strong>'.$info['basename'].'</strong></div><pre class="prettyprint">'.$data.'</pre>';
 					}
 					else

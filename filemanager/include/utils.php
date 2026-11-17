@@ -14,6 +14,166 @@ if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 
 require dirname(__FILE__) . '/Response.php';
 
+/** Return the fixed language id to server-side language file mapping. */
+function rf_language_files()
+{
+	$ids = array('az_AZ', 'bg_BG', 'ca', 'cs', 'da', 'de', 'el_GR', 'en', 'en_EN', 'es', 'fa',
+		'fr_FR', 'he_IL', 'hr', 'hu_HU', 'id', 'it', 'ja', 'lt', 'mn_MN', 'nb_NO', 'nl',
+		'pl', 'pt_BR', 'pt_PT', 'ru', 'sk', 'sl', 'sv_SE', 'tr_TR', 'uk_UA', 'zh_CN');
+	$files = array();
+	foreach ($ids as $id) {
+		$files[$id] = dirname(__DIR__) . '/lang/' . $id . '.php';
+	}
+	$files['he'] = dirname(__DIR__) . '/lang/he_IL.php';
+	return $files;
+}
+
+/** Validate a decoded-once relative path and resolve it under an approved root. */
+function rf_resolve_path($root, $relative, $allow_missing, $allow_root)
+{
+	if (!is_string($relative) || strpos($relative, "\0") !== false || strpos($relative, '\\') !== false
+		|| preg_match('/^[\\\\\/]|^[A-Za-z][A-Za-z0-9+.-]*:/', $relative)
+		|| preg_match('/%(?:2e|2f|5c|00)/i', $relative)) {
+		return false;
+	}
+    // A configured root may itself have been replaced with a link in writable storage.
+    $root_absolute = substr($root, 0, 1) === '/' ? $root : getcwd() . '/' . $root;
+    $root_parts = array();
+    foreach (explode('/', $root_absolute) as $part) {
+        if ($part === '' || $part === '.') continue;
+        if ($part === '..') array_pop($root_parts); else $root_parts[] = $part;
+    }
+    $root_absolute = '/' . implode('/', $root_parts);
+    $upload_root = dirname(dirname(__DIR__)) . '/upload';
+    if ($root_absolute === $upload_root || strpos($root_absolute, $upload_root . '/') === 0) {
+        $cursor = $upload_root;
+        if (is_link($cursor)) return false;
+        $under_upload = substr($root_absolute, strlen($upload_root));
+        foreach (explode('/', trim($under_upload, '/')) as $part) {
+            if ($part === '') continue;
+            $cursor .= '/' . $part;
+            if (is_link($cursor)) return false;
+        }
+    }
+	$root_real = realpath($root);
+	if ($root_real === false || !is_dir($root_real)) return false;
+	$trimmed = rtrim($relative, '/');
+	if ($trimmed === '') return $allow_root ? $root_real : false;
+	$parts = explode('/', $trimmed);
+	foreach ($parts as $part) {
+		if ($part === '' || $part === '.' || $part === '..') return false;
+	}
+	$cursor = $root_real;
+	$missing_parent = false;
+	foreach ($parts as $index => $part) {
+		$cursor .= DIRECTORY_SEPARATOR . $part;
+		if ($missing_parent) continue;
+		if (is_link($cursor)) return false;
+		if (file_exists($cursor)) {
+			if ($index < count($parts) - 1 && !is_dir($cursor)) return false;
+			$real = realpath($cursor);
+			if ($real === false || ($real !== $root_real && strpos($real, $root_real . DIRECTORY_SEPARATOR) !== 0)) return false;
+			$cursor = $real;
+		} elseif (!$allow_missing) {
+			return false;
+		} else {
+			$missing_parent = true;
+		}
+	}
+	return $cursor;
+}
+
+/** Resolve configured upload/derivative paths without following writable links. */
+function rf_safe_upload_target($path)
+{
+    $upload_root = dirname(dirname(__DIR__)) . '/upload';
+    $absolute_prefix = $upload_root . '/';
+    if (strpos($path, '../upload/') === 0) {
+        $relative = substr($path, strlen('../upload/'));
+    } elseif (strpos($path, $absolute_prefix) === 0) {
+        $relative = substr($path, strlen($absolute_prefix));
+    } else {
+        return false;
+    }
+    return rf_resolve_path($upload_root, $relative, true, false);
+}
+
+function rf_relative_from_root($path, $root)
+{
+	$root_real = realpath($root);
+	$path_real = realpath($path);
+	if ($root_real === false || $path_real === false
+		|| strpos($path_real, $root_real . DIRECTORY_SEPARATOR) !== 0) return false;
+	return substr($path_real, strlen($root_real) + 1);
+}
+
+function rf_tree_has_no_links($path)
+{
+	if (is_link($path)) return false;
+	if (!file_exists($path)) return true;
+	if (!is_dir($path)) return is_file($path);
+	$items = scandir($path);
+	if ($items === false) return false;
+	foreach ($items as $item) {
+		if ($item !== '.' && $item !== '..' && !rf_tree_has_no_links($path . DIRECTORY_SEPARATOR . $item)) return false;
+	}
+	return true;
+}
+
+function rf_tree_can_copy($source, $destination)
+{
+	if (!file_exists($source) && !is_link($source)) return true;
+	if (!rf_tree_has_no_links($source)) return false;
+	if (is_dir($source)) {
+		$target = rtrim($destination, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . basename($source);
+		if (file_exists($target) || is_link($target)) return false;
+		$items = scandir($source);
+		if ($items === false) return false;
+		foreach ($items as $item) {
+			if ($item !== '.' && $item !== '..' && !rf_tree_can_copy($source . DIRECTORY_SEPARATOR . $item, $target)) return false;
+		}
+		return true;
+	}
+	$target = is_dir($destination) ? rtrim($destination, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . basename($source) : $destination;
+	return !file_exists($target) && !is_link($target);
+}
+
+function rf_validate_zip_entries($zip, $destination_root)
+{
+	$entries = array();
+	$seen = array();
+	for ($i = 0; $i < $zip->numFiles; $i++) {
+		$stat = $zip->statIndex($i);
+		$name = isset($stat['name']) ? $stat['name'] : '';
+		$is_dir = substr($name, -1) === '/';
+		$relative = $is_dir ? rtrim($name, '/') : $name;
+		$opsys = 0; $attributes = 0;
+		if ($name === '' || strpos($name, '\\') !== false || strpos($name, "\0") !== false
+			|| rf_resolve_path($destination_root, $relative, true, false) === false
+			|| isset($seen[$relative])
+			|| !$zip->getExternalAttributesIndex($i, $opsys, $attributes)) return false;
+		$mode = ($attributes >> 16) & 0170000;
+		if ($mode !== 0 && $mode !== 0100000 && $mode !== 0040000) return false;
+		if (!$is_dir && $mode === 0040000) return false;
+		$parts = explode('/', $relative);
+		$prefix = '';
+		foreach ($parts as $part) {
+			$prefix = ($prefix === '' ? $part : $prefix . '/' . $part);
+			if ($prefix !== $relative && isset($seen[$prefix]) && $seen[$prefix] === 'file') return false;
+		}
+		if (!$is_dir) {
+			foreach ($seen as $seen_path => $type) {
+				if (strpos($seen_path, $relative . '/') === 0) return false;
+			}
+		}
+		$target = rf_resolve_path($destination_root, $relative, true, false);
+		if ($target === false || file_exists($target) || is_link($target)) return false;
+		$seen[$relative] = $is_dir ? 'dir' : 'file';
+		$entries[] = array('name' => $name, 'relative' => $relative, 'dir' => $is_dir);
+	}
+	return $entries;
+}
+
 if ( ! function_exists('response'))
 {
 	/**
@@ -36,45 +196,22 @@ if ( ! function_exists('response'))
 if ( ! function_exists('trans'))
 {
 	// language
-	if ( ! isset($_SESSION['RF']['language'])
-		|| file_exists($_SESSION['RF']['language_file']) === false
-		|| ! is_readable($_SESSION['RF']['language_file'])
-	)
+	$language_files = rf_language_files();
+	if (!isset($_SESSION['RF']['language']) || !is_string($_SESSION['RF']['language'])
+		|| !isset($language_files[$_SESSION['RF']['language']])
+		|| !isset($_SESSION['RF']['language_file'])
+		|| $_SESSION['RF']['language_file'] !== $language_files[$_SESSION['RF']['language']]
+		|| !is_readable($language_files[$_SESSION['RF']['language']]))
 	{
 		$lang = $default_language;
 
-		if ($rf_can_maintain && isset($_GET['lang']) && $_GET['lang'] != 'undefined' && $_GET['lang'] != '')
+		if ($rf_can_maintain && isset($_GET['lang']) && is_string($_GET['lang']) && $_GET['lang'] != 'undefined' && $_GET['lang'] != '')
 		{
-			$lang = fix_get_params($_GET['lang']);
-			$lang = trim($lang);
+			$candidate = trim(fix_get_params($_GET['lang']));
+			if (isset($language_files[$candidate])) $lang = $candidate;
 		}
-
-		$language_file = dirname(dirname(__FILE__)) . '/lang/' . $default_language . '.php';
-		if ($lang != $default_language)
-		{
-			$path_parts = pathinfo($lang);
-
-			// fix code for php 5.1
-			if (empty($path_parts['filename']))
-			{
-				if (! empty($path_parts['extension']))
-				{
-					$path_parts['filename'] = str_replace('.'.$path_parts['extension'], '', $path_parts['basename']);
-				}
-				else {
-					$path_parts['filename'] = $path_parts['basename'];
-				}
-			}
-
-			if (is_readable(dirname(dirname(__FILE__)) . '/lang/' . $path_parts['basename'] . '.php'))
-			{
-				$language_file = dirname(dirname(__FILE__)) . '/lang/' . $path_parts['basename'] . '.php';
-			}
-			else
-			{
-				echo "<script>console.log('The " . $lang . " language file is not readable! Falling back...');</script>";
-			}
-		}
+		if (!isset($language_files[$lang])) $lang = isset($language_files[$default_language]) ? $default_language : 'en';
+		$language_file = $language_files[$lang];
 
 		// add lang file to session for easy include
 		$_SESSION['RF']['language'] = $lang;
@@ -83,7 +220,7 @@ if ( ! function_exists('trans'))
 	else
 	{
 		$lang = $_SESSION['RF']['language'];
-		$language_file = $_SESSION['RF']['language_file'];
+		$language_file = $language_files[$lang];
 	}
 
 	$lang_vars = include $language_file;
@@ -116,6 +253,7 @@ if ( ! function_exists('trans'))
  */
 function deleteDir($dir)
 {
+	if (is_link($dir)) return unlink($dir);
 	if ( ! file_exists($dir))
 	{
 		return true;
@@ -130,7 +268,8 @@ function deleteDir($dir)
 		{
 			continue;
 		}
-		if ( ! deleteDir($dir . DIRECTORY_SEPARATOR . $item))
+		$child = $dir . DIRECTORY_SEPARATOR . $item;
+		if (is_link($child) ? !unlink($child) : !deleteDir($child))
 		{
 			return false;
 		}
@@ -166,7 +305,8 @@ function duplicate_file($old_path, $name)
 		}
 
 		$new_path = $info['dirname'] . "/" . $name . "." . $info['extension'];
-		if (file_exists($new_path) && $old_path == $new_path)
+		if (rf_safe_upload_target($old_path) === false || rf_safe_upload_target($new_path) === false
+            || file_exists($new_path) || is_link($new_path))
 		{
 			return false;
 		}
@@ -204,7 +344,8 @@ function rename_file($old_path, $name, $transliteration)
 		}
 
 		$new_path = $info['dirname'] . "/" . $name . "." . $info['extension'];
-		if (file_exists($new_path) && $old_path == $new_path)
+		if (rf_safe_upload_target($old_path) === false || rf_safe_upload_target($new_path) === false
+            || file_exists($new_path) || is_link($new_path))
 		{
 			return false;
 		}
@@ -228,7 +369,8 @@ function rename_folder($old_path, $name, $transliteration)
 	if (file_exists($old_path))
 	{
 		$new_path = fix_dirname($old_path) . "/" . $name;
-		if (file_exists($new_path) && $old_path == $new_path)
+		if (rf_safe_upload_target($old_path) === false || rf_safe_upload_target($new_path) === false
+            || file_exists($new_path) || is_link($new_path))
 		{
 			return false;
 		}
@@ -251,6 +393,7 @@ function rename_folder($old_path, $name, $transliteration)
  */
 function create_img($imgfile, $imgthumb, $newwidth, $newheight = null, $option = "crop")
 {
+    if (rf_safe_upload_target($imgfile) === false || rf_safe_upload_target($imgthumb) === false) return false;
 	$timeLimit = ini_get('max_execution_time');
 	set_time_limit(30);
 	$result = false;
@@ -306,6 +449,7 @@ function makeSize($size)
  */
 function foldersize($path)
 {
+    if (is_link($path)) return 0;
 	$total_size = 0;
 	$files = scandir($path);
 	$cleanPath = rtrim($path, '/') . '/';
@@ -340,6 +484,7 @@ function foldersize($path)
  */
 function filescount($path)
 {
+    if (is_link($path)) return 0;
 	$total_count = 0;
 	$files = scandir($path);
 	$cleanPath = rtrim($path, '/') . '/';
@@ -373,6 +518,9 @@ function filescount($path)
 function create_folder($path = null, $path_thumbs = null)
 {
 	global $permission;
+    foreach (array($path, $path_thumbs) as $candidate) {
+        if ($candidate && rf_safe_upload_target($candidate) === false) { response('wrong path', 400)->send(); exit; }
+    }
 
 	$oldumask = umask(0);
 	if ($path && ! file_exists($path))
@@ -614,20 +762,10 @@ function base_url()
  */
 function config_loading($current_path, $fld)
 {
-	if (file_exists($current_path . $fld . ".config"))
-	{
-		require_once($current_path . $fld . ".config");
-
-		return true;
-	}
-	echo "!!!!" . $parent = fix_dirname($fld);
-	if ($parent != "." && ! empty($parent))
-	{
-		config_loading($current_path, $parent);
-	}
-
-	return false;
+    // Upload directories are data only; never execute per-directory PHP configuration.
+    return false;
 }
+
 
 /**
  * Check if memory is enough to process image
@@ -1080,6 +1218,7 @@ function rrename_after_cleaner($source)
  */
 function rchmod($source, $mode, $rec_option = "none", $is_rec = false)
 {
+	if (is_link($source)) return;
 	if ($rec_option == "none")
 	{
 		chmod($source, $mode);
@@ -1097,6 +1236,7 @@ function rchmod($source, $mode, $rec_option = "none", $is_rec = false)
 		{
 			if ($file != "." && $file != "..")
 			{
+				if (is_link($source . DIRECTORY_SEPARATOR . $file)) continue;
 				if (is_dir($source . DIRECTORY_SEPARATOR . $file))
 				{
 					if ($rec_option == "folders" || $rec_option == "both")

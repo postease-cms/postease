@@ -150,8 +150,6 @@ class JUpload {
 			$classparams['destdir'] = $obd;
 			else
 			$classparams['destdir'] = '/var/tmp/jupload_test';
-		}else{
-			$classparams['destdir']=str_replace('~',' ',$classparams['destdir']);
 		}
 		if ($classparams['create_destdir']) {
 			$_umask = umask(0); 	// override the system mask
@@ -343,15 +341,16 @@ class JUpload {
 		$dirs = explode('/', $path);
 		$path = $this->classparams['destdir'];
 		foreach ($dirs as $dir) {
+			if ($dir === '' || $dir === '.' || $dir === '..' || strpos($dir, "\0") !== false) $this->abort('Invalid destination path');
 			$path .= '/'.$dir;
+			if (is_link($path)) $this->abort('Symbolic links are not supported');
 			if (!file_exists($path)) {  // @ does NOT always supress the error!
 				$_umask = umask(0); 	// override the system mask
 				@mkdir($path, $this->classparams['dirperm']);
 				umask($_umask);
 			}
 		}
-		if (!is_dir($path) && is_writable($path))
-		$this->abort('Destination dir not accessible');
+		if (!is_dir($path)) $this->abort('Destination dir not accessible');
 	}
 
 	/**
@@ -365,14 +364,21 @@ class JUpload {
 	 */
 	private function dstfinal(&$name, &$subdir) {
 		$name = preg_replace('![`$\\\\/|]!', '_', $name);
+		if ($name === '' || $name === '.' || $name === '..' || strpos($name, "\0") !== false) $this->abort('Invalid filename');
 		if ($this->classparams['convert_spaces']) {
             $name = str_replace(' ', '_', $name);
 		}
 		if ($this->classparams['allow_subdirs'] && ($subdir != '')) {
+			if (strpos($subdir, "\0") !== false || strpos($subdir, '\\') !== false
+				|| preg_match('!^[\\/]|^[A-Za-z][A-Za-z0-9+.-]*:!', $subdir)) $this->abort('Invalid destination path');
 			$subdir = trim(preg_replace('!\\\\!','/',$subdir),'/');
+			if ($subdir === '' || strpos($subdir, "\0") !== false || preg_match('!^[A-Za-z][A-Za-z0-9+.-]*:!', $subdir)) $this->abort('Invalid destination path');
 			$subdir = preg_replace('![`$|]!', '_', $subdir);
 			if (!$this->classparams['spaces_in_subdirs']) {
 				$subdir = str_replace(' ','_',$subdir);
+			}
+			foreach (explode('/', $subdir) as $component) {
+				if ($component === '' || $component === '.' || $component === '..') $this->abort('Invalid destination path');
 			}
 			// recursively create subdir
 			if (!$this->classparams['demo_mode'])
@@ -383,6 +389,7 @@ class JUpload {
 			$subdir = '';
 		}
 		$ret = $this->classparams['destdir'].'/'.$subdir.$name;
+		if (is_link($ret)) $this->abort('Symbolic links are not supported');
 		if (file_exists($ret)) {
 			if ($this->classparams['duplicate'] == 'overwrite') {
 				return $ret;
@@ -405,7 +412,7 @@ class JUpload {
 				}
 
 				$rtry = $dir.$nameWithoutExtension.'_'.$cnt.$ext;
-				while (file_exists($rtry)) {
+				while (file_exists($rtry) || is_link($rtry)) {
 					$cnt++;
 					$rtry = $dir.$nameWithoutExtension.'._'.$cnt.$ext;
 				}
@@ -592,6 +599,7 @@ private function receive_uploaded_files() {
 		$dstdir = $this->classparams['destdir'];
 		$dstname = $dstdir.'/'.$this->classparams['tmp_prefix'].session_id();
 		$tmpname = $dstdir.'/'.$this->classparams['tmp_prefix'].'tmp'.session_id();
+		if (is_link($dstname) || is_link($tmpname)) $this->abort('Symbolic links are not supported');
 
 		// Controls are now done. Let's store the current uploaded files properties in an array, for future use.
 		$files_data['name']					= $value['name'][$cnt];
@@ -632,8 +640,25 @@ if ($jupart) {
 	$len = filesize($tmpname);
 	$_SESSION['RF'][$this->classparams['var_prefix'].'size'] += $len;
 	if ($len > 0) {
-		$src = fopen($tmpname, 'rb');
-		$dst = fopen($dstname, ($jupart == 1) ? 'wb' : 'ab');
+        // First chunks create a new file exclusively; subsequent chunks never truncate a target.
+        clearstatcache(true, $dstname);
+        if (is_link($dstname) || ($jupart != 1 && !is_file($dstname))) $this->abort('Invalid chunk destination');
+        $src = fopen($tmpname, 'rb');
+        $dst = fopen($dstname, ($jupart == 1) ? 'xb' : 'r+b');
+        if (!$src || !$dst) {
+            if (is_resource($src)) fclose($src);
+            if (is_resource($dst)) fclose($dst);
+            $this->abort('Unable to open chunk destination');
+        }
+        clearstatcache(true, $dstname);
+        $opened = fstat($dst);
+        $named = lstat($dstname);
+        if (!$opened || !$named || is_link($dstname) || $opened['ino'] !== $named['ino'] || $opened['dev'] !== $named['dev']) {
+            fclose($src); fclose($dst); $this->abort('Chunk destination changed');
+        }
+        if ($jupart != 1 && fseek($dst, 0, SEEK_END) !== 0) {
+            fclose($src); fclose($dst); $this->abort('Unable to append chunk');
+        }
 		while ($len > 0) {
 			$rlen = ($len > 8192) ? 8192 : $len;
 			$buf = fread($src, $rlen);
