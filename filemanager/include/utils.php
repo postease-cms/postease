@@ -215,11 +215,56 @@ function rf_svg_is_safe($path)
 	if (!is_file($path) || filesize($path) > 10 * 1024 * 1024) return false;
 	$data = file_get_contents($path);
 	if ($data === false || trim($data) === '') return false;
+	// Illustrator and icon-font exports carry the external W3C SVG DTD reference. It declares no entities and the
+	// loader never fetches it, so this single declaration is dropped before parsing. Any other DOCTYPE is refused.
+	$data = rf_svg_strip_standard_doctype($data);
 	if (preg_match('/<!DOCTYPE|<!ENTITY|<\?(?!xml[\s?])/i', $data)) return false;
 	if (stripos($data, '<?php') !== false || strpos($data, '<?=') !== false) return false;
 	$dom = rf_load_xml($data);
 	if ($dom === false || !$dom->documentElement || strtolower($dom->documentElement->localName) !== 'svg') return false;
 	return rf_dom_is_inactive($dom);
+}
+
+/**
+ * Remove one external-only W3C SVG DOCTYPE that sits in the prolog (after the XML declaration and comments only).
+ * Public and system identifiers must form a known W3C pair, whitespace is limited to the XML set, and the
+ * declaration may not carry an internal subset. The declaration is replaced by one space; otherwise the data is returned unchanged.
+ */
+function rf_svg_strip_standard_doctype($data)
+{
+	$ws = '[\x20\x09\x0D\x0A]';
+	$pairs = array(
+		'-//W3C//DTD SVG 1.0//EN' => 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd',
+		'-//W3C//DTD SVG 20010904//EN' => 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd',
+		'-//W3C//DTD SVG 1.1//EN' => 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd',
+		'-//W3C//DTD SVG 1.1 Tiny//EN' => 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd',
+		'-//W3C//DTD SVG 1.1 Basic//EN' => 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd',
+	);
+	$pos = strncmp($data, "\xEF\xBB\xBF", 3) === 0 ? 3 : 0;
+	$length = strlen($data);
+	// The XML declaration may appear only once, at the very start, and ends at its first closing delimiter.
+	if (substr($data, $pos, 5) === '<?xml' && preg_match('/^' . $ws . '/', (string) substr($data, $pos + 5, 1))) {
+		$close = strpos($data, '?>', $pos);
+		if ($close === false) return $data;
+		$pos = $close + 2;
+	}
+	// Comments and whitespace are consumed token by token; the first "-->" always closes a comment.
+	while ($pos < $length) {
+		if (preg_match('/\G' . $ws . '+/', $data, $m, 0, $pos)) { $pos += strlen($m[0]); continue; }
+		if (substr($data, $pos, 4) === '<!--') {
+			$close = strpos($data, '-->', $pos + 4);
+			if ($close === false) return $data;
+			$pos = $close + 3;
+			continue;
+		}
+		break;
+	}
+	$pattern = '/\G<!DOCTYPE' . $ws . '+svg' . $ws . '+PUBLIC' . $ws . '+"([^"]*)"' . $ws . '+"([^"]*)"' . $ws . '*>/';
+	if (!preg_match($pattern, $data, $m, 0, $pos)) return $data;
+	if (!isset($pairs[$m[1]]) || $pairs[$m[1]] !== $m[2]) return $data;
+	// Replace with one XML space instead of deleting: a BOM or XML declaration that followed the declaration stays
+	// out of the document start, so data that did not parse before still does not parse.
+	return substr($data, 0, $pos) . ' ' . substr($data, $pos + strlen($m[0]));
 }
 
 /** Generic XML uploads must parse and must not smuggle XHTML, scripts or processing instructions. */
