@@ -35,90 +35,93 @@ if (!$upload_files) { http_response_code(403); exit('Upload disabled'); }
 
 if ( ! empty($_FILES))
 {
-	$info = pathinfo($_FILES['file']['name']);
-	$system_file_name = dechex(time()) . '-' . hash('crc32', uniqid(rand()));
-
-	// fix code for php 5.1
-	if (empty($info['filename']))
+	if (!isset($_FILES['file']['name'], $_FILES['file']['tmp_name'], $_FILES['file']['error']) || !is_string($_FILES['file']['name'])
+		|| $_FILES['file']['error'] !== UPLOAD_ERR_OK || !is_uploaded_file($_FILES['file']['tmp_name']))
 	{
-		if (! empty($info['extension']))
-		{
-			$info['filename'] = str_replace('.'.$info['extension'], '', $info['basename']);
-		}
-		else {
-			$info['filename'] = $info['basename'];
-		}
+		response('Invalid upload', 400)->send();
+		exit;
+	}
+	$original_name = $_FILES['file']['name'];
+	if (strpos($original_name, '/') !== false || strpos($original_name, '\\') !== false || strpos($original_name, "\0") !== false)
+	{
+		response('wrong filename', 400)->send();
+		exit;
 	}
 
-	if (in_array(fix_strtolower($info['extension']), $ext))
+	// The stored name keeps exactly one extension. The browser-declared MIME type is never consulted.
+	$name_parts = rf_split_name($original_name);
+	$extension = fix_strtolower($name_parts[1]);
+	$ext_upload_denied = isset($ext_upload_denied) && is_array($ext_upload_denied) ? $ext_upload_denied : array();
+
+	if ($extension !== '' && in_array($extension, $ext, true) && !in_array($extension, $ext_upload_denied, true))
 	{
 		$tempFile = $_FILES['file']['tmp_name'];
 		$targetPath = $storeFolder;
 		$targetPathThumb = $storeFolderThumb;
-		if (strpos($_FILES['file']['name'], '/') !== false || strpos($_FILES['file']['name'], '\\') !== false
-			|| strpos($_FILES['file']['name'], "\0") !== false) { response('wrong filename', 400)->send(); exit; }
-		//$_FILES['file']['name'] = fix_filename($_FILES['file']['name'],$transliteration,$convert_spaces, $replace_with);
-		$no_rename_extensions = array('pdf', 'zip', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'mp4', 'm4v', 'webm', 'mov', 'flv', 'avi');
-		$no_rename_mimetypes = array(
-			'application/pdf', 'application/zip',
-			'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-			'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-			'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-		);
-		$_FILES['file']['name'] = (false !== in_array($info['extension'], $no_rename_extensions) || false !== in_array($_FILES['file']['type'], $no_rename_mimetypes)) ? $_FILES['file']['name'] : $system_file_name . "." . $info['extension'];
 
-	 	// Gen. new file name if exists
-		if (file_exists($targetPath.$_FILES['file']['name']))
+		// Content is verified against the extension before anything reaches the public folder.
+		if (!rf_upload_content_valid($tempFile, $extension, $ext_img))
 		{
-			$i = 1;
-			$info = pathinfo($_FILES['file']['name']);
-
-			// fix code for php 5.1
-			if (empty($info['filename']))
-			{
-				if (! empty($info['extension']))
-				{
-					$info['filename'] = str_replace('.'.$info['extension'], '', $info['basename']);
-				}
-				else {
-					$info['filename'] = $info['basename'];
-				}
-			}
-
-			// append number
-			while(file_exists($targetPath.$info['filename']."_".$i.".".$info['extension'])) {
-				$i++;
-			}
-			//$_FILES['file']['name'] = $info['filename']."_".$i.".".$info['extension'];
-			$_FILES['file']['name'] = $system_file_name . "_" . $i . "." . $info['extension'];
+			header('HTTP/1.1 406 file content not permitted', TRUE, 406);
+			exit();
 		}
 
-		$targetRelative = ($storeRelative === '' ? '' : rtrim($storeRelative, '/') . '/') . $_FILES['file']['name'];
+		$stem = rf_stored_stem($name_parts[0], $extension, $convert_spaces, $replace_with);
+
+		// Reserve the stored name exclusively so an existing or concurrent file is never replaced.
+		$stored_name = rf_claim_upload_name($targetPath, $stem, $extension);
+		if ($stored_name === false)
+		{
+			header('HTTP/1.1 409 file name unavailable', TRUE, 409);
+			exit();
+		}
+		$_FILES['file']['name'] = $stored_name;
+		$info = array('filename' => $stem, 'extension' => $extension, 'basename' => $stored_name);
+
+		$targetRelative = ($storeRelative === '' ? '' : rtrim($storeRelative, '/') . '/') . $stored_name;
 		$targetFile = rf_resolve_path($current_path, $targetRelative, true, false);
 		$targetFileThumb = rf_resolve_path($thumbs_base_path, $targetRelative, true, false);
-		if ($targetFile === false || $targetFileThumb === false) { response('wrong path', 400)->send(); exit; }
+		if ($targetFile === false || $targetFileThumb === false) { @unlink($targetPath . $stored_name); response('wrong path', 400)->send(); exit; }
 
 		// check if image (and supported)
-		if (in_array(fix_strtolower($info['extension']),$ext_img)) $is_img=TRUE;
-		else $is_img=FALSE;
+		$is_img = in_array($extension, $ext_img, true);
 
         // Browsing is read-only; prepare missing preview directories on the validated POST.
         if ($is_img && !is_dir($targetPathThumb)) {
-            if (!is_uploaded_file($tempFile)) { http_response_code(400); exit('Invalid upload'); }
             if (!@mkdir($targetPathThumb, $permission, true) && !is_dir($targetPathThumb)) {
+                @unlink($targetFile);
                 http_response_code(500);
                 exit('Cannot prepare image directory');
             }
         }
 
 		// upload
-		move_uploaded_file($tempFile,$targetFile);
+		if (!move_uploaded_file($tempFile, $targetFile) || !is_file($targetFile))
+		{
+			@unlink($targetFile);
+			header('HTTP/1.1 500 upload failed', TRUE, 500);
+			exit();
+		}
 		chmod($targetFile, 0755);
 
-		if ($is_img)
+		if ($is_img && $extension === 'svg')
+		{
+			// SVG previews and derivatives are byte copies; raster derivative sizing does not apply.
+			try {
+				create_img($targetFile, $targetFileThumb, 122, 91);
+				new_thumbnails_creation($targetPath,$targetFile,$_FILES['file']['name'],$current_path,$relative_image_creation,$relative_path_from_current_pos,$relative_image_creation_name_to_prepend,$relative_image_creation_name_to_append,$relative_image_creation_width,$relative_image_creation_height,$relative_image_creation_option,$fixed_image_creation,$fixed_path_from_filemanager,$fixed_image_creation_name_to_prepend,$fixed_image_creation_to_append,$fixed_image_creation_width,$fixed_image_creation_height,$fixed_image_creation_option);
+			} catch (Throwable $preview_failure) {}
+		}
+		elseif ($is_img)
 		{
 			$memory_error = FALSE;
-			if ( ! create_img($targetFile, $targetFileThumb, 122, 91))
+			// Content was verified before the move; a preview failure (for example a tiny image) keeps the original without derivatives.
+			try {
+				$preview_created = create_img($targetFile, $targetFileThumb, 122, 91);
+			} catch (Throwable $preview_failure) {
+				$preview_created = false;
+			}
+			if ( ! $preview_created)
 			{
 				$memory_error = FALSE;
 			}
@@ -252,6 +255,7 @@ if ( ! empty($_FILES))
 			if ($memory_error)
 			{
 				unlink($targetFile);
+				if (is_file($targetFileThumb)) unlink($targetFileThumb);
 				header('HTTP/1.1 406 Not enought Memory',TRUE,406);
 				exit();
 			}

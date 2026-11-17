@@ -144,6 +144,7 @@ if(isset($_GET['action']))
 						$entries = rf_validate_zip_entries($zip, $base_folder);
 						$blocked = ($entries === false);
 						if ($blocked) { $zip->close(); response('Unsafe archive entry or extraction target', 400)->send(); exit; }
+						$ext_upload_denied = isset($ext_upload_denied) && is_array($ext_upload_denied) ? $ext_upload_denied : array();
 						foreach ($entries as &$entry) {
 							$entry['allowed'] = $entry['dir'] || in_array(strtolower(pathinfo($entry['relative'], PATHINFO_EXTENSION)), $ext, true);
 						}
@@ -157,11 +158,21 @@ if(isset($_GET['action']))
 							else {
 								$parent = dirname($target);
 								if (!is_dir($parent) && !mkdir($parent, $permission, true)) { $blocked = true; break; }
+								// Extracted files pass the same acceptance rules as direct uploads, outside the public folder first.
+								$staged = tempnam(sys_get_temp_dir(), 'rfx');
 								$stream = $zip->getStream($entry['name']);
-								$out = fopen($target, 'xb');
-								if (!$stream || !$out) { if (is_resource($stream)) fclose($stream); $blocked = true; break; }
+								$out = $staged === false ? false : fopen($staged, 'wb');
+								if (!$stream || !$out) { if (is_resource($stream)) fclose($stream); if ($staged !== false) @unlink($staged); $blocked = true; break; }
 								while (!feof($stream)) { $chunk = fread($stream, 8192); if ($chunk === false || fwrite($out, $chunk) !== strlen($chunk)) { $blocked = true; break; } }
-								fclose($stream); fclose($out); if ($blocked) break;
+								fclose($stream); fclose($out); if ($blocked) { @unlink($staged); break; }
+								$entry_parts = rf_split_name(basename($entry['relative']));
+								$entry_extension = strtolower($entry_parts[1]);
+								if (!rf_upload_accepts($staged, $entry_extension, $ext, $ext_upload_denied, $ext_img)) { @unlink($staged); continue; }
+								// Archive entries keep their cleaned names so references between extracted files stay valid.
+								$entry_name = rf_claim_upload_name($parent, rf_clean_name_stem($entry_parts[0], $convert_spaces, $replace_with), $entry_extension);
+								$final = $parent . '/' . $entry_name;
+								if ($entry_name === false || !(rename($staged, $final) || (copy($staged, $final) && unlink($staged)))) { @unlink($staged); if ($entry_name !== false) @unlink($final); $blocked = true; break; }
+								chmod($parent . '/' . $entry_name, 0755);
 							}
 						}
 						$zip->close();
@@ -250,11 +261,11 @@ if(isset($_GET['action']))
 				      $("#jquery_jplayer_1").jPlayer({
 				        ready: function () {
 				          $(this).jPlayer("setMedia", {
-					    title:"<?php $_GET['title']; ?>",
-				            mp3: "<?php echo $preview_file; ?>",
-				            m4a: "<?php echo $preview_file; ?>",
-					    oga: "<?php echo $preview_file; ?>",
-				            wav: "<?php echo $preview_file; ?>"
+					    title: <?php echo rf_js(isset($_GET['title']) && is_string($_GET['title']) ? $_GET['title'] : ''); ?>,
+				            mp3: <?php echo rf_js($preview_file); ?>,
+				            m4a: <?php echo rf_js($preview_file); ?>,
+					    oga: <?php echo rf_js($preview_file); ?>,
+				            wav: <?php echo rf_js($preview_file); ?>
 				          });
 				        },
 				        swfPath: "js",
@@ -274,9 +285,9 @@ if(isset($_GET['action']))
 			      $("#jquery_jplayer_1").jPlayer({
 			        ready: function () {
 			          $(this).jPlayer("setMedia", {
-				    title:"<?php $_GET['title']; ?>",
-			            m4v: "<?php echo $preview_file; ?>",
-			            ogv: "<?php echo $preview_file; ?>"
+				    title: <?php echo rf_js(isset($_GET['title']) && is_string($_GET['title']) ? $_GET['title'] : ''); ?>,
+			            m4v: <?php echo rf_js($preview_file); ?>,
+			            ogv: <?php echo rf_js($preview_file); ?>
 			          });
 			        },
 			        swfPath: "js",
@@ -544,26 +555,28 @@ if(isset($_GET['action']))
 
 					if ( ! in_array($info['extension'],$previewable_text_file_exts_no_prettify))
 					{
-					$ret .= '<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang='.$info['extension'].'&skin=sunburst"></script>';
-						$ret .= '<div class="text-center"><strong>'.$info['basename'].'</strong></div><pre class="prettyprint">'.$data.'</pre>';
+					$ret .= '<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang='.rf_h(rawurlencode($info['extension'])).'&amp;skin=sunburst"></script>';
+						$ret .= '<div class="text-center"><strong>'.rf_h($info['basename']).'</strong></div><pre class="prettyprint">'.$data.'</pre>';
 					}
 					else
 					{
-						$ret .= '<div class="text-center"><strong>'.$info['basename'].'</strong></div><pre class="no-prettify">'.$data.'</pre>';
+						$ret .= '<div class="text-center"><strong>'.rf_h($info['basename']).'</strong></div><pre class="no-prettify">'.$data.'</pre>';
 					}
 
 				}
 				elseif ($preview_mode == 'viewerjs')
 				{
-					$ret = '<iframe id="viewer" src="js/ViewerJS/#../../'.$_GET["file"].'" allowfullscreen="" webkitallowfullscreen="" class="viewer-iframe"></iframe>';
+					$preview_relative = substr($raw_file, strlen($current_path));
+					$encoded_relative = implode('/', array_map('rawurlencode', explode('/', $preview_relative)));
+					$ret = '<iframe id="viewer" src="'.rf_h('js/ViewerJS/#../../'.$current_path.$encoded_relative).'" allowfullscreen="" webkitallowfullscreen="" class="viewer-iframe"></iframe>';
 
 				}
 				elseif ($preview_mode == 'google')
 				{
-					$url_file = $base_url . $upload_dir . str_replace($current_path, '', $_GET["file"]);
+					$url_file = $base_url . $upload_dir . substr($raw_file, strlen($current_path));
 					$googledoc_url = urlencode($url_file);
-					$googledoc_html = "<iframe src=\"http://docs.google.com/viewer?url=" . $googledoc_url . "&embedded=true\" class=\"google-iframe\"></iframe>";
-					$ret = '<div class="text-center"><strong>' . $info['basename'] . '</strong></div>' . $googledoc_html . '';
+					$googledoc_html = "<iframe src=\"" . rf_h("http://docs.google.com/viewer?url=" . $googledoc_url . "&embedded=true") . "\" class=\"google-iframe\"></iframe>";
+					$ret = '<div class="text-center"><strong>' . rf_h($info['basename']) . '</strong></div>' . $googledoc_html . '';
 				}
 			}
 			else

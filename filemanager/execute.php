@@ -40,6 +40,11 @@ if (isset($_POST['name']))
 {
     if (!is_string($_POST['name'])) { response('wrong name', 400)->send(); exit; }
     $name = fix_filename($_POST['name'],$transliteration,$convert_spaces, $replace_with);
+    if (in_array(isset($_GET['action']) ? $_GET['action'] : '', array('rename_file', 'duplicate_file'), true)) {
+        // Stored file stems keep a single extension and no HTML-significant characters. A name that would be
+        // altered is refused so the dialog never shows a name that differs from the stored file.
+        if (rf_clean_name_stem($name, $convert_spaces, $replace_with) !== $_POST['name']) { response('wrong name', 400)->send(); exit; }
+    }
     if (strpos($name,'../') !== FALSE)
 	{
 		response('wrong name', 400)->send();

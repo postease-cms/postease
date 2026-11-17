@@ -402,6 +402,8 @@ $config = array(
 	'ext_video'                               => array( 'mov', 'mpeg', 'm4v', 'mp4', 'avi', 'mpg', 'wma', "flv", "webm" ), //Video
 	'ext_music'                               => array( 'mp3', 'm4a', 'ac3', 'aiff', 'mid', 'ogg', 'wav' ), //Audio
 	'ext_misc'                                => array( 'zip', 'rar', 'gz', 'tar', 'iso', 'dmg' ), //Archives
+	// Still listed and downloadable, but refused for new uploads because they are active content.
+	'ext_upload_denied'                       => array( 'html', 'htm', 'xhtml' ),
 
 	/******************
 	 * AVIARY config
