@@ -37,10 +37,9 @@ include 'include/utils.php';
 
 if (isset($_GET['fldr'])
     && !empty($_GET['fldr'])
-    && strpos($_GET['fldr'],'../') === FALSE
-    && strpos($_GET['fldr'],'./') === FALSE)
+    && is_string($_GET['fldr']))
 {
-    $subdir = urldecode(trim(strip_tags($_GET['fldr']),"/") ."/");
+    $subdir = rtrim($_GET['fldr'], '/') . '/';
 }
 else { $subdir = ''; }
 
@@ -83,14 +82,11 @@ if (!empty($_SESSION['RF']["subfolder"]) && strpos($_SESSION['RF']["subfolder"],
 
 if ($rfm_subfolder != "" && $rfm_subfolder[strlen($rfm_subfolder)-1] != "/") { $rfm_subfolder .= "/"; }
 
-if (!file_exists($current_path.$rfm_subfolder.$subdir))
-{
-    $subdir = '';
-    if (!file_exists($current_path.$rfm_subfolder.$subdir))
-    {
-		$rfm_subfolder = "";
-    }
-}
+$dialog_relative = $rfm_subfolder . $subdir;
+$dialog_path = rf_resolve_path($current_path, $dialog_relative, false, true);
+if ($dialog_path === false || !is_dir($dialog_path)) { http_response_code(400); exit('wrong path'); }
+$thumb_dialog_path = rf_resolve_path($thumbs_base_path, $dialog_relative, true, true);
+if ($thumb_dialog_path === false) { http_response_code(400); exit('wrong path'); }
 
 if (trim($rfm_subfolder) == "")
 {
@@ -107,22 +103,7 @@ else
     $parent 	 = $rfm_subfolder.$subdir;
 }
 
-$cycle = TRUE;
-$max_cycles = 50;
-$i = 0;
-while($cycle && $i < $max_cycles){
-    $i++;
-    if ($parent=="./") $parent="";
-
-    if (file_exists($current_path.$parent."config.php"))
-    {
-		require_once $current_path.$parent."config.php";
-		$cycle = FALSE;
-    }
-
-    if ($parent == "") $cycle = FALSE;
-    else $parent = fix_dirname($parent)."/";
-}
+// Do not load PHP configuration from writable upload directories.
 
 if ($rf_can_maintain && $create_folders && !is_dir($thumbs_path.$subdir))
 {
@@ -458,6 +439,7 @@ $sorted=array();
 $current_folder=array();
 $prev_folder=array();
 foreach($files as $k=>$file){
+    if ($file !== '.' && $file !== '..' && is_link($current_path.$rfm_subfolder.$subdir.$file)) continue;
     if($file==".") $current_folder=array('file'=>$file);
     elseif($file=="..") $prev_folder=array('file'=>$file);
     elseif(is_dir($current_path.$rfm_subfolder.$subdir.$file)){

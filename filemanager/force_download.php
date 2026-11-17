@@ -15,25 +15,18 @@ if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 
 include 'include/mime_type_lib.php';
 
-if (
-	strpos($_POST['path'], '/') === 0
-	|| strpos($_POST['path'], '../') !== false
-	|| strpos($_POST['path'], './') === 0
-)
+if (!isset($_POST['name'], $_POST['path']) || !is_string($_POST['name']) || !is_string($_POST['path'])
+	|| strpos($_POST['name'], '/') !== false || strpos($_POST['name'], '\\') !== false)
 {
 	response('wrong path', 400)->send();
 	exit;
 }
 
-
-if (strpos($_POST['name'], '/') !== false)
-{
-	response('wrong path', 400)->send();
-	exit;
-}
-
-$path = $current_path . $_POST['path'];
 $name = $_POST['name'];
+$download_relative = rtrim($_POST['path'], '/');
+$download_relative = ($download_relative === '' ? '' : $download_relative . '/') . $name;
+$download_path = rf_resolve_path($current_path, $download_relative, false, false);
+if ($download_path === false || !is_file($download_path)) { response('File not found', 404)->send(); exit; }
 
 $info = pathinfo($name);
 
@@ -43,17 +36,11 @@ if ( ! in_array(fix_strtolower($info['extension']), $ext))
 	exit;
 }
 
-if ( ! file_exists($path . $name))
-{
-	response('File not found', 404)->send();
-	exit;
-}
+$img_size = (string) (filesize($download_path)); // Get the image size as string
 
-$img_size = (string) (filesize($path . $name)); // Get the image size as string
+$mime_type = get_file_mime_type($download_path); // Get the correct MIME type depending on the file.
 
-$mime_type = get_file_mime_type($path . $name); // Get the correct MIME type depending on the file.
-
-response(file_get_contents($path . $name), 200, array(
+response(file_get_contents($download_path), 200, array(
 	'Pragma'              => 'private',
 	'Cache-control'       => 'private, must-revalidate',
 	'Content-Type'        => $mime_type,

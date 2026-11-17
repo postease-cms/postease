@@ -13,42 +13,22 @@ if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 
 if (isset($_POST['path']))
 {
-   $storeFolder = $_POST['path'];
-   $storeFolderThumb = $_POST['path_thumb'];
+   if (!is_string($_POST['path']) || strpos($_POST['path'], $current_path) !== 0) { response('wrong path', 400)->send(); exit; }
+   $storeRelative = substr($_POST['path'], strlen($current_path));
 }
 else
 {
-   $storeFolder = $current_path.$_POST["fldr"]; // correct for when IE is in Compatibility mode
-   $storeFolderThumb = $thumbs_base_path.$_POST["fldr"];
+   $storeRelative = isset($_POST['fldr']) && is_string($_POST['fldr']) ? $_POST['fldr'] : null; // IE compatibility mode
 }
 
-$path_pos  = strpos($storeFolder,$current_path);
-$thumb_pos = strpos($storeFolderThumb,$thumbs_base_path);
+$storeFolder = rf_resolve_path($current_path, $storeRelative, false, true);
+$storeThumbRelative = $storeRelative;
+$storeFolderThumb = rf_resolve_path($thumbs_base_path, $storeThumbRelative, true, true);
+if ($storeFolder === false || !is_dir($storeFolder) || $storeFolderThumb === false) { response('wrong path', 400)->send(); exit; }
+$storeFolder = rtrim($current_path . $storeRelative, '/') . '/';
+$storeFolderThumb = rtrim($thumbs_base_path . $storeRelative, '/') . '/';
 
-if ($path_pos!==0
-	|| $thumb_pos !==0
-	|| strpos($storeFolderThumb,'../',strlen($thumbs_base_path)) !== FALSE
-	|| strpos($storeFolderThumb,'./',strlen($thumbs_base_path)) !== FALSE
-	|| strpos($storeFolder,'../',strlen($current_path)) !== FALSE
-	|| strpos($storeFolder,'./',strlen($current_path)) !== FALSE )
-		die('wrong path');
-
-
-$path = $storeFolder;
-$cycle = TRUE;
-$max_cycles = 50;
-$i = 0;
-while ($cycle && $i < $max_cycles)
-{
-	$i++;
-	if ($path == $current_path) $cycle = FALSE;
-	if (file_exists($path."config.php"))
-	{
-		require_once $path."config.php";
-		$cycle = FALSE;
-	}
-	$path = fix_dirname($path).'/';
-}
+// Per-folder PHP configuration is not loaded from writable upload directories.
 
 
 if (!$upload_files) { http_response_code(403); exit('Upload disabled'); }
@@ -75,6 +55,8 @@ if ( ! empty($_FILES))
 		$tempFile = $_FILES['file']['tmp_name'];
 		$targetPath = $storeFolder;
 		$targetPathThumb = $storeFolderThumb;
+		if (strpos($_FILES['file']['name'], '/') !== false || strpos($_FILES['file']['name'], '\\') !== false
+			|| strpos($_FILES['file']['name'], "\0") !== false) { response('wrong filename', 400)->send(); exit; }
 		//$_FILES['file']['name'] = fix_filename($_FILES['file']['name'],$transliteration,$convert_spaces, $replace_with);
 		$no_rename_extensions = array('pdf', 'zip', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'mp4', 'm4v', 'webm', 'mov', 'flv', 'avi');
 		$no_rename_mimetypes = array(
@@ -111,8 +93,10 @@ if ( ! empty($_FILES))
 			$_FILES['file']['name'] = $system_file_name . "_" . $i . "." . $info['extension'];
 		}
 
-		$targetFile =  $targetPath. $_FILES['file']['name'];
-		$targetFileThumb =  $targetPathThumb. $_FILES['file']['name'];
+		$targetRelative = ($storeRelative === '' ? '' : rtrim($storeRelative, '/') . '/') . $_FILES['file']['name'];
+		$targetFile = rf_resolve_path($current_path, $targetRelative, true, false);
+		$targetFileThumb = rf_resolve_path($thumbs_base_path, $targetRelative, true, false);
+		if ($targetFile === false || $targetFileThumb === false) { response('wrong path', 400)->send(); exit; }
 
 		// check if image (and supported)
 		if (in_array(fix_strtolower($info['extension']),$ext_img)) $is_img=TRUE;
